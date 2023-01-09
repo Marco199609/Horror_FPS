@@ -6,11 +6,14 @@ using TMPro;
 public class WeaponController : MonoBehaviour
 {
     [SerializeField] private GameObject player;
+    [SerializeField] private Transform shootRayOrigin;
 
 
     [Header("WeaponUI")]
     [SerializeField] private TextMeshProUGUI ammoText;
 
+    [Header("Weapon Shoot Damage")]
+    [SerializeField] private LayerMask enemyMask;
 
 
 
@@ -18,6 +21,7 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private WeaponData weaponData;
     [SerializeField] private WeaponReload weaponReload;
     [SerializeField] private WeaponShoot weaponShoot;
+    [SerializeField] private WeaponDamage weaponDamage;
     [SerializeField] private WeaponUI weaponUI;
 
 
@@ -29,10 +33,16 @@ public class WeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButton(0))
         {
-            weaponShoot.Shoot(weaponData);
+            weaponShoot.Shoot(weaponData, weaponDamage, shootRayOrigin);
+            weaponShoot.readyToShoot = false;
             weaponUI.UIUpdate(weaponData.currentAmmo, weaponData.reserveCapacity, ammoText);
+        }
+
+        if(Input.GetMouseButtonUp(0))
+        {
+            weaponShoot.readyToShoot = true;
         }
 
         if(Input.GetKeyDown(KeyCode.R))

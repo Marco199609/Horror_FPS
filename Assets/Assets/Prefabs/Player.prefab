@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &390758228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 390758229}
+  m_Layer: 0
+  m_Name: Shoot ray origin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &390758229
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390758228}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.82}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 454368954}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &454368953
 GameObject:
   m_ObjectHideFlags: 0
@@ -28,7 +59,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 390758229}
   m_Father: {fileID: 2770187572269442958}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -632,7 +664,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 63
+    m_Bits: 191
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -693,10 +725,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3477034811282884}
+  - component: {fileID: 542364561}
   - component: {fileID: 542364558}
   - component: {fileID: 542364559}
   - component: {fileID: 542364560}
-  - component: {fileID: 542364561}
+  - component: {fileID: 1094694558}
   m_Layer: 0
   m_Name: WeaponController
   m_TagString: Untagged
@@ -720,6 +753,29 @@ Transform:
   m_Father: {fileID: 2770187572269442958}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &542364561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8831646695601318165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9f125fe6ad574d279df452d3731af58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2770187571978162041}
+  shootRayOrigin: {fileID: 390758229}
+  ammoText: {fileID: 0}
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 128
+  weaponData: {fileID: 788432134199624967}
+  weaponReload: {fileID: 542364559}
+  weaponShoot: {fileID: 542364558}
+  weaponDamage: {fileID: 1094694558}
+  weaponUI: {fileID: 542364560}
 --- !u!114 &542364558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -732,6 +788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afb47622d751f423aa00f547a8bdc09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  readyToShoot: 1
 --- !u!114 &542364559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -756,7 +813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e53d3814883e34c5f8fb24bf67a6be6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &542364561
+--- !u!114 &1094694558
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -765,15 +822,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8831646695601318165}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9f125fe6ad574d279df452d3731af58, type: 3}
+  m_Script: {fileID: 11500000, guid: c272028ec57e14e01bbbf375dd5c67b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2770187571978162041}
-  ammoText: {fileID: 0}
-  weaponData: {fileID: 788432134199624967}
-  weaponReload: {fileID: 542364559}
-  weaponShoot: {fileID: 542364558}
-  weaponUI: {fileID: 542364560}
 --- !u!1001 &2770187570910838162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -857,13 +908,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99e5303386fb442929d966a9281a4ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 10
   armorPenetration: 0
-  range: 50
   fireRate: 1
   reloadSpeed: 0
   switchingSpeed: 0
   weight: 480
+  weaponDamage: 5
+  weaponRange: 50
   magazineCapacity: 8
   currentAmmo: 5
   reserveCapacity: 24
