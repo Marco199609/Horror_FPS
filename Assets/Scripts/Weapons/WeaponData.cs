@@ -15,11 +15,30 @@ public class WeaponData : MonoBehaviour
      * Magazine capacity: Number of attacks possible before a reload is required.
      * Reserve capacity: Number of rounds of ammo or number of replacement clips that can be carried at one time.
      * Is Auto: Defines if the weapon is automatic or manual.
+     * Shot sound: Shot audio source.
+     * Reload sound: reload audio source.
+     * Weapon UI Icon: Sprite that appears beside the ammo stats in the UI.
     */
 
-    public float armorPenetration, fireRate, reloadSpeed, switchingSpeed, weight;
-    public int weaponDamage, weaponRange, magazineCapacity, currentAmmo, reserveCapacity;
+    public float 
+        armorPenetration, 
+        fireRate, 
+        reloadSpeed, 
+        switchingSpeed, 
+        weight;
+
+    public int 
+        weaponDamage, 
+        weaponRange, 
+        magazineCapacity, 
+        currentAmmo, 
+        reserveCapacity;
 
     public bool isAuto;
-    public AudioSource shotSound, reloadSound;
+
+    public AudioSource 
+        shotSound, 
+        reloadSound;
+
+    public Sprite weaponUIIcon;
 }

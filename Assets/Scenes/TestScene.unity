@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -597,18 +597,6 @@ PrefabInstance:
       propertyPath: ammoText
       value: 
       objectReference: {fileID: 100337060}
-    - target: {fileID: 788432134199624967, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
-      propertyPath: isAuto
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 788432134199624967, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
-      propertyPath: fireRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 788432134199624967, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
-      propertyPath: currentAmmo
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 2770187571978162041, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: m_Name
       value: Player

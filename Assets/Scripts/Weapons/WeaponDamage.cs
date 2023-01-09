@@ -17,7 +17,7 @@ public class WeaponDamage : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, weaponRange))
         {
-            if (hit.collider.tag == "Enemy")
+            if (hit.collider.CompareTag("Enemy"))
             {
 
                 hit.collider.GetComponent<EnemyData>().EnemyHealth -= weaponDamage;

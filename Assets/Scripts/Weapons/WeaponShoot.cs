@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WeaponShoot : MonoBehaviour
 {
-    public bool readyToShoot = true;
+    [HideInInspector] public bool readyToShoot = true;
+    [HideInInspector] public float FireRateCooldown;
 
-    public float FireRateCooldown;
-
-    public void Shoot(WeaponData weaponData, WeaponDamage weaponDamage, Transform shootRayOrigin)
+    public void Shoot(WeaponData weaponData, WeaponDamage weaponDamage, Transform shootRayOrigin, WeaponSound weaponSound)
     {
         if(weaponData.isAuto)
         {
@@ -18,14 +18,10 @@ public class WeaponShoot : MonoBehaviour
                 {
                     FireRateCooldown = weaponData.fireRate;
 
+                    weaponSound.ShootSound(weaponData);
                     weaponDamage.DamageEnemy(weaponData.weaponDamage, weaponData.weaponRange, shootRayOrigin);
                     weaponData.currentAmmo--;
-
-                    if (weaponData.shotSound.isPlaying)
-                        weaponData.shotSound.Stop();
-                    weaponData.shotSound.Play();
                 }
-
                 FireRateCooldown -= Time.deltaTime;
             }
             else
@@ -37,23 +33,13 @@ public class WeaponShoot : MonoBehaviour
             {
                 if (weaponData.currentAmmo > 0)
                 {
+                    weaponSound.ShootSound(weaponData);
                     weaponDamage.DamageEnemy(weaponData.weaponDamage, weaponData.weaponRange, shootRayOrigin);
-
                     weaponData.currentAmmo--;
-
-                    if (weaponData.shotSound.isPlaying)
-                        weaponData.shotSound.Stop();
-                    weaponData.shotSound.Play();
                 }
                 else
                     print("reload");
             }
         }
-
-
-
-
-
-
     }
 }

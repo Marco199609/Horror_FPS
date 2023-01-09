@@ -5,6 +5,10 @@ using TMPro;
 
 public class WeaponController : MonoBehaviour
 {
+    [SerializeField] private bool isWeaponActive;
+
+    [SerializeField] private WeaponData currentWeaponData;
+
     [Header("Weapon Shoot")]
     [SerializeField] private Transform shootRayOrigin;
 
@@ -15,17 +19,20 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private LayerMask enemyMask;
 
     [Header("Weapon Scripts")]
-    [SerializeField] private WeaponData weaponData;
     [SerializeField] private WeaponReload weaponReload;
     [SerializeField] private WeaponShoot weaponShoot;
     [SerializeField] private WeaponDamage weaponDamage;
     [SerializeField] private WeaponUI weaponUI;
+    [SerializeField] private WeaponSound weaponSound;
+    [SerializeField] private WeaponChange weaponChange;
+    [SerializeField] private WeaponInput weaponInput;
 
+    [SerializeField] private GameObject[] weapons;
 
     private void Awake()
     {
         //Updates weapon UI
-        weaponUI.UIUpdate(weaponData.currentAmmo, weaponData.reserveCapacity, ammoText);
+        weaponUI.UIUpdate(currentWeaponData.currentAmmo, currentWeaponData.reserveCapacity, ammoText);
     }
 
     void Update()
@@ -33,13 +40,13 @@ public class WeaponController : MonoBehaviour
         //Shoots weapon and updates weapon UI
         if(Input.GetMouseButton(0))
         {
-            weaponShoot.Shoot(weaponData, weaponDamage, shootRayOrigin);
+            weaponShoot.Shoot(currentWeaponData, weaponDamage, shootRayOrigin, weaponSound);
             weaponShoot.readyToShoot = false;
-            weaponUI.UIUpdate(weaponData.currentAmmo, weaponData.reserveCapacity, ammoText);
+            weaponUI.UIUpdate(currentWeaponData.currentAmmo, currentWeaponData.reserveCapacity, ammoText);
         }
 
-        //Reaturns WeaponShoot to it's original state
-        if(Input.GetMouseButtonUp(0))
+        //Returns WeaponShoot to it's original state
+        if(Input.GetMouseButtonUp(0)) 
         {
             weaponShoot.readyToShoot = true;
             weaponShoot.FireRateCooldown = 0;
@@ -48,8 +55,11 @@ public class WeaponController : MonoBehaviour
         //Reloads weapon and updates weapon UI
         if(Input.GetKeyDown(KeyCode.R))
         {
-            weaponReload.Reload(weaponData);
-            weaponUI.UIUpdate(weaponData.currentAmmo, weaponData.reserveCapacity, ammoText);
+            weaponReload.Reload(currentWeaponData);
+            weaponUI.UIUpdate(currentWeaponData.currentAmmo, currentWeaponData.reserveCapacity, ammoText);
         }
+
+        if (Input.anyKeyDown)
+            print(Input.inputString);
     }
 }
