@@ -8,6 +8,7 @@ public class WeaponInput : MonoBehaviour
     public bool reloadInput { get; private set; }
     public bool aimInput { get; private set; }
     public bool leftMouseUpInput { get; private set; }
+    public float mouseScrollInput { get; private set;}
 
 
     private void Update()
@@ -16,5 +17,6 @@ public class WeaponInput : MonoBehaviour
         reloadInput = Input.GetKeyDown(KeyCode.R);
         aimInput = Input.GetMouseButton(1);
         leftMouseUpInput = Input.GetMouseButtonUp(0);
+        mouseScrollInput = Input.GetAxisRaw("Mouse ScrollWheel");
     }
 }

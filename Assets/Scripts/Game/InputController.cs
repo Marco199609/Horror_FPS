@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#region Components Required
+[RequireComponent(typeof(WeaponInput))]
+[RequireComponent(typeof(PlayerInput))]
+#endregion
+
 public class InputController : MonoBehaviour
 {
     [SerializeField] private WeaponController weaponController;

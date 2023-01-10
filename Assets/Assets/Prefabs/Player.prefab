@@ -897,7 +897,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9f125fe6ad574d279df452d3731af58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isWeaponActive: 0
   currentWeaponData: {fileID: 788432134199624967}
   shootRayOrigin: {fileID: 390758229}
   ammoText: {fileID: 0}
