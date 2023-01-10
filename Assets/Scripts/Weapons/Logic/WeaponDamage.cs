@@ -11,7 +11,6 @@ public class WeaponDamage : MonoBehaviour
         RaycastHit hit;
 
         ray.origin = shootRayOrigin.position;
-
         ray.direction = shootRayOrigin.transform.forward;
 
 
@@ -19,7 +18,6 @@ public class WeaponDamage : MonoBehaviour
         {
             if (hit.collider.CompareTag("Enemy"))
             {
-
                 hit.collider.GetComponent<EnemyData>().EnemyHealth -= weaponDamage;
                 print(hit.collider.GetComponent<EnemyData>().EnemyHealth);
 

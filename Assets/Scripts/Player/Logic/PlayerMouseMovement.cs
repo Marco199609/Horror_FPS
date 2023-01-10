@@ -12,10 +12,10 @@ public class PlayerMouseMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    public void MouseMove(float mouseSensitivity, Transform mainCamera)
+    public void MouseMove(PlayerData playerData, Transform mainCamera, PlayerInput playerInput)
     {
-        float MouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float MouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        float MouseX = playerInput.mouseMovementInput.x * playerData.mouseSensitivity * Time.deltaTime;
+        float MouseY = playerInput.mouseMovementInput.y * playerData.mouseSensitivity * Time.deltaTime;
 
         xRotation -= MouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);

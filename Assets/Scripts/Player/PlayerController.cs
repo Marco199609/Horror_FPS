@@ -2,26 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#region Components Required
+[RequireComponent(typeof(PlayerData))]
+[RequireComponent(typeof(PlayerMovement))]
+[RequireComponent(typeof(PlayerMouseMovement))]
+#endregion
+
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Movement")]
 
     [SerializeField] private CharacterController controller;
-    [SerializeField] private float walkSpeed;
-    [SerializeField] private float runSpeed;
-    [SerializeField] private float gravity;
-    [SerializeField] private float jumpHeight;
-    [SerializeField] private float groundDistance;
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask groundMask;
 
     [Header("Player Mouse Look")]
-    [SerializeField] private float mouseSensitivity = 100f;
     [SerializeField] private Transform mainCamera;
 
     [Header("Player Scripts")]
+    [SerializeField] private PlayerData playerData;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerMouseMovement playerMouseMovement;
+
+    #region Player Input
+    //Shows a header and instructions in the inspector
+    [Header("Player Input", order = 1)]
+    [Space(-10, order = 2)]
+    [Header("Player Inputs are managed in the Input Manager.\nAttach the Input Manager here.", order = 3)]
+    [Space(5, order = 4)]
+    [SerializeField] private PlayerInput playerInput;
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -32,8 +40,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerMovement.PlayerMove(controller, walkSpeed, runSpeed, gravity, jumpHeight, groundDistance, groundCheck, groundMask);
+        playerMovement.PlayerMove(controller, playerData, playerInput);
 
-        playerMouseMovement.MouseMove(mouseSensitivity, mainCamera);
+        playerMouseMovement.MouseMove(playerData, mainCamera, playerInput);
     }
 }

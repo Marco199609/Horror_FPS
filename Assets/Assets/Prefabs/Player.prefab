@@ -501,6 +501,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2770187571978162046}
+  - component: {fileID: 6514341159889146404}
   - component: {fileID: 2770187571978162047}
   - component: {fileID: 2770187571978162045}
   - component: {fileID: 2770187571978162044}
@@ -530,6 +531,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6514341159889146404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2770187571978162041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9390117235444e7b9903508799f66c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 7
+  runSpeed: 10
+  jumpHeight: 1.5
+  gravity: -19.62
+  groundDistance: 0.4
+  mouseSensitivity: 200
+  groundCheck: {fileID: 2770187571422564587}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &2770187571978162047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -543,19 +566,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 2770187571978162034}
-  walkSpeed: 7
-  runSpeed: 10
-  gravity: -19.62
-  jumpHeight: 1.5
-  groundDistance: 0.4
-  groundCheck: {fileID: 2770187571422564587}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 8
-  mouseSensitivity: 200
   mainCamera: {fileID: 2770187572269442958}
+  playerData: {fileID: 6514341159889146404}
   playerMovement: {fileID: 2770187571978162045}
   playerMouseMovement: {fileID: 2770187571978162044}
+  playerInput: {fileID: 0}
 --- !u!114 &2770187571978162045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -847,7 +862,6 @@ GameObject:
   - component: {fileID: 1094694558}
   - component: {fileID: 7345073577031259837}
   - component: {fileID: 1830625189}
-  - component: {fileID: 1830625190}
   m_Layer: 0
   m_Name: WeaponController
   m_TagString: Untagged
@@ -887,18 +901,17 @@ MonoBehaviour:
   currentWeaponData: {fileID: 788432134199624967}
   shootRayOrigin: {fileID: 390758229}
   ammoText: {fileID: 0}
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 128
   weaponReload: {fileID: 542364559}
   weaponShoot: {fileID: 542364558}
   weaponDamage: {fileID: 1094694558}
   weaponUI: {fileID: 542364560}
   weaponSound: {fileID: 7345073577031259837}
   weaponChange: {fileID: 1830625189}
-  weaponInput: {fileID: 1830625190}
+  weaponInput: {fileID: 0}
   weapons:
+  - {fileID: 0}
   - {fileID: 3076177600794230979}
+  - {fileID: 4330033381476790839}
 --- !u!114 &542364558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -971,18 +984,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 184aa8c82d953954ca9e5a13b0f1c2b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1830625190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8831646695601318165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 619b5c3ee5a36b540baee528d229e401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &3519061433600757606
@@ -1061,5 +1062,10 @@ PrefabInstance:
 --- !u!4 &3989220358953740429 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 57c08e41684534d04bf142bf1ab48228, type: 3}
+  m_PrefabInstance: {fileID: 3519061433600757606}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4330033381476790839 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 57c08e41684534d04bf142bf1ab48228, type: 3}
   m_PrefabInstance: {fileID: 3519061433600757606}
   m_PrefabAsset: {fileID: 0}

@@ -6,30 +6,27 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
 
 
-    public void PlayerMove(CharacterController controller, float walkSpeed, float runSpeed, float gravity, float jumpHeight, float groundDistance, Transform groundCheck, LayerMask groundMask)
+    public void PlayerMove(CharacterController controller, PlayerData playerData, PlayerInput playerInput)
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isGrounded = Physics.CheckSphere(playerData.groundCheck.position, playerData.groundDistance, playerData.groundMask);
 
         if (isGrounded && velocity.y < 0)
             velocity.y = -2f;
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        Vector3 move = transform.right * playerInput.playerMovementInput.x + transform.forward * playerInput.playerMovementInput.y;
 
-        Vector3 move = transform.right * x + transform.forward * z;
-
-        if(Input.GetKey(KeyCode.LeftShift))
-            controller.Move(move * runSpeed * Time.deltaTime);
+        if(playerInput.playerRunInput)
+            controller.Move(move * playerData.runSpeed * Time.deltaTime);
         else
-            controller.Move(move * walkSpeed * Time.deltaTime);
+            controller.Move(move * playerData.walkSpeed * Time.deltaTime);
 
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (playerInput.playerJumpInput && isGrounded)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            velocity.y = Mathf.Sqrt(playerData.jumpHeight * -2f * playerData.gravity);
         }
 
-        velocity.y += gravity * Time.deltaTime;
+        velocity.y += playerData.gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
     }
