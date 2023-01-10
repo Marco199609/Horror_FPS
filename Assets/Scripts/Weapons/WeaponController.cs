@@ -41,7 +41,8 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private WeaponInput weaponInput;
     #endregion
 
-    //Available weapons
+    public bool isWeaponActive { get; private set; }
+    //Available weapons; weapons[0] is weapon not active.
     [SerializeField] private GameObject[] weapons;
 
     private void Awake()
@@ -51,13 +52,14 @@ public class WeaponController : MonoBehaviour
 
     void Update()
     {
-        SendShootCommand();
-        ReturnShootToOriginalState();
-        SendReloadCommand();
+        CheckOrChangeActiveWeapons();
 
-        
-        //if (Input.anyKeyDown)
-         //   print(Input.inputString);
+        if(isWeaponActive)
+        {
+            SendShootCommand();
+            ReturnWeaponShootToOriginalState();
+            SendReloadCommand();
+        }
     }
 
     //Updates weapon UI
@@ -78,7 +80,7 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    private void ReturnShootToOriginalState()
+    private void ReturnWeaponShootToOriginalState()
     {
         //Returns WeaponShoot to it's original state
         if (weaponInput.leftMouseUpInput)
@@ -96,5 +98,13 @@ public class WeaponController : MonoBehaviour
             weaponReload.Reload(currentWeaponData);
             UIUpdate();
         }
+    }
+
+    private void CheckOrChangeActiveWeapons()
+    {
+        //Change weapons, and check if there is a weapon currently selected
+        weaponChange.ChangeWeapon(weapons, weaponInput);
+        currentWeaponData = weaponChange.currentWeaponData;
+        isWeaponActive = currentWeaponData.isWeapon;
     }
 }

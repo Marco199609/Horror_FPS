@@ -20,6 +20,8 @@ public class WeaponData : MonoBehaviour
      * Weapon UI Icon: Sprite that appears beside the ammo stats in the UI.
     */
 
+    public bool isWeapon;
+
     public float 
         armorPenetration, 
         fireRate, 

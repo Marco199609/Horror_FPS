@@ -4,8 +4,29 @@ using UnityEngine;
 
 public class WeaponChange : MonoBehaviour
 {
-    public void ChangeWeapon()
-    {
+    public WeaponData currentWeaponData { get; private set; }
 
+    public void ChangeWeapon(GameObject[] weapons, WeaponInput weaponInput)
+    {
+        if(currentWeaponData == null)
+        {
+            weapons[0].SetActive(true);
+            currentWeaponData = weapons[0].GetComponent<WeaponData>();
+        }
+
+        if(weaponInput.weaponIndexInput >= 0 && (weaponInput.weaponIndexInput) <= weapons.Length) //Checks if weapon index is in array bounds
+        {
+            for (int i = 0; i < weapons.Length; i++)
+            {
+                //Enables weapon selected and changes current weapon data for weapon controller
+                if (i == weaponInput.weaponIndexInput)
+                {
+                    weapons[i].SetActive(true);
+                    currentWeaponData = weapons[i].GetComponent<WeaponData>();
+                }
+                else
+                    weapons[i].SetActive(false);
+            }
+        }
     }
 }
