@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 454368954}
   - component: {fileID: 454368956}
   m_Layer: 0
-  m_Name: WeaponCamera
+  m_Name: Second Camera (No clipping)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +95,7 @@ Camera:
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 96
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -390,8 +390,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2770187570600854672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.71, z: 0}
-  m_LocalScale: {x: 1, y: 1.75, z: 1}
+  m_LocalPosition: {x: -0.0054, y: 0.427, z: 0.0382}
+  m_LocalScale: {x: 1.4680638, y: 2.032975, z: 1.4462225}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2770187571978162046}
@@ -543,12 +543,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9390117235444e7b9903508799f66c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 7
-  runSpeed: 10
-  jumpHeight: 1.5
+  walkSpeed: 7.5
+  runSpeed: 11.5
+  jumpHeight: 8
   gravity: -19.62
   groundDistance: 0.4
-  mouseSensitivity: 200
+  mouseSensitivityX: 15
+  mouseSensitivityY: 15
   groundCheck: {fileID: 2770187571422564587}
   groundMask:
     serializedVersion: 2
@@ -583,6 +584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f57a202b148d74b1b8fedef3c3f78916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canMove: 1
 --- !u!114 &2770187571978162044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,6 +597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8850d9cac834230ba06503734f444e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  axes: 0
 --- !u!143 &2770187571978162034
 CharacterController:
   m_ObjectHideFlags: 0
@@ -717,7 +720,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2448576756826430073
 Transform:
   m_ObjectHideFlags: 0
@@ -799,7 +802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99e5303386fb442929d966a9281a4ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isWeapon: 0
+  isWeapon: 1
   armorPenetration: 0
   fireRate: 1
   reloadSpeed: 0
@@ -859,7 +862,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 253d73d7c8d5844e1a53262e0184e83f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.05
-  m_Pitch: 1
+  m_Pitch: 1.5
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -958,7 +961,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7256359267385410248
 Transform:
   m_ObjectHideFlags: 0
@@ -1080,7 +1083,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: ce078a042131d4afb902124a48f2bae0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.05
-  m_Pitch: 1
+  m_Pitch: 1.5
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -1375,7 +1378,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 57c08e41684534d04bf142bf1ab48228, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57c08e41684534d04bf142bf1ab48228, type: 3}
@@ -1389,3 +1392,30 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 57c08e41684534d04bf142bf1ab48228, type: 3}
   m_PrefabInstance: {fileID: 3519061433600757606}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &259715467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4330033381476790839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99e5303386fb442929d966a9281a4ab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWeapon: 1
+  armorPenetration: 0
+  fireRate: 1
+  reloadSpeed: 0
+  switchingSpeed: 0
+  weight: 480
+  weaponDamage: 5
+  weaponRange: 50
+  magazineCapacity: 8
+  currentAmmo: 50
+  reserveCapacity: 24
+  isAuto: 1
+  shotSound: {fileID: 323184632694166624}
+  reloadSound: {fileID: 5884108876662674064}
+  weaponUIIcon: {fileID: 0}

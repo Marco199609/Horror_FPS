@@ -2,32 +2,43 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    Vector3 velocity;
+    Vector3 moveDirection = Vector3.zero;
+
     bool isGrounded;
 
+    [HideInInspector]
+    public bool canMove = true;
 
     public void PlayerMove(CharacterController controller, PlayerData playerData, PlayerInput playerInput)
     {
         isGrounded = Physics.CheckSphere(playerData.groundCheck.position, playerData.groundDistance, playerData.groundMask);
 
-        if (isGrounded && velocity.y < 0)
-            velocity.y = -2f;
+        // We are grounded, so recalculate move direction based on axes
+        Vector3 forward = transform.TransformDirection(Vector3.forward);
+        Vector3 right = transform.TransformDirection(Vector3.right);
 
-        Vector3 move = transform.right * playerInput.playerMovementInput.x + transform.forward * playerInput.playerMovementInput.y;
+        float curSpeedX = canMove ? (playerInput.playerRunInput ? playerData.runSpeed : playerData.walkSpeed) * playerInput.playerMovementInput.x : 0;
+        float curSpeedY = canMove ? (playerInput.playerRunInput ? playerData.runSpeed : playerData.walkSpeed) * playerInput.playerMovementInput.y : 0;
+        float movementDirectionY = moveDirection.y;
+        moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
-        if(playerInput.playerRunInput)
-            controller.Move(move * playerData.runSpeed * Time.deltaTime);
-        else
-            controller.Move(move * playerData.walkSpeed * Time.deltaTime);
-
-
-        if (playerInput.playerJumpInput && isGrounded)
+        if (playerInput.playerJumpInput && canMove && isGrounded)
         {
-            velocity.y = Mathf.Sqrt(playerData.jumpHeight * -2f * playerData.gravity);
+            moveDirection.y = playerData.jumpHeight;
+        }
+        else
+        {
+            moveDirection.y = movementDirectionY;
         }
 
-        velocity.y += playerData.gravity * Time.deltaTime;
+        // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
+        // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
+        // as an acceleration (ms^-2)
+        if (!isGrounded)
+        {
+            moveDirection.y += playerData.gravity * Time.deltaTime;
+        }
 
-        controller.Move(velocity * Time.deltaTime);
+        controller.Move(moveDirection * Time.deltaTime);
     }
 }

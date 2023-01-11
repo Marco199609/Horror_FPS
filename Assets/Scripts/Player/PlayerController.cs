@@ -42,6 +42,6 @@ public class PlayerController : MonoBehaviour
     {
         playerMovement.PlayerMove(controller, playerData, playerInput);
 
-        playerMouseMovement.MouseMove(playerData, mainCamera, playerInput);
+        playerMouseMovement.MouseLook(playerData, mainCamera, playerInput);
     }
 }

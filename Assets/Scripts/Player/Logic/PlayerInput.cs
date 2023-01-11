@@ -14,7 +14,7 @@ public class PlayerInput : MonoBehaviour
     {
         playerJumpInput = Input.GetButtonDown("Jump");
         playerRunInput = Input.GetKey(KeyCode.LeftShift);
-        playerMovementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        playerMovementInput = new Vector2(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
         mouseMovementInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
     }
 }

@@ -8,7 +8,8 @@ public class PlayerData : MonoBehaviour
         jumpHeight,
         gravity,
         groundDistance,
-        mouseSensitivity;
+        mouseSensitivityX,
+        mouseSensitivityY;
     public Transform groundCheck;
     public LayerMask groundMask;
 }
