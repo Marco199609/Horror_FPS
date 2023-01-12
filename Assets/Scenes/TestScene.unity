@@ -1732,6 +1732,14 @@ PrefabInstance:
       propertyPath: playerInput
       value: 
       objectReference: {fileID: 716846718}
+    - target: {fileID: 6181420016789652866, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
+      propertyPath: _amplitude
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 6181420016789652866, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
+      propertyPath: _frequency
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
 --- !u!4 &2770187571345181435 stripped

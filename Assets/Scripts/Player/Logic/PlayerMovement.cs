@@ -34,10 +34,8 @@ public class PlayerMovement : MonoBehaviour
         // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
         // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
         // as an acceleration (ms^-2)
-        if (!isGrounded)
-        {
-            moveDirection.y += playerData.gravity * Time.deltaTime;
-        }
+
+        moveDirection.y += playerData.gravity * Time.deltaTime;
 
         controller.Move(moveDirection * Time.deltaTime);
     }

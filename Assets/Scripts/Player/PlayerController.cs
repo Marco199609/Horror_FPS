@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CharacterController controller;
 
     [Header("Player Mouse Look")]
-    [SerializeField] private Transform mainCamera;
+    [SerializeField] private Transform camHolder;
 
     [Header("Player Scripts")]
     [SerializeField] private PlayerData playerData;
@@ -42,6 +42,6 @@ public class PlayerController : MonoBehaviour
     {
         playerMovement.PlayerMove(controller, playerData, playerInput);
 
-        playerMouseMovement.MouseLook(playerData, mainCamera, playerInput);
+        playerMouseMovement.MouseLook(playerData, camHolder, playerInput);
     }
 }
