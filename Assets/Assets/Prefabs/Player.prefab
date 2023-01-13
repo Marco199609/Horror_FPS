@@ -575,13 +575,13 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
-  mouseSensitivityX: 10
-  mouseSensitivityY: 10
+  mouseSensitivityX: 5
+  mouseSensitivityY: 5
   camHolder: {fileID: 2181557804533295363}
   camTransform: {fileID: 2770187572269442958}
   camMovementAmplitude: 0.005
   camMovementFrequency: 7
-  itemPickupDistance: 15
+  itemPickupDistance: 5
   characterController: {fileID: 2770187571978162034}
 --- !u!114 &2770187571978162045
 MonoBehaviour:
@@ -1298,6 +1298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentWeaponData: {fileID: 788432134199624967}
   shootRayOrigin: {fileID: 390758229}
+  weaponUICanvas: {fileID: 0}
   ammoText: {fileID: 0}
   crossHair: {fileID: 0}
   weaponReload: {fileID: 542364559}
