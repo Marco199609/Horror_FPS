@@ -27,7 +27,7 @@ public class PlayerItemPickup : MonoBehaviour
                         Destroy(hit.collider.gameObject); //gets item
                 }
                 else
-                    handIcon.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 0.3f); //checks if item unreachable and sets color red
+                    handIcon.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 0.03f); //checks if item unreachable and sets color red
             }
             else
                 handIcon.SetActive(false);
