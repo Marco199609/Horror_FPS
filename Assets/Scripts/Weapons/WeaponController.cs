@@ -20,6 +20,7 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private Transform shootRayOrigin;
 
     [Header("Weapon UI")]
+    [SerializeField] private GameObject weaponUICanvas;
     [SerializeField] private TextMeshProUGUI ammoText;
     [SerializeField] private GameObject crossHair;
 
@@ -61,17 +62,20 @@ public class WeaponController : MonoBehaviour
             SendShootCommand();
             ReturnWeaponShootToOriginalState();
             SendReloadCommand();
-
-            if (!crossHair.activeInHierarchy)
-                crossHair.SetActive(true);
+            UIUpdate();
         }
         else
-            crossHair.SetActive(false);
+        {
+            weaponUICanvas.SetActive(false);
+        }
     }
 
     //Updates weapon UI
     private void UIUpdate()
     {
+        if (!weaponUICanvas.activeInHierarchy)
+            weaponUICanvas.SetActive(true);
+
         weaponUI.UIUpdate(currentWeaponData.currentAmmo, currentWeaponData.reserveCapacity, ammoText);
     }
 
@@ -83,7 +87,6 @@ public class WeaponController : MonoBehaviour
         {
             weaponShoot.Shoot(currentWeaponData, weaponDamage, shootRayOrigin, weaponSound);
             weaponShoot.readyToShoot = false;
-            UIUpdate();
         }
     }
 
@@ -103,7 +106,6 @@ public class WeaponController : MonoBehaviour
         if (weaponInput.reloadInput)
         {
             weaponReload.Reload(currentWeaponData);
-            UIUpdate();
         }
     }
 

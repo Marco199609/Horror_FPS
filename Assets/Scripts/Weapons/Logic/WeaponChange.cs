@@ -14,7 +14,7 @@ public class WeaponChange : MonoBehaviour
             currentWeaponData = weapons[0].GetComponent<WeaponData>();
         }
 
-        if(weaponInput.weaponIndexInput >= 0 && (weaponInput.weaponIndexInput) <= weapons.Length) //Checks if weapon index is in array bounds
+        if(weaponInput.weaponIndexInput >= 0 && (weaponInput.weaponIndexInput) < weapons.Length) //Checks if weapon index is in array bounds
         {
             for (int i = 0; i < weapons.Length; i++)
             {
