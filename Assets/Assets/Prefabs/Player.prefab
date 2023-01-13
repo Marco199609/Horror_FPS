@@ -501,12 +501,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2770187571978162046}
-  - component: {fileID: 6514341159889146404}
   - component: {fileID: 2770187571978162047}
+  - component: {fileID: 6514341159889146404}
   - component: {fileID: 2770187571978162045}
   - component: {fileID: 2770187571978162044}
+  - component: {fileID: 1760750125022010394}
   - component: {fileID: 6181420016789652866}
   - component: {fileID: 2770187571978162034}
+  - component: {fileID: 2770187571345181443}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -532,6 +534,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2770187571978162047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2770187571978162041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6c9c52646ead4dcaa3ccede1356de7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 6514341159889146404}
+  playerMovement: {fileID: 2770187571978162045}
+  playerRotate: {fileID: 2770187571978162044}
+  playerCameraControl: {fileID: 6181420016789652866}
+  inventoryController: {fileID: 0}
+  playerItemPickup: {fileID: 1760750125022010394}
+  handIcon: {fileID: 0}
+  playerInput: {fileID: 0}
 --- !u!114 &6514341159889146404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,34 +567,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 7.5
-  runSpeed: 11.5
+  runSpeed: 15
   jumpHeight: 8
   gravity: -19.62
   groundDistance: 0.4
-  mouseSensitivityX: 15
-  mouseSensitivityY: 15
   groundCheck: {fileID: 2770187571422564587}
   groundMask:
     serializedVersion: 2
     m_Bits: 8
---- !u!114 &2770187571978162047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2770187571978162041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6c9c52646ead4dcaa3ccede1356de7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 2770187571978162034}
+  mouseSensitivityX: 10
+  mouseSensitivityY: 10
   camHolder: {fileID: 2181557804533295363}
-  playerData: {fileID: 6514341159889146404}
-  playerMovement: {fileID: 2770187571978162045}
-  playerMouseMovement: {fileID: 2770187571978162044}
-  playerInput: {fileID: 0}
+  camTransform: {fileID: 2770187572269442958}
+  camMovementAmplitude: 0.005
+  camMovementFrequency: 7
+  itemPickupDistance: 15
+  characterController: {fileID: 2770187571978162034}
 --- !u!114 &2770187571978162045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -599,6 +609,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   axes: 0
+--- !u!114 &1760750125022010394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2770187571978162041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a6839a5bcbc64df19418867d86e2c33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6181420016789652866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,11 +633,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a177beb96d6a24676a1e4dd988e56be2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enable: 1
-  _amplitude: 0.015
-  _frequency: 10
-  _camera: {fileID: 2770187572269442958}
-  _cameraHolder: {fileID: 2181557804533295363}
 --- !u!143 &2770187571978162034
 CharacterController:
   m_ObjectHideFlags: 0
@@ -634,6 +651,18 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2770187571345181443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2770187571978162041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a177beb96d6a24676a1e4dd988e56be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2770187572269442955
 GameObject:
   m_ObjectHideFlags: 0
@@ -1270,6 +1299,7 @@ MonoBehaviour:
   currentWeaponData: {fileID: 788432134199624967}
   shootRayOrigin: {fileID: 390758229}
   ammoText: {fileID: 0}
+  crossHair: {fileID: 0}
   weaponReload: {fileID: 542364559}
   weaponShoot: {fileID: 542364558}
   weaponDamage: {fileID: 1094694558}

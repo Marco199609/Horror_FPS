@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public bool canMove = true;
 
-    public void PlayerMove(CharacterController controller, PlayerData playerData, PlayerInput playerInput)
+    public void PlayerMove(PlayerData playerData, PlayerInput playerInput)
     {
         isGrounded = Physics.CheckSphere(playerData.groundCheck.position, playerData.groundDistance, playerData.groundMask);
 
@@ -37,6 +37,6 @@ public class PlayerMovement : MonoBehaviour
 
         moveDirection.y += playerData.gravity * Time.deltaTime;
 
-        controller.Move(moveDirection * Time.deltaTime);
+        playerData.characterController.Move(moveDirection * Time.deltaTime);
     }
 }

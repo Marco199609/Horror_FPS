@@ -5,22 +5,21 @@ using UnityEngine;
 #region Components Required
 [RequireComponent(typeof(PlayerData))]
 [RequireComponent(typeof(PlayerMovement))]
-[RequireComponent(typeof(PlayerMouseMovement))]
+[RequireComponent(typeof(PlayerRotate))]
 #endregion
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Player Movement")]
-
-    [SerializeField] private CharacterController controller;
-
-    [Header("Player Mouse Look")]
-    [SerializeField] private Transform camHolder;
-
     [Header("Player Scripts")]
     [SerializeField] private PlayerData playerData;
     [SerializeField] private PlayerMovement playerMovement;
-    [SerializeField] private PlayerMouseMovement playerMouseMovement;
+    [SerializeField] private PlayerRotate playerRotate;
+    [SerializeField] private PlayerCameraControl playerCameraControl;
+
+    [Header("Inventory Management")]
+    [SerializeField] private InventoryController inventoryController;
+    [SerializeField] private PlayerItemPickup playerItemPickup;
+    [SerializeField] private GameObject handIcon;
 
     #region Player Input
     //Shows a header and instructions in the inspector
@@ -34,14 +33,34 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Lock and hide cursor
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerMovement.PlayerMove(controller, playerData, playerInput);
+        PlayerMovementAndRotation();
+        InventoryControl();
+        CameraControl();
+    }
 
-        playerMouseMovement.MouseLook(playerData, camHolder, playerInput);
+    private void PlayerMovementAndRotation()
+    {
+        playerMovement.PlayerMove(playerData, playerInput);
+
+        playerRotate.MouseLook(playerData, playerInput);
+    }
+
+    private void InventoryControl()
+    {
+        playerItemPickup.ItemPickup(playerInput, inventoryController, playerData, handIcon);
+    }
+
+
+    private void CameraControl()
+    {
+        playerCameraControl.ControlCamera(playerData);
     }
 }

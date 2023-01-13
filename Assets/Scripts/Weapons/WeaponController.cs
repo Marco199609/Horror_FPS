@@ -21,6 +21,7 @@ public class WeaponController : MonoBehaviour
 
     [Header("Weapon UI")]
     [SerializeField] private TextMeshProUGUI ammoText;
+    [SerializeField] private GameObject crossHair;
 
     #region Weapon Scripts
     [Header("Weapon Scripts")]
@@ -42,6 +43,7 @@ public class WeaponController : MonoBehaviour
     #endregion
 
     public bool isWeaponActive { get; private set; }
+
     //Available weapons; weapons[0] is weapon not active.
     [SerializeField] private GameObject[] weapons;
 
@@ -54,12 +56,17 @@ public class WeaponController : MonoBehaviour
     {
         CheckOrChangeActiveWeapons();
 
-        if(isWeaponActive)
+        if (isWeaponActive)
         {
             SendShootCommand();
             ReturnWeaponShootToOriginalState();
             SendReloadCommand();
+
+            if (!crossHair.activeInHierarchy)
+                crossHair.SetActive(true);
         }
+        else
+            crossHair.SetActive(false);
     }
 
     //Updates weapon UI

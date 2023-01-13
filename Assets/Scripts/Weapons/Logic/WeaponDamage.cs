@@ -19,7 +19,6 @@ public class WeaponDamage : MonoBehaviour
             if (hit.collider.CompareTag("Enemy"))
             {
                 hit.collider.GetComponent<EnemyData>().EnemyHealth -= weaponDamage;
-                print(hit.collider.GetComponent<EnemyData>().EnemyHealth);
 
                 if (hit.collider.GetComponent<EnemyData>().EnemyHealth <= 0)
                     Destroy(hit.collider.gameObject);

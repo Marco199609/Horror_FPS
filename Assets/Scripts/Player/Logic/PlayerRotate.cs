@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMouseMovement : MonoBehaviour
+public class PlayerRotate : MonoBehaviour
 {
     public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
     public RotationAxes axes = RotationAxes.MouseXAndY;
@@ -12,18 +12,7 @@ public class PlayerMouseMovement : MonoBehaviour
 
     float rotationY = 0F;
 
-    void Start()
-    {
-        //Lock and hide cursor
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
-        // Make the rigid body not change rotation
-        if (GetComponent<Rigidbody>())
-            GetComponent<Rigidbody>().freezeRotation = true;
-    }
-
-    public void MouseLook(PlayerData playerData, Transform mainCamera, PlayerInput playerInput)
+    public void MouseLook(PlayerData playerData, PlayerInput playerInput)
     {
         if (axes == RotationAxes.MouseXAndY)
         {
@@ -33,7 +22,7 @@ public class PlayerMouseMovement : MonoBehaviour
             rotationY = Mathf.Clamp(rotationY, minimumY, maximumY);
 
             transform.localEulerAngles = new Vector3(0, rotationX, 0);
-            mainCamera.localEulerAngles = new Vector3(-rotationY, 0, 0);
+            playerData.camHolder.localEulerAngles = new Vector3(-rotationY, 0, 0);
         }
         else if (axes == RotationAxes.MouseX)
         {
@@ -44,7 +33,7 @@ public class PlayerMouseMovement : MonoBehaviour
             rotationY += playerInput.mouseMovementInput.y * playerData.mouseSensitivityY;
             rotationY = Mathf.Clamp(rotationY, minimumY, maximumY);
 
-            mainCamera.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
+            playerData.camHolder.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
         }
     }
 }
