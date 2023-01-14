@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerRotate playerRotate;
     [SerializeField] private PlayerCameraControl playerCameraControl;
+    [SerializeField] private PlayerFlashLight playerFlashLight;
 
     [Header("Inventory Management")]
     [SerializeField] private InventoryController inventoryController;
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
         PlayerMovementAndRotation();
         InventoryControl();
         CameraControl();
+        FlashlightControl();
     }
 
     private void PlayerMovementAndRotation()
@@ -62,5 +64,10 @@ public class PlayerController : MonoBehaviour
     private void CameraControl()
     {
         playerCameraControl.ControlCamera(playerData);
+    }
+
+    private void FlashlightControl()
+    {
+        playerFlashLight.FlashlightControl(playerData);
     }
 }
