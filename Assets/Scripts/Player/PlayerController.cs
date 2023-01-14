@@ -2,41 +2,60 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 #region Components Required
-[RequireComponent(typeof(PlayerData))]
 [RequireComponent(typeof(PlayerMovement))]
 [RequireComponent(typeof(PlayerRotate))]
+[RequireComponent(typeof(PlayerCameraControl))]
+[RequireComponent(typeof(PlayerFlashLight))]
+[RequireComponent(typeof(PlayerItemPickup))]
 #endregion
+
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Player Scripts")]
-    [SerializeField] private PlayerData playerData;
-    [SerializeField] private PlayerMovement playerMovement;
-    [SerializeField] private PlayerRotate playerRotate;
-    [SerializeField] private PlayerCameraControl playerCameraControl;
-    [SerializeField] private PlayerFlashLight playerFlashLight;
+    private ObjectManager objectManager;
 
-    [Header("Inventory Management")]
-    [SerializeField] private InventoryController inventoryController;
-    [SerializeField] private PlayerItemPickup playerItemPickup;
-    [SerializeField] private GameObject handIcon;
+    private PlayerData playerData;
+    private InventoryController inventoryController;
+    private PlayerInput playerInput;
 
-    #region Player Input
-    //Shows a header and instructions in the inspector
-    [Header("Player Input", order = 1)]
-    [Space(-10, order = 2)]
-    [Header("Player Inputs are managed in the Input Manager.\nAttach the Input Manager here.", order = 3)]
-    [Space(5, order = 4)]
-    [SerializeField] private PlayerInput playerInput;
-    #endregion
+    //Player scripts attached to this gameobject
+    private PlayerMovement playerMovement;
+    private PlayerRotate playerRotate;
+    private PlayerCameraControl playerCameraControl;
+    private PlayerFlashLight playerFlashLight;
+    private PlayerItemPickup playerItemPickup;
 
-    // Start is called before the first frame update
-    void Start()
+    private GameObject player;
+
+    private void Awake()
     {
+        //Gets required scripts on this gameobject
+        playerMovement = GetComponent<PlayerMovement>();
+        playerRotate = GetComponent<PlayerRotate>();
+        playerCameraControl = GetComponent<PlayerCameraControl>();
+        playerFlashLight = GetComponent<PlayerFlashLight>();
+        playerItemPickup = GetComponent<PlayerItemPickup>();
+
         //Lock and hide cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        //Adds this object to object manager for future use
+        ObjectManager.Instance.PlayerController = this;
+    }
+
+    void Start()
+    {
+        //Gets object manager
+        objectManager = ObjectManager.Instance;
+
+        //Gets objects from object manager
+        playerData = objectManager.PlayerData;
+        player = objectManager.Player;
+        playerInput = objectManager.PlayerInput;
+        inventoryController = objectManager.InventoryController;
     }
 
     // Update is called once per frame
@@ -50,24 +69,22 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerMovementAndRotation()
     {
-        playerMovement.PlayerMove(playerData, playerInput);
-
-        playerRotate.MouseLook(playerData, playerInput);
+        playerMovement.PlayerMove(player, playerData, playerInput);
+        playerRotate.MouseLook(player, playerData, playerInput);
     }
 
     private void InventoryControl()
     {
-        playerItemPickup.ItemPickup(playerInput, inventoryController, playerData, handIcon);
+        playerItemPickup.ItemPickup(playerInput, inventoryController, playerData);
     }
-
 
     private void CameraControl()
     {
-        playerCameraControl.ControlCamera(playerData);
+        playerCameraControl.ControlCamera(player, playerData);
     }
 
     private void FlashlightControl()
     {
-        playerFlashLight.FlashlightControl(playerData);
+        playerFlashLight.FlashlightControl(player, playerData);
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerData : MonoBehaviour
 {
@@ -27,5 +28,14 @@ public class PlayerData : MonoBehaviour
 
     [Header("Inventory Control")]
     public float itemPickupDistance;
+    public Image UIPickupHand;
+    public Image UICenterPoint;
     public CharacterController characterController;
+
+
+    private void Awake()
+    {
+        ObjectManager.Instance.PlayerData = this;
+        ObjectManager.Instance.Player = this.gameObject;
+    }
 }

@@ -14,43 +14,54 @@ using TMPro;
 
 public class WeaponController : MonoBehaviour
 {
-    [SerializeField] private WeaponData currentWeaponData;
+    private ObjectManager objectManager;
 
-    [Header("Weapon Shoot")]
-    [SerializeField] private Transform shootRayOrigin;
+    //Objects in object manager
+    private WeaponInput weaponInput;
+    private WeaponGeneralData weaponGeneralData;
 
-    [Header("Weapon UI")]
-    [SerializeField] private GameObject weaponUICanvas;
-    [SerializeField] private TextMeshProUGUI ammoText;
-    [SerializeField] private GameObject crossHair;
+    //Used in weapon change script
+    private WeaponData currentWeaponData;
 
-    #region Weapon Scripts
-    [Header("Weapon Scripts")]
-    [SerializeField] private WeaponReload weaponReload;
-    [SerializeField] private WeaponShoot weaponShoot;
-    [SerializeField] private WeaponDamage weaponDamage;
-    [SerializeField] private WeaponUI weaponUI;
-    [SerializeField] private WeaponSound weaponSound;
-    [SerializeField] private WeaponChange weaponChange;
-    #endregion
+    //Objects in weapon general data
+    private Transform shootRayOrigin;
+    private GameObject weaponUICanvas;
+    private TextMeshProUGUI UIAmmoText;
 
-    #region Weapon Input
-    //Shows a header and instructions in the inspector
-    [Header("Weapon Input", order = 1)]
-    [Space(-10, order = 2)]
-    [Header("Weapon Inputs are managed in the Input Manager.\nAttach the Input Manager here.", order = 3)]
-    [Space(5, order = 4)]
-    [SerializeField] private WeaponInput weaponInput;
-    #endregion
+    //Weapon scripts
+    private WeaponReload weaponReload;
+    private WeaponShoot weaponShoot;
+    private WeaponDamage weaponDamage;
+    private WeaponUI weaponUI;
+    private WeaponSound weaponSound;
+    private WeaponChange weaponChange;
 
     public bool isWeaponActive { get; private set; }
 
-    //Available weapons; weapons[0] is weapon not active.
-    [SerializeField] private GameObject[] weapons;
+    //Available weapons in weapon general data
+    private GameObject[] weaponsAvailable;
 
     private void Awake()
     {
-        UIUpdate();
+        weaponReload = GetComponent<WeaponReload>();
+        weaponShoot = GetComponent<WeaponShoot>();
+        weaponDamage = GetComponent<WeaponDamage>();
+        weaponUI = GetComponent<WeaponUI>();
+        weaponSound = GetComponent<WeaponSound>();
+        weaponChange = GetComponent<WeaponChange>();
+    }
+
+    private void Start()
+    {
+        objectManager = ObjectManager.Instance;
+        weaponInput = objectManager.WeaponInput;
+        weaponGeneralData = objectManager.WeaponGeneralData;
+
+        weaponsAvailable = weaponGeneralData.WeaponsAvailable;
+
+        shootRayOrigin = weaponGeneralData.shootRayOrigin;
+        weaponUICanvas = weaponGeneralData.weaponUICanvas;
+        UIAmmoText = weaponGeneralData.ammoText;
     }
 
     void Update()
@@ -76,7 +87,7 @@ public class WeaponController : MonoBehaviour
         if (!weaponUICanvas.activeInHierarchy)
             weaponUICanvas.SetActive(true);
 
-        weaponUI.UIUpdate(currentWeaponData.currentAmmo, currentWeaponData.reserveCapacity, ammoText);
+        weaponUI.UIUpdate(currentWeaponData.currentAmmo, currentWeaponData.reserveCapacity, UIAmmoText);
     }
 
 
@@ -112,7 +123,7 @@ public class WeaponController : MonoBehaviour
     private void CheckOrChangeActiveWeapons()
     {
         //Change weapons, and check if there is a weapon currently selected
-        weaponChange.ChangeWeapon(weapons, weaponInput);
+        weaponChange.ChangeWeapon(weaponsAvailable, weaponInput);
         currentWeaponData = weaponChange.currentWeaponData;
         isWeaponActive = currentWeaponData.isWeapon;
     }

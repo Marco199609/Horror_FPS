@@ -11,6 +11,10 @@ public class WeaponInput : MonoBehaviour
     public float mouseScrollInput { get; private set;}
     public int weaponIndexInput { get; private set; }
 
+    private void Awake()
+    {
+        ObjectManager.Instance.WeaponInput = this;
+    }
 
     private void Update()
     {

@@ -9,13 +9,13 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public bool canMove = true;
 
-    public void PlayerMove(PlayerData playerData, PlayerInput playerInput)
+    public void PlayerMove(GameObject player, PlayerData playerData, PlayerInput playerInput)
     {
         isGrounded = Physics.CheckSphere(playerData.groundCheck.position, playerData.groundDistance, playerData.groundMask);
 
         // We are grounded, so recalculate move direction based on axes
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
-        Vector3 right = transform.TransformDirection(Vector3.right);
+        Vector3 forward = player.transform.TransformDirection(Vector3.forward);
+        Vector3 right = player.transform.TransformDirection(Vector3.right);
 
         float curSpeedX = canMove ? (playerInput.playerRunInput ? playerData.runSpeed : playerData.walkSpeed) * playerInput.playerMovementInput.x : 0;
         float curSpeedY = canMove ? (playerInput.playerRunInput ? playerData.runSpeed : playerData.walkSpeed) * playerInput.playerMovementInput.y : 0;

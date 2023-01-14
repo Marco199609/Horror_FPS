@@ -11,7 +11,7 @@ public class PlayerCameraControl : MonoBehaviour
     private float _toggleSpeed = 3.0f;
     private Vector3 _startPos;
 
-    public void ControlCamera(PlayerData playerData)
+    public void ControlCamera(GameObject player, PlayerData playerData)
     {
         if(!isStartPosAlreadySet)
         {
@@ -23,7 +23,7 @@ public class PlayerCameraControl : MonoBehaviour
 
         CheckMotion(playerData);
         ResetPosition(playerData);
-        playerData.camTransform.LookAt(FocusTarget(playerData));
+        playerData.camTransform.LookAt(FocusTarget(player, playerData));
     }
 
 
@@ -77,9 +77,9 @@ public class PlayerCameraControl : MonoBehaviour
         playerData.camTransform.localPosition = Vector3.Lerp(playerData.camTransform.localPosition, _startPos, 1 * Time.deltaTime);
     }
 
-    private Vector3 FocusTarget(PlayerData playerData)
+    private Vector3 FocusTarget(GameObject player, PlayerData playerData)
     {
-        Vector3 pos = new Vector3(transform.position.x, transform.position.y + playerData.camHolder.localPosition.y, transform.position.z);
+        Vector3 pos = new Vector3(player.transform.position.x, player.transform.position.y + playerData.camHolder.localPosition.y, player.transform.position.z);
         pos += playerData.camHolder.forward * 15.0f;
         return pos;
     }

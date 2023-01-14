@@ -6,7 +6,7 @@ public class PlayerItemPickup : MonoBehaviour
 {
     Ray ray;
 
-    public void ItemPickup(PlayerInput playerInput, InventoryController inventoryController, PlayerData playerData, GameObject handIcon)
+    public void ItemPickup(PlayerInput playerInput, InventoryController inventoryController, PlayerData playerData)
     {
         RaycastHit hit;
 
@@ -18,21 +18,33 @@ public class PlayerItemPickup : MonoBehaviour
         {
             if (hit.collider.CompareTag("Item")) //Checks if ray hits item
             {
-                handIcon.SetActive(true);
+                ActivatePickupHand(playerData);
 
                 if (hit.distance <= playerData.itemPickupDistance) // checks if item reachable
                 {
-                    handIcon.GetComponent<SpriteRenderer>().color = new Color(0, 1, 0, 0.3f); //Sets color green
+                    playerData.UIPickupHand.color = new Color(0, 1, 0, 0.7f); //Sets color green
                     if (playerInput.itemPickupInput)
                         Destroy(hit.collider.gameObject); //gets item
                 }
                 else
-                    handIcon.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 0.03f); //checks if item unreachable and sets color red
+                    playerData.UIPickupHand.color = new Color(1, 0, 0, 0.5f); //checks if item unreachable and sets color red
             }
             else
-                handIcon.SetActive(false);
+                DeactivatePickupHand(playerData);
         }
         else
-            handIcon.SetActive(false);
+            DeactivatePickupHand(playerData);
+    }
+
+    private void ActivatePickupHand(PlayerData playerData)
+    {
+        playerData.UIPickupHand.gameObject.SetActive(true);
+        playerData.UICenterPoint.gameObject.SetActive(false);
+    }
+
+    private void DeactivatePickupHand(PlayerData playerData)
+    {
+        playerData.UIPickupHand.gameObject.SetActive(false);
+        playerData.UICenterPoint.gameObject.SetActive(true);
     }
 }

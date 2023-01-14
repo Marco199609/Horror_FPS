@@ -10,6 +10,11 @@ public class PlayerInput : MonoBehaviour
     public Vector2 playerMovementInput { get; private set; }
     public Vector2 mouseMovementInput { get; private set; }
 
+    private void Awake()
+    {
+        ObjectManager.Instance.PlayerInput = this;
+    }
+
 
     private void Update()
     {

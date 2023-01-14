@@ -6,15 +6,13 @@ public class PlayerFlashLight : MonoBehaviour
 {
     float rotateVelocity;
     Vector3 rot;
-    Transform flashlightTransform, playerTransform, camHolderTransform;
+    Transform flashlightTransform, camHolderTransform;
 
-    public void FlashlightControl(PlayerData playerData)
+    public void FlashlightControl(GameObject player, PlayerData playerData)
     {
 
         if (flashlightTransform == null)
             flashlightTransform = playerData.flashlight.transform;
-        if (playerTransform == null)
-            playerTransform = playerData.gameObject.transform;
         if (camHolderTransform == null)
             camHolderTransform = playerData.camHolder.transform;
 
@@ -28,8 +26,8 @@ public class PlayerFlashLight : MonoBehaviour
 
         //gets rotation for flashlight
         rot.x = camHolderTransform.rotation.eulerAngles.x;
-        rot.y = playerTransform.rotation.eulerAngles.y;
-        rot.z = playerTransform.rotation.eulerAngles.z;
+        rot.y = player.transform.rotation.eulerAngles.y;
+        rot.z = player.transform.rotation.eulerAngles.z;
 
         //rotates the flashlight 
         if (flashlightTransform.rotation != Quaternion.Euler(rot))
