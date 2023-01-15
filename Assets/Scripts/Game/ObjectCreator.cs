@@ -9,11 +9,14 @@ public class ObjectCreator
     public static void Execute()
     {
         CreateObject<ObjectManager>();
+
         CreateObject<PlayerController>();
+        CreateObject<WeaponController>();
         CreateObject<InventoryController>();
+
         CreateObject<PlayerInput>();
         CreateObject<WeaponInput>();
-        CreateObject<WeaponController>();
+        CreateObject<InventoryInput>();
     }
 
     public static void CreateObject<T>() where T : MonoBehaviour

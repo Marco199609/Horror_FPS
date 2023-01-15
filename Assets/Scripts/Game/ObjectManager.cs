@@ -11,11 +11,15 @@ public class ObjectManager : MonoBehaviour
     public WeaponGeneralData WeaponGeneralData;
 
     [Header("Game Controllers")]
+    public GameController GameController;
     public InventoryController InventoryController;
-    public PlayerInput PlayerInput;
     public PlayerController PlayerController;
     public WeaponController WeaponController;
+
+    [Header("Input Managers")]
+    public PlayerInput PlayerInput;
     public WeaponInput WeaponInput;
+    public InventoryInput InventoryInput;
 
     [Header("Game Objects")]
     public GameObject Player;

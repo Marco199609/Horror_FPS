@@ -1,29 +1,55 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    //[SerializeField] private int targetFrameRate = 60;
-
     [SerializeField] private Text fpsText;
     [SerializeField] private float hudRefreshRate = 1f;
     private float _timer;
 
+    //Inventory UI items
+    public GameObject InventoryPanel;
+    private InventoryController inventoryController;
+
     private void Awake()
     {
-        //QualitySettings.vSyncCount = 0;
-       // Application.targetFrameRate = targetFrameRate;
+        //Adds this object to object manager for future use
+        ObjectManager.Instance.GameController = this;
     }
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        inventoryController = ObjectManager.Instance.InventoryController;
     }
 
     // Update is called once per frame
     void Update()
+    {
+        ShowFPS();
+        LockCursor();
+    }
+
+    private void LockCursor()
+    {
+        if(!inventoryController.IsInventoryEnabled)
+        {
+            //Lock and hide cursor
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            //Unlock and show cursor
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+    }
+
+
+    void ShowFPS()
     {
         if (Time.unscaledTime > _timer)
         {

@@ -38,9 +38,7 @@ public class PlayerController : MonoBehaviour
         playerFlashLight = GetComponent<PlayerFlashLight>();
         playerItemPickup = GetComponent<PlayerItemPickup>();
 
-        //Lock and hide cursor
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+
 
         //Adds this object to object manager for future use
         ObjectManager.Instance.PlayerController = this;
@@ -61,11 +59,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerMovementAndRotation();
-        CameraControl();
+        //Controls player only if inventory closed (Game does not pause)
+        if(!objectManager.InventoryController.IsInventoryEnabled)
+        {
+            PlayerMovementAndRotation();
+            CameraControl();
+        }
+
         FlashlightControl();
 
-        if(!objectManager.WeaponController.isWeaponActive)
+        if (!objectManager.WeaponController.isWeaponActive)
         {
             ItemPickup();
         }
