@@ -10,31 +10,13 @@ public class WeaponShoot : MonoBehaviour
 
     public void Shoot(WeaponData weaponData, WeaponDamage weaponDamage, Transform shootRayOrigin, WeaponSound weaponSound)
     {
-        if(weaponData.isAuto)
+        if (readyToShoot)
         {
             if (weaponData.currentAmmo > 0)
             {
-                if (FireRateCooldown <= 0)
-                {
-                    FireRateCooldown = weaponData.fireRate;
-
-                    weaponSound.ShootSound(weaponData);
-                    weaponDamage.DamageEnemy(weaponData.weaponDamage, weaponData.weaponRange, shootRayOrigin);
-                    weaponData.currentAmmo--;
-                }
-                FireRateCooldown -= Time.deltaTime;
-            }
-        }
-        else
-        {
-            if(readyToShoot)
-            {
-                if (weaponData.currentAmmo > 0)
-                {
-                    weaponSound.ShootSound(weaponData);
-                    weaponDamage.DamageEnemy(weaponData.weaponDamage, weaponData.weaponRange, shootRayOrigin);
-                    weaponData.currentAmmo--;
-                }
+                weaponSound.ShootSound(weaponData);
+                weaponDamage.DamageEnemy(weaponData.weaponDamage, weaponData.weaponRange, shootRayOrigin);
+                weaponData.currentAmmo--;
             }
         }
     }

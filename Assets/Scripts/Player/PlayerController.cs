@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     private PlayerMovement playerMovement;
     private PlayerRotate playerRotate;
     private PlayerCameraControl playerCameraControl;
-    private PlayerFlashLight playerFlashLight;
+    private PlayerFlashLight playerFlashlight;
     private PlayerItemPickup playerItemPickup;
 
     private GameObject player;
@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         playerRotate = GetComponent<PlayerRotate>();
         playerCameraControl = GetComponent<PlayerCameraControl>();
-        playerFlashLight = GetComponent<PlayerFlashLight>();
+        playerFlashlight = GetComponent<PlayerFlashLight>();
         playerItemPickup = GetComponent<PlayerItemPickup>();
 
 
@@ -92,6 +92,6 @@ public class PlayerController : MonoBehaviour
 
     private void FlashlightControl()
     {
-        playerFlashLight.FlashlightControl(player, playerData, playerInput);
+        playerFlashlight.FlashlightControl(playerData, playerInput);
     }
 }

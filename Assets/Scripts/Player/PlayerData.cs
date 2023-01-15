@@ -24,7 +24,6 @@ public class PlayerData : MonoBehaviour
 
     [Header("Flashlight control")]
     public GameObject flashlight;
-    public float flashlightRotationSpeed;
 
     [Header("Inventory Control")]
     public float itemPickupDistance;
