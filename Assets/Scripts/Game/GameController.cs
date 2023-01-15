@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private int targetFrameRate = 60;
+    //[SerializeField] private int targetFrameRate = 60;
 
     [SerializeField] private Text fpsText;
     [SerializeField] private float hudRefreshRate = 1f;
@@ -13,8 +13,8 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = targetFrameRate;
+        //QualitySettings.vSyncCount = 0;
+       // Application.targetFrameRate = targetFrameRate;
     }
     // Start is called before the first frame update
     void Start()
