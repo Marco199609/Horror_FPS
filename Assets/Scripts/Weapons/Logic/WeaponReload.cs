@@ -22,8 +22,6 @@ public class WeaponReload : MonoBehaviour
 
                 weaponData.reloadSound.Play();
             }
-            else
-                print("No reserve");
 
         }
     }

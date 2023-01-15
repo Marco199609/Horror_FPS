@@ -62,9 +62,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         PlayerMovementAndRotation();
-        InventoryControl();
         CameraControl();
         FlashlightControl();
+
+        if(!objectManager.WeaponController.isWeaponActive)
+        {
+            ItemPickup();
+        }
     }
 
     private void PlayerMovementAndRotation()
@@ -73,7 +77,7 @@ public class PlayerController : MonoBehaviour
         playerRotate.MouseLook(player, playerData, playerInput);
     }
 
-    private void InventoryControl()
+    private void ItemPickup()
     {
         playerItemPickup.ItemPickup(playerInput, inventoryController, playerData);
     }
@@ -85,6 +89,6 @@ public class PlayerController : MonoBehaviour
 
     private void FlashlightControl()
     {
-        playerFlashLight.FlashlightControl(player, playerData);
+        playerFlashLight.FlashlightControl(player, playerData, playerInput);
     }
 }

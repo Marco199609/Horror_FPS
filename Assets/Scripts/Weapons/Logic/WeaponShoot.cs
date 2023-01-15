@@ -24,8 +24,6 @@ public class WeaponShoot : MonoBehaviour
                 }
                 FireRateCooldown -= Time.deltaTime;
             }
-            else
-                print("reload");
         }
         else
         {
@@ -37,8 +35,6 @@ public class WeaponShoot : MonoBehaviour
                     weaponDamage.DamageEnemy(weaponData.weaponDamage, weaponData.weaponRange, shootRayOrigin);
                     weaponData.currentAmmo--;
                 }
-                else
-                    print("reload");
             }
         }
     }

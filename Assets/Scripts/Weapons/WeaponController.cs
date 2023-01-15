@@ -37,6 +37,7 @@ public class WeaponController : MonoBehaviour
     private WeaponChange weaponChange;
 
     public bool isWeaponActive { get; private set; }
+    private bool _firstUIUpdate;
 
     //Available weapons in weapon general data
     private GameObject[] weaponsAvailable;
@@ -49,6 +50,9 @@ public class WeaponController : MonoBehaviour
         weaponUI = GetComponent<WeaponUI>();
         weaponSound = GetComponent<WeaponSound>();
         weaponChange = GetComponent<WeaponChange>();
+
+        //Adds this object to object manager for future use
+        ObjectManager.Instance.WeaponController = this;
     }
 
     private void Start()
@@ -73,7 +77,18 @@ public class WeaponController : MonoBehaviour
             SendShootCommand();
             ReturnWeaponShootToOriginalState();
             SendReloadCommand();
-            UIUpdate();
+
+            if (!weaponUICanvas.activeInHierarchy)
+                weaponUICanvas.SetActive(true);
+
+            if (!_firstUIUpdate)
+            {
+                UIUpdate();
+                _firstUIUpdate = true;
+            }
+
+            if (weaponInput.LeftMouseDownInput || weaponInput.reloadInput)
+                UIUpdate();
         }
         else
         {
@@ -82,12 +97,10 @@ public class WeaponController : MonoBehaviour
     }
 
     //Updates weapon UI
+    //For loop in this method. Do no run more than once
     private void UIUpdate()
     {
-        if (!weaponUICanvas.activeInHierarchy)
-            weaponUICanvas.SetActive(true);
-
-        weaponUI.UIUpdate(currentWeaponData.currentAmmo, currentWeaponData.reserveCapacity, UIAmmoText);
+        weaponUI.UIUpdate(weaponGeneralData, currentWeaponData.currentAmmo, currentWeaponData.reserveCapacity, UIAmmoText);
     }
 
 

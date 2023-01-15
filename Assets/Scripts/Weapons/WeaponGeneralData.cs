@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponGeneralData : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class WeaponGeneralData : MonoBehaviour
     [Header("Weapon UI")]
     public GameObject weaponUICanvas;
     public TextMeshProUGUI ammoText;
+    public Image[] BulletImages;
 
     //Available weapons; weapons[0] is weapon not active.
     [Header("Weapons Available")]
