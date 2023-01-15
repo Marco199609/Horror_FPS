@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class InventoryController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int InventorySpace = 10;
+    public List<Item> items = new List<Item>();
+
+    private void Awake()
     {
+        //Adds this object to object manager for future use
         ObjectManager.Instance.InventoryController = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Add(Item _item)
     {
-        
+        if (items.Count < InventorySpace)
+            items.Add(_item);
+        else
+            print("Inventory Full");
+    }
+
+    public void Remove(Item _item)
+    {
+        items.Remove(_item);
     }
 }

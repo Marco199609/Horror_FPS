@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.HID;
+using UnityEngine.InputSystem;
+using Unity.VisualScripting;
 
 public class PlayerItemPickup : MonoBehaviour
 {
+    private ItemData _itemData;
+    private ObjectManager objectManager;
     Ray ray;
 
     public void ItemPickup(PlayerInput playerInput, InventoryController inventoryController, PlayerData playerData)
@@ -17,10 +22,10 @@ public class PlayerItemPickup : MonoBehaviour
         {
             if (hit.collider.CompareTag("Item") && hit.distance <= playerData.itemPickupDistance) //Checks if ray hits item and reachable
             {
-                ActivatePickupHand(playerData);
+                ActivateUIPickupHand(playerData);
 
-                if (playerInput.itemPickupInput)
-                    Destroy(hit.collider.gameObject); //gets item
+                if (playerInput.itemPickupInput) //Checks if player clicks mouse to pickup item
+                    InteractWithItem(hit);
             }
             else
                 DeactivatePickupHand(playerData);
@@ -29,7 +34,16 @@ public class PlayerItemPickup : MonoBehaviour
             DeactivatePickupHand(playerData);
     }
 
-    private void ActivatePickupHand(PlayerData playerData)
+
+    private void InteractWithItem(RaycastHit hit)
+    {
+        _itemData = hit.collider.GetComponent<ItemData>();
+
+        ObjectManager.Instance.InventoryController.Add(_itemData.Item);
+        Destroy(_itemData.gameObject); //gets item
+    }
+
+    private void ActivateUIPickupHand(PlayerData playerData)
     {
         playerData.UIPickupHand.gameObject.SetActive(true);
         playerData.UICenterPoint.gameObject.SetActive(false);
