@@ -10,6 +10,8 @@ using TMPro;
 [RequireComponent(typeof(WeaponUI))]
 [RequireComponent(typeof(WeaponSound))]
 [RequireComponent(typeof(WeaponChange))]
+[RequireComponent(typeof(WeaponAim))]
+[RequireComponent(typeof(WeaponAnimations))]
 #endregion
 
 public class WeaponController : MonoBehaviour
@@ -35,6 +37,8 @@ public class WeaponController : MonoBehaviour
     private WeaponUI weaponUI;
     private WeaponSound weaponSound;
     private WeaponChange weaponChange;
+    private WeaponAim weaponAim;
+    private WeaponAnimations WeaponAnimations;
 
     public bool isWeaponActive { get; private set; }
     private bool _firstUIUpdate;
@@ -50,6 +54,8 @@ public class WeaponController : MonoBehaviour
         weaponUI = GetComponent<WeaponUI>();
         weaponSound = GetComponent<WeaponSound>();
         weaponChange = GetComponent<WeaponChange>();
+        weaponAim = GetComponent<WeaponAim>();
+        WeaponAnimations = GetComponent<WeaponAnimations>();
 
         //Adds this object to object manager for future use
         ObjectManager.Instance.WeaponController = this;
@@ -70,7 +76,7 @@ public class WeaponController : MonoBehaviour
 
     void Update()
     {
-        //Controls weapons only if invetory disabled
+        //Controls weapons only if inventory disabled
         if (!objectManager.InventoryController.IsInventoryEnabled)
         {
             CheckOrChangeActiveWeapons();
@@ -106,7 +112,7 @@ public class WeaponController : MonoBehaviour
     //For loop in this method. Do no run more than once
     private void UIUpdate()
     {
-        weaponUI.UIUpdate(weaponGeneralData, currentWeaponData.currentAmmo, currentWeaponData.reserveCapacity, UIAmmoText);
+        weaponUI.UIUpdate(weaponGeneralData, currentWeaponData.currentAmmo, currentWeaponData.CurrentReserveCapacity, UIAmmoText);
     }
 
 

@@ -20,27 +20,25 @@ public class WeaponData : MonoBehaviour
      * Weapon UI Icon: Sprite that appears beside the ammo stats in the UI.
     */
 
-    public bool isWeapon;
 
-    public float 
-        armorPenetration, 
-        fireRate, 
-        reloadSpeed, 
-        switchingSpeed, 
-        weight;
+    [field: SerializeField] public bool isWeapon { get; private set; }
 
-    public int 
-        weaponDamage, 
-        weaponRange, 
-        magazineCapacity, 
-        currentAmmo, 
-        reserveCapacity;
+    [field: SerializeField] public float fireRate { get; private set; }
+    [field: SerializeField] public float reloadSpeed { get; private set; }
+    [field: SerializeField] public float switchingSpeed { get; private set; }
+    [field: SerializeField] public float weight { get; private set; }
 
-    public bool isAuto;
+    [field: SerializeField] public int weaponDamage { get; private set; }
+    [field: SerializeField] public int weaponRange { get; private set; }
+    [field: SerializeField] public int magazineCapacity { get; private set; }
+    [field: SerializeField] public int maxReserveCapacity { get; private set; }
+
+    [field: SerializeField] public Sprite weaponUIIcon { get; private set; }
+
+    public int currentAmmo; 
+    public int CurrentReserveCapacity;
 
     public AudioSource 
         shotSound, 
         reloadSound;
-
-    public Sprite weaponUIIcon;
 }

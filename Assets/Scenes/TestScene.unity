@@ -220,7 +220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &177427558
 Transform:
   m_ObjectHideFlags: 0
@@ -317,7 +317,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &275586510
 Transform:
   m_ObjectHideFlags: 0
@@ -419,7 +419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &300051057
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -516,7 +516,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &357095873
 Transform:
   m_ObjectHideFlags: 0
@@ -640,7 +640,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &691479216
 Transform:
   m_ObjectHideFlags: 0
@@ -805,14 +805,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.5275126, y: 0.25928968, z: 0.16014145, w: -0.7930032}
+  m_LocalRotation: {x: -0.5843425, y: -0.0694742, z: 0.29673183, w: -0.75210863}
   m_LocalPosition: {x: 0.62502027, y: 0.99995995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1557928916}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -113.12, y: -218.1, z: 542.857}
+  m_LocalEulerAnglesHint: {x: -246.957, y: -218.241, z: 471.112}
 --- !u!1 &774578920 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 774578920, guid: 0388042e1377947b7a6fabb5f2b9a723, type: 3}
@@ -847,7 +847,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &882192164
 Transform:
   m_ObjectHideFlags: 0
@@ -1040,7 +1040,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1074440037
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1171,7 +1171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1136152794
 Transform:
   m_ObjectHideFlags: 0
@@ -1456,7 +1456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3f244c389c4404c2b8a3432a66cae839, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3f244c389c4404c2b8a3432a66cae839, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1505,7 +1505,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1362696757
 Transform:
   m_ObjectHideFlags: 0
@@ -1770,7 +1770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1654295765
 Transform:
   m_ObjectHideFlags: 0
@@ -2001,7 +2001,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1697163778
 Transform:
   m_ObjectHideFlags: 0
@@ -2133,7 +2133,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1759194370
 Transform:
   m_ObjectHideFlags: 0
@@ -2252,7 +2252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1916460683
 Transform:
   m_ObjectHideFlags: 0
@@ -2731,6 +2731,14 @@ PrefabInstance:
       propertyPath: BulletImages.Array.data[7]
       value: 
       objectReference: {fileID: 1589277291}
+    - target: {fileID: 4576158240694328840, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
+      propertyPath: shotSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576158240694328840, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
+      propertyPath: reloadSound
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4576158240907094440, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
       propertyPath: _followObject
       value: 
@@ -2794,6 +2802,62 @@ PrefabInstance:
     - target: {fileID: 4576158240907094443, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
       propertyPath: m_Name
       value: WeaponHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576158240930795562, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
+      propertyPath: CurrentReserveCapacity
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576158240930795562, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
+      propertyPath: <isWeapon>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576158240930795562, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
+      propertyPath: <weaponRange>k__BackingField
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576158240930795562, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
+      propertyPath: <weaponDamage>k__BackingField
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576158240930795562, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
+      propertyPath: <weaponUIIcon>k__BackingField
+      value: 
+      objectReference: {fileID: 21300000, guid: 0480c9723a3ae444a8210e8c1fc3989e, type: 3}
+    - target: {fileID: 4576158240930795562, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
+      propertyPath: <magazineCapacity>k__BackingField
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576158240930795562, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
+      propertyPath: <maxReserveCapacity>k__BackingField
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576158241057130886, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
+      propertyPath: CurrentReserveCapacity
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576158241057130886, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
+      propertyPath: <isWeapon>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576158241057130886, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
+      propertyPath: <weaponRange>k__BackingField
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576158241057130886, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
+      propertyPath: <weaponDamage>k__BackingField
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576158241057130886, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
+      propertyPath: <weaponUIIcon>k__BackingField
+      value: 
+      objectReference: {fileID: 21300000, guid: 0480c9723a3ae444a8210e8c1fc3989e, type: 3}
+    - target: {fileID: 4576158241057130886, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
+      propertyPath: <magazineCapacity>k__BackingField
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576158241057130886, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
+      propertyPath: <maxReserveCapacity>k__BackingField
+      value: 24
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}

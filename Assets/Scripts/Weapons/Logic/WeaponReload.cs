@@ -8,17 +8,17 @@ public class WeaponReload : MonoBehaviour
     {
         if(weaponData.currentAmmo < weaponData.magazineCapacity)
         {
-            if (weaponData.reserveCapacity >= (weaponData.magazineCapacity - weaponData.currentAmmo))
+            if (weaponData.CurrentReserveCapacity >= (weaponData.magazineCapacity - weaponData.currentAmmo))
             {
-                weaponData.reserveCapacity -= (weaponData.magazineCapacity - weaponData.currentAmmo);
+                weaponData.CurrentReserveCapacity -= (weaponData.magazineCapacity - weaponData.currentAmmo);
                 weaponData.currentAmmo += (weaponData.magazineCapacity - weaponData.currentAmmo);
 
                 weaponData.reloadSound.Play();
             }
-            else if (weaponData.reserveCapacity > 0)
+            else if (weaponData.CurrentReserveCapacity > 0)
             {
-                weaponData.currentAmmo += weaponData.reserveCapacity;
-                weaponData.reserveCapacity = 0;
+                weaponData.currentAmmo += weaponData.CurrentReserveCapacity;
+                weaponData.CurrentReserveCapacity = 0;
 
                 weaponData.reloadSound.Play();
             }
