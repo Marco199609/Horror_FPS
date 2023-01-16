@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(InventoryUI))]
@@ -49,17 +50,23 @@ public class InventoryController : MonoBehaviour
             for(int i = 0; i < items.Count; i++)
             {
                 //print(gameController.inventorySlots[i].SlotIcon.gameObject.name);
+                _inventorySlots[i].Item = items[i];
                 _inventorySlots[i].SlotIcon.gameObject.SetActive(true);
                 _inventorySlots[i].SlotIcon.GetComponent<Image>().sprite = items[i].icon;
+                _inventorySlots[i].RemoveItemButton.SetActive(true);
             }
         }
         else
             print("Inventory Full");
     }
 
-    public void Remove(Item _item)
+    public void Remove(GameObject buttonClicked)
     {
-        items.Remove(_item);
+        InventorySlot InventorySlot = buttonClicked.GetComponentInParent<InventorySlot>();
+
+        items.Remove(InventorySlot.Item);
+        InventorySlot.SlotIcon.gameObject.SetActive(false);
+        buttonClicked.SetActive(false);
     }
 
     private void OpenInventoryUI()

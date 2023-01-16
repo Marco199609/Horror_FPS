@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.ExceptionServices;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
@@ -58,5 +59,11 @@ public class GameController : MonoBehaviour
             fpsText.text = "FPS: " + fps;
             _timer = Time.unscaledTime + hudRefreshRate;
         }
+    }
+
+    //passes button to the inventory controller 
+    public void RemoveItemFromInventory()
+    {
+        ObjectManager.Instance.InventoryController.Remove(EventSystem.current.currentSelectedGameObject);
     }
 }
