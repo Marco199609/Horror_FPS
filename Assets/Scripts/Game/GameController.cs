@@ -4,6 +4,7 @@ using System.Runtime.ExceptionServices;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class GameController : MonoBehaviour
 {

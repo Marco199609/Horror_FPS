@@ -17,8 +17,8 @@ public class PlayerMovement : MonoBehaviour
         Vector3 forward = player.transform.TransformDirection(Vector3.forward);
         Vector3 right = player.transform.TransformDirection(Vector3.right);
 
-        float curSpeedX = canMove ? (playerInput.playerRunInput ? playerData.runSpeed : playerData.walkSpeed) * playerInput.playerMovementInput.x : 0;
-        float curSpeedY = canMove ? (playerInput.playerRunInput ? playerData.runSpeed : playerData.walkSpeed) * playerInput.playerMovementInput.y : 0;
+        float curSpeedX = canMove ? (playerInput.playerRunInput ? playerData.runSpeed : playerData.walkSpeed) * playerInput.playerMovementInput.y : 0;
+        float curSpeedY = canMove ? (playerInput.playerRunInput ? playerData.runSpeed : playerData.walkSpeed) * playerInput.playerMovementInput.x : 0;
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
