@@ -15,7 +15,7 @@ public class PlayerFlashLight : MonoBehaviour
             if (flashlight == null)
                 flashlight = playerData.flashlight.GetComponent<Light>();
 
-            flashlight.intensity += playerInput.MouseScrollInput * 2;
+            flashlight.intensity += playerInput.MouseScrollInput * 7 * Time.deltaTime;
             flashlight.intensity = Mathf.Clamp(flashlight.intensity, 1, 5);
 
             if (flashlight.intensity < 1.2f)
