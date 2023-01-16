@@ -17,7 +17,7 @@ public class InventoryController : MonoBehaviour
     public int InventorySpace = 12;
     public List<Item> items = new List<Item>();
 
-    private List<InventorySlot> _inventorySlots = new List<InventorySlot>();
+    [SerializeField] private List<InventorySlot> _inventorySlots = new List<InventorySlot>();
 
     private void Awake()
     {
@@ -49,11 +49,14 @@ public class InventoryController : MonoBehaviour
 
             for(int i = 0; i < items.Count; i++)
             {
-                //print(gameController.inventorySlots[i].SlotIcon.gameObject.name);
-                _inventorySlots[i].Item = items[i];
-                _inventorySlots[i].SlotIcon.gameObject.SetActive(true);
-                _inventorySlots[i].SlotIcon.GetComponent<Image>().sprite = items[i].icon;
-                _inventorySlots[i].RemoveItemButton.SetActive(true);
+                if (_inventorySlots[i].Item == null)
+                {
+                    _inventorySlots[i].Item = items[i]; //Assigns this item to the inventory slot
+                    _inventorySlots[i].SlotIcon.gameObject.SetActive(true); //Activates icon in slot
+                    _inventorySlots[i].SlotIcon.GetComponent<Image>().sprite = items[i].icon; //Sets item icon as the new slot icon
+                    _inventorySlots[i].RemoveItemButton.SetActive(true); //Activates the remove button
+                    items[i].CurrentInventorySlot = _inventorySlots[i].GetComponent<InventorySlot>(); //Sets the items current inventory slot for future use
+                }
             }
         }
         else
