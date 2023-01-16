@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.ExceptionServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,9 +10,10 @@ public class GameController : MonoBehaviour
     [SerializeField] private float hudRefreshRate = 1f;
     private float _timer;
 
-    //Inventory UI items
+    [Header("Inventory Items")]
     public GameObject InventoryPanel;
     private InventoryController inventoryController;
+    public List<InventorySlot> inventorySlots = new List<InventorySlot>();
 
     private void Awake()
     {
@@ -45,6 +47,7 @@ public class GameController : MonoBehaviour
             Cursor.visible = true;
         }
     }
+
 
 
     void ShowFPS()
