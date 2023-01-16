@@ -49,7 +49,8 @@ public class InventoryController : MonoBehaviour
             for(int i = 0; i < items.Count; i++)
             {
                 //print(gameController.inventorySlots[i].SlotIcon.gameObject.name);
-                gameController.inventorySlots[i].SlotIcon.GetComponent<Image>().sprite = items[i].icon;
+                _inventorySlots[i].SlotIcon.gameObject.SetActive(true);
+                _inventorySlots[i].SlotIcon.GetComponent<Image>().sprite = items[i].icon;
             }
         }
         else
