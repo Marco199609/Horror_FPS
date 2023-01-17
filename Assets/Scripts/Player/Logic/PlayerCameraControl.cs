@@ -60,10 +60,12 @@ public class PlayerCameraControl : MonoBehaviour
         }
         else
         {
+            float runMovementAmplitude = playerData.camMovementAmplitude * 2;
+
             pos.y += Mathf.Sin(Time.time * playerData.camMovementFrequency * (playerData.runSpeed / playerData.walkSpeed))
-                * playerData.camMovementAmplitude;
+                * runMovementAmplitude;
             pos.x += Mathf.Cos(Time.time * playerData.camMovementFrequency / 2 * (playerData.runSpeed / playerData.walkSpeed))
-                * playerData.camMovementAmplitude * 2;
+                * runMovementAmplitude * 2;
         }
 
         return pos;
