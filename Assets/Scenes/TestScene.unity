@@ -730,7 +730,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &705507994
 Light:
   m_ObjectHideFlags: 0
@@ -780,7 +780,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 2147483647
+    m_Bits: 959
   m_RenderingLayerMask: 1
   m_Lightmapping: 1
   m_LightShadowCasterMode: 0
@@ -800,14 +800,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: -0.58819646, y: -0.017546674, z: 0.36205688, w: -0.7229329}
+  m_LocalRotation: {x: 0.096538275, y: 0.58048564, z: 0.63926506, w: 0.4950323}
   m_LocalPosition: {x: 0.62502027, y: 0.99995995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1557928916}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -239.673, y: -232.493, z: 455.213}
+  m_LocalEulerAnglesHint: {x: -139.715, y: -113.767, z: 257.582}
 --- !u!1 &774578920 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 774578920, guid: 0388042e1377947b7a6fabb5f2b9a723, type: 3}
@@ -2356,14 +2356,6 @@ PrefabInstance:
       propertyPath: UICenterPoint
       value: 
       objectReference: {fileID: 1891411288}
-    - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
-      propertyPath: ItemLayerMask.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
-      propertyPath: camMovementFrequency
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
 --- !u!4 &2770187571345181435 stripped
@@ -2422,6 +2414,10 @@ PrefabInstance:
       propertyPath: BulletImages.Array.data[7]
       value: 
       objectReference: {fileID: 1589277291}
+    - target: {fileID: 3693143547791617668, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4576158240694328840, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
       propertyPath: shotSound
       value: 
@@ -2521,6 +2517,10 @@ PrefabInstance:
     - target: {fileID: 4576158240930795562, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
       propertyPath: <maxReserveCapacity>k__BackingField
       value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576158241057130880, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4576158241057130886, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
       propertyPath: CurrentReserveCapacity
@@ -3964,6 +3964,10 @@ PrefabInstance:
     - target: {fileID: 8910164600443597072, guid: d1f1f492a1c4a9f4cac03b3af4949ee3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910164600443597073, guid: d1f1f492a1c4a9f4cac03b3af4949ee3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8910164600443597073, guid: d1f1f492a1c4a9f4cac03b3af4949ee3, type: 3}
       propertyPath: m_CullingMask.m_Bits
