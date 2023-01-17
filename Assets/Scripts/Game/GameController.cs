@@ -25,6 +25,10 @@ public class GameController : MonoBehaviour
     {
         //Adds this object to object manager for future use
         ObjectManager.Instance.GameController = this;
+        
+        #if UNITY_ANDROID
+        Application.targetFrameRate = 60;
+        #endif
     }
     private void Start()
     {
