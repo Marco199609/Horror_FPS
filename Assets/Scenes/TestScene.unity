@@ -2418,14 +2418,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4576158240694328840, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: shotSound
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576158240694328840, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: reloadSound
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4576158240907094440, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
       propertyPath: _followObject
       value: 
@@ -2489,66 +2481,6 @@ PrefabInstance:
     - target: {fileID: 4576158240907094443, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
       propertyPath: m_Name
       value: WeaponHolder
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576158240930795562, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: CurrentReserveCapacity
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576158240930795562, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: <isWeapon>k__BackingField
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576158240930795562, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: <weaponRange>k__BackingField
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576158240930795562, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: <weaponDamage>k__BackingField
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576158240930795562, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: <weaponUIIcon>k__BackingField
-      value: 
-      objectReference: {fileID: 21300000, guid: 0480c9723a3ae444a8210e8c1fc3989e, type: 3}
-    - target: {fileID: 4576158240930795562, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: <magazineCapacity>k__BackingField
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576158240930795562, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: <maxReserveCapacity>k__BackingField
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576158241057130880, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576158241057130886, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: CurrentReserveCapacity
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576158241057130886, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: <isWeapon>k__BackingField
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576158241057130886, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: <weaponRange>k__BackingField
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576158241057130886, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: <weaponDamage>k__BackingField
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576158241057130886, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: <weaponUIIcon>k__BackingField
-      value: 
-      objectReference: {fileID: 21300000, guid: 0480c9723a3ae444a8210e8c1fc3989e, type: 3}
-    - target: {fileID: 4576158241057130886, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: <magazineCapacity>k__BackingField
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576158241057130886, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: <maxReserveCapacity>k__BackingField
-      value: 24
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
