@@ -354,8 +354,8 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
-  mouseSensitivityX: 8
-  mouseSensitivityY: 8
+  mouseSensitivityX: 10
+  mouseSensitivityY: 10
   camHolder: {fileID: 2181557804533295363}
   camTransform: {fileID: 2770187572269442958}
   camMovementAmplitude: 0.005
@@ -365,6 +365,9 @@ MonoBehaviour:
   UIPickupHand: {fileID: 0}
   UICenterPoint: {fileID: 0}
   characterController: {fileID: 2770187571978162034}
+  ItemLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!143 &2770187571978162034
 CharacterController:
   m_ObjectHideFlags: 0
@@ -449,7 +452,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 191
+    m_Bits: 703
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

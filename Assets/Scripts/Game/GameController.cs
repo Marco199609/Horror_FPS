@@ -4,6 +4,7 @@ using System.Runtime.ExceptionServices;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.InputSystem;
 
 public class GameController : MonoBehaviour
@@ -16,6 +17,9 @@ public class GameController : MonoBehaviour
     public GameObject InventoryPanel;
     private InventoryController inventoryController;
     public List<InventorySlot> inventorySlots = new List<InventorySlot>();
+
+    [Header("UI Items")]
+    public TextMeshProUGUI CustomItemMessage;
 
     private void Awake()
     {
@@ -62,9 +66,10 @@ public class GameController : MonoBehaviour
         }
     }
 
-    //passes button to the inventory controller 
+
     public void RemoveItemFromInventory()
     {
-        ObjectManager.Instance.InventoryController.Remove(EventSystem.current.currentSelectedGameObject);
+        //passes inventory slot clicked to the inventory controller 
+        ObjectManager.Instance.InventoryController.Remove(EventSystem.current.currentSelectedGameObject.GetComponentInParent<InventorySlot>());
     }
 }

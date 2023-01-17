@@ -15,3 +15,4 @@ MonoBehaviour:
   name: Painkiller
   icon: {fileID: 0}
   CurrentInventorySlot: {fileID: 0}
+  message: Painkiller

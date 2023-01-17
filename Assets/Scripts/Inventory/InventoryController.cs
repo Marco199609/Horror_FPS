@@ -14,7 +14,7 @@ public class InventoryController : MonoBehaviour
     private InventoryUI inventoryUI;
 
     public bool IsInventoryEnabled;
-    public int InventorySpace = 12;
+    public int InventorySpace;
     public List<Item> items = new List<Item>();
 
     [SerializeField] private List<InventorySlot> _inventorySlots = new List<InventorySlot>();
@@ -33,6 +33,7 @@ public class InventoryController : MonoBehaviour
         inventoryUI = GetComponent<InventoryUI>();
 
         _inventorySlots = gameController.inventorySlots;
+        InventorySpace = _inventorySlots.Count;
     }
 
     private void Update()
@@ -46,30 +47,37 @@ public class InventoryController : MonoBehaviour
         if (items.Count < InventorySpace)
         {
             items.Add(_item);
-
-            for(int i = 0; i < items.Count; i++)
-            {
-                if (_inventorySlots[i].Item == null)
-                {
-                    _inventorySlots[i].Item = items[i]; //Assigns this item to the inventory slot
-                    _inventorySlots[i].SlotIcon.gameObject.SetActive(true); //Activates icon in slot
-                    _inventorySlots[i].SlotIcon.GetComponent<Image>().sprite = items[i].icon; //Sets item icon as the new slot icon
-                    _inventorySlots[i].RemoveItemButton.SetActive(true); //Activates the remove button
-                    items[i].CurrentInventorySlot = _inventorySlots[i].GetComponent<InventorySlot>(); //Sets the items current inventory slot for future use
-                }
-            }
+            UpdateInventorySlots();
         }
         else
             print("Inventory Full");
     }
 
-    public void Remove(GameObject buttonClicked)
+    public void Remove(InventorySlot currentInventorySlot)
     {
-        InventorySlot InventorySlot = buttonClicked.GetComponentInParent<InventorySlot>();
+        items.Remove(currentInventorySlot.Item);
+        UpdateInventorySlots();
+    }
 
-        items.Remove(InventorySlot.Item);
-        InventorySlot.SlotIcon.gameObject.SetActive(false);
-        buttonClicked.SetActive(false);
+    private void UpdateInventorySlots()
+    {
+        for(int i = 0; i < _inventorySlots.Count;i++)
+        {
+            if (i < items.Count)
+            {
+                _inventorySlots[i].Item = items[i]; //Assigns this item to the inventory slot
+                _inventorySlots[i].SlotIcon.gameObject.SetActive(true); //Activates icon in slot
+                _inventorySlots[i].SlotIcon.GetComponent<Image>().sprite = items[i].icon; //Sets item icon as the new slot icon
+                _inventorySlots[i].RemoveItemButton.SetActive(true); //Activates the remove button
+                items[i].CurrentInventorySlot = _inventorySlots[i].GetComponent<InventorySlot>(); //Sets the items current inventory slot for future use
+            }   
+            else
+            {
+                _inventorySlots[i].Item = null;
+                _inventorySlots[i].SlotIcon.gameObject.SetActive(false);
+                _inventorySlots[i].RemoveItemButton.SetActive(false);
+            }
+        }
     }
 
     private void OpenInventoryUI()

@@ -30,6 +30,7 @@ public class PlayerData : MonoBehaviour
     public Image UIPickupHand;
     public Image UICenterPoint;
     public CharacterController characterController;
+    public LayerMask ItemLayerMask;
 
 
     private void Awake()

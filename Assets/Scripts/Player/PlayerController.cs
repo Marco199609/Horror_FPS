@@ -9,6 +9,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerCameraControl))]
 [RequireComponent(typeof(PlayerFlashLight))]
 [RequireComponent(typeof(PlayerItemPickup))]
+[RequireComponent(typeof(PlayerItemHover))]
 #endregion
 
 
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
 
     private PlayerData playerData;
     private InventoryController inventoryController;
+    private GameController gameController;
     private PlayerInput playerInput;
 
     //Player scripts attached to this gameobject
@@ -26,8 +28,11 @@ public class PlayerController : MonoBehaviour
     private PlayerCameraControl playerCameraControl;
     private PlayerFlashLight playerFlashlight;
     private PlayerItemPickup playerItemPickup;
+    private PlayerItemHover playerItemHover;
 
     private GameObject player;
+    Ray ray; //used for item interaction
+    LayerMask itemLayerMask;
 
     private void Awake()
     {
@@ -37,8 +42,7 @@ public class PlayerController : MonoBehaviour
         playerCameraControl = GetComponent<PlayerCameraControl>();
         playerFlashlight = GetComponent<PlayerFlashLight>();
         playerItemPickup = GetComponent<PlayerItemPickup>();
-
-
+        playerItemHover= GetComponent<PlayerItemHover>();
 
         //Adds this object to object manager for future use
         ObjectManager.Instance.PlayerController = this;
@@ -54,6 +58,9 @@ public class PlayerController : MonoBehaviour
         player = objectManager.Player;
         playerInput = objectManager.PlayerInput;
         inventoryController = objectManager.InventoryController;
+        gameController = objectManager.GameController;
+
+        itemLayerMask = playerData.ItemLayerMask;
     }
 
     // Update is called once per frame
@@ -68,9 +75,10 @@ public class PlayerController : MonoBehaviour
 
         FlashlightControl();
 
-        if (!objectManager.WeaponController.isWeaponActive)
+        //picks up items only if weapon inactive and if inventory closed
+        if (!objectManager.WeaponController.isWeaponActive && !objectManager.InventoryController.IsInventoryEnabled)
         {
-            ItemPickup();
+            ItemInteraction();
         }
     }
 
@@ -80,9 +88,22 @@ public class PlayerController : MonoBehaviour
         playerRotate.MouseLook(player, playerData, playerInput);
     }
 
-    private void ItemPickup()
+    private void ItemInteraction()
     {
-        playerItemPickup.ItemPickup(playerInput, inventoryController, playerData);
+        RaycastHit hit;
+        ray.origin = playerData.camHolder.position;
+        ray.direction = playerData.camHolder.forward;
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, itemLayerMask))
+        {
+            if (hit.distance <= playerData.itemPickupDistance) //Checks if item reachable
+            {
+                playerItemHover.HoverOverItem(hit, playerData, gameController);
+                playerItemPickup.ItemPickup(hit, playerInput);
+            }
+        }
+        else
+            playerItemHover.DeactivateUIElements(playerData, gameController);
     }
 
     private void CameraControl()
