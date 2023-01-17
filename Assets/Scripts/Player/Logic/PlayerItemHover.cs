@@ -1,9 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerItemHover : MonoBehaviour
 {
+    private void Start()
+    {
+        if(!ObjectManager.Instance.GameController.CustomItemMessage.gameObject.activeInHierarchy)
+            ObjectManager.Instance.GameController.CustomItemMessage.gameObject.SetActive(true);
+    }
+
     public void HoverOverItem(RaycastHit hit, PlayerData playerData, GameController gameController)
     {
         ActivateUIPickupHand(playerData);
@@ -12,10 +19,8 @@ public class PlayerItemHover : MonoBehaviour
 
     void ShowCustomItemMessagage(ItemData _itemData, GameController gameController)
     {
-        if (!gameController.CustomItemMessage.gameObject.activeInHierarchy)
-            gameController.CustomItemMessage.gameObject.SetActive(true);
-
-        gameController.CustomItemMessage.text = _itemData.Item.message;
+        if (gameController.CustomItemMessage.text == "")
+            gameController.CustomItemMessage.text = _itemData.Item.message;
     }
 
     private void ActivateUIPickupHand(PlayerData playerData)
@@ -32,7 +37,7 @@ public class PlayerItemHover : MonoBehaviour
         if(!playerData.UICenterPoint.gameObject.activeInHierarchy)
             playerData.UICenterPoint.gameObject.SetActive(true);
 
-        if (gameController.CustomItemMessage.gameObject.activeInHierarchy)
-            gameController.CustomItemMessage.gameObject.SetActive(false);
+        if (gameController.CustomItemMessage.text != "")
+            gameController.CustomItemMessage.text = "";
     }
 }
