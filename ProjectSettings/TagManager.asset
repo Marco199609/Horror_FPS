@@ -8,6 +8,7 @@ TagManager:
   - Item
   - InputManager
   - Hand
+  - Weapon
   layers:
   - Default
   - TransparentFX

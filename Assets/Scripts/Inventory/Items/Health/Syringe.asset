@@ -15,4 +15,4 @@ MonoBehaviour:
   name: Syringe
   icon: {fileID: 21300000, guid: c7e19a844dccc1c4eb5e561c5b9468dc, type: 3}
   CurrentInventorySlot: {fileID: 0}
-  message: This is a syringe to use for your health
+  description: Syringe for your health

@@ -11,6 +11,7 @@ public class InventoryController : MonoBehaviour
     private ObjectManager objectManager;
     private InventoryInput inventoryInput;
     private GameController gameController;
+    private WeaponGeneralData weaponGeneralData;
 
     //Scripts on this gameobject
     private InventoryUI inventoryUI;
@@ -19,8 +20,10 @@ public class InventoryController : MonoBehaviour
     public bool IsInventoryEnabled;
     public int InventorySpace;
     public List<ItemData> itemDatas = new List<ItemData>();
+    public GameObject[] weapons;
 
-    [SerializeField] private List<InventorySlot> _inventorySlots = new List<InventorySlot>();
+    [SerializeField] private List<InventoryItemSlot> _inventoryItemSlots = new List<InventoryItemSlot>();
+    [SerializeField] private List<InventoryWeaponSlot> _inventoryWeaponSlots = new List<InventoryWeaponSlot>();
 
     private void Awake()
     {
@@ -33,12 +36,16 @@ public class InventoryController : MonoBehaviour
         objectManager = ObjectManager.Instance;
         inventoryInput = objectManager.InventoryInput;
         gameController = objectManager.GameController;
+        weaponGeneralData = objectManager.WeaponGeneralData;
 
         inventoryUI = GetComponent<InventoryUI>();
         InventoryUpdateSlots = GetComponent<InventoryUpdateSlots>();
 
-        _inventorySlots = gameController.inventorySlots;
-        InventorySpace = _inventorySlots.Count;
+        _inventoryItemSlots = gameController.inventoryItemSlots;
+        InventorySpace = _inventoryItemSlots.Count;
+        _inventoryWeaponSlots = gameController.inventoryWeaponSlots;
+
+        weapons = new GameObject[weaponGeneralData.WeaponsAvailable.Length];
 
         UpdateInventorySlots();
     }
@@ -49,7 +56,7 @@ public class InventoryController : MonoBehaviour
     }
 
     //Used in player item pickup
-    public void Add(ItemData _itemData)
+    public void AddItem(ItemData _itemData)
     {
         if (itemDatas.Count < InventorySpace)
         {
@@ -60,7 +67,13 @@ public class InventoryController : MonoBehaviour
             print("Inventory Full");
     }
 
-    public void Remove(InventorySlot currentInventorySlot)
+    public void AddWeapon(WeaponData weaponData)
+    {
+        weapons[weaponData.weaponIndex] = weaponData.gameObject;
+        weaponGeneralData.WeaponsAvailable[weaponData.weaponIndex] = weaponData.gameObject;
+    }
+
+    public void Remove(InventoryItemSlot currentInventorySlot)
     {
         itemDatas.Remove(currentInventorySlot.ItemData);
         UpdateInventorySlots();
@@ -68,7 +81,7 @@ public class InventoryController : MonoBehaviour
 
     private void UpdateInventorySlots()
     {
-        InventoryUpdateSlots.UpdateSlots(_inventorySlots, itemDatas);
+        InventoryUpdateSlots.UpdateSlots(_inventoryItemSlots, itemDatas, _inventoryWeaponSlots, weapons);
     }
 
     private void OpenInventoryUI()

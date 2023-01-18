@@ -5,7 +5,7 @@ public class Item : ScriptableObject
 {
     new public string name = "New Item";
     public Sprite icon = null;
-    public InventorySlot CurrentInventorySlot;
+    public InventoryItemSlot CurrentInventorySlot;
 
-    public string message = "Custom message";
+    public string description = "Custom description";
 }

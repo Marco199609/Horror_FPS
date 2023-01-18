@@ -16,10 +16,11 @@ public class GameController : MonoBehaviour
     [Header("Inventory Items")]
     public GameObject InventoryPanel;
     private InventoryController inventoryController;
-    public List<InventorySlot> inventorySlots = new List<InventorySlot>();
+    public List<InventoryItemSlot> inventoryItemSlots = new List<InventoryItemSlot>();
+    public List<InventoryWeaponSlot> inventoryWeaponSlots = new List<InventoryWeaponSlot>();
 
     [Header("UI Items")]
-    public TextMeshProUGUI CustomItemMessage;
+    public TextMeshProUGUI ItemOrWeaponDescription;
 
     private void Awake()
     {
@@ -74,6 +75,6 @@ public class GameController : MonoBehaviour
     public void RemoveItemFromInventory()
     {
         //passes inventory slot clicked to the inventory controller 
-        ObjectManager.Instance.InventoryController.Remove(EventSystem.current.currentSelectedGameObject.GetComponentInParent<InventorySlot>());
+        ObjectManager.Instance.InventoryController.Remove(EventSystem.current.currentSelectedGameObject.GetComponentInParent<InventoryItemSlot>());
     }
 }

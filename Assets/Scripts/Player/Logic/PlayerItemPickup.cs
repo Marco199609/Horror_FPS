@@ -6,11 +6,10 @@ public class PlayerItemPickup : MonoBehaviour
 {
     public void ItemPickup(RaycastHit hit, PlayerInput playerInput)
     {
-        if (playerInput.itemPickupInput) //Checks if player clicks mouse to pickup item
+        if (playerInput.playerPickupInput && hit.collider.CompareTag("Item")) //Checks if player clicks mouse to pickup item
         {
             ItemData _itemData = hit.collider.GetComponent<ItemData>();
-
-            ObjectManager.Instance.InventoryController.Add(_itemData);
+            ObjectManager.Instance.InventoryController.AddItem(_itemData);
 
             DestroyItem(_itemData);
         }

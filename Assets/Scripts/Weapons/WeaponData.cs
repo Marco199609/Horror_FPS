@@ -20,6 +20,7 @@ public class WeaponData : MonoBehaviour
      * Weapon UI Icon: Sprite that appears beside the ammo stats in the UI.
     */
 
+    [field: SerializeField] public int weaponIndex; // 0 to 2: 0 is reserved for no weapon, 1 is for short weapon and 2 is for  long weapon
 
     [field: SerializeField] public bool isWeapon { get; private set; }
 
@@ -34,6 +35,8 @@ public class WeaponData : MonoBehaviour
     [field: SerializeField] public int maxReserveCapacity { get; private set; }
 
     [field: SerializeField] public Sprite weaponUIIcon { get; private set; }
+
+    [field:SerializeField] public string WeaponDescription { get; private set; }
 
     public int currentAmmo; 
     public int CurrentReserveCapacity;

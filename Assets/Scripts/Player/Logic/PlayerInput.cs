@@ -8,7 +8,7 @@ public class PlayerInput : MonoBehaviour
 
     public bool playerJumpInput { get; private set; }
     public bool playerRunInput { get; private set; }
-    public bool itemPickupInput { get; private set; }
+    public bool playerPickupInput { get; private set; }
     public bool FlashLightInput { get; private set; }
     public float MouseScrollInput { get; private set; }
     public Vector2 playerMovementInput { get; private set; }
@@ -55,7 +55,7 @@ public class PlayerInput : MonoBehaviour
     {
         playerJumpInput = _mainInput.Player.Jump.inProgress;
         playerRunInput = _mainInput.Player.Run.inProgress;
-        itemPickupInput = _mainInput.Player.ItemPickup.inProgress;
+        playerPickupInput = _mainInput.Player.ItemPickup.inProgress;
         FlashLightInput = _mainInput.Player.Flashlight.inProgress;
     }
 

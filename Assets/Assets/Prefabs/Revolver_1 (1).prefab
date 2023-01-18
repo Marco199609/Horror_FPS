@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4592728615055027245}
   m_Layer: 6
   m_Name: Revolver_1 (1)
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99e5303386fb442929d966a9281a4ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponIndex: 1
   <isWeapon>k__BackingField: 1
   <fireRate>k__BackingField: 0
   <reloadSpeed>k__BackingField: 0
@@ -110,6 +111,7 @@ MonoBehaviour:
   <magazineCapacity>k__BackingField: 8
   <maxReserveCapacity>k__BackingField: 24
   <weaponUIIcon>k__BackingField: {fileID: 21300000, guid: 0480c9723a3ae444a8210e8c1fc3989e, type: 3}
+  <WeaponDescription>k__BackingField: This is a weapon
   currentAmmo: 8
   CurrentReserveCapacity: 24
   shotSound: {fileID: 4592728616190066887}

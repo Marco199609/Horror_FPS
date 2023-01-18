@@ -9,7 +9,8 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerCameraControl))]
 [RequireComponent(typeof(PlayerFlashLight))]
 [RequireComponent(typeof(PlayerItemPickup))]
-[RequireComponent(typeof(PlayerItemHover))]
+[RequireComponent(typeof(PlayerWeaponPickup))]
+[RequireComponent(typeof(PlayerItemOrWeaponHover))]
 #endregion
 
 
@@ -28,11 +29,11 @@ public class PlayerController : MonoBehaviour
     private PlayerCameraControl playerCameraControl;
     private PlayerFlashLight playerFlashlight;
     private PlayerItemPickup playerItemPickup;
-    private PlayerItemHover playerItemHover;
+    private PlayerWeaponPickup playerWeaponPickup;
+    private PlayerItemOrWeaponHover playerItemOrWeaponHover;
 
     private GameObject player;
     Ray ray; //used for item interaction
-    LayerMask itemLayerMask;
 
     private void Awake()
     {
@@ -42,7 +43,8 @@ public class PlayerController : MonoBehaviour
         playerCameraControl = GetComponent<PlayerCameraControl>();
         playerFlashlight = GetComponent<PlayerFlashLight>();
         playerItemPickup = GetComponent<PlayerItemPickup>();
-        playerItemHover= GetComponent<PlayerItemHover>();
+        playerWeaponPickup = GetComponent<PlayerWeaponPickup>();
+        playerItemOrWeaponHover = GetComponent<PlayerItemOrWeaponHover>();
 
         //Adds this object to object manager for future use
         ObjectManager.Instance.PlayerController = this;
@@ -59,8 +61,6 @@ public class PlayerController : MonoBehaviour
         playerInput = objectManager.PlayerInput;
         inventoryController = objectManager.InventoryController;
         gameController = objectManager.GameController;
-
-        itemLayerMask = playerData.ItemLayerMask;
     }
 
     // Update is called once per frame
@@ -94,16 +94,20 @@ public class PlayerController : MonoBehaviour
         ray.origin = playerData.camHolder.position;
         ray.direction = playerData.camHolder.forward;
 
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, itemLayerMask))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
             if (hit.distance <= playerData.itemPickupDistance) //Checks if item reachable
             {
-                playerItemHover.HoverOverItem(hit, playerData, gameController);
-                playerItemPickup.ItemPickup(hit, playerInput);
+                if(hit.collider.CompareTag("Item") || hit.collider.CompareTag("Weapon"))
+                {
+                    playerItemOrWeaponHover.HoverOverItem(hit, playerData, gameController);
+                    playerItemPickup.ItemPickup(hit, playerInput);
+                    playerWeaponPickup.WeaponPickup(hit, playerInput);
+                }
             }
         }
         else
-            playerItemHover.DeactivateUIElements(playerData, gameController);
+            playerItemOrWeaponHover.DeactivateUIElements(playerData, gameController);
     }
 
     private void CameraControl()
