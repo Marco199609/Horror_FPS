@@ -12,13 +12,12 @@ public class InventoryController : MonoBehaviour
     private InventoryInput inventoryInput;
     private GameController gameController;
 
-    //scripts on this gameobject
+    //Scripts on this gameobject
     private InventoryUI inventoryUI;
     private InventoryUpdateSlots InventoryUpdateSlots;
 
     public bool IsInventoryEnabled;
     public int InventorySpace;
-    public List<Item> items = new List<Item>();
     public List<ItemData> itemDatas = new List<ItemData>();
 
     [SerializeField] private List<InventorySlot> _inventorySlots = new List<InventorySlot>();
@@ -50,11 +49,10 @@ public class InventoryController : MonoBehaviour
     }
 
     //Used in player item pickup
-    public void Add(ItemData _itemData, Item _item)
+    public void Add(ItemData _itemData)
     {
-        if (items.Count < InventorySpace)
+        if (itemDatas.Count < InventorySpace)
         {
-            items.Add(_item);
             itemDatas.Add(_itemData);
             UpdateInventorySlots();
         }
@@ -64,14 +62,13 @@ public class InventoryController : MonoBehaviour
 
     public void Remove(InventorySlot currentInventorySlot)
     {
-        items.Remove(currentInventorySlot.Item);
         itemDatas.Remove(currentInventorySlot.ItemData);
         UpdateInventorySlots();
     }
 
     private void UpdateInventorySlots()
     {
-        InventoryUpdateSlots.UpdateSlots(_inventorySlots, items, itemDatas);
+        InventoryUpdateSlots.UpdateSlots(_inventorySlots, itemDatas);
     }
 
     private void OpenInventoryUI()

@@ -76,11 +76,11 @@ public class WeaponController : MonoBehaviour
 
     void Update()
     {
+        CheckOrChangeActiveWeapons(); //Weapon change can be done even if inventory open
+
         //Controls weapons only if inventory disabled
         if (!objectManager.InventoryController.IsInventoryEnabled)
         {
-            CheckOrChangeActiveWeapons();
-
             if (isWeaponActive)
             {
                 SendShootCommand();

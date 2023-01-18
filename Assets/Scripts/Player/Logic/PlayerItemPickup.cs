@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class PlayerItemPickup : MonoBehaviour
 {
-    private ItemData _itemData;
-
     public void ItemPickup(RaycastHit hit, PlayerInput playerInput)
     {
         if (playerInput.itemPickupInput) //Checks if player clicks mouse to pickup item
         {
-            _itemData = hit.collider.GetComponent<ItemData>();
+            ItemData _itemData = hit.collider.GetComponent<ItemData>();
 
-            ObjectManager.Instance.InventoryController.Add(_itemData, _itemData.Item);
+            ObjectManager.Instance.InventoryController.Add(_itemData);
 
-            DestroyItem();
+            DestroyItem(_itemData);
         }
     }
 
-    private void DestroyItem()
+    private void DestroyItem(ItemData _itemData)
     {
         //Disables components instead of destroying the object, so that the item behaviour script works in the inventory slot
         if (_itemData.GetComponent<MeshRenderer>() != null)
@@ -27,7 +25,6 @@ public class PlayerItemPickup : MonoBehaviour
             _itemData.GetComponent<Collider>().enabled = false;
 
         //Destroys item children, if any
-
         int childs = _itemData.transform.childCount;
         for(int i = 0; i < childs; i++)
         {
