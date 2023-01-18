@@ -39,7 +39,7 @@ public class PlayerItemOrWeaponHover : MonoBehaviour
 
     public void DeactivateUIElements(PlayerData playerData, GameController gameController)
     {
-        if(playerData.UIPickupHand.gameObject.activeInHierarchy)
+        if (playerData.UIPickupHand.gameObject.activeInHierarchy)
             playerData.UIPickupHand.gameObject.SetActive(false);
 
         if(!playerData.UICenterPoint.gameObject.activeInHierarchy)

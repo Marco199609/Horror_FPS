@@ -80,6 +80,8 @@ public class PlayerController : MonoBehaviour
         {
             ItemInteraction();
         }
+        else
+            playerData.UICenterPoint.gameObject.SetActive(false); //Deactivates center point
     }
 
     private void PlayerMovementAndRotation()
@@ -105,9 +107,11 @@ public class PlayerController : MonoBehaviour
                     playerWeaponPickup.WeaponPickup(hit, playerInput);
                 }
             }
+            else
+                playerItemOrWeaponHover.DeactivateUIElements(playerData, gameController);
         }
-        else
-            playerItemOrWeaponHover.DeactivateUIElements(playerData, gameController);
+       // else
+
     }
 
     private void CameraControl()

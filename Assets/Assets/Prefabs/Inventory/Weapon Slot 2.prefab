@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 1564898393324184431}
   - component: {fileID: 1564898393324184428}
   - component: {fileID: 2316956655266186836}
+  - component: {fileID: 5507078742607889573}
   m_Layer: 5
   m_Name: Weapon Slot 2
   m_TagString: Untagged
@@ -174,6 +175,18 @@ MonoBehaviour:
   ItemData: {fileID: 0}
   SlotIcon: {fileID: 140319820344606725}
   RemoveItemButton: {fileID: 4174990859856851797}
+--- !u!114 &5507078742607889573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564898393324184426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f9b487d8157b7047872d0a1e397ceda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2044922555898239317
 GameObject:
   m_ObjectHideFlags: 0

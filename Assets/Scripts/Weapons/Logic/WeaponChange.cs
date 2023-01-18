@@ -10,23 +10,36 @@ public class WeaponChange : MonoBehaviour
     {
         if(currentWeaponData == null)
         {
-            weapons[0].SetActive(true);
-            currentWeaponData = weapons[0].GetComponent<WeaponData>();
+            SetDefaultNoWeapon(weapons);
         }
 
         if(weaponInput.weaponIndexInput >= 0 && (weaponInput.weaponIndexInput) < weapons.Length) //Checks if weapon index is in array bounds
         {
             for (int i = 0; i < weapons.Length; i++)
             {
-                //Enables weapon selected and changes current weapon data for weapon controller
-                if (i == weaponInput.weaponIndexInput)
+                if (weapons[i] != null)
                 {
-                    weapons[i].SetActive(true);
-                    currentWeaponData = weapons[i].GetComponent<WeaponData>();
+                    //Enables weapon selected and changes current weapon data for weapon controller
+                    if (i == weaponInput.weaponIndexInput)
+                    {
+                        weapons[i].SetActive(true);
+                        currentWeaponData = weapons[i].GetComponent<WeaponData>();
+                    }
+                    else
+                        weapons[i].SetActive(false);
                 }
                 else
-                    weapons[i].SetActive(false);
+                {
+                    SetDefaultNoWeapon(weapons);
+                }
+
             }
         }
+    }
+
+    private void SetDefaultNoWeapon(GameObject[] weapons)
+    {
+        weapons[0].SetActive(true);
+        currentWeaponData = weapons[0].GetComponent<WeaponData>();
     }
 }
