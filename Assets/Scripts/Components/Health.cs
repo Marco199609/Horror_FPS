@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private int _maxHealth, _currentHealth;
 
-    // Update is called once per frame
-    void Update()
+    public void ModifyHealth(int _healthDifference)
     {
-        
+        _currentHealth += _healthDifference;
+        _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth);
     }
 }

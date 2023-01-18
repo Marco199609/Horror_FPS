@@ -115,7 +115,6 @@ public class WeaponController : MonoBehaviour
         weaponUI.UIUpdate(weaponGeneralData, currentWeaponData.currentAmmo, currentWeaponData.CurrentReserveCapacity, UIAmmoText);
     }
 
-
     private void SendShootCommand()
     {
         //Shoots weapon
