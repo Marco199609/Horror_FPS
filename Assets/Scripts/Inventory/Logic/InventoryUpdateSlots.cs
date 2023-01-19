@@ -8,7 +8,7 @@ public class InventoryUpdateSlots : MonoBehaviour
     public void UpdateSlots(List<InventoryItemSlot> _inventoryItemSlots, List<ItemData> itemDatas, 
         List<InventoryWeaponSlot> _inventoryWeaponSlots, GameObject[] weapons)
     {
-        UpdateItemSlots(_inventoryItemSlots, itemDatas);
+        //UpdateItemSlots(_inventoryItemSlots, itemDatas);
         UpdateWeaponSlots(_inventoryWeaponSlots, weapons);
     }
 
@@ -25,7 +25,7 @@ public class InventoryUpdateSlots : MonoBehaviour
                 _inventoryItemSlots[i].RemoveItemButton.SetActive(true); //Activates the remove button
                 itemDatas[i].Item.CurrentInventorySlot = _inventoryItemSlots[i].GetComponent<InventoryItemSlot>(); //Sets the items current inventory slot for future use
             }
-            else
+            else if (itemDatas.Count > 0)
             {
                 _inventoryItemSlots[i].Item = null;
                 _inventoryItemSlots[i].ItemData = null;
@@ -37,6 +37,32 @@ public class InventoryUpdateSlots : MonoBehaviour
 
     private void UpdateWeaponSlots(List<InventoryWeaponSlot> _inventoryWeaponSlots, GameObject[] weapons)
     {
-        //Add weapon update slot behaviour
+        for(int i = 0; i < weapons.Length; i++)
+        {
+
+            int a = i - 1;  //i - 1: weapons array is length 3; slots array is length 2. weapons[0] is reserved for no weapon
+
+            if (i > 0) //i = 0 is reserved for no weapon
+            {
+
+
+                if (weapons[i] == null)
+                {
+                    _inventoryWeaponSlots[a].SlotIcon.gameObject.SetActive(false);
+                    _inventoryWeaponSlots[a].Weapon = null;
+                    _inventoryWeaponSlots[a].weaponData = null;
+                    _inventoryWeaponSlots[a].RemoveWeaponButton.SetActive(false);
+                }
+                else
+                {
+                    _inventoryWeaponSlots[a].Weapon = weapons[i];
+                    _inventoryWeaponSlots[a].weaponData = weapons[i].GetComponent<WeaponData>();
+                    _inventoryWeaponSlots[a].SlotIcon.sprite = _inventoryWeaponSlots[a].weaponData.weaponIcon;
+                    _inventoryWeaponSlots[a].SlotIcon.gameObject.SetActive(true);
+                    _inventoryWeaponSlots[a].RemoveWeaponButton.SetActive(true);
+                }
+
+            }
+        }
     }
 }

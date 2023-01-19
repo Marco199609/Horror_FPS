@@ -42,8 +42,8 @@ public class InventoryController : MonoBehaviour
         InventoryUpdateSlots = GetComponent<InventoryUpdateSlots>();
 
         _inventoryItemSlots = gameController.inventoryItemSlots;
-        InventorySpace = _inventoryItemSlots.Count;
         _inventoryWeaponSlots = gameController.inventoryWeaponSlots;
+        InventorySpace = _inventoryItemSlots.Count;
 
         weapons = new GameObject[weaponGeneralData.WeaponsAvailable.Length];
 
@@ -71,11 +71,19 @@ public class InventoryController : MonoBehaviour
     {
         weapons[weaponData.weaponIndex] = weaponData.gameObject;
         weaponGeneralData.WeaponsAvailable[weaponData.weaponIndex] = weaponData.gameObject;
+
+        UpdateInventorySlots();
     }
 
-    public void Remove(InventoryItemSlot currentInventorySlot)
+    public void RemoveItem(InventoryItemSlot currentItemSlot)
     {
-        itemDatas.Remove(currentInventorySlot.ItemData);
+        itemDatas.Remove(currentItemSlot.ItemData);
+        UpdateInventorySlots();
+    }
+
+    public void RemoveWeapon(InventoryWeaponSlot currentWeaponSlot)
+    {
+        weapons[currentWeaponSlot.weaponData.weaponIndex] = null;
         UpdateInventorySlots();
     }
 

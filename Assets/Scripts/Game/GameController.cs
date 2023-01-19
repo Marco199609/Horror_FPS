@@ -75,6 +75,12 @@ public class GameController : MonoBehaviour
     public void RemoveItemFromInventory()
     {
         //passes inventory slot clicked to the inventory controller 
-        ObjectManager.Instance.InventoryController.Remove(EventSystem.current.currentSelectedGameObject.GetComponentInParent<InventoryItemSlot>());
+        ObjectManager.Instance.InventoryController.RemoveItem(EventSystem.current.currentSelectedGameObject.GetComponentInParent<InventoryItemSlot>());
+    }
+
+    public void RemoveWeaponFromInventory()
+    {
+        //passes inventory slot clicked to the inventory controller 
+        ObjectManager.Instance.InventoryController.RemoveWeapon(EventSystem.current.currentSelectedGameObject.GetComponentInParent<InventoryWeaponSlot>());
     }
 }

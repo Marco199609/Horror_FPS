@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class WeaponData : MonoBehaviour
 {
     /*
@@ -34,7 +35,7 @@ public class WeaponData : MonoBehaviour
     [field: SerializeField] public int magazineCapacity { get; private set; }
     [field: SerializeField] public int maxReserveCapacity { get; private set; }
 
-    [field: SerializeField] public Sprite weaponUIIcon { get; private set; }
+    [field: SerializeField] public Sprite weaponIcon { get; private set; }
 
     [field:SerializeField] public string WeaponDescription { get; private set; }
 

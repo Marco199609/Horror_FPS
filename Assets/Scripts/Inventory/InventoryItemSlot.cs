@@ -13,6 +13,6 @@ public class InventoryItemSlot : MonoBehaviour
     public void ItemBehaviourOnButtonClick()
     {
         ItemData.ItemBehaviour();
-        ObjectManager.Instance.InventoryController.Remove(this);
+        ObjectManager.Instance.InventoryController.RemoveItem(this);
     }
 }
