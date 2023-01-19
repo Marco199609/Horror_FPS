@@ -2,6 +2,5 @@
 
 public interface IPlayerUIHover
 {
-    void HoverOverItem(GameObject player, RaycastHit hit, GameController gameController);
-    void DeactivateUIElements(GameObject player, GameController gameController);
+    void Hover(GameObject player, RaycastHit hit, GameController gameController);
 }

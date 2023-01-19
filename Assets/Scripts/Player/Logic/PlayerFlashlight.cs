@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class PlayerFlashlight : MonoBehaviour, IFlashlightControl
 {
-    //float rotateVelocity;
-    Light flashlight;
-    
-
     public void FlashlightControl(Light flashlight, PlayerInput playerInput)
     {
         if (playerInput.FlashLightInput)

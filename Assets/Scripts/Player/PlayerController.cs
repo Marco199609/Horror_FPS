@@ -10,40 +10,38 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerFlashlight))]
 [RequireComponent(typeof(PlayerItemPickup))]
 [RequireComponent(typeof(PlayerWeaponPickup))]
-[RequireComponent(typeof(PlayerItemOrWeaponHover))]
+[RequireComponent(typeof(PlayerHover))]
 #endregion
 
 public class PlayerController : MonoBehaviour
 {
-    private ObjectManager objectManager;
+    private ObjectManager _objectManager;
+    private GameObject _player;
+    private PlayerInput _playerInput;
+    private GameController _gameController;
+    private WeaponController _weaponController;
+    private InventoryController _inventoryController;
 
-    private PlayerData playerData;
-    private InventoryController inventoryController;
-    private GameController gameController;
-    private PlayerInput playerInput;
+    private PlayerData _playerData;
+    private Ray _ray; //used for item interaction
 
     //Player scripts attached to this gameobject
-    private IPlayerMovement playerMovement;
-    private IPlayerRotate playerRotate;
-    private ICameraControl playerCameraControl;
-    private IFlashlightControl playerFlashlight;
-    private PlayerItemPickup playerItemPickup;
-    private PlayerWeaponPickup playerWeaponPickup;
-    private PlayerItemOrWeaponHover playerItemOrWeaponHover;
-
-    private GameObject player;
-    Ray ray; //used for item interaction
+    private IPlayerMovement _playerMovement;
+    private IPlayerRotate _playerRotate;
+    private ICameraControl _playerCameraControl;
+    private IFlashlightControl _playerFlashlight;
+    private IPlayerUIHover _playerHover;
+    private IPlayerPickup[] _playerPickup;
 
     private void Awake()
     {
         //Gets required scripts on this gameobject
-        playerMovement = GetComponent<IPlayerMovement>();
-        playerRotate = GetComponent<IPlayerRotate>();
-        playerCameraControl = GetComponent<ICameraControl>();
-        playerFlashlight = GetComponent<IFlashlightControl>();
-        playerItemPickup = GetComponent<PlayerItemPickup>();
-        playerWeaponPickup = GetComponent<PlayerWeaponPickup>();
-        playerItemOrWeaponHover = GetComponent<PlayerItemOrWeaponHover>();
+        _playerMovement = GetComponent<IPlayerMovement>();
+        _playerRotate = GetComponent<IPlayerRotate>();
+        _playerCameraControl = GetComponent<ICameraControl>();
+        _playerFlashlight = GetComponent<IFlashlightControl>();
+        _playerHover = GetComponent<IPlayerUIHover>();
+        _playerPickup = GetComponents<IPlayerPickup>();
 
         //Adds this object to object manager for future use
         ObjectManager.Instance.PlayerController = this;
@@ -51,22 +49,21 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        //Gets object manager
-        objectManager = ObjectManager.Instance;
+        //Gets object manager and objects required
+        _objectManager = ObjectManager.Instance;
+        _player = _objectManager.Player;
+        _playerInput = _objectManager.PlayerInput;
+        _gameController = _objectManager.GameController;
+        _weaponController = _objectManager.WeaponController;
+        _inventoryController = _objectManager.InventoryController;
 
-        //Gets objects from object manager
-        playerData = objectManager.PlayerData;
-        player = objectManager.Player;
-        playerInput = objectManager.PlayerInput;
-        inventoryController = objectManager.InventoryController;
-        gameController = objectManager.GameController;
+        _playerData = _player.GetComponent<PlayerData>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         //Controls player only if inventory closed (Game does not pause)
-        if(!objectManager.InventoryController.IsInventoryEnabled)
+        if(!_objectManager.InventoryController.IsInventoryEnabled)
         {
             PlayerMovementAndRotation();
             CameraControl();
@@ -74,52 +71,48 @@ public class PlayerController : MonoBehaviour
 
         FlashlightControl();
 
-        //picks up items only if weapon inactive and if inventory closed
-        if (!objectManager.WeaponController.isWeaponActive && !objectManager.InventoryController.IsInventoryEnabled)
+        //Picks up items only if weapon inactive and if inventory closed
+        if (!_weaponController.isWeaponActive && !_inventoryController.IsInventoryEnabled)
         {
             ItemInteraction();
         }
-        else
-            playerData.UICenterPoint.gameObject.SetActive(false); //Deactivates center point
+        else _playerData.UICenterPoint.gameObject.SetActive(false); //Deactivates center point
     }
 
     private void PlayerMovementAndRotation()
     {
-        playerMovement.PlayerMove(player, playerInput);
-        playerRotate.RotatePlayer(player, playerInput);
+        _playerMovement.PlayerMove(_player, _playerInput);
+        _playerRotate.RotatePlayer(_player, _playerInput);
     }
 
     private void ItemInteraction()
     {
         RaycastHit hit;
-        ray.origin = playerData.camHolder.position;
-        ray.direction = playerData.camHolder.forward;
+        _ray.origin = _playerData.camHolder.position;
+        _ray.direction = _playerData.camHolder.forward;
 
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        if (Physics.Raycast(_ray, out hit, Mathf.Infinity))
         {
-            if (hit.distance <= playerData.itemPickupDistance) //Checks if item reachable
+            _playerHover.Hover(_player, hit, _gameController); //Activates UI elements when hovering over items and weapons
+
+            if (_playerInput.playerPickupInput)
             {
-                if(hit.collider.CompareTag("Item") || hit.collider.CompareTag("Weapon"))
+                //There are weapon pickup and item pickup scripts
+                for (int i = 0; i < _playerPickup.Length; i++)
                 {
-                    playerItemOrWeaponHover.HoverOverItem(hit, playerData, gameController);
-                    playerItemPickup.ItemPickup(hit, playerInput);
-                    playerWeaponPickup.WeaponPickup(hit, playerInput);
+                    _playerPickup[i].Pickup(_player, hit, _playerInput);
                 }
             }
-            else
-                playerItemOrWeaponHover.DeactivateUIElements(playerData, gameController);
         }
-       // else
-
     }
 
     private void CameraControl()
     {
-        playerCameraControl.ControlCamera(player);
+        _playerCameraControl.ControlCamera(_player); //Controls camera head bob
     }
 
     private void FlashlightControl()
     {
-        playerFlashlight.FlashlightControl(playerData.flashlight.GetComponent<Light>(), playerInput);
+        _playerFlashlight.FlashlightControl(_playerData.flashlight.GetComponent<Light>(), _playerInput); //Controls flashlight intensity
     }
 }

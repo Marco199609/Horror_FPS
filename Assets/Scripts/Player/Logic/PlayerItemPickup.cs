@@ -2,32 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerItemPickup : MonoBehaviour
+public class PlayerItemPickup : MonoBehaviour, IPlayerPickup
 {
-    public void ItemPickup(RaycastHit hit, PlayerInput playerInput)
+    private PlayerData _playerData;
+    public void Pickup(GameObject player, RaycastHit hit, PlayerInput playerInput)
     {
-        if (playerInput.playerPickupInput && hit.collider.CompareTag("Item")) //Checks if player clicks mouse to pickup item
-        {
-            ItemData _itemData = hit.collider.GetComponent<ItemData>();
-            ObjectManager.Instance.InventoryController.AddItem(_itemData);
+        if (_playerData == null) _playerData = player.GetComponent<PlayerData>();
 
-            DestroyItem(_itemData);
+        if (hit.distance <= _playerData.itemPickupDistance && playerInput.playerPickupInput && 
+            hit.collider.CompareTag("Item")) //Checks if player clicks mouse to pickup item and item reachable
+        {
+            ItemData itemData = hit.collider.GetComponent<ItemData>();
+            ObjectManager.Instance.InventoryController.AddItem(itemData);
+
+            DestroyItem(itemData);
         }
     }
 
-    private void DestroyItem(ItemData _itemData)
+    private void DestroyItem(ItemData itemData)
     {
         //Disables components instead of destroying the object, so that the item behaviour script works in the inventory slot
-        if (_itemData.GetComponent<MeshRenderer>() != null)
-            _itemData.GetComponent<MeshRenderer>().enabled = false;
-        if (_itemData.GetComponent<Collider>() != false)
-            _itemData.GetComponent<Collider>().enabled = false;
+        if (itemData.GetComponent<MeshRenderer>() != null)
+            itemData.GetComponent<MeshRenderer>().enabled = false;
+        if (itemData.GetComponent<Collider>() != false)
+            itemData.GetComponent<Collider>().enabled = false;
 
         //Destroys item children, if any
-        int childs = _itemData.transform.childCount;
-        for(int i = 0; i < childs; i++)
+        int childs = itemData.transform.childCount;
+        for (int i = 0; i < childs; i++)
         {
-            Destroy(_itemData.transform.GetChild(i).gameObject);
+            Destroy(itemData.transform.GetChild(i).gameObject);
         }
     }
 }
