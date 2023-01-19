@@ -76,43 +76,26 @@ public class WeaponController : MonoBehaviour
 
     void Update()
     {
+        UIUpdate();
         CheckOrChangeActiveWeapons(); //Weapon change can be done even if inventory open
 
+
+
         //Controls weapons only if inventory disabled
-        if (!objectManager.InventoryController.IsInventoryEnabled)
+        if (!objectManager.InventoryController.IsInventoryEnabled && isWeaponActive)
         {
-            if (isWeaponActive)
-            {
-                SendShootCommand();
-                ReturnWeaponShootToOriginalState();
-                SendReloadCommand();
-
-                if (!weaponUICanvas.activeInHierarchy)
-                    weaponUICanvas.SetActive(true);
-
-                if (!_firstUIUpdate)
-                {
-                    UIUpdate();
-                    _firstUIUpdate = true;
-                }
-
-                if (weaponInput.LeftMouseDownInput || weaponInput.reloadInput)
-                    UIUpdate();
-            }
-            else
-            {
-                weaponUICanvas.SetActive(false);
-            }
+            SendShootCommand();
+            ReturnWeaponShootToOriginalState();
+            SendReloadCommand();
         }
-        else
-            weaponUICanvas.SetActive(false); //Deactivates weapon UI if inventory enabled
+
     }
 
     //Updates weapon UI
     //For loop in this method. Do no run more than once
     private void UIUpdate()
     {
-        weaponUI.UIUpdate(weaponGeneralData, currentWeaponData.currentAmmo, currentWeaponData.CurrentReserveCapacity, UIAmmoText);
+        weaponUI.UIUpdate(weaponGeneralData, currentWeaponData, UIAmmoText, this, weaponUICanvas);
     }
 
     private void SendShootCommand()

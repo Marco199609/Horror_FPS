@@ -28,7 +28,7 @@ public class WeaponChange : MonoBehaviour
                     else
                         weapons[i].SetActive(false);
                 }
-                else
+                else if (weapons[i-1] == null) //Sets weapon 0 only if no weapon on both slots
                 {
                     SetDefaultNoWeapon(weapons);
                 }

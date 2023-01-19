@@ -35,8 +35,8 @@ public class WeaponData : MonoBehaviour
     [field: SerializeField] public int magazineCapacity { get; private set; }
     [field: SerializeField] public int maxReserveCapacity { get; private set; }
 
-    [field: SerializeField] public Sprite weaponIcon { get; private set; }
-
+    [field: SerializeField] public Sprite inventoryIcon { get; private set; }
+    [field: SerializeField] public Sprite UIIcon { get; private set; }
     [field:SerializeField] public string WeaponDescription { get; private set; }
 
     public int currentAmmo; 

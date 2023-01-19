@@ -143,7 +143,8 @@ MonoBehaviour:
   <weaponRange>k__BackingField: 50
   <magazineCapacity>k__BackingField: 8
   <maxReserveCapacity>k__BackingField: 24
-  <weaponUIIcon>k__BackingField: {fileID: 21300000, guid: 0480c9723a3ae444a8210e8c1fc3989e, type: 3}
+  <inventoryIcon>k__BackingField: {fileID: 0}
+  <UIIcon>k__BackingField: {fileID: 0}
   <WeaponDescription>k__BackingField: This is a weapon
   currentAmmo: 8
   CurrentReserveCapacity: 24
@@ -160,8 +161,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.48498988, y: 0.9724662, z: 2.1620746}
-  m_Center: {x: 1.0102123, y: -0.55067384, z: 1.9147813}
+  m_Size: {x: 0.39621186, y: 1.0043049, z: 2.1514616}
+  m_Center: {x: 0.667783, y: -1.3519428, z: 2.9070811}
 --- !u!1 &3447747177538152298
 GameObject:
   m_ObjectHideFlags: 0

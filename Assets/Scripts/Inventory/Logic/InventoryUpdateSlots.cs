@@ -57,7 +57,7 @@ public class InventoryUpdateSlots : MonoBehaviour
                 {
                     _inventoryWeaponSlots[a].Weapon = weapons[i];
                     _inventoryWeaponSlots[a].weaponData = weapons[i].GetComponent<WeaponData>();
-                    _inventoryWeaponSlots[a].SlotIcon.sprite = _inventoryWeaponSlots[a].weaponData.weaponIcon;
+                    _inventoryWeaponSlots[a].SlotIcon.sprite = _inventoryWeaponSlots[a].weaponData.inventoryIcon;
                     _inventoryWeaponSlots[a].SlotIcon.gameObject.SetActive(true);
                     _inventoryWeaponSlots[a].RemoveWeaponButton.SetActive(true);
                 }
