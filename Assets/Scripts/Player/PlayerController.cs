@@ -7,12 +7,11 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerMovement))]
 [RequireComponent(typeof(PlayerRotate))]
 [RequireComponent(typeof(PlayerCameraControl))]
-[RequireComponent(typeof(PlayerFlashLight))]
+[RequireComponent(typeof(PlayerFlashlight))]
 [RequireComponent(typeof(PlayerItemPickup))]
 [RequireComponent(typeof(PlayerWeaponPickup))]
 [RequireComponent(typeof(PlayerItemOrWeaponHover))]
 #endregion
-
 
 public class PlayerController : MonoBehaviour
 {
@@ -24,10 +23,10 @@ public class PlayerController : MonoBehaviour
     private PlayerInput playerInput;
 
     //Player scripts attached to this gameobject
-    private PlayerMovement playerMovement;
-    private PlayerRotate playerRotate;
-    private PlayerCameraControl playerCameraControl;
-    private PlayerFlashLight playerFlashlight;
+    private IPlayerMovement playerMovement;
+    private IPlayerRotate playerRotate;
+    private ICameraControl playerCameraControl;
+    private IFlashlightControl playerFlashlight;
     private PlayerItemPickup playerItemPickup;
     private PlayerWeaponPickup playerWeaponPickup;
     private PlayerItemOrWeaponHover playerItemOrWeaponHover;
@@ -38,10 +37,10 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         //Gets required scripts on this gameobject
-        playerMovement = GetComponent<PlayerMovement>();
-        playerRotate = GetComponent<PlayerRotate>();
-        playerCameraControl = GetComponent<PlayerCameraControl>();
-        playerFlashlight = GetComponent<PlayerFlashLight>();
+        playerMovement = GetComponent<IPlayerMovement>();
+        playerRotate = GetComponent<IPlayerRotate>();
+        playerCameraControl = GetComponent<ICameraControl>();
+        playerFlashlight = GetComponent<IFlashlightControl>();
         playerItemPickup = GetComponent<PlayerItemPickup>();
         playerWeaponPickup = GetComponent<PlayerWeaponPickup>();
         playerItemOrWeaponHover = GetComponent<PlayerItemOrWeaponHover>();
@@ -86,8 +85,8 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerMovementAndRotation()
     {
-        playerMovement.PlayerMove(player, playerData, playerInput);
-        playerRotate.MouseLook(player, playerData, playerInput);
+        playerMovement.PlayerMove(player, playerInput);
+        playerRotate.RotatePlayer(player, playerInput);
     }
 
     private void ItemInteraction()
@@ -116,11 +115,11 @@ public class PlayerController : MonoBehaviour
 
     private void CameraControl()
     {
-        playerCameraControl.ControlCamera(player, playerData);
+        playerCameraControl.ControlCamera(player);
     }
 
     private void FlashlightControl()
     {
-        playerFlashlight.FlashlightControl(playerData, playerInput);
+        playerFlashlight.FlashlightControl(playerData.flashlight.GetComponent<Light>(), playerInput);
     }
 }

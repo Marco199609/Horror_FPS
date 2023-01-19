@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PlayerItemOrWeaponHover : MonoBehaviour
+public class PlayerItemOrWeaponHover : MonoBehaviour, IPlayerUIHover
 {
     string description;
     private void Start()
     {
-        if(!ObjectManager.Instance.GameController.ItemOrWeaponDescription.gameObject.activeInHierarchy)
+        if (!ObjectManager.Instance.GameController.ItemOrWeaponDescription.gameObject.activeInHierarchy)
             ObjectManager.Instance.GameController.ItemOrWeaponDescription.gameObject.SetActive(true);
     }
 
-    public void HoverOverItem(RaycastHit hit, PlayerData playerData, GameController gameController)
+    public void HoverOverItem(RaycastHit hit, GameObject player, GameController gameController)
     {
         ActivateUIPickupHand(playerData);
 
@@ -31,7 +31,7 @@ public class PlayerItemOrWeaponHover : MonoBehaviour
             gameController.ItemOrWeaponDescription.text = description;
     }
 
-    private void ActivateUIPickupHand(PlayerData playerData)
+    private void ActivateUIPickupHand(GameObject player)
     {
         playerData.UIPickupHand.gameObject.SetActive(true);
         playerData.UICenterPoint.gameObject.SetActive(false);
@@ -42,7 +42,7 @@ public class PlayerItemOrWeaponHover : MonoBehaviour
         if (playerData.UIPickupHand.gameObject.activeInHierarchy)
             playerData.UIPickupHand.gameObject.SetActive(false);
 
-        if(!playerData.UICenterPoint.gameObject.activeInHierarchy)
+        if (!playerData.UICenterPoint.gameObject.activeInHierarchy)
             playerData.UICenterPoint.gameObject.SetActive(true);
 
         if (description != "")
