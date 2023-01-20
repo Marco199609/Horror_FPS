@@ -3993,6 +3993,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 897b82e27d4964a1789785edfe0338c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _targetFramerate: 144
+  _vSyncCount: 0
   fpsText: {fileID: 779570862}
   hudRefreshRate: 0.5
   InventoryPanel: {fileID: 1533900236}
@@ -6372,6 +6374,14 @@ PrefabInstance:
       propertyPath: UICenterPoint
       value: 
       objectReference: {fileID: 1891411288}
+    - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
+      propertyPath: mouseSensitivityX
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
+      propertyPath: mouseSensitivityY
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: camMovementAmplitude
       value: 0.005

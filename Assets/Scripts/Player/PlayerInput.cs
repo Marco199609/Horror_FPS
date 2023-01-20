@@ -67,7 +67,7 @@ public class PlayerInput : MonoBehaviour
     }
     private void SmoothPlayerRotate()
     {
-        mouseMovementInput = _mainInput.Player.Rotate.ReadValue<Vector2>()*Time.smoothDeltaTime;
+        mouseMovementInput = _mainInput.Player.Rotate.ReadValue<Vector2>() * Time.smoothDeltaTime;
         //mouseMovementInput = Vector2.SmoothDamp(mouseMovementInput, mouseInput, ref currentMouseVelocity, 0.15f);
     }
 

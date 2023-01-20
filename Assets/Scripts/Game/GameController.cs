@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 
 public class GameController : MonoBehaviour
 {
+    [SerializeField] private int _targetFramerate, _vSyncCount;
     [SerializeField] private Text fpsText;
     [SerializeField] private float hudRefreshRate = 1f;
     private float _timer;
@@ -27,8 +28,8 @@ public class GameController : MonoBehaviour
         //Adds this object to object manager for future use
         ObjectManager.Instance.GameController = this;
         
-        Application.targetFrameRate = 300;
-        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = _targetFramerate;
+        QualitySettings.vSyncCount = _vSyncCount;
     }
     private void Start()
     {

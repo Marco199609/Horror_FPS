@@ -14,9 +14,9 @@ public class PlayerRotate : MonoBehaviour, IPlayerRotate
     {
         if (_playerData == null) _playerData = player.GetComponent<PlayerData>();
 
-        float rotationX = player.transform.localEulerAngles.y + playerInput.mouseMovementInput.x * _playerData.mouseSensitivityX;
+        float rotationX = player.transform.localEulerAngles.y + playerInput.mouseMovementInput.x * _playerData.mouseSensitivityX * Time.deltaTime;
 
-        _rotationY += playerInput.mouseMovementInput.y * _playerData.mouseSensitivityY;
+        _rotationY += playerInput.mouseMovementInput.y * _playerData.mouseSensitivityY * Time.deltaTime;
         _rotationY = Mathf.Clamp(_rotationY, _minimumY, _maximumY);
 
         player.transform.localEulerAngles = new Vector3(0, rotationX, 0);

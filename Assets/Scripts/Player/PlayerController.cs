@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
         _playerData = _player.GetComponent<PlayerData>();
     }
 
-    void Update()
+    private void Update()
     {
         //Controls player only if inventory closed (Game does not pause)
         if(!_objectManager.InventoryController.IsInventoryEnabled)
@@ -79,12 +79,12 @@ public class PlayerController : MonoBehaviour
         else _playerData.UICenterPoint.gameObject.SetActive(false); //Deactivates center point
     }
 
+
     private void PlayerMovementAndRotation()
     {
         _playerMovement.PlayerMove(_player, _playerInput);
         _playerRotate.RotatePlayer(_player, _playerInput);
     }
-
     private void ItemInteraction()
     {
         RaycastHit hit;
