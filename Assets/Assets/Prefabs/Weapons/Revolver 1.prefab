@@ -25,8 +25,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389593185599913258}
-  m_LocalRotation: {x: -0.49561766, y: 0.5043443, z: 0.49561766, w: 0.5043443}
-  m_LocalPosition: {x: 0.65, y: -1.49, z: 2.12}
+  m_LocalRotation: {x: -0.44907528, y: 0.38900074, z: 0.5566852, w: 0.580613}
+  m_LocalPosition: {x: 0.29180485, y: -0.97, z: 2.9984205}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -34,7 +34,7 @@ Transform:
   - {fileID: 3447747177538152301}
   m_Father: {fileID: 2079738163327652859}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -89, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: -107.335, y: 170.677, z: -85.547}
 --- !u!33 &4146715513087010869
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2079738163327652859}
   - component: {fileID: 2079738163327652858}
-  - component: {fileID: 6357154289968138027}
+  - component: {fileID: 5400135744646510430}
   m_Layer: 6
   m_Name: Revolver 1
   m_TagString: Weapon
@@ -150,7 +150,8 @@ MonoBehaviour:
   CurrentReserveCapacity: 24
   shotSound: {fileID: 3447747178712809341}
   reloadSound: {fileID: 3447747177538152300}
---- !u!65 &6357154289968138027
+  <WeaponModel>k__BackingField: {fileID: 389593185599913258}
+--- !u!65 &5400135744646510430
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,11 +159,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2308014564264597493}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.39621186, y: 1.0043049, z: 2.1514616}
-  m_Center: {x: 0.667783, y: -1.3519428, z: 2.9070811}
+  m_Size: {x: 0.48497736, y: 0.82592297, z: 2.18076}
+  m_Center: {x: 0.28004855, y: -0.9328073, z: 3.7365654}
 --- !u!1 &3447747177538152298
 GameObject:
   m_ObjectHideFlags: 0

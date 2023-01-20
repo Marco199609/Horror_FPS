@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(InventoryUI))]
-[RequireComponent(typeof(InventoryUpdateSlots))]
+[RequireComponent(typeof(InventorySlotUpdate))]
 public class InventoryController : MonoBehaviour
 {
     private ObjectManager objectManager;
@@ -15,7 +15,7 @@ public class InventoryController : MonoBehaviour
 
     //Scripts on this gameobject
     private InventoryUI inventoryUI;
-    private InventoryUpdateSlots InventoryUpdateSlots;
+    private InventorySlotUpdate _inventorySlotUpdate;
 
     public bool IsInventoryEnabled;
     public int InventorySpace;
@@ -39,7 +39,7 @@ public class InventoryController : MonoBehaviour
         weaponGeneralData = objectManager.WeaponGeneralData;
 
         inventoryUI = GetComponent<InventoryUI>();
-        InventoryUpdateSlots = GetComponent<InventoryUpdateSlots>();
+        _inventorySlotUpdate = GetComponent<InventorySlotUpdate>();
 
         _inventoryItemSlots = gameController.inventoryItemSlots;
         _inventoryWeaponSlots = gameController.inventoryWeaponSlots;
@@ -89,7 +89,7 @@ public class InventoryController : MonoBehaviour
 
     private void UpdateInventorySlots()
     {
-        InventoryUpdateSlots.UpdateSlots(_inventoryItemSlots, itemDatas, _inventoryWeaponSlots, weapons);
+        _inventorySlotUpdate.UpdateSlots(this, _inventoryItemSlots, _inventoryWeaponSlots);
     }
 
     private void OpenInventoryUI()

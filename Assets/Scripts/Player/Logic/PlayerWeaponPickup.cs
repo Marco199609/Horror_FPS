@@ -19,16 +19,27 @@ public class PlayerWeaponPickup : MonoBehaviour, IPlayerPickup
         }
     }
 
-    private void PlaceWeaponOnHolder(WeaponData _weaponData)
+    private void PlaceWeaponOnHolder(WeaponData weaponData)
     {
         if (_weaponGeneralData == null) _weaponGeneralData = ObjectManager.Instance.WeaponGeneralData;
 
-        if (_weaponData.GetComponent<Collider>() != false) _weaponData.GetComponent<Collider>().enabled = false;
+        if (weaponData.GetComponent<Collider>() != false) weaponData.GetComponent<Collider>().enabled = false;
 
         //Place weapon in weapon holder
-        _weaponData.transform.SetParent(_weaponGeneralData.transform);
-        _weaponData.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.Euler(0, 0, 0));
-        _weaponData.gameObject.layer = 6; // 6 is weapon layer
-        _weaponData.gameObject.SetActive(false);
+        weaponData.transform.SetParent(_weaponGeneralData.transform);
+        weaponData.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.Euler(0, 0, 0));
+        weaponData.gameObject.SetActive(false);
+
+        ChangeWeaponLayer(weaponData);
+    }
+
+    private void ChangeWeaponLayer(WeaponData weaponData)
+    {
+        weaponData.gameObject.layer = 6; // 6 is weapon layer
+        int childs = weaponData.transform.childCount;
+        for (int i = 0; i < childs; i++)
+        {
+            weaponData.transform.GetChild(i).gameObject.layer = 6;
+        }
     }
 }

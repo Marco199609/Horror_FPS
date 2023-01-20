@@ -37,12 +37,14 @@ public class WeaponData : MonoBehaviour
 
     [field: SerializeField] public Sprite inventoryIcon { get; private set; }
     [field: SerializeField] public Sprite UIIcon { get; private set; }
-    [field:SerializeField] public string WeaponDescription { get; private set; }
+    [field: SerializeField] public string WeaponDescription { get; private set; }
 
-    public int currentAmmo; 
+    public int currentAmmo;
     public int CurrentReserveCapacity;
 
-    public AudioSource 
-        shotSound, 
+    public AudioSource
+        shotSound,
         reloadSound;
+
+    [field: SerializeField] public GameObject WeaponModel { get; private set; }
 }

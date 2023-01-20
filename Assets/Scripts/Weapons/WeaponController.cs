@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Xml.Serialization;
 
 #region Components Required
 [RequireComponent(typeof(WeaponReload))]
@@ -37,7 +38,7 @@ public class WeaponController : MonoBehaviour
     private WeaponUI weaponUI;
     private WeaponSound weaponSound;
     private WeaponChange weaponChange;
-    private WeaponAim weaponAim;
+    private IWeaponAim weaponAim;
     private WeaponAnimations WeaponAnimations;
 
     public bool isWeaponActive { get; private set; }
@@ -54,7 +55,7 @@ public class WeaponController : MonoBehaviour
         weaponUI = GetComponent<WeaponUI>();
         weaponSound = GetComponent<WeaponSound>();
         weaponChange = GetComponent<WeaponChange>();
-        weaponAim = GetComponent<WeaponAim>();
+        weaponAim = GetComponent<IWeaponAim>();
         WeaponAnimations = GetComponent<WeaponAnimations>();
 
         //Adds this object to object manager for future use
@@ -85,8 +86,8 @@ public class WeaponController : MonoBehaviour
         if (!objectManager.InventoryController.IsInventoryEnabled && isWeaponActive)
         {
             SendShootCommand();
-            ReturnWeaponShootToOriginalState();
             SendReloadCommand();
+            AimWeapon();
         }
 
     }
@@ -98,6 +99,11 @@ public class WeaponController : MonoBehaviour
         weaponUI.UIUpdate(weaponGeneralData, currentWeaponData, UIAmmoText, this, weaponUICanvas);
     }
 
+    private void AimWeapon()
+    {
+        weaponAim.Aim(currentWeaponData, weaponInput);
+    }
+
     private void SendShootCommand()
     {
         //Shoots weapon
@@ -106,10 +112,7 @@ public class WeaponController : MonoBehaviour
             weaponShoot.Shoot(currentWeaponData, weaponDamage, shootRayOrigin, weaponSound);
             weaponShoot.readyToShoot = false;
         }
-    }
 
-    private void ReturnWeaponShootToOriginalState()
-    {
         //Returns WeaponShoot to it's original state
         if (weaponInput.leftMouseUpInput)
         {

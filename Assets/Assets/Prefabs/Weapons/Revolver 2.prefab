@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6582579849805628126}
   - component: {fileID: 6582579849805628113}
-  - component: {fileID: 5951627777153834634}
+  - component: {fileID: 7385444911865609366}
   m_Layer: 6
   m_Name: Revolver 2
   m_TagString: Weapon
@@ -63,7 +63,8 @@ MonoBehaviour:
   CurrentReserveCapacity: 24
   shotSound: {fileID: 3613274760686925877}
   reloadSound: {fileID: 3613274760553870102}
---- !u!65 &5951627777153834634
+  <WeaponModel>k__BackingField: {fileID: 4532177659430070897}
+--- !u!65 &7385444911865609366
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,8 +75,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.420941, y: 0.96446013, z: 2.0339775}
-  m_Center: {x: 0.67395395, y: -1.3552917, z: 2.8675122}
+  m_Size: {x: 0.4221481, y: 1.0685705, z: 2.2222686}
+  m_Center: {x: 0.7126842, y: -1.0368624, z: 3.742811}
 --- !u!1 &3613274760553870104
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,8 +358,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4532177659430070897}
-  m_LocalRotation: {x: -0.49561766, y: 0.5043443, z: 0.49561766, w: 0.5043443}
-  m_LocalPosition: {x: 0.65, y: -1.49, z: 2.12}
+  m_LocalRotation: {x: -0.44907528, y: 0.38900074, z: 0.5566852, w: 0.580613}
+  m_LocalPosition: {x: 0.29180485, y: -0.97, z: 2.9984205}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -366,7 +367,7 @@ Transform:
   - {fileID: 3613274760553870105}
   m_Father: {fileID: 6582579849805628126}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -89, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: -107.335, y: 170.677, z: -85.547}
 --- !u!33 &144551317408661358
 MeshFilter:
   m_ObjectHideFlags: 0
