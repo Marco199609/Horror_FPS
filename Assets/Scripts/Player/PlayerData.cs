@@ -22,8 +22,9 @@ public class PlayerData : MonoBehaviour
     [SerializeField, Range(0, 0.1f)] public float camMovementAmplitude = 0.005f;
     [SerializeField, Range(0, 30)] public float camMovementFrequency = 20.0f;
 
-    [Header("Flashlight control")]
+    [Header("Light control")]
     public GameObject flashlight;
+    public GameObject weaponLight;
 
     [Header("Inventory Control")]
     public float itemPickupDistance;

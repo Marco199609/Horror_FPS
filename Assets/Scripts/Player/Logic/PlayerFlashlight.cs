@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerFlashlight : MonoBehaviour, IFlashlightControl
 {
-    public void FlashlightControl(Light flashlight, PlayerInput playerInput)
+    public void FlashlightControl(Light flashlight, Light weaponLight, PlayerInput playerInput)
     {
         if (playerInput.FlashLightInput)
         {
@@ -16,5 +16,7 @@ public class PlayerFlashlight : MonoBehaviour, IFlashlightControl
             else
                 flashlight.gameObject.SetActive(true);
         }
+        weaponLight.intensity = flashlight.intensity;
+        weaponLight.intensity = Mathf.Clamp(weaponLight.intensity, 2f, 5);
     }
 }

@@ -11,11 +11,11 @@ public class WeaponAim : MonoBehaviour, IWeaponAim
 
     private void Start()
     {
-        _weaponDefaultPosition = new Vector3(0.29180485f, -0.970000029f, 2.99842048f);
-        _weaponDefaultRotation = new Vector3(287.334839f, 350.67688f, 94.4530716f);
+        _weaponDefaultPosition = new Vector3(0.116f, -0.954f, 1.207f);
+        _weaponDefaultRotation = new Vector3(290.553f, 352.62f, 92.952f);
 
-        _weaponAimPosition = new Vector3(0, -0.5f, 2.8f);
-        _weaponAimRotation = new Vector3(-90f, 90f, 0f);
+        _weaponAimPosition = new Vector3(0, -0.56f, 1.235f);
+        _weaponAimRotation = new Vector3(271.56f, 0, 90);
     }
     public void Aim(WeaponData currentWeaponData, WeaponInput weaponInput)
     {

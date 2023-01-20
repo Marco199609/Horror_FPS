@@ -113,6 +113,6 @@ public class PlayerController : MonoBehaviour
 
     private void FlashlightControl()
     {
-        _playerFlashlight.FlashlightControl(_playerData.flashlight.GetComponent<Light>(), _playerInput); //Controls flashlight intensity
+        _playerFlashlight.FlashlightControl(_playerData.flashlight.GetComponent<Light>(), _playerData.weaponLight.GetComponent<Light>(),  _playerInput); //Controls flashlight intensity
     }
 }

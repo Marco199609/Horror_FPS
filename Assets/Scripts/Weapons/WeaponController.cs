@@ -88,6 +88,7 @@ public class WeaponController : MonoBehaviour
             SendShootCommand();
             SendReloadCommand();
             AimWeapon();
+
         }
 
     }
