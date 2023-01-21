@@ -47,4 +47,14 @@ public class WeaponData : MonoBehaviour
         reloadSound;
 
     [field: SerializeField] public GameObject WeaponModel { get; private set; }
+
+    private void OnBecameVisible()
+    {
+        ObjectManager.Instance.PlayerController.ItemsVisible.Add(this.gameObject); //Must contain a mesh renderer to work
+    }
+
+    private void OnBecameInvisible()
+    {
+        ObjectManager.Instance.PlayerController.ItemsVisible.Remove(this.gameObject); //Must contain a mesh renderer to work
+    }
 }

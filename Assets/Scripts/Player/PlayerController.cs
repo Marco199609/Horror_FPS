@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 #region Components Required
@@ -11,6 +13,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerItemPickup))]
 [RequireComponent(typeof(PlayerWeaponPickup))]
 [RequireComponent(typeof(PlayerHover))]
+[RequireComponent(typeof(PlayerUI))]
 #endregion
 
 public class PlayerController : MonoBehaviour
@@ -32,6 +35,10 @@ public class PlayerController : MonoBehaviour
     private IFlashlightControl _playerFlashlight;
     private IPlayerUIHover _playerHover;
     private IPlayerPickup[] _playerPickup;
+    private IPlayerUI _playerUI;
+
+    //If there is one or more items in viewport, activate ui center point
+    public List<GameObject> ItemsVisible;
 
     private void Awake()
     {
@@ -42,6 +49,7 @@ public class PlayerController : MonoBehaviour
         _playerFlashlight = GetComponent<IFlashlightControl>();
         _playerHover = GetComponent<IPlayerUIHover>();
         _playerPickup = GetComponents<IPlayerPickup>();
+        _playerUI = GetComponent<IPlayerUI>();
 
         //Adds this object to object manager for future use
         ObjectManager.Instance.PlayerController = this;
@@ -58,6 +66,8 @@ public class PlayerController : MonoBehaviour
         _inventoryController = _objectManager.InventoryController;
 
         _playerData = _player.GetComponent<PlayerData>();
+
+        ItemsVisible = new List<GameObject>();
     }
 
     private void Update()
@@ -75,6 +85,7 @@ public class PlayerController : MonoBehaviour
         if (!_weaponController.isWeaponActive && !_inventoryController.IsInventoryEnabled)
         {
             ItemInteraction();
+            UICenterPointControl();
         }
         else _playerData.UICenterPoint.gameObject.SetActive(false); //Deactivates center point
     }
@@ -114,5 +125,11 @@ public class PlayerController : MonoBehaviour
     private void FlashlightControl()
     {
         _playerFlashlight.FlashlightControl(_playerData.flashlight.GetComponent<Light>(), _playerData.weaponLight.GetComponent<Light>(),  _playerInput); //Controls flashlight intensity
+    }
+
+    //Controls the center point appearing and disapearing
+    private void UICenterPointControl()
+    {
+        _playerUI.CenterPointControl(_playerData.UICenterPoint.GetComponent<Image>(), ItemsVisible);
     }
 }

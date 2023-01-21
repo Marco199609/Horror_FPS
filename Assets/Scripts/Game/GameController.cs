@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private int _targetFramerate, _vSyncCount;
     [SerializeField] private Text fpsText;
     [SerializeField] private float hudRefreshRate = 1f;
+    [SerializeField] private bool _showFramerate;
     private float _timer;
 
     [Header("Inventory Items")]
@@ -63,11 +64,15 @@ public class GameController : MonoBehaviour
 
     void ShowFPS()
     {
-        if (Time.unscaledTime > _timer)
+        if (Time.unscaledTime > _timer && _showFramerate)
         {
             int fps = (int)(1f / Time.unscaledDeltaTime);
             fpsText.text = "FPS: " + fps;
             _timer = Time.unscaledTime + hudRefreshRate;
+        }
+        else if(!_showFramerate)
+        {
+            if(fpsText.gameObject.activeInHierarchy) fpsText.gameObject.SetActive(false);
         }
     }
 
