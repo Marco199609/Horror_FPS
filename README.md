@@ -13,9 +13,8 @@
 >- 3: Long weapon selected
 >- Mouse Scroll: Change weapon
 >- F + Mouse Scroll: Activate/deactivate flashlight, and change intensity
->- Left Mouse:
-	1. Pickup mode: Pickup items
-	2. Weapon mode: Shoot
+>- Left Mouse in pickup mode: Pickup items.
+>- Left Mouse in weapon mode: Shoot.
 >- Right Mouse: Weapon aim
 
 >Current features:
@@ -25,3 +24,4 @@
 >- When an item is reachable, a hand will appear.
 >- The flashlight intensity can be changed. There is also a light for the weapon, that follows the flashlight intensity.
 >- The inventory has 3 sections: Item section, hand weapon section and long weapon section.
+>- When the inventory is open, the game doesn't pause. However, your controls are limited to make selecting items easier.
