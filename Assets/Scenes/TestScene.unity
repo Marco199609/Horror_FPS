@@ -4103,7 +4103,7 @@ MonoBehaviour:
   _vSyncCount: 0
   fpsText: {fileID: 779570862}
   hudRefreshRate: 0.5
-  _showFramerate: 0
+  _showFramerate: 1
   InventoryPanel: {fileID: 1533900236}
   inventoryItemSlots:
   - {fileID: 1302643800}
@@ -7630,12 +7630,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8910164600443597073, guid: d1f1f492a1c4a9f4cac03b3af4949ee3, type: 3}
+      propertyPath: m_Range
+      value: 40.01891
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910164600443597073, guid: d1f1f492a1c4a9f4cac03b3af4949ee3, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8910164600443597073, guid: d1f1f492a1c4a9f4cac03b3af4949ee3, type: 3}
       propertyPath: m_Intensity
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910164600443597073, guid: d1f1f492a1c4a9f4cac03b3af4949ee3, type: 3}
+      propertyPath: m_SpotAngle
+      value: 60.000004
       objectReference: {fileID: 0}
     - target: {fileID: 8910164600443597073, guid: d1f1f492a1c4a9f4cac03b3af4949ee3, type: 3}
       propertyPath: m_CullingMask.m_Bits

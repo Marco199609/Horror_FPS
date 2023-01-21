@@ -64,15 +64,20 @@ public class GameController : MonoBehaviour
 
     void ShowFPS()
     {
-        if (Time.unscaledTime > _timer && _showFramerate)
+        if (!_showFramerate)
         {
-            int fps = (int)(1f / Time.unscaledDeltaTime);
-            fpsText.text = "FPS: " + fps;
-            _timer = Time.unscaledTime + hudRefreshRate;
+            if (fpsText.gameObject.activeInHierarchy) fpsText.gameObject.SetActive(false);
         }
-        else if(!_showFramerate)
+        else
         {
-            if(fpsText.gameObject.activeInHierarchy) fpsText.gameObject.SetActive(false);
+            if (Time.unscaledTime > _timer)
+            {
+                if (!fpsText.gameObject.activeInHierarchy) fpsText.gameObject.SetActive(true);
+
+                int fps = (int)(1f / Time.unscaledDeltaTime);
+                fpsText.text = "FPS: " + fps;
+                _timer = Time.unscaledTime + hudRefreshRate;
+            }
         }
     }
 
