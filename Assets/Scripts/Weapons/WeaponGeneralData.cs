@@ -13,6 +13,7 @@ public class WeaponGeneralData : MonoBehaviour
     public GameObject weaponUICanvas;
     public GameObject weaponUIIcon;
     public TextMeshProUGUI ammoText;
+    public Image Crosshair;
     public Image[] BulletImages;
 
     //Available weapons; weapons[0] is weapon not active.

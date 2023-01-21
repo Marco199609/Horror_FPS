@@ -1781,12 +1781,12 @@ GameObject:
   - component: {fileID: 4066855745157369383}
   - component: {fileID: 1455957775116214318}
   m_Layer: 5
-  m_Name: crosshair
+  m_Name: Crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7077283831366506350
 RectTransform:
   m_ObjectHideFlags: 0
