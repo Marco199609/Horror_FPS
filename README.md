@@ -25,3 +25,4 @@
 >- The flashlight intensity can be changed. There is also a light for the weapon, that follows the flashlight intensity.
 >- The inventory has 3 sections: Item section, hand weapon section and long weapon section.
 >- When the inventory is open, the game doesn't pause. However, your controls are limited to make selecting items easier.
+>- Items cannot be picked up in weapon mode. However, the inventory works.
