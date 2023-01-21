@@ -14,8 +14,8 @@
 >- Mouse Scroll: Change weapon
 >- F + Mouse Scroll: Activate/deactivate flashlight, and change intensity
 >- Left Mouse:
-	> Pickup mode: Pickup items
-	> Weapon mode: Shoot
+	1. Pickup mode: Pickup items
+	2. Weapon mode: Shoot
 >- Right Mouse: Weapon aim
 
 >Current features:
