@@ -8,7 +8,7 @@ public class ItemData : MonoBehaviour
 
     public void ItemBehaviour()
     {
-        ObjectManager.Instance.Player.GetComponent<Health>().ModifyHealth(10);
+        GetComponent<IItemBehaviour>().Behaviour();
     }
 
 

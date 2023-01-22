@@ -21,6 +21,9 @@ public class ObjectManager : MonoBehaviour
     public WeaponInput WeaponInput;
     public InventoryInput InventoryInput;
 
+    [Header("Player Scripts")]
+    public PlayerFlashlight PlayerFlashlight;
+
     [Header("Game Objects")]
     public GameObject Player;
 
