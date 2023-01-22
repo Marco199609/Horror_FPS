@@ -4225,11 +4225,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 897b82e27d4964a1789785edfe0338c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetFramerate: 144
-  _vSyncCount: 0
+  _targetFramerate: 0
+  _vSyncCount: 1
   fpsText: {fileID: 6384568470160224197}
   hudRefreshRate: 0.5
-  _showFramerate: 1
+  _showFramerate: 0
   InventoryPanel: {fileID: 1142104946528589129}
   inventoryItemSlots:
   - {fileID: 6075065612690925148}
