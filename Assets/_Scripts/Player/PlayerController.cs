@@ -75,10 +75,13 @@ public class PlayerController : MonoBehaviour
         //Controls player only if inventory closed (Game does not pause)
         if(!_objectManager.InventoryController.IsInventoryEnabled)
         {
-            PlayerMovementAndRotation();
+            PlayerRotation();
+
             CameraControl();
         }
 
+        //Player can move and control flashlight even if inventory enabled
+        PlayerMovement();
         FlashlightControl();
 
         //Picks up items only if weapon inactive and if inventory closed
@@ -91,9 +94,13 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private void PlayerMovementAndRotation()
+    private void PlayerMovement()
     {
         _playerMovement.PlayerMove(_player, _playerInput);
+    }
+
+    private void PlayerRotation()
+    {
         _playerRotate.RotatePlayer(_player, _playerInput);
     }
     private void ItemInteraction()
