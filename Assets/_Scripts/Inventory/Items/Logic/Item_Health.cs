@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item_Health : MonoBehaviour
+public class Item_Health : MonoBehaviour, IItemBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int _health;
+    public void Behaviour()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        ObjectManager.Instance.Player.GetComponent<Health>().ModifyHealth(_health);
     }
 }
