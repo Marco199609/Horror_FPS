@@ -1702,7 +1702,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &705507994
 Light:
   m_ObjectHideFlags: 0
@@ -1714,7 +1714,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_Intensity: 1.51
   m_Range: 10
   m_SpotAngle: 30
@@ -7926,6 +7926,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inventory Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 379733839898455007, guid: 007e39112a5f99745867c0669046539d, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 379733839898455007, guid: 007e39112a5f99745867c0669046539d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fde553df6ceedc84e96f14d20aef1915, type: 3}
+    - target: {fileID: 379733839898455007, guid: 007e39112a5f99745867c0669046539d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225035192552065206, guid: 007e39112a5f99745867c0669046539d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6442182180078600213, guid: 007e39112a5f99745867c0669046539d, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6442182180078600213, guid: 007e39112a5f99745867c0669046539d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f775104c41bf4ee4d8b733b8db256e45, type: 3}
+    - target: {fileID: 6727994593357967711, guid: 007e39112a5f99745867c0669046539d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308552875723977580, guid: 007e39112a5f99745867c0669046539d, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308552875723977580, guid: 007e39112a5f99745867c0669046539d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fde553df6ceedc84e96f14d20aef1915, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 007e39112a5f99745867c0669046539d, type: 3}
 --- !u!114 &7249452999402137788 stripped

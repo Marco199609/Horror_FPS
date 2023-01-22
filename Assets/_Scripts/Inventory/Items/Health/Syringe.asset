@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Syringe
   m_EditorClassIdentifier: 
   name: Syringe
-  icon: {fileID: 21300000, guid: c7e19a844dccc1c4eb5e561c5b9468dc, type: 3}
+  icon: {fileID: 21300000, guid: f07dd082dfa5ca24c80096f0bed4eda2, type: 3}
   CurrentInventorySlot: {fileID: 0}
   description: Syringe for your health
