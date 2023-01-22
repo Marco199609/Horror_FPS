@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Battery
   m_EditorClassIdentifier: 
   name: Battery
-  icon: {fileID: 21300000, guid: ae50b83883f41e24c972770967fe2bd7, type: 3}
+  icon: {fileID: 21300000, guid: 685b3fe8c85bef04783dcb5f2cbde67f, type: 3}
   CurrentInventorySlot: {fileID: 0}
   description: Battery for your flashlight
