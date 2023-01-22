@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
     public List<InventoryWeaponSlot> inventoryWeaponSlots = new List<InventoryWeaponSlot>();
 
     [Header("UI Items")]
-    public TextMeshProUGUI ItemOrWeaponDescription;
+    public TextMeshProUGUI InteractableDescription;
 
     private void Awake()
     {

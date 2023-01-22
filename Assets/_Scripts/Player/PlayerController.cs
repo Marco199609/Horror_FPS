@@ -10,8 +10,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(PlayerRotate))]
 [RequireComponent(typeof(PlayerCameraControl))]
 [RequireComponent(typeof(PlayerFlashlight))]
-[RequireComponent(typeof(PlayerItemPickup))]
-[RequireComponent(typeof(PlayerWeaponPickup))]
+[RequireComponent(typeof(PlayerInteract))]
 [RequireComponent(typeof(PlayerHover))]
 [RequireComponent(typeof(PlayerUI))]
 #endregion
@@ -34,7 +33,7 @@ public class PlayerController : MonoBehaviour
     private ICameraControl _playerCameraControl;
     private IFlashlightControl _playerFlashlight;
     private IPlayerUIHover _playerHover;
-    private IPlayerPickup[] _playerPickup;
+    private IPlayerInteract _playerInteract;
     private IPlayerUI _playerUI;
 
     //If there is one or more items in viewport, activate ui center point
@@ -48,7 +47,7 @@ public class PlayerController : MonoBehaviour
         _playerCameraControl = GetComponent<ICameraControl>();
         _playerFlashlight = GetComponent<IFlashlightControl>();
         _playerHover = GetComponent<IPlayerUIHover>();
-        _playerPickup = GetComponents<IPlayerPickup>();
+        _playerInteract = GetComponent<IPlayerInteract>();
         _playerUI = GetComponent<IPlayerUI>();
 
         //Adds this object to object manager for future use
@@ -76,7 +75,6 @@ public class PlayerController : MonoBehaviour
         if(!_objectManager.InventoryController.IsInventoryEnabled)
         {
             PlayerRotation();
-
             CameraControl();
         }
 
@@ -112,15 +110,7 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(_ray, out hit, Mathf.Infinity))
         {
             _playerHover.Hover(_player, hit, _gameController); //Activates UI elements when hovering over items and weapons
-
-            if (_playerInput.playerPickupInput)
-            {
-                //There are weapon pickup and item pickup scripts
-                for (int i = 0; i < _playerPickup.Length; i++)
-                {
-                    _playerPickup[i].Pickup(_player, hit, _playerInput);
-                }
-            }
+            _playerInteract.InteractWithObject(_player, hit, _playerInput);
         }
     }
 

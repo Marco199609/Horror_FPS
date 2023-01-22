@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface IInteractable
 {
-    void Interact();
+    void Interact(); //Interactable behaviour 
+    string Description(); //Returns description to other scripts
 }

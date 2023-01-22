@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
-public class WeaponData : MonoBehaviour
+public class WeaponData : MonoBehaviour, IInteractable
 {
     /*
      * Weapon damage: Typical amount of damage the weapon inflicts when it hits the target.
@@ -48,6 +49,43 @@ public class WeaponData : MonoBehaviour
 
     [field: SerializeField] public GameObject WeaponModel { get; private set; }
 
+    #region Pickup Interaction
+    public void Interact()
+    {
+        ObjectManager.Instance.InventoryController.AddWeapon(this);
+        PlaceWeaponOnHolder();
+
+    }
+    private void PlaceWeaponOnHolder()
+    {
+        WeaponGeneralData weaponGeneralData = ObjectManager.Instance.WeaponGeneralData;
+
+        if (GetComponent<Collider>() != false) GetComponent<Collider>().enabled = false;
+
+        //Place weapon in weapon holder
+        transform.SetParent(weaponGeneralData.transform);
+        transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.Euler(0, 0, 0));
+        gameObject.SetActive(false);
+
+        ChangeWeaponLayer();
+    }
+    private void ChangeWeaponLayer()
+    {
+        gameObject.layer = 6; // 6 is weapon layer
+        int childs = transform.childCount;
+        for (int i = 0; i < childs; i++)
+        {
+            transform.GetChild(i).gameObject.layer = 6;
+        }
+    }
+    #endregion
+
+    public string Description()
+    {
+        return WeaponDescription;
+    }
+
+
     private void OnBecameVisible()
     {
         ObjectManager.Instance.PlayerController.ItemsVisible.Add(this.gameObject); //Must contain a mesh renderer to work
@@ -57,4 +95,6 @@ public class WeaponData : MonoBehaviour
     {
         ObjectManager.Instance.PlayerController.ItemsVisible.Remove(this.gameObject); //Must contain a mesh renderer to work
     }
+
+
 }

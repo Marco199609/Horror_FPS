@@ -9,21 +9,18 @@ public class PlayerHover : MonoBehaviour, IPlayerUIHover
     private string _description;
     private void Start()
     {
-        if (!ObjectManager.Instance.GameController.ItemOrWeaponDescription.gameObject.activeInHierarchy)
-            ObjectManager.Instance.GameController.ItemOrWeaponDescription.gameObject.SetActive(true);
+        if (!ObjectManager.Instance.GameController.InteractableDescription.gameObject.activeInHierarchy)
+            ObjectManager.Instance.GameController.InteractableDescription.gameObject.SetActive(true);
     }
 
     public void Hover(GameObject player, RaycastHit hit, GameController gameController)
     {
         if (_playerData == null) _playerData = player.GetComponent<PlayerData>();
 
-        if (hit.distance <= _playerData.itemPickupDistance) //Checks if item reachable
+        if (hit.distance <= _playerData.itemPickupDistance && hit.collider.GetComponent<IInteractable>() != null) //Checks if item interactable and reachable
         {
-            if (hit.collider.CompareTag("Item") || hit.collider.CompareTag("Weapon"))
-            {
-                ActivateUIPickupHand();
-                ShowCustomDescription(hit, gameController);
-            }
+            ActivateUIPickupHand();
+            ShowCustomDescription(hit, gameController);
         }
         else
         {
@@ -40,11 +37,10 @@ public class PlayerHover : MonoBehaviour, IPlayerUIHover
     void ShowCustomDescription(RaycastHit hit, GameController gameController)
     {
         //Checks if gameobject is item or weapon
-        if (hit.collider.CompareTag("Item") && _description == "") _description = hit.transform.gameObject.GetComponent<ItemData>().Item.description;
-        else if (hit.collider.CompareTag("Weapon") && _description == "") _description = hit.transform.gameObject.GetComponent<WeaponData>().WeaponDescription;
+        if (_description == "") _description = hit.transform.gameObject.GetComponent<IInteractable>().Description();
 
-        if (gameController.ItemOrWeaponDescription.text == "")
-            gameController.ItemOrWeaponDescription.text = _description;
+        if (gameController.InteractableDescription.text == "")
+            gameController.InteractableDescription.text = _description;
     }
 
     private void DeactivateUIElements(GameObject player, GameController gameController)
@@ -57,6 +53,6 @@ public class PlayerHover : MonoBehaviour, IPlayerUIHover
 
         if (_description != "")  _description = "";
 
-        if (gameController.ItemOrWeaponDescription.text != _description) gameController.ItemOrWeaponDescription.text = _description;
+        if (gameController.InteractableDescription.text != _description) gameController.InteractableDescription.text = _description;
     }
 }
