@@ -79,6 +79,9 @@ public class PlayerFlashlight : MonoBehaviour, IFlashlightControl
     //Items use this to add energy to the player's flashlight
     public void AddEnergy(float energy)
     {
+        //If flashlight off, turn on when battery used from inventory
+        if (_currentIntensity < _switchOnLimit) _currentIntensity = _minIntensity + ((_maxIntensity - _minIntensity) / 3); 
+
         if ((_currentEnergy + energy) < _maxEnergy) _currentEnergy += energy;
         else _currentEnergy = _maxEnergy;
     }
