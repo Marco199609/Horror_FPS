@@ -404,6 +404,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8235843952592169337, guid: a832b0e37d37510488b911f2ea4a1ca2, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235843952592169337, guid: a832b0e37d37510488b911f2ea4a1ca2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fde553df6ceedc84e96f14d20aef1915, type: 3}
     - target: {fileID: 8235843952592169343, guid: a832b0e37d37510488b911f2ea4a1ca2, type: 3}
       propertyPath: m_Name
       value: Weapon Slot 1
@@ -1148,6 +1156,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8210179989598877853, guid: 22c0ce3da3976f74486a33ac85b4590c, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8210179989598877853, guid: 22c0ce3da3976f74486a33ac85b4590c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f775104c41bf4ee4d8b733b8db256e45, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22c0ce3da3976f74486a33ac85b4590c, type: 3}
 --- !u!224 &6442182180078600212 stripped
@@ -1795,6 +1811,22 @@ PrefabInstance:
     - target: {fileID: 2974054368215444100, guid: aa1744c9529be534d8c22e3fc7824dd0, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553122038247824587, guid: aa1744c9529be534d8c22e3fc7824dd0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 90dc6a4923b92584b9e50be276fff3c2, type: 3}
+    - target: {fileID: 3553122038247824587, guid: aa1744c9529be534d8c22e3fc7824dd0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.49056602
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553122038247824587, guid: aa1744c9529be534d8c22e3fc7824dd0, type: 3}
+      propertyPath: m_Color.g
+      value: 0.49056602
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553122038247824587, guid: aa1744c9529be534d8c22e3fc7824dd0, type: 3}
+      propertyPath: m_Color.r
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 7516773093364975568, guid: aa1744c9529be534d8c22e3fc7824dd0, type: 3}
       propertyPath: m_Pivot.x
