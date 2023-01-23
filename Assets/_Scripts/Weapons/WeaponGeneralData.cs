@@ -11,6 +11,7 @@ public class WeaponGeneralData : MonoBehaviour
 
     [Header("Weapon UI")]
     public GameObject weaponUICanvas;
+    public GameObject AmmoUI;
     public GameObject weaponUIIcon;
     public TextMeshProUGUI ammoText;
     public Image Crosshair;

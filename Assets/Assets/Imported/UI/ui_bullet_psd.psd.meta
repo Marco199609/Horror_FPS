@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7eebd01deeef1ad44ba8be1ec26096bc
+guid: 56895f10208781f4d8be5d2e03a50915
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -51,7 +51,7 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
@@ -128,8 +128,8 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable: {}
   spritePackingTag: 
-  pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
+  pSDRemoveMatte: 1
+  pSDShowRemoveMatteOption: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

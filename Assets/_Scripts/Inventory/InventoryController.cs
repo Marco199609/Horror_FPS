@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -53,6 +54,7 @@ public class InventoryController : MonoBehaviour
     private void Update()
     {
         OpenInventoryUI();
+        SlotShortcuts();
     }
 
     //Used in player item pickup
@@ -95,5 +97,25 @@ public class InventoryController : MonoBehaviour
     private void OpenInventoryUI()
     {
         inventoryUI.ShowInventoryUI(gameController, inventoryInput, this);
+    }
+
+    private void SlotShortcuts()
+    {
+        if (inventoryInput.Slot1Input)
+        {
+            _inventoryItemSlots[0].ItemData.ItemBehaviour();
+            itemDatas.Remove(_inventoryItemSlots[0].ItemData);
+        }
+        if (inventoryInput.Slot2Input)
+        {
+            _inventoryItemSlots[1].ItemData.ItemBehaviour();
+            itemDatas.Remove(_inventoryItemSlots[1].ItemData);
+        }
+        if (inventoryInput.Slot3Input)
+        {
+            _inventoryItemSlots[2].ItemData.ItemBehaviour();
+            itemDatas.Remove(_inventoryItemSlots[2].ItemData);
+        }
+        UpdateInventorySlots();
     }
 }

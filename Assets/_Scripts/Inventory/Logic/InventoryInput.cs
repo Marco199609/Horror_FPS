@@ -5,6 +5,7 @@ using UnityEngine;
 public class InventoryInput : MonoBehaviour
 {
     public bool OpenInventory { get; private set; }
+    public bool Slot1Input, Slot2Input, Slot3Input;
 
     private void Awake()
     {
@@ -15,5 +16,9 @@ public class InventoryInput : MonoBehaviour
     private void Update()
     {
         OpenInventory = Input.GetKeyDown(KeyCode.Q);
+
+        Slot1Input = Input.GetKeyDown(KeyCode.Alpha4);
+        Slot2Input = Input.GetKeyDown(KeyCode.Alpha5);
+        Slot3Input = Input.GetKeyDown(KeyCode.Alpha6);
     }
 }

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8029244232507335820}
   - component: {fileID: 8029244232507335821}
   - component: {fileID: 8029244232507335818}
-  - component: {fileID: 8029244232507335819}
   - component: {fileID: 5572935807000710073}
+  - component: {fileID: 5157885826053854826}
   m_Layer: 9
   m_Name: Battery
   m_TagString: Item
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8029244232507335816}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -13.28, y: 0, z: -44.37}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.12, y: 0.2, z: 0.12}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8029244233383320857}
@@ -86,20 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &8029244232507335819
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8029244232507335816}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2.2044783
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0.10223913, z: -0.00000011920929}
 --- !u!114 &5572935807000710073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,6 +99,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Item: {fileID: 11400000, guid: be70261c3a8045b46b0c3f2c45636b7e, type: 2}
+--- !u!135 &5157885826053854826
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029244232507335816}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.0610057
+  m_Center: {x: 0, y: 0.061005354, z: -0.00000012417635}
 --- !u!1 &8029244233383320838
 GameObject:
   m_ObjectHideFlags: 0

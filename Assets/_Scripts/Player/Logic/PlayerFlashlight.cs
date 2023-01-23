@@ -24,20 +24,20 @@ public class PlayerFlashlight : MonoBehaviour, IFlashlightControl
 
     private void WeaponLightControl(Light flashlight, Light weaponLight)
     {
-        weaponLight.intensity = flashlight.intensity;
+        weaponLight.intensity = _currentIntensity;
         weaponLight.intensity = Mathf.Clamp(weaponLight.intensity, 2f, 5);
     }
 
     private void IntensityControl(Light flashlight, PlayerInput playerInput)
     {
         //Depletes the battery faster if intensity higher
-        if(flashlight.gameObject.activeInHierarchy) _currentEnergy -= Time.deltaTime * flashlight.intensity * _depletionSpeed; //Only depletes battery if flashlight on
+        if(flashlight.gameObject.activeInHierarchy) _currentEnergy -= Time.deltaTime * _currentIntensity * _depletionSpeed; //Only depletes battery if flashlight on
 
         //Clamps max intensity to the current energy
-        flashlight.intensity = Mathf.Clamp(flashlight.intensity, _minIntensity, _maxIntensity * (_currentEnergy / 100)); 
+        _currentIntensity = Mathf.Clamp(_currentIntensity, _minIntensity, _maxIntensity * (_currentEnergy / 100)); 
 
         //Powers off flashlight if the intensity is below a certain limit
-        if (flashlight.intensity < _switchOnLimit) flashlight.gameObject.SetActive(false);
+        if (_currentIntensity < _switchOnLimit) flashlight.gameObject.SetActive(false);
         else flashlight.gameObject.SetActive(true);
 
         flashlight.intensity = _currentIntensity; //Sets intensity
@@ -74,6 +74,8 @@ public class PlayerFlashlight : MonoBehaviour, IFlashlightControl
             _waitForScroll = false;
             _isScrolling = false;
         }
+
+        print(_currentIntensity);
     }
 
     //Items use this to add energy to the player's flashlight

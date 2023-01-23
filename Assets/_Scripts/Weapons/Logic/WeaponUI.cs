@@ -12,8 +12,7 @@ public class WeaponUI : MonoBehaviour
     {
         if(weaponController.isWeaponActive && !ObjectManager.Instance.InventoryController.IsInventoryEnabled)
         {
-            if (!weaponUICanvas.activeInHierarchy)
-                weaponUICanvas.SetActive(true);
+            if (!weaponUICanvas.activeInHierarchy) weaponUICanvas.SetActive(true);
 
             ammoText.text = currentWeaponData.CurrentReserveCapacity.ToString(); //Tells the player how much ammo left
             weaponGeneralData.weaponUIIcon.GetComponent<Image>().sprite = currentWeaponData.UIIcon;
@@ -21,10 +20,8 @@ public class WeaponUI : MonoBehaviour
             //Updates bullet images on the ui
             for (int i = 0; i < weaponGeneralData.BulletImages.Length; i++)
             {
-                if (currentWeaponData.currentAmmo > i)
-                    weaponGeneralData.BulletImages[i].color = new Color(1, 1, 1, 0.16f);
-                else
-                    weaponGeneralData.BulletImages[i].color = new Color(1, 1, 1, 0.03f);
+                if (currentWeaponData.currentAmmo > i) weaponGeneralData.BulletImages[i].color = new Color(1, 1, 1, 0.16f); //Sets opacity of the available bullets
+                else weaponGeneralData.BulletImages[i].color = new Color(1, 1, 1, 0.03f); //Sets opacity of used bullets
             }
         }
         else if(!weaponController.isWeaponActive || ObjectManager.Instance.InventoryController.IsInventoryEnabled)

@@ -24,20 +24,14 @@ public class WeaponInput : MonoBehaviour
         LeftMouseDownInput = Input.GetMouseButtonDown(0);
         shootInput = Input.GetMouseButton(0);
         leftMouseUpInput = Input.GetMouseButtonUp(0);
-        reloadInput = Input.GetKeyDown(KeyCode.R);
+        reloadInput = Input.GetKey(KeyCode.R);
         aimInput = Input.GetMouseButton(1);
         mouseScrollInput = Input.GetAxisRaw("Mouse ScrollWheel");
 
         //Gets key as an int and passes it for weapon change
         if (Input.GetKeyDown(KeyCode.Alpha1)
             || Input.GetKeyDown(KeyCode.Alpha2)
-            || Input.GetKeyDown(KeyCode.Alpha3)
-            || Input.GetKeyDown(KeyCode.Alpha4)
-            || Input.GetKeyDown(KeyCode.Alpha5)
-            || Input.GetKeyDown(KeyCode.Alpha6)
-            || Input.GetKeyDown(KeyCode.Alpha7)
-            || Input.GetKeyDown(KeyCode.Alpha8)
-            || Input.GetKeyDown(KeyCode.Alpha9))
+            || Input.GetKeyDown(KeyCode.Alpha3))
         {
             int keyValue;
             int.TryParse(Input.inputString, out keyValue);

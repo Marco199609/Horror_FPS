@@ -80,8 +80,6 @@ public class WeaponController : MonoBehaviour
         UIUpdate();
         CheckOrChangeActiveWeapons(); //Weapon change can be done even if inventory open
 
-
-
         //Controls weapons only if inventory disabled
         if (!objectManager.InventoryController.IsInventoryEnabled && isWeaponActive)
         {
@@ -125,10 +123,7 @@ public class WeaponController : MonoBehaviour
     private void SendReloadCommand()
     {
         //Reloads weapon and updates weapon UI
-        if (weaponInput.reloadInput)
-        {
-            weaponReload.Reload(currentWeaponData);
-        }
+        weaponReload.Reload(weaponGeneralData, currentWeaponData, weaponInput);
     }
 
     private void CheckOrChangeActiveWeapons()
