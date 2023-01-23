@@ -74,8 +74,6 @@ public class PlayerFlashlight : MonoBehaviour, IFlashlightControl
             _waitForScroll = false;
             _isScrolling = false;
         }
-
-        print(_currentIntensity);
     }
 
     //Items use this to add energy to the player's flashlight
