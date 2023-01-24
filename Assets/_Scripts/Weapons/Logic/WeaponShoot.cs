@@ -12,11 +12,11 @@ public class WeaponShoot : MonoBehaviour
     {
         if (readyToShoot)
         {
-            if (weaponData.currentAmmo > 0)
+            if (weaponData.Weapon.CurrentAmmo > 0)
             {
                 weaponSound.ShootSound(weaponData);
-                weaponDamage.DamageEnemy(weaponData.weaponDamage, weaponData.weaponRange, shootRayOrigin);
-                weaponData.currentAmmo--;
+                weaponDamage.DamageEnemy(weaponData.Weapon.WeaponDamage, weaponData.Weapon.WeaponRange, shootRayOrigin);
+                weaponData.Weapon.CurrentAmmo--;
             }
         }
     }

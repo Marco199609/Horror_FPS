@@ -12,19 +12,17 @@ public class WeaponChange : MonoBehaviour
 
     public void ChangeWeapon(GameObject[] weapons, WeaponInput weaponInput)
     {
-        if(currentWeaponData == null)
-        {
-            SetDefaultNoWeapon(weapons);
-        }
+        if(currentWeaponData == null) SetDefaultNoWeapon(weapons[0]);
 
         ChangeWeaponWithNumberKeys(weapons, weaponInput);
         ChangeWeaponWithMouseScroll(weapons, weaponInput);
     }
 
-    private void SetDefaultNoWeapon(GameObject[] weapons)
+    private void SetDefaultNoWeapon(GameObject noWeapon)
     {
-        weapons[0].SetActive(true);
-        currentWeaponData = weapons[0].GetComponent<WeaponData>();
+        noWeapon.SetActive(true);
+        currentWeaponData = noWeapon.GetComponent<WeaponData>();
+
     }
 
     private void ChangeWeaponWithMouseScroll(GameObject[] weapons, WeaponInput weaponInput)
@@ -58,7 +56,7 @@ public class WeaponChange : MonoBehaviour
                     }
                     else weapons[i].SetActive(false);
                 }
-                else if (weapons[i - 1] == null) SetDefaultNoWeapon(weapons); //Sets weapon 0 only if no weapon on both slots
+                else if (weapons[i - 1] == null) SetDefaultNoWeapon(weapons[0]); //Sets weapon 0 only if no weapon on both slots
             }
         }
 
@@ -81,7 +79,7 @@ public class WeaponChange : MonoBehaviour
                     }
                     else weapons[i].SetActive(false);
                 }
-                else if (weapons[i - 1] == null) SetDefaultNoWeapon(weapons); //Sets weapon 0 only if no weapon on both slots
+                else if (weapons[i - 1] == null) SetDefaultNoWeapon(weapons[0]); //Sets weapon 0 only if no weapon on both slots
 
             }
         }

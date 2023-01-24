@@ -69,10 +69,10 @@ public class InventoryController : MonoBehaviour
             print("Inventory Full");
     }
 
-    public void AddWeapon(WeaponData weaponData)
+    public void AddWeapon(WeaponData weaponData, GameObject weaponGameObject)
     {
-        weapons[weaponData.weaponIndex] = weaponData.gameObject;
-        weaponGeneralData.WeaponsAvailable[weaponData.weaponIndex] = weaponData.gameObject;
+        weapons[weaponData.Weapon.WeaponIndex] = weaponGameObject;
+        weaponGeneralData.WeaponsAvailable[weaponData.Weapon.WeaponIndex] = weaponGameObject;
 
         UpdateInventorySlots();
     }
@@ -85,7 +85,7 @@ public class InventoryController : MonoBehaviour
 
     public void RemoveWeapon(InventoryWeaponSlot currentWeaponSlot)
     {
-        weapons[currentWeaponSlot.weaponData.weaponIndex] = null;
+        weapons[currentWeaponSlot.weaponData.Weapon.WeaponIndex] = null;
         UpdateInventorySlots();
     }
 

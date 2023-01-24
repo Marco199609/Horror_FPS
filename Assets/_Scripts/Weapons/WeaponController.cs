@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System.Xml.Serialization;
 
 #region Components Required
 [RequireComponent(typeof(WeaponReload))]
@@ -24,7 +23,7 @@ public class WeaponController : MonoBehaviour
     private WeaponGeneralData weaponGeneralData;
 
     //Used in weapon change script
-    private WeaponData currentWeaponData;
+    [SerializeField] private WeaponData currentWeaponData;
 
     //Objects in weapon general data
     private Transform shootRayOrigin;
@@ -77,8 +76,8 @@ public class WeaponController : MonoBehaviour
 
     void Update()
     {
-        UIUpdate();
         CheckOrChangeActiveWeapons(); //Weapon change can be done even if inventory open
+        UIUpdate();
 
         //Controls weapons only if inventory disabled
         if (!objectManager.InventoryController.IsInventoryEnabled && isWeaponActive)
@@ -86,7 +85,6 @@ public class WeaponController : MonoBehaviour
             SendShootCommand();
             SendReloadCommand();
             AimWeapon();
-
         }
 
     }
@@ -131,6 +129,6 @@ public class WeaponController : MonoBehaviour
         //Change weapons, and check if there is a weapon currently selected
         weaponChange.ChangeWeapon(weaponsAvailable, weaponInput);
         currentWeaponData = weaponChange.currentWeaponData;
-        isWeaponActive = currentWeaponData.isWeapon;
+        isWeaponActive = currentWeaponData.Weapon.IsWeapon;
     }
 }

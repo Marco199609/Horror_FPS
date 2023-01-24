@@ -13,13 +13,12 @@ public class WeaponReload : MonoBehaviour
         _timer = _defaultTimer;
     }
 
-    public void Reload(WeaponGeneralData weaponGeneralData, WeaponData weaponData, WeaponInput weaponInput)
+    public void Reload(WeaponGeneralData weaponGeneralData, WeaponData currentWeaponData, WeaponInput weaponInput)
     {
-        CheckAmmo(weaponGeneralData, weaponData, weaponInput);
+        CheckAmmo(weaponGeneralData, currentWeaponData, weaponInput);
     }
 
-
-    private void CheckAmmo(WeaponGeneralData weaponGeneralData, WeaponData weaponData, WeaponInput weaponInput)
+    private void CheckAmmo(WeaponGeneralData weaponGeneralData, WeaponData currentWeaponData, WeaponInput weaponInput)
     {
         if(weaponInput.reloadInput)
         {
@@ -48,27 +47,29 @@ public class WeaponReload : MonoBehaviour
         if(!weaponInput.reloadInput && _reload) //Reload is reset in apply reload
         {
             _timer = _defaultTimer;
-            ApplyReload(weaponData);
+            ApplyReload(currentWeaponData);
         }
     }
 
-    private void ApplyReload(WeaponData weaponData)
+    private void ApplyReload(WeaponData currentWeaponData)
     {
-        if (weaponData.currentAmmo < weaponData.magazineCapacity)
+        Weapon weapon = currentWeaponData.Weapon;
+
+        if (weapon.CurrentAmmo < weapon.MagazineCapacity)
         {
-            if (weaponData.CurrentReserveCapacity >= (weaponData.magazineCapacity - weaponData.currentAmmo))
+            if (weapon.CurrentReserveCapacity >= (weapon.MagazineCapacity - weapon.CurrentAmmo))
             {
-                weaponData.CurrentReserveCapacity -= (weaponData.magazineCapacity - weaponData.currentAmmo);
-                weaponData.currentAmmo += (weaponData.magazineCapacity - weaponData.currentAmmo);
+                weapon.CurrentReserveCapacity -= (weapon.MagazineCapacity - weapon.CurrentAmmo);
+                weapon.CurrentAmmo += (weapon.MagazineCapacity - weapon.CurrentAmmo);
 
-                weaponData.reloadSound.Play();
+                currentWeaponData.ReloadSound.Play();
             }
-            else if (weaponData.CurrentReserveCapacity > 0)
+            else if (weapon.CurrentReserveCapacity > 0)
             {
-                weaponData.currentAmmo += weaponData.CurrentReserveCapacity;
-                weaponData.CurrentReserveCapacity = 0;
+                weapon.CurrentAmmo += weapon.CurrentReserveCapacity;
+                weapon.CurrentReserveCapacity = 0;
 
-                weaponData.reloadSound.Play();
+                weapon.ReloadSound.Play();
             }
 
             _reload = false;

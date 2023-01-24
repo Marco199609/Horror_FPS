@@ -6,8 +6,8 @@ public class WeaponSound : MonoBehaviour
 {
     public void ShootSound(WeaponData weaponData)
     {
-        if (weaponData.shotSound.isPlaying)
-            weaponData.shotSound.Stop();
-        weaponData.shotSound.Play();
+        if (weaponData.ShotSound.isPlaying)
+            weaponData.ShotSound.Stop();
+        weaponData.ShotSound.Play();
     }
 }
