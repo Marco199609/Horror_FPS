@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponAnimations : MonoBehaviour
+public class WeaponAnimations : MonoBehaviour, IWeaponAnimations
 {
-    // Start is called before the first frame update
-    void Start()
+    public void WeaponAnimationControl()
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

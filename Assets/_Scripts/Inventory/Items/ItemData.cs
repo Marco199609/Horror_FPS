@@ -32,7 +32,6 @@ public class ItemData : MonoBehaviour, IInteractable
         return Item.description;
     }
 
-
     private void OnBecameVisible()
     {
         ObjectManager.Instance.PlayerController.ItemsVisible.Add(this.gameObject); //Must contain a mesh renderer to work
@@ -42,6 +41,4 @@ public class ItemData : MonoBehaviour, IInteractable
     {
         ObjectManager.Instance.PlayerController.ItemsVisible.Remove(this.gameObject); //Must contain a mesh renderer to work
     }
-
-
 }

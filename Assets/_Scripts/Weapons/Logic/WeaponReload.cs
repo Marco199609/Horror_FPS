@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityEngine;
 
-public class WeaponReload : MonoBehaviour
+public class WeaponReload : MonoBehaviour, IWeaponReload
 {
     private bool _reload, _checkAmmo;
     private float _timer, _defaultTimer = 0.2f;
@@ -20,11 +20,11 @@ public class WeaponReload : MonoBehaviour
 
     private void CheckAmmo(WeaponGeneralData weaponGeneralData, WeaponData currentWeaponData, WeaponInput weaponInput)
     {
-        if(weaponInput.reloadInput)
+        if (weaponInput.reloadInput)
         {
             _timer -= Time.deltaTime;
 
-            if(_timer > 0)
+            if (_timer > 0)
             {
                 _checkAmmo = false;
                 _reload = true;      //If timer not 0, sets command to reload
@@ -44,7 +44,7 @@ public class WeaponReload : MonoBehaviour
             weaponGeneralData.AmmoUI.SetActive(false);
         }
 
-        if(!weaponInput.reloadInput && _reload) //Reload is reset in apply reload
+        if (!weaponInput.reloadInput && _reload) //Reload is reset in apply reload
         {
             _timer = _defaultTimer;
             ApplyReload(currentWeaponData);

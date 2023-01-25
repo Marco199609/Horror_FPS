@@ -7120,69 +7120,61 @@ PrefabInstance:
     m_TransformParent: {fileID: 2034104831}
     m_Modifications:
     - target: {fileID: 291026820, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: AmmoUI
+      propertyPath: <AmmoUI>k__BackingField
       value: 
       objectReference: {fileID: 7312001066679556807}
     - target: {fileID: 291026820, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: ammoText
+      propertyPath: <AmmoText>k__BackingField
       value: 
       objectReference: {fileID: 7052125733204075898}
     - target: {fileID: 291026820, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: Crosshair
+      propertyPath: <Crosshair>k__BackingField
       value: 
       objectReference: {fileID: 8496804977966540575}
     - target: {fileID: 291026820, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: weaponUIIcon
+      propertyPath: <WeaponUIIcon>k__BackingField
       value: 
       objectReference: {fileID: 7052125733439110300}
     - target: {fileID: 291026820, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: shootRayOrigin
+      propertyPath: <ShootRayOrigin>k__BackingField
       value: 
       objectReference: {fileID: 606087654}
     - target: {fileID: 291026820, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: weaponUICanvas
+      propertyPath: <WeaponUICanvas>k__BackingField
       value: 
       objectReference: {fileID: 1857214459}
     - target: {fileID: 291026820, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: BulletImages.Array.data[0]
+      propertyPath: <BulletImages>k__BackingField.Array.data[0]
       value: 
       objectReference: {fileID: 7052125732934805140}
     - target: {fileID: 291026820, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: BulletImages.Array.data[1]
+      propertyPath: <BulletImages>k__BackingField.Array.data[1]
       value: 
       objectReference: {fileID: 7052125733227907270}
     - target: {fileID: 291026820, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: BulletImages.Array.data[2]
+      propertyPath: <BulletImages>k__BackingField.Array.data[2]
       value: 
       objectReference: {fileID: 7052125733480279639}
     - target: {fileID: 291026820, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: BulletImages.Array.data[3]
+      propertyPath: <BulletImages>k__BackingField.Array.data[3]
       value: 
       objectReference: {fileID: 7052125734767636512}
     - target: {fileID: 291026820, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: BulletImages.Array.data[4]
+      propertyPath: <BulletImages>k__BackingField.Array.data[4]
       value: 
       objectReference: {fileID: 7052125734849159643}
     - target: {fileID: 291026820, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: BulletImages.Array.data[5]
+      propertyPath: <BulletImages>k__BackingField.Array.data[5]
       value: 
       objectReference: {fileID: 7052125733239067796}
     - target: {fileID: 291026820, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: BulletImages.Array.data[6]
+      propertyPath: <BulletImages>k__BackingField.Array.data[6]
       value: 
       objectReference: {fileID: 7052125734319328586}
     - target: {fileID: 291026820, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: BulletImages.Array.data[7]
+      propertyPath: <BulletImages>k__BackingField.Array.data[7]
       value: 
       objectReference: {fileID: 7052125733657261402}
-    - target: {fileID: 4576158240694328840, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: <Weapon>k__BackingField
-      value: 
-      objectReference: {fileID: 11400000, guid: 07844fa4b1232454c8f14bea4c9c7216, type: 2}
-    - target: {fileID: 4576158240694328842, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4576158240907094440, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
       propertyPath: _followObject
       value: 

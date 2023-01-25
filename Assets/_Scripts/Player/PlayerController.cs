@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
         FlashlightControl();
 
         //Picks up items only if weapon inactive and if inventory closed
-        if (!_weaponController.isWeaponActive && !_inventoryController.IsInventoryEnabled)
+        if (!_weaponController.IsWeaponActive && !_inventoryController.IsInventoryEnabled)
         {
             ItemInteraction();
             UICenterPointControl();

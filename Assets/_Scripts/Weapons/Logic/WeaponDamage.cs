@@ -2,27 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponDamage : MonoBehaviour
+public class WeaponDamage : MonoBehaviour, IWeaponDamage
 {
-    Ray ray;
-
-    public void DamageEnemy(int weaponDamage, int weaponRange, Transform shootRayOrigin)
+    public void DamageEnemy(WeaponData weaponData, RaycastHit hit)
     {
-        RaycastHit hit;
+        hit.collider.GetComponent<EnemyData>().EnemyHealth -= weaponData.Weapon.WeaponDamage;
 
-        ray.origin = shootRayOrigin.position;
-        ray.direction = shootRayOrigin.transform.forward;
-
-
-        if (Physics.Raycast(ray, out hit, weaponRange))
-        {
-            if (hit.collider.CompareTag("Enemy"))
-            {
-                hit.collider.GetComponent<EnemyData>().EnemyHealth -= weaponDamage;
-
-                if (hit.collider.GetComponent<EnemyData>().EnemyHealth <= 0)
-                    Destroy(hit.collider.gameObject);
-            }
-        }
+        if (hit.collider.GetComponent<EnemyData>().EnemyHealth <= 0)
+            Destroy(hit.collider.gameObject);
     }
 }

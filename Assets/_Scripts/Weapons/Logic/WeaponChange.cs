@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponChange : MonoBehaviour
+public class WeaponChange : MonoBehaviour, IWeaponChange
 {
     public WeaponData currentWeaponData { get; private set; }
 
     private int _currentWeaponIndex = 0;
-
     private bool _isSwitchingWeapon;
 
     public void ChangeWeapon(GameObject[] weapons, WeaponInput weaponInput)
     {
-        if(currentWeaponData == null) SetDefaultNoWeapon(weapons[0]);
+        if (currentWeaponData == null) SetDefaultNoWeapon(weapons[0]);
 
         ChangeWeaponWithNumberKeys(weapons, weaponInput);
         ChangeWeaponWithMouseScroll(weapons, weaponInput);
@@ -22,7 +21,6 @@ public class WeaponChange : MonoBehaviour
     {
         noWeapon.SetActive(true);
         currentWeaponData = noWeapon.GetComponent<WeaponData>();
-
     }
 
     private void ChangeWeaponWithMouseScroll(GameObject[] weapons, WeaponInput weaponInput)
@@ -37,12 +35,12 @@ public class WeaponChange : MonoBehaviour
             _currentWeaponIndex--;
             _isSwitchingWeapon = true;
         }
-        
+
         if (_currentWeaponIndex < 0) _currentWeaponIndex = weapons.Length;
         else if (_currentWeaponIndex > weapons.Length) _currentWeaponIndex = 0;
 
         //Change weapon
-        if(_isSwitchingWeapon)
+        if (_isSwitchingWeapon)
         {
             for (int i = 0; i < weapons.Length; i++)
             {

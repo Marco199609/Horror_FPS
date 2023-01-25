@@ -4,20 +4,23 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class WeaponUI : MonoBehaviour
+public class WeaponUI : MonoBehaviour, IWeaponUI
 {
-    private Ray _ray;
-    public void UIUpdate(WeaponGeneralData weaponGeneralData, WeaponData CurrentWeaponData, TextMeshProUGUI ammoText, 
-        WeaponController weaponController, GameObject weaponUICanvas)
+    private GameObject _weaponUICanvas;
+    private TextMeshProUGUI _ammoText;
+    public void UIUpdate(WeaponGeneralData weaponGeneralData, WeaponData CurrentWeaponData, WeaponController weaponController)
     {
         Weapon currentWeapon = CurrentWeaponData.Weapon;
 
-        if(weaponController.isWeaponActive && !ObjectManager.Instance.InventoryController.IsInventoryEnabled)
-        {
-            if (!weaponUICanvas.activeInHierarchy) weaponUICanvas.SetActive(true);
+        if (_weaponUICanvas == null) _weaponUICanvas = weaponGeneralData.WeaponUICanvas;
+        if (_ammoText == null) _ammoText = weaponGeneralData.AmmoText;
 
-            ammoText.text = currentWeapon.CurrentReserveCapacity.ToString(); //Tells the player how much ammo left
-            weaponGeneralData.weaponUIIcon.GetComponent<Image>().sprite = currentWeapon.UIIcon;
+        if (weaponController.IsWeaponActive && !ObjectManager.Instance.InventoryController.IsInventoryEnabled)
+        {
+            if (!_weaponUICanvas.activeInHierarchy) _weaponUICanvas.SetActive(true);
+
+            _ammoText.text = currentWeapon.CurrentReserveCapacity.ToString(); //Tells the player how much ammo left
+            weaponGeneralData.WeaponUIIcon.GetComponent<Image>().sprite = currentWeapon.UIIcon;
 
             //Updates bullet images on the ui
             for (int i = 0; i < weaponGeneralData.BulletImages.Length; i++)
@@ -26,25 +29,16 @@ public class WeaponUI : MonoBehaviour
                 else weaponGeneralData.BulletImages[i].color = new Color(1, 1, 1, 0.03f); //Sets opacity of used bullets
             }
         }
-        else if(!weaponController.isWeaponActive || ObjectManager.Instance.InventoryController.IsInventoryEnabled)
-            weaponUICanvas.SetActive(false);
-
-        CrosshairActivate(weaponGeneralData, currentWeapon, weaponController);
+        else if (!weaponController.IsWeaponActive || ObjectManager.Instance.InventoryController.IsInventoryEnabled) _weaponUICanvas.SetActive(false);
     }
 
-    private void CrosshairActivate(WeaponGeneralData weaponGeneralData, Weapon currentWeapon, WeaponController weaponController)
+    public void CrosshairActivate(WeaponGeneralData weaponGeneralData)
     {
-        if(weaponController.isWeaponActive)
-        {
-            RaycastHit hit;
-            _ray.origin = Camera.main.ViewportToWorldPoint(weaponGeneralData.Crosshair.transform.position);
-            _ray.direction = Camera.main.transform.forward;
+        weaponGeneralData.Crosshair.color = new Color(1, 0, 0, 0.08f); //Red
+    }
 
-            if (Physics.Raycast(_ray, out hit, currentWeapon.WeaponRange) && hit.collider.CompareTag("Enemy"))
-            {
-                weaponGeneralData.Crosshair.color = new Color(1, 0, 0, 0.08f); //Red
-            }
-            else weaponGeneralData.Crosshair.color = new Color(1, 1, 1, 0.08f); //White
-        }
+    public void CrosshairDeactivate(WeaponGeneralData weaponGeneralData)
+    {
+        weaponGeneralData.Crosshair.color = new Color(1, 1, 1, 0.08f); //White
     }
 }

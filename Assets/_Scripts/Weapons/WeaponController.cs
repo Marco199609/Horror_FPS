@@ -16,46 +16,37 @@ using TMPro;
 
 public class WeaponController : MonoBehaviour
 {
-    private ObjectManager objectManager;
+    private ObjectManager _objectManager;
+    private WeaponInput _weaponInput;
+    private WeaponGeneralData _weaponGeneralData;
 
-    //Objects in object manager
-    private WeaponInput weaponInput;
-    private WeaponGeneralData weaponGeneralData;
-
-    //Used in weapon change script
-    [SerializeField] private WeaponData currentWeaponData;
-
-    //Objects in weapon general data
-    private Transform shootRayOrigin;
-    private GameObject weaponUICanvas;
-    private TextMeshProUGUI UIAmmoText;
+    private WeaponData _currentWeaponData; //Set in weapon change script
 
     //Weapon scripts
-    private WeaponReload weaponReload;
-    private WeaponShoot weaponShoot;
-    private WeaponDamage weaponDamage;
-    private WeaponUI weaponUI;
-    private WeaponSound weaponSound;
-    private WeaponChange weaponChange;
-    private IWeaponAim weaponAim;
-    private WeaponAnimations WeaponAnimations;
+    private IWeaponReload _weaponReload;
+    private IWeaponShoot _weaponShoot;
+    private IWeaponDamage _weaponDamage;
+    private IWeaponUI _weaponUI;
+    private IWeaponSound _weaponSound;
+    private IWeaponChange _weaponChange;
+    private IWeaponAim _weaponAim;
+    private IWeaponAnimations _weaponAnimations;
 
-    public bool isWeaponActive { get; private set; }
-    private bool _firstUIUpdate;
+    public bool IsWeaponActive { get; private set; }
 
-    //Available weapons in weapon general data
-    private GameObject[] weaponsAvailable;
+    private Ray _ray; //Used in weapon damage and crosshair control
+    private GameObject[] _weaponsAvailable; //Available weapons in weapon general data
 
     private void Awake()
     {
-        weaponReload = GetComponent<WeaponReload>();
-        weaponShoot = GetComponent<WeaponShoot>();
-        weaponDamage = GetComponent<WeaponDamage>();
-        weaponUI = GetComponent<WeaponUI>();
-        weaponSound = GetComponent<WeaponSound>();
-        weaponChange = GetComponent<WeaponChange>();
-        weaponAim = GetComponent<IWeaponAim>();
-        WeaponAnimations = GetComponent<WeaponAnimations>();
+        _weaponReload = GetComponent<IWeaponReload>();
+        _weaponShoot = GetComponent<IWeaponShoot>();
+        _weaponDamage = GetComponent<IWeaponDamage>();
+        _weaponUI = GetComponent<IWeaponUI>();
+        _weaponSound = GetComponent<IWeaponSound>();
+        _weaponChange = GetComponent<IWeaponChange>();
+        _weaponAim = GetComponent<IWeaponAim>();
+        _weaponAnimations = GetComponent<IWeaponAnimations>();
 
         //Adds this object to object manager for future use
         ObjectManager.Instance.WeaponController = this;
@@ -63,72 +54,77 @@ public class WeaponController : MonoBehaviour
 
     private void Start()
     {
-        objectManager = ObjectManager.Instance;
-        weaponInput = objectManager.WeaponInput;
-        weaponGeneralData = objectManager.WeaponGeneralData;
-
-        weaponsAvailable = weaponGeneralData.WeaponsAvailable;
-
-        shootRayOrigin = weaponGeneralData.shootRayOrigin;
-        weaponUICanvas = weaponGeneralData.weaponUICanvas;
-        UIAmmoText = weaponGeneralData.ammoText;
+        _objectManager = ObjectManager.Instance;
+        _weaponInput = _objectManager.WeaponInput;
+        _weaponGeneralData = _objectManager.WeaponGeneralData;
+        _weaponsAvailable = _weaponGeneralData.WeaponsAvailable;
     }
 
     void Update()
     {
         CheckOrChangeActiveWeapons(); //Weapon change can be done even if inventory open
-        UIUpdate();
+        UIUpdate(); //Place this after CheckOrChangeWeapons
 
         //Controls weapons only if inventory disabled
-        if (!objectManager.InventoryController.IsInventoryEnabled && isWeaponActive)
+        if (!_objectManager.InventoryController.IsInventoryEnabled && IsWeaponActive)
         {
             SendShootCommand();
+            WeaponCrosshairAndDamage();
+            WeaponSound();
             SendReloadCommand();
             AimWeapon();
         }
-
     }
 
     //Updates weapon UI
     //For loop in this method. Do no run more than once
     private void UIUpdate()
     {
-        weaponUI.UIUpdate(weaponGeneralData, currentWeaponData, UIAmmoText, this, weaponUICanvas);
+        _weaponUI.UIUpdate(_weaponGeneralData, _currentWeaponData, this);
     }
 
     private void AimWeapon()
     {
-        weaponAim.Aim(currentWeaponData, weaponInput);
+        _weaponAim.Aim(_currentWeaponData, _weaponInput);
     }
 
     private void SendShootCommand()
     {
-        //Shoots weapon
-        if (weaponInput.shootInput)
-        {
-            weaponShoot.Shoot(currentWeaponData, weaponDamage, shootRayOrigin, weaponSound);
-            weaponShoot.readyToShoot = false;
-        }
-
-        //Returns WeaponShoot to it's original state
-        if (weaponInput.leftMouseUpInput)
-        {
-            weaponShoot.readyToShoot = true;
-            weaponShoot.FireRateCooldown = 0;
-        }
+        _weaponShoot.Shoot(_weaponInput, _currentWeaponData);
     }
 
     private void SendReloadCommand()
     {
         //Reloads weapon and updates weapon UI
-        weaponReload.Reload(weaponGeneralData, currentWeaponData, weaponInput);
+        _weaponReload.Reload(_weaponGeneralData, _currentWeaponData, _weaponInput);
+    }
+
+    private void WeaponCrosshairAndDamage()
+    {
+        RaycastHit hit;
+        _ray.origin = _weaponGeneralData.ShootRayOrigin.position;
+        _ray.direction = _weaponGeneralData.ShootRayOrigin.forward;
+
+        if (Physics.Raycast(_ray, out hit, _currentWeaponData.Weapon.WeaponRange) && hit.collider.CompareTag("Enemy"))
+        {
+            _weaponUI.CrosshairActivate(_weaponGeneralData);
+
+            //Place this after the shoot command
+            if (_weaponShoot.DealDamage) _weaponDamage.DamageEnemy(_currentWeaponData, hit);
+        }
+        else _weaponUI.CrosshairDeactivate(_weaponGeneralData);
+    }
+
+    private void WeaponSound()
+    {
+        if(_weaponShoot.PlaySound) _weaponSound.ShootSound(_currentWeaponData);
     }
 
     private void CheckOrChangeActiveWeapons()
     {
         //Change weapons, and check if there is a weapon currently selected
-        weaponChange.ChangeWeapon(weaponsAvailable, weaponInput);
-        currentWeaponData = weaponChange.currentWeaponData;
-        isWeaponActive = currentWeaponData.Weapon.IsWeapon;
+        _weaponChange.ChangeWeapon(_weaponsAvailable, _weaponInput);
+        _currentWeaponData = _weaponChange.currentWeaponData;
+        IsWeaponActive = _currentWeaponData.Weapon.IsWeapon;
     }
 }

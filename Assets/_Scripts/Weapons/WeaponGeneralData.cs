@@ -6,26 +6,20 @@ using UnityEngine.UI;
 
 public class WeaponGeneralData : MonoBehaviour
 {
-    [Header("Weapon Shoot")]
-    public Transform shootRayOrigin;
-
-    [Header("Weapon UI")]
-    public GameObject weaponUICanvas;
-    public GameObject AmmoUI;
-    public GameObject weaponUIIcon;
-    public TextMeshProUGUI ammoText;
-    public Image Crosshair;
-    public Image[] BulletImages;
+    [field: SerializeField, Header("Weapon Shoot")] public Transform ShootRayOrigin { get; private set; }
+    [field: SerializeField, Header("Weapon UI")] public GameObject WeaponUICanvas { get; private set; }
+    [field: SerializeField] public GameObject AmmoUI { get; private set; }
+    [field: SerializeField] public GameObject WeaponUIIcon { get; private set; }
+    [field: SerializeField] public TextMeshProUGUI AmmoText { get; private set; }
+    [field: SerializeField] public Image Crosshair { get; private set; }
+    [field: SerializeField] public Image[] BulletImages { get; private set; }
 
     //Available weapons; weapons[0] is weapon not active.
     [Header("Weapons Available")]
     public GameObject[] WeaponsAvailable;
-    [SerializeField] private GameObject weapon0; //Weapon 0 is no weapon
 
     private void Awake()
     {
-        WeaponsAvailable = new GameObject[3];
-        WeaponsAvailable[0] = weapon0;
         ObjectManager.Instance.WeaponGeneralData = this;
     }
 }

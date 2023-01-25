@@ -81,13 +81,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835d145d54b1d4b1cabde672149e94ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootRayOrigin: {fileID: 0}
-  weaponUICanvas: {fileID: 0}
-  AmmoUI: {fileID: 0}
-  weaponUIIcon: {fileID: 0}
-  ammoText: {fileID: 0}
-  Crosshair: {fileID: 0}
-  BulletImages:
+  <ShootRayOrigin>k__BackingField: {fileID: 0}
+  <WeaponUICanvas>k__BackingField: {fileID: 0}
+  <AmmoUI>k__BackingField: {fileID: 0}
+  <WeaponUIIcon>k__BackingField: {fileID: 0}
+  <AmmoText>k__BackingField: {fileID: 0}
+  <Crosshair>k__BackingField: {fileID: 0}
+  <BulletImages>k__BackingField:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -100,7 +100,6 @@ MonoBehaviour:
   - {fileID: 4576158240694328842}
   - {fileID: 0}
   - {fileID: 0}
-  weapon0: {fileID: 4576158240694328842}
 --- !u!1001 &1058612686428451263
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -111,6 +110,10 @@ PrefabInstance:
     - target: {fileID: 3544672714046697397, guid: 5ffc35d7a42f14342b4dd18362892536, type: 3}
       propertyPath: m_Name
       value: No Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 3544672714046697397, guid: 5ffc35d7a42f14342b4dd18362892536, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3544672714046697398, guid: 5ffc35d7a42f14342b4dd18362892536, type: 3}
       propertyPath: m_RootOrder
@@ -176,6 +179,10 @@ PrefabInstance:
       propertyPath: reloadSound
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3544672714046697399, guid: 5ffc35d7a42f14342b4dd18362892536, type: 3}
+      propertyPath: <Weapon>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 07844fa4b1232454c8f14bea4c9c7216, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ffc35d7a42f14342b4dd18362892536, type: 3}
 --- !u!4 &4576158240694328841 stripped
