@@ -27,6 +27,7 @@ public class WeaponData : MonoBehaviour, IInteractable
         //Place weapon in weapon holder
         transform.SetParent(weaponGeneralData.transform);
         transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.Euler(0, 0, 0));
+        transform.localScale = Vector3.one; //Scale not set to one until the player gets the weapon, to make level design easier
         gameObject.SetActive(false);
 
         ChangeWeaponLayer();
