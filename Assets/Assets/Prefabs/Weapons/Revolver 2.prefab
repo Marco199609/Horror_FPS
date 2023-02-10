@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 6582579849805628126}
   - component: {fileID: 6582579849805628113}
   - component: {fileID: 7385444911865609366}
-  m_Layer: 6
+  - component: {fileID: 6251644345498550602}
+  m_Layer: 0
   m_Name: Revolver 2
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -46,23 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99e5303386fb442929d966a9281a4ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponIndex: 1
-  <isWeapon>k__BackingField: 1
-  <fireRate>k__BackingField: 0
-  <reloadSpeed>k__BackingField: 0
-  <switchingSpeed>k__BackingField: 0
-  <weight>k__BackingField: 0
-  <weaponDamage>k__BackingField: 25
-  <weaponRange>k__BackingField: 50
-  <magazineCapacity>k__BackingField: 8
-  <maxReserveCapacity>k__BackingField: 24
-  <inventoryIcon>k__BackingField: {fileID: 0}
-  <UIIcon>k__BackingField: {fileID: 0}
-  <WeaponDescription>k__BackingField: This is a weapon
-  currentAmmo: 8
-  CurrentReserveCapacity: 24
-  shotSound: {fileID: 3613274760686925877}
-  reloadSound: {fileID: 3613274760553870102}
+  <Weapon>k__BackingField: {fileID: 11400000, guid: 9eaacf60c1ccad34a8689c408c9c4e1c, type: 2}
+  <ShotSound>k__BackingField: {fileID: 3613274760686925877}
+  <ReloadSound>k__BackingField: {fileID: 3613274760553870102}
   <WeaponModel>k__BackingField: {fileID: 4532177659430070897}
 --- !u!65 &7385444911865609366
 BoxCollider:
@@ -77,6 +64,48 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.38695824, y: 1.0685706, z: 2.2222686}
   m_Center: {x: 0.2430355, y: -1.0368624, z: 3.742811}
+--- !u!23 &6251644345498550602
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190081440549454633}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &3613274760553870104
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,7 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3613274760553870105}
   - component: {fileID: 3613274760553870102}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Reload
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3613274760686925876}
   - component: {fileID: 3613274760686925877}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Gunshot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,7 +373,7 @@ GameObject:
   - component: {fileID: 3868125049529184459}
   - component: {fileID: 144551317408661358}
   - component: {fileID: 2730724958319004580}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Model
   m_TagString: Weapon
   m_Icon: {fileID: 0}

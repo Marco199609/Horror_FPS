@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8029244232507335818}
   - component: {fileID: 5572935807000710073}
   - component: {fileID: 5157885826053854826}
+  - component: {fileID: 1606101479}
   m_Layer: 9
   m_Name: Battery
   m_TagString: Item
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8029244232507335816}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -13.28, y: 0, z: -44.37}
-  m_LocalScale: {x: 0.12, y: 0.2, z: 0.12}
+  m_LocalScale: {x: 0.06, y: 0.1, z: 0.06}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8029244233383320857}
@@ -107,11 +108,24 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8029244232507335816}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.0610057
-  m_Center: {x: 0, y: 0.061005354, z: -0.00000012417635}
+  m_Radius: 1.6291696
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1606101479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029244232507335816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f505e91fc663fdc4d825ab53bae05255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _energy: 50
 --- !u!1 &8029244233383320838
 GameObject:
   m_ObjectHideFlags: 0
