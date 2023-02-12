@@ -21,7 +21,5 @@ public class PlayerRotate : MonoBehaviour, IPlayerRotate
 
         player.transform.localEulerAngles = new Vector3(0, rotationX, 0);
         _playerData.camHolder.localEulerAngles = new Vector3(-_rotationY, 0, 0);
-
-
     }
 }

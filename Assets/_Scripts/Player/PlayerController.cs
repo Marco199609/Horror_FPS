@@ -74,7 +74,6 @@ public class PlayerController : MonoBehaviour
         //Controls player only if inventory closed (Game does not pause)
         if(!_objectManager.InventoryController.IsInventoryEnabled)
         {
-            PlayerRotation();
             CameraControl();
         }
 
@@ -89,6 +88,15 @@ public class PlayerController : MonoBehaviour
             UICenterPointControl();
         }
         else _playerData.UICenterPoint.gameObject.SetActive(false); //Deactivates center point
+    }
+
+    private void LateUpdate()
+    {
+        //Controls player only if inventory closed (Game does not pause)
+        if (!_objectManager.InventoryController.IsInventoryEnabled)
+        {
+            PlayerRotation();
+        }
     }
 
 
