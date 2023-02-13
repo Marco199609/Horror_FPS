@@ -455,7 +455,7 @@ MonoBehaviour:
   camHolder: {fileID: 2181557804533295363}
   camTransform: {fileID: 2770187572269442958}
   camMovementAmplitude: 0.005
-  camMovementFrequency: 10
+  camMovementFrequency: 20
   flashlight: {fileID: 0}
   weaponLight: {fileID: 2726433261468660818}
   itemPickupDistance: 10
@@ -561,7 +561,7 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 703
-  m_RenderingPath: -1
+  m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
