@@ -38,8 +38,7 @@ public class PlayerData : MonoBehaviour
 
     [Header("Inventory Control")]
     public float itemPickupDistance = 10f;
-    public Image UIPickupHand;
-    public Image UICenterPoint;
+   
     public CharacterController characterController;
     private void Awake()
     {

@@ -22,11 +22,11 @@ public class ObjectCreator : MonoBehaviour
 
         CreateObject<ObjectManager>();
 
-        CreateObject<PlayerController>();
+        //CreateObject<PlayerController>();
         CreateObject<WeaponController>();
         CreateObject<InventoryController>();
 
-        CreateObject<PlayerInput>();
+        //CreateObject<PlayerInput>();
         CreateObject<WeaponInput>();
         CreateObject<InventoryInput>();
 

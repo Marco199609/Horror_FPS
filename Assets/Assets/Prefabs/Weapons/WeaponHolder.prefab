@@ -99,7 +99,6 @@ MonoBehaviour:
   WeaponsAvailable:
   - {fileID: 4576158240694328842}
   - {fileID: 0}
-  - {fileID: 0}
 --- !u!1001 &1058612686428451263
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -241,6 +240,10 @@ PrefabInstance:
     - target: {fileID: 1018882639180343184, guid: 5deeb2c1840b3b54a91a415211eb5a6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079738163327652858, guid: 5deeb2c1840b3b54a91a415211eb5a6a, type: 3}
+      propertyPath: <Weapon>k__BackingField
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2079738163327652859, guid: 5deeb2c1840b3b54a91a415211eb5a6a, type: 3}
       propertyPath: m_RootOrder

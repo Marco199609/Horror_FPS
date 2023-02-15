@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
         _player = _playerData.gameObject;
 
         //Adds this object to object manager for future use
-        //ObjectManager.Instance.PlayerController = this;
+        if(ObjectManager.Instance != null) ObjectManager.Instance.PlayerController = this;
     }
 
     void Start()
@@ -149,6 +149,6 @@ public class PlayerController : MonoBehaviour
     //Controls the center point appearing and disapearing
     private void UICenterPointControl()
     {
-        _playerUI.CenterPointControl(_playerData.UICenterPoint.GetComponent<Image>(), ItemsVisible);
+        _playerUI.CenterPointControl(ItemsVisible);
     }
 }

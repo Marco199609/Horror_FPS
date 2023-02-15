@@ -20,6 +20,6 @@ public class WeaponGeneralData : MonoBehaviour
 
     private void Awake()
     {
-        ObjectManager.Instance.WeaponGeneralData = this;
+        if(ObjectManager.Instance != null) ObjectManager.Instance.WeaponGeneralData = this;
     }
 }

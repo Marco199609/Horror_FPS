@@ -22,7 +22,7 @@ public class PlayerInput : MonoBehaviour, IPlayerInput
 
     private void Awake()
     {
-        //ObjectManager.Instance.PlayerInput = this;
+        if(ObjectManager.Instance != null) ObjectManager.Instance.PlayerInput = this;
 
 
         //New input manager
