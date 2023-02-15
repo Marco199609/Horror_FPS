@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerInteract : MonoBehaviour, IPlayerInteract
 {
     private PlayerData _playerData;
-    public void InteractWithObject(GameObject player, RaycastHit hit, PlayerInput playerInput)
+    public void InteractWithObject(GameObject player, RaycastHit hit, IPlayerInput playerInput)
     {
         if (_playerData == null) _playerData = player.GetComponent<PlayerData>();
 

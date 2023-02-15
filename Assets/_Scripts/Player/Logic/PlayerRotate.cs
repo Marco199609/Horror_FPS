@@ -10,7 +10,7 @@ public class PlayerRotate : MonoBehaviour, IPlayerRotate
 
     private PlayerData _playerData;
 
-    public void RotatePlayer(GameObject player, PlayerInput playerInput)
+    public void RotatePlayer(GameObject player, IPlayerInput playerInput)
     {
         if (_playerData == null) _playerData = player.GetComponent<PlayerData>();
 

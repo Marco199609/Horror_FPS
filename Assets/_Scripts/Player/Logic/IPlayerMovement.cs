@@ -2,5 +2,5 @@
 
 public interface IPlayerMovement
 {
-    void PlayerMove(GameObject player, PlayerInput playerInput);
+    void PlayerMove(GameObject player, IPlayerInput playerInput);
 }

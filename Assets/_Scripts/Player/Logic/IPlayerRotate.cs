@@ -2,5 +2,5 @@
 
 public interface IPlayerRotate
 {
-    void RotatePlayer(GameObject player, PlayerInput playerInput);
+    void RotatePlayer(GameObject player, IPlayerInput playerInput);
 }

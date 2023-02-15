@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerMovement
     Vector3 _moveDirection = Vector3.zero;
     PlayerData _playerData;
 
-    public void PlayerMove(GameObject player, PlayerInput playerInput)
+    public void PlayerMove(GameObject player, IPlayerInput playerInput)
     {
         if (_playerData == null) _playerData = player.GetComponent<PlayerData>();
 

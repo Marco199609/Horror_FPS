@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,18 +12,20 @@ using UnityEngine.UI;
 [RequireComponent(typeof(PlayerInteract))]
 [RequireComponent(typeof(PlayerHover))]
 [RequireComponent(typeof(PlayerUI))]
+[RequireComponent(typeof(PlayerInput))]
 #endregion
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private PlayerData _playerData;
+
     private ObjectManager _objectManager;
     private GameObject _player;
-    private PlayerInput _playerInput;
+
     private GameController _gameController;
     private WeaponController _weaponController;
     private InventoryController _inventoryController;
 
-    private PlayerData _playerData;
     private Ray _ray; //used for item interaction
 
     //Player scripts attached to this gameobject
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
     private IPlayerUIHover _playerHover;
     private IPlayerInteract _playerInteract;
     private IPlayerUI _playerUI;
+    private IPlayerInput _playerInput;
 
     //If there is one or more items in viewport, activate ui center point
     public List<GameObject> ItemsVisible;
@@ -42,6 +44,8 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         //Gets required scripts on this gameobject
+        if(_playerData == null) _playerData = GetComponentInChildren<PlayerData>();
+
         _playerMovement = GetComponent<IPlayerMovement>();
         _playerRotate = GetComponent<IPlayerRotate>();
         _playerCameraControl = GetComponent<ICameraControl>();
@@ -49,22 +53,25 @@ public class PlayerController : MonoBehaviour
         _playerHover = GetComponent<IPlayerUIHover>();
         _playerInteract = GetComponent<IPlayerInteract>();
         _playerUI = GetComponent<IPlayerUI>();
+        _playerInput = GetComponent<PlayerInput>();
+
+        _player = _playerData.gameObject;
 
         //Adds this object to object manager for future use
-        ObjectManager.Instance.PlayerController = this;
+        //ObjectManager.Instance.PlayerController = this;
     }
 
     void Start()
     {
         //Gets object manager and objects required
         _objectManager = ObjectManager.Instance;
-        _player = _objectManager.Player;
-        _playerInput = _objectManager.PlayerInput;
-        _gameController = _objectManager.GameController;
-        _weaponController = _objectManager.WeaponController;
-        _inventoryController = _objectManager.InventoryController;
 
-        _playerData = _player.GetComponent<PlayerData>();
+        if(_objectManager != null)
+        {
+            _gameController = _objectManager.GameController;
+            _weaponController = _objectManager.WeaponController;
+            _inventoryController = _objectManager.InventoryController;
+        }
 
         ItemsVisible = new List<GameObject>();
     }
@@ -72,7 +79,11 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         //Controls player only if inventory closed (Game does not pause)
-        if(!_objectManager.InventoryController.IsInventoryEnabled)
+        if (_inventoryController != null && !_inventoryController.IsInventoryEnabled)
+        {
+            CameraControl();
+        }
+        else if(_inventoryController == null)
         {
             CameraControl();
         }
@@ -82,23 +93,26 @@ public class PlayerController : MonoBehaviour
         FlashlightControl();
 
         //Picks up items only if weapon inactive and if inventory closed
-        if (!_weaponController.IsWeaponActive && !_inventoryController.IsInventoryEnabled)
+        if (_weaponController != null && _inventoryController != null && !_weaponController.IsWeaponActive && !_inventoryController.IsInventoryEnabled)
         {
             ItemInteraction();
             UICenterPointControl();
         }
-        else _playerData.UICenterPoint.gameObject.SetActive(false); //Deactivates center point
+        //else _playerData.UICenterPoint.gameObject.SetActive(false); //Deactivates center point
     }
 
     private void LateUpdate()
     {
         //Controls player only if inventory closed (Game does not pause)
-        if (!_objectManager.InventoryController.IsInventoryEnabled)
+        if (_inventoryController != null &&  !_inventoryController.IsInventoryEnabled)
+        {
+            PlayerRotation();
+        }
+        else if(_inventoryController == null)
         {
             PlayerRotation();
         }
     }
-
 
     private void PlayerMovement()
     {
@@ -129,7 +143,7 @@ public class PlayerController : MonoBehaviour
 
     private void FlashlightControl()
     {
-        _playerFlashlight.FlashlightControl(_playerData.flashlight.GetComponent<Light>(), _playerData.weaponLight.GetComponent<Light>(),  _playerInput); //Controls flashlight intensity
+        _playerFlashlight.FlashlightControl(_playerData,  _playerInput); //Controls flashlight intensity
     }
 
     //Controls the center point appearing and disapearing

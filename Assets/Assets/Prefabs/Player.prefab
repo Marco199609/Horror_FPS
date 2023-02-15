@@ -456,8 +456,16 @@ MonoBehaviour:
   camTransform: {fileID: 2770187572269442958}
   camMovementAmplitude: 0.005
   camMovementFrequency: 20
-  flashlight: {fileID: 0}
-  weaponLight: {fileID: 2726433261468660818}
+  Flashlight: {fileID: 0}
+  MinIntensity: 1
+  MaxIntensity: 5
+  CurrentIntensity: 0
+  SwitchOnLimit: 1.05
+  ChangeVelocity: 7
+  MaxEnergy: 100
+  DepletionSpeed: 0.3
+  CurrentEnergy: 0
+  WeaponLight: {fileID: 2726433261468660818}
   itemPickupDistance: 10
   UIPickupHand: {fileID: 0}
   UICenterPoint: {fileID: 0}

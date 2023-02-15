@@ -7,11 +7,12 @@ public class PlayerHover : MonoBehaviour, IPlayerUIHover
 {
     private PlayerData _playerData;
     private string _description;
-    private void Start()
+
+    /*private void Start()
     {
         if (!ObjectManager.Instance.GameController.InteractableDescription.gameObject.activeInHierarchy)
             ObjectManager.Instance.GameController.InteractableDescription.gameObject.SetActive(true);
-    }
+    }*/
 
     public void Hover(GameObject player, RaycastHit hit, GameController gameController)
     {

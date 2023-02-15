@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInput : MonoBehaviour
+public class PlayerInput : MonoBehaviour, IPlayerInput
 {
     private MainInput _mainInput;
-
     public bool playerJumpInput { get; private set; }
     public bool playerRunInput { get; private set; }
     public bool playerPickupInput { get; private set; }
@@ -23,7 +22,7 @@ public class PlayerInput : MonoBehaviour
 
     private void Awake()
     {
-        ObjectManager.Instance.PlayerInput = this;
+        //ObjectManager.Instance.PlayerInput = this;
 
 
         //New input manager
@@ -34,15 +33,7 @@ public class PlayerInput : MonoBehaviour
 
 
     private void Update()
-    {/*
-        playerJumpInput = Input.GetButtonDown("Jump");
-        playerRunInput = Input.GetKey(KeyCode.LeftShift);
-        itemPickupInput = Input.GetMouseButtonDown(0);
-        FlashLightInput = Input.GetKey(KeyCode.F);
-        MouseScrollInput = Input.GetAxisRaw("Mouse ScrollWheel");
-        playerMovementInput = new Vector2(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
-        mouseMovementInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")); */
-
+    {
         NewInputSystem();
 
         //Input system bug fixes
@@ -69,8 +60,6 @@ public class PlayerInput : MonoBehaviour
     {
         Vector2 mouseInput = _mainInput.Player.Rotate.ReadValue<Vector2>();
         mouseMovementInput = Vector2.Lerp(mouseMovementInput, mouseInput, 25 * Time.deltaTime);
-
-        //mouseMovementInput = _mainInput.Player.Rotate.ReadValue<Vector2>(); * Time.smoothDeltaTime;
     }
 
     private void MouseScrollFix()
