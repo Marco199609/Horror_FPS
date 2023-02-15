@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    [Header("Player UI")]
     [SerializeField] private Image _uiPickupHand;
     [SerializeField] private Image _uiCenterPoint;
     [SerializeField] private TextMeshProUGUI _interactableDescription;
