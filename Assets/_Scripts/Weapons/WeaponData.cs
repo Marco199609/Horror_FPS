@@ -48,15 +48,14 @@ public class WeaponData : MonoBehaviour, IInteractable
         return Weapon.WeaponDescription;
     }
 
-
     private void OnBecameVisible()
     {
-        ObjectManager.Instance.PlayerController.ItemsVisible.Add(this.gameObject); //Must contain a mesh renderer to work
+        ObjectManager.Instance.PlayerController.InteractablesInSight.Add(this.gameObject); //Must contain a mesh renderer to work
     }
 
     private void OnBecameInvisible()
     {
-        ObjectManager.Instance.PlayerController.ItemsVisible.Remove(this.gameObject); //Must contain a mesh renderer to work
+        ObjectManager.Instance.PlayerController.InteractablesInSight.Remove(this.gameObject); //Must contain a mesh renderer to work
     }
 
 

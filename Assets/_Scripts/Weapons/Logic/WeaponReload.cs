@@ -8,17 +8,20 @@ public class WeaponReload : MonoBehaviour, IWeaponReload
     private bool _reload, _checkAmmo;
     private float _timer, _defaultTimer = 0.2f;
 
+    public delegate void WeaponReloadUIHandler(bool ammoUIActive);
+    public static WeaponReloadUIHandler AmmoUIActivated;
+
     private void Awake()
     {
         _timer = _defaultTimer;
     }
 
-    public void Reload(WeaponGeneralData weaponGeneralData, WeaponData currentWeaponData, WeaponInput weaponInput)
+    public void Reload(WeaponData currentWeaponData, WeaponInput weaponInput)
     {
-        CheckAmmo(weaponGeneralData, currentWeaponData, weaponInput);
+        CheckAmmoUIUpdate(currentWeaponData, weaponInput);
     }
 
-    private void CheckAmmo(WeaponGeneralData weaponGeneralData, WeaponData currentWeaponData, WeaponInput weaponInput)
+    private void CheckAmmoUIUpdate(WeaponData currentWeaponData, WeaponInput weaponInput)
     {
         if (weaponInput.reloadInput)
         {
@@ -33,15 +36,12 @@ public class WeaponReload : MonoBehaviour, IWeaponReload
             {
                 _checkAmmo = true;  //If player keeps key down for a certain amount of time, change the command to check ammo
                 _reload = false;
-                weaponGeneralData.AmmoUI.SetActive(true);
             }
         }
-
         if (!weaponInput.reloadInput && _checkAmmo)
-        {
-            _checkAmmo = false; //Deactivates ammo UI when the player releases key
+        {   
             _timer = _defaultTimer;
-            weaponGeneralData.AmmoUI.SetActive(false);
+            _checkAmmo = false; //Deactivates ammo UI when the player releases key
         }
 
         if (!weaponInput.reloadInput && _reload) //Reload is reset in apply reload
@@ -49,6 +49,8 @@ public class WeaponReload : MonoBehaviour, IWeaponReload
             _timer = _defaultTimer;
             ApplyReload(currentWeaponData);
         }
+
+        AmmoUIActivated?.Invoke(_checkAmmo);
     }
 
     private void ApplyReload(WeaponData currentWeaponData)

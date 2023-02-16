@@ -10,7 +10,6 @@ using UnityEngine.UI;
 [RequireComponent(typeof(PlayerCameraControl))]
 [RequireComponent(typeof(PlayerFlashlight))]
 [RequireComponent(typeof(PlayerInteract))]
-[RequireComponent(typeof(PlayerHover))]
 [RequireComponent(typeof(PlayerUI))]
 [RequireComponent(typeof(PlayerInput))]
 #endregion
@@ -22,7 +21,6 @@ public class PlayerController : MonoBehaviour
     private ObjectManager _objectManager;
     private GameObject _player;
 
-    private GameController _gameController;
     private WeaponController _weaponController;
     private InventoryController _inventoryController;
 
@@ -33,13 +31,12 @@ public class PlayerController : MonoBehaviour
     private IPlayerRotate _playerRotate;
     private ICameraControl _playerCameraControl;
     private IFlashlightControl _playerFlashlight;
-    private IPlayerUIHover _playerHover;
     private IPlayerInteract _playerInteract;
     private IPlayerUI _playerUI;
     private IPlayerInput _playerInput;
 
     //If there is one or more items in viewport, activate ui center point
-    public List<GameObject> ItemsVisible;
+    public List<GameObject> InteractablesInSight;
 
     private void Awake()
     {
@@ -50,10 +47,9 @@ public class PlayerController : MonoBehaviour
         _playerRotate = GetComponent<IPlayerRotate>();
         _playerCameraControl = GetComponent<ICameraControl>();
         _playerFlashlight = GetComponent<IFlashlightControl>();
-        _playerHover = GetComponent<IPlayerUIHover>();
         _playerInteract = GetComponent<IPlayerInteract>();
         _playerUI = GetComponent<IPlayerUI>();
-        _playerInput = GetComponent<PlayerInput>();
+        _playerInput = GetComponent<IPlayerInput>();
 
         _player = _playerData.gameObject;
 
@@ -65,15 +61,13 @@ public class PlayerController : MonoBehaviour
     {
         //Gets object manager and objects required
         _objectManager = ObjectManager.Instance;
-
         if(_objectManager != null)
         {
-            _gameController = _objectManager.GameController;
             _weaponController = _objectManager.WeaponController;
             _inventoryController = _objectManager.InventoryController;
         }
 
-        ItemsVisible = new List<GameObject>();
+        InteractablesInSight = new List<GameObject>();
     }
 
     private void Update()
@@ -96,7 +90,6 @@ public class PlayerController : MonoBehaviour
         if (_weaponController != null && _inventoryController != null && !_weaponController.IsWeaponActive && !_inventoryController.IsInventoryEnabled)
         {
             ItemInteraction();
-            UICenterPointControl();
         }
         //else _playerData.UICenterPoint.gameObject.SetActive(false); //Deactivates center point
     }
@@ -123,18 +116,6 @@ public class PlayerController : MonoBehaviour
     {
         _playerRotate.RotatePlayer(_player, _playerInput);
     }
-    private void ItemInteraction()
-    {
-        RaycastHit hit;
-        _ray.origin = _playerData.camHolder.position;
-        _ray.direction = _playerData.camHolder.forward;
-
-        if (Physics.Raycast(_ray, out hit, Mathf.Infinity))
-        {
-            _playerHover.Hover(_player, hit, _gameController); //Activates UI elements when hovering over items and weapons
-            _playerInteract.InteractWithObject(_player, hit, _playerInput);
-        }
-    }
 
     private void CameraControl()
     {
@@ -143,12 +124,21 @@ public class PlayerController : MonoBehaviour
 
     private void FlashlightControl()
     {
-        _playerFlashlight.FlashlightControl(_playerData,  _playerInput); //Controls flashlight intensity
+        _playerFlashlight.FlashlightControl(_playerData, _playerInput); //Controls flashlight intensity
     }
 
-    //Controls the center point appearing and disapearing
-    private void UICenterPointControl()
+    private void ItemInteraction()
     {
-        _playerUI.CenterPointControl(ItemsVisible);
+        RaycastHit hit;
+        _ray.origin = _playerData.camHolder.position;
+        _ray.direction = _playerData.camHolder.forward;
+
+        if (Physics.Raycast(_ray, out hit, Mathf.Infinity))
+        {
+            _playerUI.InteractableUI(_playerData, hit); //Activates UI elements when hovering over interactables
+            _playerInteract.Interact(_playerData, hit, _playerInput); //Interacts when player inputs
+        }
+
+        _playerUI.CenterPointControl(InteractablesInSight); //Controls the center point appearing and disapearing when interactables in cammera view
     }
 }

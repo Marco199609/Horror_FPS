@@ -80,7 +80,7 @@ public class WeaponController : MonoBehaviour
     //For loop in this method. Do no run more than once
     private void UIUpdate()
     {
-        _weaponUI.UIUpdate(_weaponGeneralData, _currentWeaponData, this);
+        _weaponUI.UIUpdate(_currentWeaponData, this);
     }
 
     private void AimWeapon()
@@ -96,23 +96,28 @@ public class WeaponController : MonoBehaviour
     private void SendReloadCommand()
     {
         //Reloads weapon and updates weapon UI
-        _weaponReload.Reload(_weaponGeneralData, _currentWeaponData, _weaponInput);
+        _weaponReload.Reload(_currentWeaponData, _weaponInput);
     }
 
     private void WeaponCrosshairAndDamage()
     {
+        bool enemyInRange;
+
         RaycastHit hit;
         _ray.origin = _weaponGeneralData.ShootRayOrigin.position;
         _ray.direction = _weaponGeneralData.ShootRayOrigin.forward;
 
         if (Physics.Raycast(_ray, out hit, _currentWeaponData.Weapon.WeaponRange) && hit.collider.CompareTag("Enemy"))
         {
-            _weaponUI.CrosshairActivate(_weaponGeneralData);
+            enemyInRange = true;
 
             //Place this after the shoot command
             if (_weaponShoot.DealDamage) _weaponDamage.DamageEnemy(_currentWeaponData, hit);
         }
-        else _weaponUI.CrosshairDeactivate(_weaponGeneralData);
+        else 
+            enemyInRange = false;
+
+        _weaponUI.CrosshairColorUpdate(enemyInRange);
     }
 
     private void WeaponSound()

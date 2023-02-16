@@ -1,4 +1,4 @@
 ﻿public interface IWeaponReload
 {
-    void Reload(WeaponGeneralData weaponGeneralData, WeaponData currentWeaponData, WeaponInput weaponInput);
+    void Reload(WeaponData currentWeaponData, WeaponInput weaponInput);
 }

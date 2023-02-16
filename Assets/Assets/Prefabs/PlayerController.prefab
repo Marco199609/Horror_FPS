@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 8997385359482471050}
   - component: {fileID: 8997385359482471049}
   - component: {fileID: 8997385359482471048}
-  - component: {fileID: 8997385359482471063}
   - component: {fileID: 8997385359482471062}
   - component: {fileID: 8997385359482471053}
   m_Layer: 0
@@ -56,7 +55,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerData: {fileID: 2790741472255789107}
-  ItemsVisible: []
+  InteractablesInSight: []
 --- !u!114 &8997385359482471052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,18 +117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6839a5bcbc64df19418867d86e2c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8997385359482471063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8997385359482471059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdaab74fb917e0a4296479e42210246f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8997385359482471062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,11 +163,11 @@ PrefabInstance:
     - target: {fileID: 4576158240907094441, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
       propertyPath: _objectLerpY
       value: 
-      objectReference: {fileID: 6533751894493500777}
+      objectReference: {fileID: 6533751894252567961}
     - target: {fileID: 4576158240907094441, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
       propertyPath: _objectLerpZ
       value: 
-      objectReference: {fileID: 6533751894493500777}
+      objectReference: {fileID: 6533751894252567961}
     - target: {fileID: 4576158240907094442, guid: 0cc89b89b1b5f674eb28517a55e23c87, type: 3}
       propertyPath: m_RootOrder
       value: 2

@@ -5,9 +5,10 @@ using UnityEngine;
 public class FollowObject : MonoBehaviour
 {
     [SerializeField] private Transform _followObject;
-    [SerializeField] private Vector3 offset, currentVelocity;
+    [SerializeField] private Vector3 offset;
     [SerializeField] private float _smoothTime;
 
+    private Vector3 currentVelocity;
 
     private void Update()
     {

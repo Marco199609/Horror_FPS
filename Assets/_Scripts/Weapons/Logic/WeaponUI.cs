@@ -3,42 +3,56 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Newtonsoft.Json.Bson;
 
 public class WeaponUI : MonoBehaviour, IWeaponUI
 {
-    private GameObject _weaponUICanvas;
-    private TextMeshProUGUI _ammoText;
-    public void UIUpdate(WeaponGeneralData weaponGeneralData, WeaponData CurrentWeaponData, WeaponController weaponController)
+    private int _currentAmmo, _ammoCurrentReserve;
+    private bool _weaponCanvasActive, _previousEnemyState;
+    private Color _crosshairColor;
+
+    public delegate void WeaponUIEventHandler(int currentAmmo, int currentAmmoReserve, Sprite weaponUIIcon, bool activateWeaponCanvas);
+    public static WeaponUIEventHandler weaponUIUpdated;
+
+    public delegate void UICrosshairColorHandler(Color color);
+    public static UICrosshairColorHandler CrosshairColorUpdated;
+
+    public void UIUpdate(WeaponData CurrentWeaponData, WeaponController weaponController)
     {
         Weapon currentWeapon = CurrentWeaponData.Weapon;
 
-        if (_weaponUICanvas == null) _weaponUICanvas = weaponGeneralData.WeaponUICanvas;
-        if (_ammoText == null) _ammoText = weaponGeneralData.AmmoText;
-
         if (weaponController.IsWeaponActive && !ObjectManager.Instance.InventoryController.IsInventoryEnabled)
         {
-            if (!_weaponUICanvas.activeInHierarchy) _weaponUICanvas.SetActive(true);
-
-            _ammoText.text = currentWeapon.CurrentReserveCapacity.ToString(); //Tells the player how much ammo left
-            weaponGeneralData.WeaponUIIcon.GetComponent<Image>().sprite = currentWeapon.UIIcon;
-
-            //Updates bullet images on the ui
-            for (int i = 0; i < weaponGeneralData.BulletImages.Length; i++)
+            if (!_weaponCanvasActive)
             {
-                if (currentWeapon.CurrentAmmo > i) weaponGeneralData.BulletImages[i].color = new Color(1, 1, 1, 0.16f); //Sets opacity of the available bullets
-                else weaponGeneralData.BulletImages[i].color = new Color(1, 1, 1, 0.03f); //Sets opacity of used bullets
+                _weaponCanvasActive = true;
+            }
+
+            _currentAmmo = currentWeapon.CurrentAmmo;
+            _ammoCurrentReserve = currentWeapon.CurrentReserveCapacity; //Tells the player how much ammo left
+        }
+        else if (!weaponController.IsWeaponActive || ObjectManager.Instance.InventoryController.IsInventoryEnabled)
+        {
+            if (_weaponCanvasActive)
+            {
+                _weaponCanvasActive = false;
             }
         }
-        else if (!weaponController.IsWeaponActive || ObjectManager.Instance.InventoryController.IsInventoryEnabled) _weaponUICanvas.SetActive(false);
+
+        weaponUIUpdated?.Invoke(_currentAmmo, _ammoCurrentReserve, currentWeapon.UIIcon, _weaponCanvasActive);
     }
 
-    public void CrosshairActivate(WeaponGeneralData weaponGeneralData)
+    public void CrosshairColorUpdate(bool enemyInRange)
     {
-        weaponGeneralData.Crosshair.color = new Color(1, 0, 0, 0.08f); //Red
-    }
+        //Prevents crosshair update when unnecessary
+        if(enemyInRange != _previousEnemyState)
+        {
+            if (enemyInRange) _crosshairColor = new Color(1, 0, 0, 0.08f); //Red
+            else _crosshairColor = new Color(1, 1, 1, 0.08f); //White
 
-    public void CrosshairDeactivate(WeaponGeneralData weaponGeneralData)
-    {
-        weaponGeneralData.Crosshair.color = new Color(1, 1, 1, 0.08f); //White
+            CrosshairColorUpdated?.Invoke(_crosshairColor);
+
+            _previousEnemyState = enemyInRange;
+        }
     }
 }
