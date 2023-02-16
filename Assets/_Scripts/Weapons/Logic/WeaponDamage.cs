@@ -4,11 +4,24 @@ using UnityEngine;
 
 public class WeaponDamage : MonoBehaviour, IWeaponDamage
 {
-    public void DamageEnemy(WeaponData weaponData, RaycastHit hit)
+    private void OnEnable()
     {
-        hit.collider.GetComponent<EnemyData>().EnemyHealth -= weaponData.Weapon.WeaponDamage;
+        WeaponShoot.WeaponShot += DamageEnemy;
+    }
 
-        if (hit.collider.GetComponent<EnemyData>().EnemyHealth <= 0)
-            Destroy(hit.collider.gameObject);
+    private void OnDisable()
+    {
+        WeaponShoot.WeaponShot -= DamageEnemy;
+    }
+
+
+    public void DamageEnemy(WeaponData weaponData, EnemyData enemyData)
+    {
+        if(enemyData != null)
+        {
+            enemyData.EnemyHealth -= weaponData.Weapon.WeaponDamage;
+            if (enemyData.EnemyHealth <= 0)
+                Destroy(enemyData.gameObject);
+        }
     }
 }

@@ -2,5 +2,5 @@
 
 public interface IWeaponDamage
 {
-    void DamageEnemy(WeaponData weaponData, RaycastHit hit);
+    void DamageEnemy(WeaponData weaponData, EnemyData enemyData);
 }

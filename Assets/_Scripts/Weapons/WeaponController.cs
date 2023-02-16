@@ -69,8 +69,6 @@ public class WeaponController : MonoBehaviour
         if (!_objectManager.InventoryController.IsInventoryEnabled && IsWeaponActive)
         {
             SendShootCommand();
-            WeaponCrosshairAndDamage();
-            WeaponSound();
             SendReloadCommand();
             AimWeapon();
         }
@@ -90,17 +88,7 @@ public class WeaponController : MonoBehaviour
 
     private void SendShootCommand()
     {
-        _weaponShoot.Shoot(_weaponInput, _currentWeaponData);
-    }
-
-    private void SendReloadCommand()
-    {
-        //Reloads weapon and updates weapon UI
-        _weaponReload.Reload(_currentWeaponData, _weaponInput);
-    }
-
-    private void WeaponCrosshairAndDamage()
-    {
+        EnemyData enemyData;
         bool enemyInRange;
 
         RaycastHit hit;
@@ -109,20 +97,23 @@ public class WeaponController : MonoBehaviour
 
         if (Physics.Raycast(_ray, out hit, _currentWeaponData.Weapon.WeaponRange) && hit.collider.CompareTag("Enemy"))
         {
+            enemyData = hit.collider.GetComponent<EnemyData>();
             enemyInRange = true;
-
-            //Place this after the shoot command
-            if (_weaponShoot.DealDamage) _weaponDamage.DamageEnemy(_currentWeaponData, hit);
         }
-        else 
+        else
+        {
+            enemyData = null;
             enemyInRange = false;
-
+        }
+        
+        _weaponShoot.Shoot(_weaponInput, _currentWeaponData, enemyData);
         _weaponUI.CrosshairColorUpdate(enemyInRange);
     }
 
-    private void WeaponSound()
+    private void SendReloadCommand()
     {
-        if(_weaponShoot.PlaySound) _weaponSound.ShootSound(_currentWeaponData);
+        //Reloads weapon and updates weapon UI
+        _weaponReload.Reload(_currentWeaponData, _weaponInput);
     }
 
     private void CheckOrChangeActiveWeapons()

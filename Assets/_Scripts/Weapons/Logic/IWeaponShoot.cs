@@ -1,7 +1,6 @@
-﻿public interface IWeaponShoot
-{
-    bool DealDamage { get; }
-    bool PlaySound { get; }
+﻿using UnityEngine;
 
-    void Shoot(WeaponInput weaponInput, WeaponData weaponData);
+public interface IWeaponShoot
+{
+    void Shoot(WeaponInput weaponInput, WeaponData weaponData, EnemyData enemyData);
 }
