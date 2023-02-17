@@ -13,7 +13,7 @@ public class PlayerData : MonoBehaviour
     public LayerMask groundMask;
 
     [Header("Player Rotation and Look")]
-    public float mouseSensitivityX = 10f;
+    public float mouseSensitivityX = 25f;
     public float mouseSensitivityY = 10f;
 
     [Header("Player Camera Movement Control")]

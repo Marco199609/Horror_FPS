@@ -365,6 +365,10 @@ PrefabInstance:
       propertyPath: Flashlight
       value: 
       objectReference: {fileID: 538849958248160297}
+    - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
+      propertyPath: mouseSensitivityX
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
 --- !u!114 &2790741472255789107 stripped
