@@ -11,26 +11,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image _uiCenterPoint;
     [SerializeField] private TextMeshProUGUI _interactableDescription;
 
-    [Header("Weapon UI")]
-    [SerializeField] private GameObject _weaponUICanvas;
-    [SerializeField] private GameObject _ammoUI;
-    [SerializeField] private GameObject _weaponUIIcon;
-    [SerializeField] private TextMeshProUGUI _ammoReserveText;
-    [SerializeField] private Image _crosshair;
-    [SerializeField] private Image[] _bulletImages;
-
-
     private void OnEnable()
     {
         //Subscribes to player UI events
         PlayerUI.ItemDescriptionActivated += ActivatePlayerUIElements;
         PlayerUI.ItemDescriptionDeactivated += DeactivatePlayerUIElements;
         PlayerUI.CenterPointUpdated += CenterPointColorUpdate;
-
-        //Subscribes to weapon UI events
-        WeaponUI.weaponUIUpdated += WeaponUIUpdate;
-        WeaponUI.CrosshairColorUpdated += WeaponCrosshairColorUpdate;
-        WeaponReload.AmmoUIActivated += AmmoUIUpdate;
     }
 
     private void OnDisable()
@@ -39,11 +25,6 @@ public class UIManager : MonoBehaviour
         PlayerUI.ItemDescriptionActivated -= ActivatePlayerUIElements;
         PlayerUI.ItemDescriptionDeactivated -= DeactivatePlayerUIElements;
         PlayerUI.CenterPointUpdated -= CenterPointColorUpdate;
-
-        //Unsubscribes from weapon UI events
-        WeaponUI.weaponUIUpdated -= WeaponUIUpdate;
-        WeaponUI.CrosshairColorUpdated -= WeaponCrosshairColorUpdate;
-        WeaponReload.AmmoUIActivated -= AmmoUIUpdate;
     }
 
     void ActivatePlayerUIElements(string description)
@@ -68,30 +49,5 @@ public class UIManager : MonoBehaviour
     private void CenterPointColorUpdate(Color color)
     {
         _uiCenterPoint.color = color; 
-    }
-
-    private void WeaponUIUpdate(int currentAmmo, int currentAmmoReserve, Sprite weaponUIIcon, bool activateWeaponCanvas)
-    {
-        if (_weaponUICanvas.activeInHierarchy != activateWeaponCanvas) _weaponUICanvas.SetActive(activateWeaponCanvas); //Activates or deactivates waepon canvas
-
-        _ammoReserveText.text = currentAmmoReserve.ToString(); //Tells the player how much ammo left
-        _weaponUIIcon.GetComponent<Image>().sprite = weaponUIIcon;
-
-        //Updates bullet images on the ui
-        for (int i = 0; i < _bulletImages.Length; i++)
-        {
-            if (currentAmmo > i) _bulletImages[i].color = new Color(1, 1, 1, 0.16f); //Sets opacity of the available bullets
-            else _bulletImages[i].color = new Color(1, 1, 1, 0.03f); //Sets opacity of used bullets
-        }
-    }
-
-    private void WeaponCrosshairColorUpdate(Color color)
-    {
-        _crosshair.color = color;
-    }
-
-    private void AmmoUIUpdate(bool activateAmmoUI)
-    {
-        _ammoUI.SetActive(activateAmmoUI);
     }
 }

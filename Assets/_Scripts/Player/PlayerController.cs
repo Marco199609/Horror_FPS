@@ -18,12 +18,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerData _playerData;
 
-    private ObjectManager _objectManager;
     private GameObject _player;
-
-    private WeaponController _weaponController;
-    private InventoryController _inventoryController;
-
     private Ray _ray; //used for item interaction
 
     //Player scripts attached to this gameobject
@@ -59,52 +54,20 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        //Gets object manager and objects required
-        _objectManager = ObjectManager.Instance;
-        if(_objectManager != null)
-        {
-            _weaponController = _objectManager.WeaponController;
-            _inventoryController = _objectManager.InventoryController;
-        }
-
         InteractablesInSight = new List<GameObject>();
     }
 
     private void Update()
     {
-        //Controls player only if inventory closed (Game does not pause)
-        if (_inventoryController != null && !_inventoryController.IsInventoryEnabled)
-        {
-            CameraControl();
-        }
-        else if(_inventoryController == null)
-        {
-            CameraControl();
-        }
-
-        //Player can move and control flashlight even if inventory enabled
+        CameraControl();
         PlayerMovement();
         FlashlightControl();
-
-        //Picks up items only if weapon inactive and if inventory closed
-        if (_weaponController != null && _inventoryController != null && !_weaponController.IsWeaponActive && !_inventoryController.IsInventoryEnabled)
-        {
-            ItemInteraction();
-        }
-        //else _playerData.UICenterPoint.gameObject.SetActive(false); //Deactivates center point
+        ItemInteraction();
     }
 
     private void LateUpdate()
     {
-        //Controls player only if inventory closed (Game does not pause)
-        if (_inventoryController != null &&  !_inventoryController.IsInventoryEnabled)
-        {
-            PlayerRotation();
-        }
-        else if(_inventoryController == null)
-        {
-            PlayerRotation();
-        }
+        PlayerRotation();
     }
 
     private void PlayerMovement()

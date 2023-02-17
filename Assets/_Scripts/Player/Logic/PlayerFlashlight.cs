@@ -13,7 +13,7 @@ public class PlayerFlashlight : MonoBehaviour, IFlashlightControl
     private void Awake()
     {
         //Adds this object to the object manager for future use
-        //ObjectManager.Instance.PlayerFlashlight = this;
+        if(ObjectManager.Instance != null) ObjectManager.Instance.PlayerFlashlight = this;
     }
     public void FlashlightControl(PlayerData playerData, IPlayerInput playerInput)
     {

@@ -13,18 +13,7 @@ public class ItemData : MonoBehaviour, IInteractable
 
     public void Interact() //Item behaviour if picked up
     {
-        ObjectManager.Instance.InventoryController.AddItem(this);
-
-        //Disables components instead of destroying the object, so that the item behaviour script works in the inventory slot
-        if (GetComponent<MeshRenderer>() != null) GetComponent<MeshRenderer>().enabled = false;
-        if (GetComponent<Collider>() != false) GetComponent<Collider>().enabled = false;
-
-        //Destroys item children, if any
-        int childs = transform.childCount;
-        for (int i = 0; i < childs; i++)
-        {
-            Destroy(transform.GetChild(i).gameObject);
-        }
+        GetComponent<IItemBehaviour>().Behaviour();
     }
 
     public string Description() //Returns description to other scripts

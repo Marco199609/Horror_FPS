@@ -1,11 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.ExceptionServices;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.InputSystem;
 
 public class GameController : MonoBehaviour
 {
@@ -17,9 +14,6 @@ public class GameController : MonoBehaviour
 
     [Header("Inventory Items")]
     public GameObject InventoryPanel;
-    private InventoryController inventoryController;
-    public List<InventoryItemSlot> inventoryItemSlots = new List<InventoryItemSlot>();
-    public List<InventoryWeaponSlot> inventoryWeaponSlots = new List<InventoryWeaponSlot>();
 
     [Header("UI Items")]
     public TextMeshProUGUI InteractableDescription;
@@ -32,10 +26,6 @@ public class GameController : MonoBehaviour
         Application.targetFrameRate = _targetFramerate;
         QualitySettings.vSyncCount = _vSyncCount;
     }
-    private void Start()
-    {
-        inventoryController = ObjectManager.Instance.InventoryController;
-    }
 
     // Update is called once per frame
     void Update()
@@ -46,18 +36,8 @@ public class GameController : MonoBehaviour
 
     private void LockCursor()
     {
-        if(!inventoryController.IsInventoryEnabled)
-        {
-            //Lock and hide cursor
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-        else
-        {
-            //Unlock and show cursor
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
 
@@ -79,18 +59,5 @@ public class GameController : MonoBehaviour
                 _timer = Time.unscaledTime + hudRefreshRate;
             }
         }
-    }
-
-
-    public void RemoveItemFromInventory()
-    {
-        //passes inventory slot clicked to the inventory controller 
-        ObjectManager.Instance.InventoryController.RemoveItem(EventSystem.current.currentSelectedGameObject.GetComponentInParent<InventoryItemSlot>());
-    }
-
-    public void RemoveWeaponFromInventory()
-    {
-        //passes inventory slot clicked to the inventory controller 
-        ObjectManager.Instance.InventoryController.RemoveWeapon(EventSystem.current.currentSelectedGameObject.GetComponentInParent<InventoryWeaponSlot>());
     }
 }

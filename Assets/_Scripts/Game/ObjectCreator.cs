@@ -23,12 +23,12 @@ public class ObjectCreator : MonoBehaviour
         CreateObject<ObjectManager>();
 
         //CreateObject<PlayerController>();
-        CreateObject<WeaponController>();
-        CreateObject<InventoryController>();
+        //CreateObject<WeaponController>();
+        //CreateObject<InventoryController>();
 
         //CreateObject<PlayerInput>();
-        CreateObject<WeaponInput>();
-        CreateObject<InventoryInput>();
+        //CreateObject<WeaponInput>();
+        //CreateObject<InventoryInput>();
 
         //Add objects to persistent systems parent
         for(int i = 0; i < _objects.Count; i++)

@@ -8,18 +8,13 @@ public class ObjectManager : MonoBehaviour
 
     [Header("Data Managers")]
     public PlayerData PlayerData;
-    public WeaponGeneralData WeaponGeneralData;
 
     [Header("Game Controllers")]
     public GameController GameController;
-    public InventoryController InventoryController;
     public PlayerController PlayerController;
-    public WeaponController WeaponController;
 
     [Header("Input Managers")]
     public PlayerInput PlayerInput;
-    public WeaponInput WeaponInput;
-    public InventoryInput InventoryInput;
 
     [Header("Player Scripts")]
     public PlayerFlashlight PlayerFlashlight;
