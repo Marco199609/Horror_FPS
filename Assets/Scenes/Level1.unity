@@ -385,10 +385,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1464701059}
     m_Modifications:
-    - target: {fileID: 2790741472255789107, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
-      propertyPath: mouseSensitivityX
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 8997385359482471059, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_Name
       value: PlayerController

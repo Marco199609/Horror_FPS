@@ -28,7 +28,7 @@ public class PlayerCameraControl : MonoBehaviour, ICameraControl
 
         CheckMotion();
         ResetPosition();
-        _playerData.camTransform.LookAt(FocusTarget(player));
+        //_playerData.camTransform.LookAt(FocusTarget(player));
     }
 
 
@@ -56,17 +56,17 @@ public class PlayerCameraControl : MonoBehaviour, ICameraControl
 
         if (!isRunning)
         {
-            pos.y += Mathf.Sin(Time.time * _playerData.camMovementFrequency) * _playerData.camMovementAmplitude;
-            pos.x += Mathf.Cos(Time.time * _playerData.camMovementFrequency / 2) * _playerData.camMovementAmplitude * 2;
+            pos.y += Mathf.Sin(Time.time * _playerData.camMovementFrequency) * _playerData.camMovementAmplitude * 2;
+            pos.x += Mathf.Cos(Time.time * _playerData.camMovementFrequency / 2) * _playerData.camMovementAmplitude;
         }
         else
         {
-            float runMovementAmplitude = _playerData.camMovementAmplitude * 2;
+            float runMovementAmplitude = _playerData.camMovementAmplitude * (_playerData.runSpeed / _playerData.walkSpeed);
 
             pos.y += Mathf.Sin(Time.time * _playerData.camMovementFrequency * (_playerData.runSpeed / _playerData.walkSpeed))
-                * runMovementAmplitude;
-            pos.x += Mathf.Cos(Time.time * _playerData.camMovementFrequency / 2 * (_playerData.runSpeed / _playerData.walkSpeed))
                 * runMovementAmplitude * 2;
+            pos.x += Mathf.Cos(Time.time * _playerData.camMovementFrequency / 2 * (_playerData.runSpeed / _playerData.walkSpeed))
+                * runMovementAmplitude;
         }
 
         return pos;
