@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [Header("Player UI")]
-    [SerializeField] private Image _uiPickupHand;
+    [SerializeField] private GameObject _interactableKeyPrompt;
     [SerializeField] private Image _uiCenterPoint;
     [SerializeField] private TextMeshProUGUI _interactableDescription;
 
@@ -52,8 +52,7 @@ public class UIManager : MonoBehaviour
         _interactableDescription.text = description;
 
         //Activate hand and deactivate center point
-        _uiPickupHand.gameObject.SetActive(true);
-        _uiCenterPoint.gameObject.SetActive(false);
+        _interactableKeyPrompt.gameObject.SetActive(true);
     }
 
     private void DeactivatePlayerUIElements(string description)
@@ -62,8 +61,7 @@ public class UIManager : MonoBehaviour
         _interactableDescription.text = description;
 
         //Deactivate hand and activate center point
-        _uiPickupHand.gameObject.SetActive(false);
-        _uiCenterPoint.gameObject.SetActive(true);
+        _interactableKeyPrompt.gameObject.SetActive(false);
     }
 
     //Updates center point when an interactable is in camera view
