@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 5088337457469650119}
   - component: {fileID: 5088337457469650118}
   - component: {fileID: 5088337457469650105}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2692,7 +2692,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1661701999460904345, guid: d80a1a140da249d479b2965612dfc02c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.0006
+      value: -6.1
       objectReference: {fileID: 0}
     - target: {fileID: 1661701999460904345, guid: d80a1a140da249d479b2965612dfc02c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2876,6 +2876,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5088337457423073839}
     m_Modifications:
+    - target: {fileID: 2079024216092846228, guid: 2801db70eabf6614fab7a7517db6daac, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2592690570908604114, guid: 2801db70eabf6614fab7a7517db6daac, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -5756,6 +5760,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5088337457903699156}
     m_Modifications:
+    - target: {fileID: 1696362567204474295, guid: 2801db70eabf6614fab7a7517db6daac, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.019844294
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079024216092846228, guid: 2801db70eabf6614fab7a7517db6daac, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079024216092846228, guid: 2801db70eabf6614fab7a7517db6daac, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.019844294
+      objectReference: {fileID: 0}
     - target: {fileID: 2592690570908604114, guid: 2801db70eabf6614fab7a7517db6daac, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -5803,6 +5819,10 @@ PrefabInstance:
     - target: {fileID: 2932062138508987496, guid: 2801db70eabf6614fab7a7517db6daac, type: 3}
       propertyPath: m_Name
       value: door_frame
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684528418614178048, guid: 2801db70eabf6614fab7a7517db6daac, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.019844294
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2801db70eabf6614fab7a7517db6daac, type: 3}
@@ -6018,7 +6038,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1661701999460904345, guid: d80a1a140da249d479b2965612dfc02c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.0008
+      value: -8.1
       objectReference: {fileID: 0}
     - target: {fileID: 1661701999460904345, guid: d80a1a140da249d479b2965612dfc02c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7040,6 +7060,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5088337457172710214}
     m_Modifications:
+    - target: {fileID: 2079024216092846228, guid: 2801db70eabf6614fab7a7517db6daac, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2592690570908604114, guid: 2801db70eabf6614fab7a7517db6daac, type: 3}
       propertyPath: m_RootOrder
       value: 4

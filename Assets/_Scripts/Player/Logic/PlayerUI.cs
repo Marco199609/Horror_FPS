@@ -19,13 +19,13 @@ public class PlayerUI : MonoBehaviour, IPlayerUI
     public delegate void UpdateCenterPoint(Color color);
     public static event UpdateCenterPoint CenterPointUpdated;
 
-    public void InteractableUI(PlayerData playerData, RaycastHit hit)
+    public void InteractableUI(PlayerData playerData, RaycastHit interactable)
     {
-        if (hit.distance <= playerData.itemPickupDistance && hit.collider.GetComponent<IInteractable>() != null) //Checks if item interactable and reachable
+        if (interactable.distance <= playerData.itemPickupDistance && interactable.collider.GetComponent<IInteractable>() != null) 
         {
             if (!_playerUIActivated)
             {
-                _interactableDescription = hit.transform.gameObject.GetComponent<IInteractable>().Description(); //Updates item description
+                _interactableDescription = interactable.transform.gameObject.GetComponent<IInteractable>().Description(); //Updates item description
                 ItemDescriptionActivated?.Invoke(_interactableDescription); //Passes description to UI manager
                 _playerUIActivated = true;
             }
@@ -39,7 +39,7 @@ public class PlayerUI : MonoBehaviour, IPlayerUI
             if (_playerUIActivated)
             {
                 _interactableDescription = ""; //Resets item description
-                ItemDescriptionDeactivated?.Invoke(_interactableDescription); //Passes description to UI manager
+                ItemDescriptionDeactivated?.Invoke(_interactableDescription); //Passes blank description to UI manager
                 _playerUIActivated = false;
             }
         }
