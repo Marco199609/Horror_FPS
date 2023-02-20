@@ -12,12 +12,6 @@ public class GameController : MonoBehaviour
     [SerializeField] private bool _showFramerate;
     private float _timer;
 
-    [Header("Inventory Items")]
-    public GameObject InventoryPanel;
-
-    [Header("UI Items")]
-    public TextMeshProUGUI InteractableDescription;
-
     private void Awake()
     {
         //Adds this object to object manager for future use
@@ -39,8 +33,6 @@ public class GameController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-
-
 
     void ShowFPS()
     {
