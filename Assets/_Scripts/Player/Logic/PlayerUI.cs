@@ -1,33 +1,32 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour, IPlayerUI
 {
     //Interactable UI variables
-    private bool _playerUIActivated = true;
-    private string _interactableDescription;
+    private bool _playerUIActive = true, _itemsCurrentlyVisible;
+    private string _interactableDescription, _blankInteractableDescription;
 
     public delegate void UpdateItemDescription(string description);
     public static event UpdateItemDescription ItemDescriptionActivated;
-    public static event UpdateItemDescription ItemDescriptionDeactivated;
+    public static event UpdateItemDescription ItemDescriptionReset;
 
-    //Center point variables
-    private float _transparency, _previousTransparency, _maxTransparency = 0.08f, _changeSpeed = 0.1f; 
-    private Color _centerPointColor;
 
-    public delegate void UpdateCenterPoint(Color color);
-    public static event UpdateCenterPoint CenterPointUpdated;
+    //Center UI point variables
+    public delegate void UpdateCenterPoint(bool ItemsVisible);
+    public static event UpdateCenterPoint ItemsBecameVisible;
 
     public void InteractableUI(PlayerData playerData, RaycastHit interactable)
     {
         if (interactable.distance <= playerData.itemPickupDistance && interactable.collider.GetComponent<IInteractable>() != null) 
         {
-            if (!_playerUIActivated)
+            if (!_playerUIActive)
             {
                 _interactableDescription = interactable.transform.gameObject.GetComponent<IInteractable>().Description(); //Updates item description
                 ItemDescriptionActivated?.Invoke(_interactableDescription); //Passes description to UI manager
-                _playerUIActivated = true;
+                _playerUIActive = true;
             }
 
             /*If ray passes from one interactable to another without a gap,
@@ -36,11 +35,10 @@ public class PlayerUI : MonoBehaviour, IPlayerUI
         }
         else
         {
-            if (_playerUIActivated)
+            if (_playerUIActive)
             {
-                _interactableDescription = ""; //Resets item description
-                ItemDescriptionDeactivated?.Invoke(_interactableDescription); //Passes blank description to UI manager
-                _playerUIActivated = false;
+                ItemDescriptionReset?.Invoke(_blankInteractableDescription);
+                _playerUIActive = false;
             }
         }
     }
@@ -48,21 +46,15 @@ public class PlayerUI : MonoBehaviour, IPlayerUI
     //If an interactable is in camera view, it activates the center point as a hint
     public void CenterPointControl(List<GameObject> itemsVisible)
     {
-        if(itemsVisible.Count > 0 && _transparency < _maxTransparency) 
-            _transparency += _changeSpeed * 2 * Time.deltaTime;
-        else if(itemsVisible.Count <= 0 && _transparency > 0) 
-            _transparency -= _changeSpeed * Time.deltaTime;
-
-        Mathf.Clamp(_transparency, 0f, _maxTransparency);
-
-        //Prevents color from being passed to the UI manager when not necessary
-        if (_transparency != _previousTransparency)
+        if (itemsVisible.Count > 0 && !_itemsCurrentlyVisible)
         {
-            _centerPointColor = new Color(1, 1, 1, _transparency);
-
-            CenterPointUpdated?.Invoke(_centerPointColor); //Passes new color to UI manager
-
-            _previousTransparency = _transparency; 
+            _itemsCurrentlyVisible = true;
+            ItemsBecameVisible?.Invoke(_itemsCurrentlyVisible);
+        }
+        else if (itemsVisible.Count <= 0 && _itemsCurrentlyVisible)
+        {
+            _itemsCurrentlyVisible = false;
+            ItemsBecameVisible?.Invoke(_itemsCurrentlyVisible);
         }
     }
 }

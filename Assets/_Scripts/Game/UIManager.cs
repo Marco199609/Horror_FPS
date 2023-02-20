@@ -10,44 +10,78 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _interactableKeyPrompt;
     [SerializeField] private Image _uiCenterPoint;
     [SerializeField] private TextMeshProUGUI _interactableDescription;
+    
+    private bool _itemsCurrentlyVisible;
+
+    //Center point variables
+    private float _transparency, _previousTransparency, _maxTransparency = 0.08f, _changeSpeed = 0.1f;
+    private Color _centerPointColor;
 
     private void OnEnable()
     {
         //Subscribes to player UI events
         PlayerUI.ItemDescriptionActivated += ActivatePlayerUIElements;
-        PlayerUI.ItemDescriptionDeactivated += DeactivatePlayerUIElements;
-        PlayerUI.CenterPointUpdated += CenterPointColorUpdate;
+        PlayerUI.ItemDescriptionReset += DeactivatePlayerUIElements;
+        PlayerUI.ItemsBecameVisible += AreItemsVisible;
     }
 
     private void OnDisable()
     {
         //Unsubscribes from player Ui events
-        PlayerUI.ItemDescriptionActivated -= ActivatePlayerUIElements;
-        PlayerUI.ItemDescriptionDeactivated -= DeactivatePlayerUIElements;
-        PlayerUI.CenterPointUpdated -= CenterPointColorUpdate;
+        PlayerUI.ItemDescriptionActivated -=ActivatePlayerUIElements;
+        PlayerUI.ItemDescriptionReset -= DeactivatePlayerUIElements;
+        PlayerUI.ItemsBecameVisible -= AreItemsVisible;
     }
 
-    void ActivatePlayerUIElements(string description)
+    void ActivatePlayerUIElements(string interactableDescription)
     {
         //Updates item description
-        _interactableDescription.text = description;
+        _interactableDescription.text = interactableDescription;
 
         //Activate hand and deactivate center point
         _interactableKeyPrompt.gameObject.SetActive(true);
     }
 
-    private void DeactivatePlayerUIElements(string description)
+    private void DeactivatePlayerUIElements(string blankDescription)
     {
         //Blanks item description
-        _interactableDescription.text = description;
+        _interactableDescription.text = blankDescription;
 
         //Deactivate hand and activate center point
         _interactableKeyPrompt.gameObject.SetActive(false);
     }
 
     //Updates center point when an interactable is in camera view
-    private void CenterPointColorUpdate(Color color)
+    private void AreItemsVisible(bool areItemsVisible)
     {
-        _uiCenterPoint.color = color; 
+        _itemsCurrentlyVisible = areItemsVisible;
+    }
+
+    private void UpdateCenterPoint()
+    {
+        if (_itemsCurrentlyVisible && _transparency < _maxTransparency)
+        {
+            _transparency += _changeSpeed * 2 * Time.deltaTime;
+        }
+        else if (!_itemsCurrentlyVisible && _transparency > 0)
+        {
+            _transparency -= _changeSpeed * Time.deltaTime;
+        }
+
+        Mathf.Clamp(_transparency, 0f, _maxTransparency);
+
+        if (_transparency != _previousTransparency) //Prevents color from being passed to the UI manager when not necessary
+        {
+            _centerPointColor = new Color(1, 1, 1, _transparency);
+
+            _uiCenterPoint.color = _centerPointColor;
+
+            _previousTransparency = _transparency;
+        }
+    }
+
+    private void Update()
+    {
+        UpdateCenterPoint();
     }
 }
