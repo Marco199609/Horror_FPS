@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Prop_Door : MonoBehaviour, IInteractable
 {
-    [SerializeField] private string _description;
     [SerializeField] GameObject _doorHandle, _doorPivotPoint;
     [SerializeField] Collider _doorCollider;
-    private float _doorMoveVelocity = 100;
+    private float _doorMoveVelocity = 150;
     private enum DoorState {Closed, Open};
 
     [SerializeField] private DoorState _currentDoorState;
@@ -15,24 +14,27 @@ public class Prop_Door : MonoBehaviour, IInteractable
     private bool _changeDoorState;
     public string Description()
     {
-        return _description;
+        if(_currentDoorState == DoorState.Closed)
+            return "Open door";
+        else
+            return "Close door";
     }
 
     public void Interact()
-    {
-        Behaviour();
-    }
-
-    public void Behaviour()
     {
         _changeDoorState = true;
     }
 
     private void Update()
     {
+        Behaviour();
+    }
+
+    public void Behaviour()
+    {
         if (_changeDoorState)
         {
-            if(_doorCollider.enabled) _doorCollider.enabled = false;
+            if (_doorCollider.enabled) _doorCollider.enabled = false;
 
             switch (_currentDoorState)
             {
@@ -41,7 +43,6 @@ public class Prop_Door : MonoBehaviour, IInteractable
                         if (_doorPivotPoint.transform.localEulerAngles.z > 270 || _doorPivotPoint.transform.localEulerAngles.z == 0)
                         {
                             _doorPivotPoint.transform.Rotate(0, 0, -_doorMoveVelocity * Time.deltaTime);
-
                         }
                         else
                         {

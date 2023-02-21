@@ -24,7 +24,7 @@ public class PlayerUI : MonoBehaviour, IPlayerUI
         {
             if (!_playerUIActive)
             {
-                _interactableDescription = interactable.transform.gameObject.GetComponent<IInteractable>().Description(); //Updates item description
+                _interactableDescription = interactable.collider.GetComponent<IInteractable>().Description(); //Updates item description
                 ItemDescriptionActivated?.Invoke(_interactableDescription); //Passes description to UI manager
                 _playerUIActive = true;
             }
