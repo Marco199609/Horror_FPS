@@ -7,9 +7,9 @@ public class PlayerUI : MonoBehaviour, IPlayerUI
 {
     //Interactable UI variables
     private bool _playerUIActive = true, _itemsCurrentlyVisible;
-    private string _interactableDescription, _blankInteractableDescription;
+    private string _interactableDescription, _blankText, _actionDescription;
 
-    public delegate void UpdateItemDescription(string description);
+    public delegate void UpdateItemDescription(string interactableDescription, string actionDescription);
     public static event UpdateItemDescription ItemDescriptionActivated;
     public static event UpdateItemDescription ItemDescriptionReset;
 
@@ -18,14 +18,18 @@ public class PlayerUI : MonoBehaviour, IPlayerUI
     public delegate void UpdateCenterPoint(bool ItemsVisible);
     public static event UpdateCenterPoint ItemsBecameVisible;
 
-    public void InteractableUI(PlayerData playerData, RaycastHit interactable)
+    public void InteractableUI(PlayerData playerData, RaycastHit interactableHit)
     {
-        if (interactable.distance <= playerData.itemPickupDistance && interactable.collider.GetComponent<IInteractable>() != null) 
+        if (interactableHit.distance <= playerData.itemPickupDistance && interactableHit.collider.GetComponent<IInteractable>() != null) 
         {
             if (!_playerUIActive)
             {
-                _interactableDescription = interactable.collider.GetComponent<IInteractable>().Description(); //Updates item description
-                ItemDescriptionActivated?.Invoke(_interactableDescription); //Passes description to UI manager
+                IInteractable interactable = interactableHit.collider.GetComponent<IInteractable>();
+
+                _interactableDescription = interactable.InteractableDescription();
+                _actionDescription = interactable.ActionDescription();
+
+                ItemDescriptionActivated?.Invoke(_interactableDescription, _actionDescription); //Passes description to UI manager
                 _playerUIActive = true;
             }
 
@@ -37,7 +41,7 @@ public class PlayerUI : MonoBehaviour, IPlayerUI
         {
             if (_playerUIActive)
             {
-                ItemDescriptionReset?.Invoke(_blankInteractableDescription);
+                ItemDescriptionReset?.Invoke(_blankText, _blankText);
                 _playerUIActive = false;
             }
         }

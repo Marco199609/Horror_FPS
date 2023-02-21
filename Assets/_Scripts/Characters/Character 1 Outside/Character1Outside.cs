@@ -3,9 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class Character1Outside : MonoBehaviour
+public class Character1Outside : MonoBehaviour, IInteractable
 {
     [SerializeField] private GameObject _player;
+
+    public string ActionDescription()
+    {
+        return "Talk";
+    }
+
+    public void Behaviour()
+    {
+        return;
+    }
+
+    public void Interact()
+    {
+        return;
+    }
+
+    public string InteractableDescription()
+    {
+        return "Give me back my children";
+    }
+
     // Start is called before the first frame update
     void Start()
     {

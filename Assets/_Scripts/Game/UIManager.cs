@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _interactableKeyPrompt;
     [SerializeField] private Image _uiCenterPoint;
     [SerializeField] private TextMeshProUGUI _interactableDescription;
+    [SerializeField] private TextMeshProUGUI _actionDescription;
     
     private bool _itemsCurrentlyVisible;
 
@@ -33,19 +34,21 @@ public class UIManager : MonoBehaviour
         PlayerUI.ItemsBecameVisible -= AreItemsVisible;
     }
 
-    void ActivatePlayerUIElements(string interactableDescription)
+    void ActivatePlayerUIElements(string interactableDescription, string actionDescription)
     {
         //Updates item description
         _interactableDescription.text = interactableDescription;
+        _actionDescription.text = actionDescription;
 
         //Activate hand and deactivate center point
         _interactableKeyPrompt.gameObject.SetActive(true);
     }
 
-    private void DeactivatePlayerUIElements(string blankDescription)
+    private void DeactivatePlayerUIElements(string blankText, string blankText2)
     {
         //Blanks item description
-        _interactableDescription.text = blankDescription;
+        _interactableDescription.text = blankText;
+        _actionDescription.text = blankText2;
 
         //Deactivate hand and activate center point
         _interactableKeyPrompt.gameObject.SetActive(false);

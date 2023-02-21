@@ -8,9 +8,14 @@ public class Item_Health : MonoBehaviour, IInteractable
     [SerializeField] private int _health;
 
 
-    public string Description()
+    public string InteractableDescription()
     {
         return _description;
+    }
+
+    public string ActionDescription()
+    {
+        return "Take";
     }
 
     public void Interact()

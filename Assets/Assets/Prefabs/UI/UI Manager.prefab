@@ -49,20 +49,7 @@ MonoBehaviour:
   _interactableKeyPrompt: {fileID: 581701907953296276}
   _uiCenterPoint: {fileID: 8310470404716481225}
   _interactableDescription: {fileID: 6678748918848843834}
-  _weaponUICanvas: {fileID: 0}
-  _ammoUI: {fileID: 0}
-  _weaponUIIcon: {fileID: 0}
-  _ammoReserveText: {fileID: 0}
-  _crosshair: {fileID: 0}
-  _bulletImages:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  _actionDescription: {fileID: 5333405507848936317}
 --- !u!1001 &581701907404689453
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -172,10 +159,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 581701908695208402}
     m_Modifications:
-    - target: {fileID: 1399920622, guid: 35008fab6c2254e4b85acd79f88b2eb7, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1591221800242041986, guid: 35008fab6c2254e4b85acd79f88b2eb7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -264,14 +247,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player UI Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 8407794606402701968, guid: 35008fab6c2254e4b85acd79f88b2eb7, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8882829100418198645, guid: 35008fab6c2254e4b85acd79f88b2eb7, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35008fab6c2254e4b85acd79f88b2eb7, type: 3}
 --- !u!1 &581701907953296276 stripped
@@ -284,6 +259,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1591221800242041986, guid: 35008fab6c2254e4b85acd79f88b2eb7, type: 3}
   m_PrefabInstance: {fileID: 581701909346792569}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5333405507848936317 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4762150614324653828, guid: 35008fab6c2254e4b85acd79f88b2eb7, type: 3}
+  m_PrefabInstance: {fileID: 581701909346792569}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6678748918848843834 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6106089499556201539, guid: 35008fab6c2254e4b85acd79f88b2eb7, type: 3}

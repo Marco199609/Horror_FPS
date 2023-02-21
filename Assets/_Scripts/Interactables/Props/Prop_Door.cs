@@ -12,12 +12,21 @@ public class Prop_Door : MonoBehaviour, IInteractable
     [SerializeField] private DoorState _currentDoorState;
 
     private bool _changeDoorState;
-    public string Description()
+    public string InteractableDescription()
+    {
+        if (_currentDoorState == DoorState.Closed)
+            return "";
+        else if (_currentDoorState == DoorState.Locked)
+            return "Door locked";
+        else
+            return "";
+    }
+    public string ActionDescription()
     {
         if (_currentDoorState == DoorState.Closed)
             return "Open door";
         else if (_currentDoorState == DoorState.Locked)
-            return "Door Locked";
+            return "Find key";
         else
             return "Close door";
     }

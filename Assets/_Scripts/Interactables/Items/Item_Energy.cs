@@ -7,9 +7,13 @@ public class Item_Energy : MonoBehaviour, IInteractable
     [SerializeField] private string _description;
     [SerializeField] private float _energy;
 
-    public string Description()
+    public string InteractableDescription()
     {
         return _description;
+    }
+    public string ActionDescription()
+    {
+        return "Take";
     }
     public void Interact()
     {
