@@ -7,15 +7,17 @@ public class Prop_Door : MonoBehaviour, IInteractable
     [SerializeField] GameObject _doorHandle, _doorPivotPoint;
     [SerializeField] Collider _doorCollider;
     private float _doorMoveVelocity = 150;
-    private enum DoorState {Closed, Open};
+    private enum DoorState {Locked, Closed, Open};
 
     [SerializeField] private DoorState _currentDoorState;
 
     private bool _changeDoorState;
     public string Description()
     {
-        if(_currentDoorState == DoorState.Closed)
+        if (_currentDoorState == DoorState.Closed)
             return "Open door";
+        else if (_currentDoorState == DoorState.Locked)
+            return "Door Locked";
         else
             return "Close door";
     }
@@ -38,6 +40,11 @@ public class Prop_Door : MonoBehaviour, IInteractable
 
             switch (_currentDoorState)
             {
+                case DoorState.Locked:
+                    {
+                        _changeDoorState = false;
+                        break;
+                    }
                 case DoorState.Closed:
                     {
                         if (_doorPivotPoint.transform.localEulerAngles.z > 270 || _doorPivotPoint.transform.localEulerAngles.z == 0)
