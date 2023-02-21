@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8029244232507335820}
   - component: {fileID: 8029244232507335821}
   - component: {fileID: 8029244232507335818}
-  - component: {fileID: 5572935807000710073}
   - component: {fileID: 5157885826053854826}
   - component: {fileID: 1606101479}
   m_Layer: 9
@@ -87,19 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5572935807000710073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8029244232507335816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e15e44f6032b4facade504ab696bb37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Item: {fileID: 11400000, guid: be70261c3a8045b46b0c3f2c45636b7e, type: 2}
 --- !u!135 &5157885826053854826
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -125,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f505e91fc663fdc4d825ab53bae05255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _description: Battery for your flashlight
   _energy: 50
 --- !u!1 &8029244233383320838
 GameObject:

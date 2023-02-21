@@ -209,7 +209,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5200734579172741190}
   - component: {fileID: 5739276933879720154}
-  - component: {fileID: 5739276933879720157}
   - component: {fileID: 952780878711711625}
   - component: {fileID: 543450652813315658}
   m_Layer: 9
@@ -250,19 +249,6 @@ CapsuleCollider:
   m_Height: 0.25369403
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5739276933879720157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4856965240125836028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e15e44f6032b4facade504ab696bb37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Item: {fileID: 11400000, guid: 21f0a249826993449a596d9aa37a71c6, type: 2}
 --- !u!114 &952780878711711625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,6 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b60081c76aa49fd4da3a66943f9a9b40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _description: Syringe for your health
   _health: 30
 --- !u!23 &543450652813315658
 MeshRenderer:
