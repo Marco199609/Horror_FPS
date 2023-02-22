@@ -14,7 +14,7 @@ public class PlayerAudio : MonoBehaviour, IPlayerAudio
                 if (_playerRunningTimer <= 0)
                 {
                     int i = Random.Range(0, playerData.Footsteps.Length);
-                    playerData.PlayerAudioSource.PlayOneShot(playerData.Footsteps[i], 0.2f);
+                    playerData.PlayerAudioSource.PlayOneShot(playerData.Footsteps[i], 0.3f);
                     _playerRunningTimer = playerData.FootstepsRunningTime;
                 }
                 _playerRunningTimer -= Time.deltaTime;
@@ -24,7 +24,7 @@ public class PlayerAudio : MonoBehaviour, IPlayerAudio
                 if (_playerWalkingTimer <= 0)
                 {
                     int i = Random.Range(0, playerData.Footsteps.Length);
-                    playerData.PlayerAudioSource.PlayOneShot(playerData.Footsteps[i], 0.2f);
+                    playerData.PlayerAudioSource.PlayOneShot(playerData.Footsteps[i], 0.3f);
                     _playerWalkingTimer = playerData.FootstepWalkingTime;
                 }
                 _playerWalkingTimer -= Time.deltaTime;
