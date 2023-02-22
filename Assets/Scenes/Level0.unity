@@ -34,7 +34,7 @@ RenderSettings:
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
-  m_ReflectionBounces: 1
+  m_ReflectionBounces: 5
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 654857181}
@@ -185,6 +185,7 @@ Transform:
   - {fileID: 654857182}
   - {fileID: 1852622599}
   - {fileID: 1845574880}
+  - {fileID: 2000581749}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -249,7 +250,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.9811321, g: 0.9321648, b: 0.32766104, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -292,7 +293,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 5
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -492,9 +493,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 138b6644bf6d34737bc2c8706451e76c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 14129c364189298499a146a9ca4fafed, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.03
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -538,7 +539,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -585,7 +586,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1176168852}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6462ee7685dcd50488ae41044a44ceda, type: 3}
   m_Name: 
@@ -593,8 +594,8 @@ MonoBehaviour:
   _sunlight: {fileID: 654857181}
   _sunriseHour: 6
   _sunsetHour: 18
-  _dayAmbientLight: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 0}
-  _nightAmbientLight: {r: 0.13421145, g: 0.15331687, b: 0.18867922, a: 0}
+  _dayAmbientLight: {r: 1, g: 1, b: 1, a: 0}
+  _nightAmbientLight: {r: 0, g: 0, b: 0, a: 0}
   _lightChangeCurve:
     serializedVersion: 2
     m_Curve:
@@ -630,9 +631,9 @@ MonoBehaviour:
     m_RotationOrder: 4
   _moonlight: {fileID: 1845574881}
   _maxSunlightIntensity: 1
-  _maxMoonlightIntensity: 0.05
-  _timeMultiplier: 1000
-  _startHour: 17
+  _maxMoonlightIntensity: 0
+  _timeMultiplier: 5000
+  _startHour: 10
   _timeUIText: {fileID: 0}
 --- !u!1 &1361866724
 GameObject:
@@ -769,7 +770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1845574880
 Transform:
   m_ObjectHideFlags: 0
@@ -796,7 +797,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.5107867, g: 0.597085, b: 0.6415094, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -900,10 +901,10 @@ ReflectionProbe:
   m_FarClip: 1000
   m_ShadowDistance: 100
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2147483647
   m_IntensityMultiplier: 1
   m_BlendDistance: 1
   m_HDR: 1
@@ -924,6 +925,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6533751894493500777, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 6533751894493500777, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6533751894493500777, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
       objectReference: {fileID: 0}
@@ -942,6 +951,10 @@ PrefabInstance:
     - target: {fileID: 6533751894493500777, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997385357740913328, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8997385359482471059, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_Name
@@ -993,6 +1006,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
+--- !u!1 &2000581748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2000581749}
+  - component: {fileID: 2000581750}
+  m_Layer: 8
+  m_Name: Post Process Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2000581749
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000581748}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 66287931}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2000581750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000581748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 3ea2c525a98d5064db22852a208a5ceb, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!1 &2110718019
 GameObject:
   m_ObjectHideFlags: 0
