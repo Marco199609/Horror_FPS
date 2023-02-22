@@ -35,14 +35,14 @@ public class PlayerData : MonoBehaviour
 
     public GameObject WeaponLight;
 
+    [Header("Player Audio Control")]
+    public AudioSource PlayerAudioSource;
+    public float FootstepWalkingTime;
+    public float FootstepsRunningTime;
+    public AudioClip[] Footsteps;
 
-    [Header("Inventory Control")]
+    [Header("Interactable Control")]
     public float itemPickupDistance = 10f;
    
     public CharacterController characterController;
-    private void Awake()
-    {
-        //ObjectManager.Instance.PlayerData = this;
-        //ObjectManager.Instance.Player = this.gameObject;
-    }
 }

@@ -6,6 +6,9 @@ public class Prop_Door : MonoBehaviour, IInteractable
 {
     [SerializeField] GameObject _doorHandle, _doorPivotPoint;
     [SerializeField] Collider _doorCollider;
+    [SerializeField] AudioSource _doorLockedAudioSource;
+    [SerializeField] AudioClip _doorLockedClip, _doorOpenClip, _doorCloseClip;
+
     private float _doorMoveVelocity = 150;
     private enum DoorState {Locked, Closed, Open};
 
@@ -51,11 +54,17 @@ public class Prop_Door : MonoBehaviour, IInteractable
             {
                 case DoorState.Locked:
                     {
+                        if(!_doorLockedAudioSource.isPlaying)
+                            _doorLockedAudioSource.PlayOneShot(_doorLockedClip, 0.2f);
+
                         _changeDoorState = false;
                         break;
                     }
                 case DoorState.Closed:
                     {
+                        if (!_doorLockedAudioSource.isPlaying)
+                            _doorLockedAudioSource.PlayOneShot(_doorOpenClip, 0.2f);
+
                         if (_doorPivotPoint.transform.localEulerAngles.z > 270 || _doorPivotPoint.transform.localEulerAngles.z == 0)
                         {
                             _doorPivotPoint.transform.Rotate(0, 0, -_doorMoveVelocity * Time.deltaTime);
@@ -69,6 +78,9 @@ public class Prop_Door : MonoBehaviour, IInteractable
                     }
                 case DoorState.Open:
                     {
+                        if (!_doorLockedAudioSource.isPlaying)
+                            _doorLockedAudioSource.PlayOneShot(_doorCloseClip, 0.2f);
+
                         if (_doorPivotPoint.transform.localEulerAngles.z > 260)
                         {
                             _doorPivotPoint.transform.Rotate(0, 0, _doorMoveVelocity * Time.deltaTime);

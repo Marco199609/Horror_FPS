@@ -5,8 +5,16 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Character1Outside : MonoBehaviour, IInteractable
 {
-    [SerializeField] private GameObject _player;
+    [SerializeField] private string _description;
 
+    private GameObject _player;
+    private AudioSource _dialogueAudioSource;
+
+
+    private void Awake()
+    {
+        _dialogueAudioSource = GetComponent<AudioSource>();
+    }
     public string ActionDescription()
     {
         return "Talk";
@@ -14,17 +22,18 @@ public class Character1Outside : MonoBehaviour, IInteractable
 
     public void Behaviour()
     {
-        return;
+        if(!_dialogueAudioSource.isPlaying)
+            _dialogueAudioSource.Play();
     }
 
     public void Interact()
     {
-        return;
+        Behaviour();
     }
 
     public string InteractableDescription()
     {
-        return "Give me back my children";
+        return _description;
     }
 
     // Start is called before the first frame update

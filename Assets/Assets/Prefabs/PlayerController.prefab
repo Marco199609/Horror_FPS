@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8997385359482471048}
   - component: {fileID: 8997385359482471062}
   - component: {fileID: 8997385359482471053}
+  - component: {fileID: 2529688953871844350}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -54,7 +55,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerData: {fileID: 2790741472255789107}
-  InteractablesInSight: []
 --- !u!114 &8997385359482471052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +138,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1892c5f5f9434116b23ad6428a7cf3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2529688953871844350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8997385359482471059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20ad660917268fc4a90c85456cdb5fb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &8997385359279975734
@@ -230,30 +242,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8997385359482471060}
     m_Modifications:
-    - target: {fileID: 2181557804533295363, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.79999995
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770187570600854673, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770187570600854673, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770187570600854673, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770187571978162034, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
-      propertyPath: m_Height
-      value: 1.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770187571978162034, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
-      propertyPath: m_Radius
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 2770187571978162041, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: m_Name
       value: Player
@@ -302,58 +290,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2770187572269442953, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
-      propertyPath: m_ClearFlags
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770187572269442953, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
-      propertyPath: field of view
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770187572269442953, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
-      propertyPath: m_FOVAxisMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770187572269442953, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.18867922
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770187572269442953, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0.18867922
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770187572269442953, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0.18867922
-      objectReference: {fileID: 0}
-    - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
-      propertyPath: runSpeed
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
-      propertyPath: walkSpeed
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: Flashlight
       value: 
       objectReference: {fileID: 538849958248160297}
-    - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
-      propertyPath: MaxIntensity
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
-      propertyPath: MinIntensity
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
-      propertyPath: SwitchOnLimit
-      value: 0.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
-      propertyPath: camMovementAmplitude
-      value: 0.003
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
 --- !u!114 &2790741472255789107 stripped

@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +14,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(PlayerInteract))]
 [RequireComponent(typeof(PlayerUI))]
 [RequireComponent(typeof(PlayerInput))]
+[RequireComponent(typeof(PlayerAudio))]
 #endregion
 
 public class PlayerController : MonoBehaviour
@@ -29,9 +32,10 @@ public class PlayerController : MonoBehaviour
     private IPlayerInteract _playerInteract;
     private IPlayerUI _playerUI;
     private IPlayerInput _playerInput;
+    private IPlayerAudio _playerAudio;
 
     //If there is one or more items in viewport, activate ui center point
-    public List<GameObject> InteractablesInSight;
+    [NonSerialized] public List<GameObject> InteractablesInSight;
 
     private void Awake()
     {
@@ -45,6 +49,7 @@ public class PlayerController : MonoBehaviour
         _playerInteract = GetComponent<IPlayerInteract>();
         _playerUI = GetComponent<IPlayerUI>();
         _playerInput = GetComponent<IPlayerInput>();
+        _playerAudio = GetComponent<IPlayerAudio>();
 
         _player = _playerData.gameObject;
 
@@ -61,6 +66,7 @@ public class PlayerController : MonoBehaviour
     {
         CameraControl();
         PlayerMovement();
+        PlayerAudioControl();
         FlashlightControl();
         ItemInteraction();
     }
@@ -83,6 +89,11 @@ public class PlayerController : MonoBehaviour
     private void CameraControl()
     {
         _playerCameraControl.ControlCamera(_player); //Controls camera head bob
+    }
+
+    private void PlayerAudioControl()
+    {
+        _playerAudio.Footsteps(_playerData, _playerInput);
     }
 
     private void FlashlightControl()
