@@ -249,7 +249,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9811321, g: 0.9321648, b: 0.32766104, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -593,8 +593,8 @@ MonoBehaviour:
   _sunlight: {fileID: 654857181}
   _sunriseHour: 6
   _sunsetHour: 18
-  _dayAmbientLight: {r: 0.7830189, g: 0.70093066, b: 0.29104662, a: 0}
-  _nightAmbientLight: {r: 0.05838374, g: 0.18770684, b: 0.3773585, a: 0}
+  _dayAmbientLight: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 0}
+  _nightAmbientLight: {r: 0.13421145, g: 0.15331687, b: 0.18867922, a: 0}
   _lightChangeCurve:
     serializedVersion: 2
     m_Curve:
