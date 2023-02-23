@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Prop_Door : MonoBehaviour, IInteractable
@@ -8,12 +9,12 @@ public class Prop_Door : MonoBehaviour, IInteractable
     [SerializeField] Collider _doorCollider;
     [SerializeField] AudioSource _doorLockedAudioSource;
     [SerializeField] AudioClip _doorLockedClip, _doorOpenClip, _doorCloseClip;
+    [SerializeField] private GameObject _requiredKey;
 
     private float _doorMoveVelocity = 150;
+
     private enum DoorState {Locked, Closed, Open};
-
     [SerializeField] private DoorState _currentDoorState;
-
     private bool _changeDoorState;
     public string InteractableDescription()
     {
@@ -54,14 +55,32 @@ public class Prop_Door : MonoBehaviour, IInteractable
             {
                 case DoorState.Locked:
                     {
-                        if(!_doorLockedAudioSource.isPlaying)
-                            _doorLockedAudioSource.PlayOneShot(_doorLockedClip, 0.2f);
+                        PlayerData playerData = FindObjectOfType<PlayerData>();
 
+                        if(_requiredKey != null && playerData.Combinables.Count > 0)
+                        {
+                            for (int index = 0; index < playerData.Combinables.Count; index++)
+                            {
+                                if (playerData.Combinables[index] == _requiredKey)
+                                {
+                                    playerData.Combinables.Remove(_requiredKey);
+                                    Destroy(_requiredKey);
+                                    _currentDoorState = DoorState.Closed;
+                                    _changeDoorState = false;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (!_doorLockedAudioSource.isPlaying)
+                                _doorLockedAudioSource.PlayOneShot(_doorLockedClip, 0.2f);
+                        }
                         _changeDoorState = false;
                         break;
                     }
                 case DoorState.Closed:
                     {
+                        print("hello");
                         if (!_doorLockedAudioSource.isPlaying)
                             _doorLockedAudioSource.PlayOneShot(_doorOpenClip, 0.2f);
 

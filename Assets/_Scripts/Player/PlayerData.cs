@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -43,6 +44,7 @@ public class PlayerData : MonoBehaviour
 
     [Header("Interactable Control")]
     public float itemPickupDistance = 10f;
+    public List<GameObject> Combinables;
    
     public CharacterController characterController;
 }
