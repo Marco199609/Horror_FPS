@@ -15,6 +15,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(PlayerUI))]
 [RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(PlayerAudio))]
+[RequireComponent(typeof(PlayerInventory))]
 #endregion
 
 public class PlayerController : MonoBehaviour
@@ -33,9 +34,13 @@ public class PlayerController : MonoBehaviour
     private IPlayerUI _playerUI;
     private IPlayerInput _playerInput;
     private IPlayerAudio _playerAudio;
+    private PlayerInventory _playerInventory;
 
     //If there is one or more items in viewport, activate ui center point
     [NonSerialized] public List<GameObject> InteractablesInSight;
+
+    public List<GameObject> Inventory;
+    public GameObject SelectedInventoryItem;
 
     private void Awake()
     {
@@ -50,11 +55,15 @@ public class PlayerController : MonoBehaviour
         _playerUI = GetComponent<IPlayerUI>();
         _playerInput = GetComponent<IPlayerInput>();
         _playerAudio = GetComponent<IPlayerAudio>();
+        _playerInventory = GetComponent<PlayerInventory>();
 
         _player = _playerData.gameObject;
 
         //Adds this object to object manager for future use
         if(ObjectManager.Instance != null) ObjectManager.Instance.PlayerController = this;
+
+        Inventory.Add(null);
+        SelectedInventoryItem = Inventory[0];
     }
 
     void Start()
@@ -69,6 +78,7 @@ public class PlayerController : MonoBehaviour
         PlayerAudioControl();
         FlashlightControl();
         ItemInteraction();
+        PlayerInventory();
     }
 
     private void LateUpdate()
@@ -101,6 +111,10 @@ public class PlayerController : MonoBehaviour
         _playerFlashlight.FlashlightControl(_playerData, _playerInput); //Controls flashlight intensity
     }
 
+    private void PlayerInventory()
+    {
+        SelectedInventoryItem = _playerInventory.Manage(Inventory, _playerInput);
+    }
     private void ItemInteraction()
     {
         RaycastHit hit;

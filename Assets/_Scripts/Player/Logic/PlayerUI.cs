@@ -20,7 +20,7 @@ public class PlayerUI : MonoBehaviour, IPlayerUI
 
     public void InteractableUI(PlayerData playerData, RaycastHit interactableHit)
     {
-        if (interactableHit.distance <= playerData.itemPickupDistance && interactableHit.collider.GetComponent<IInteractable>() != null) 
+        if (interactableHit.distance <= playerData.InteractDistance && interactableHit.collider.GetComponent<IInteractable>() != null) 
         {
             if (!_playerUIActive)
             {

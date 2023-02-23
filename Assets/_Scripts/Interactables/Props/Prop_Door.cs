@@ -55,20 +55,16 @@ public class Prop_Door : MonoBehaviour, IInteractable
             {
                 case DoorState.Locked:
                     {
-                        PlayerData playerData = FindObjectOfType<PlayerData>();
+                        PlayerController playerController = FindObjectOfType<PlayerController>();
 
-                        if(_requiredKey != null && playerData.Combinables.Count > 0)
+                        if(playerController.SelectedInventoryItem == _requiredKey)
                         {
-                            for (int index = 0; index < playerData.Combinables.Count; index++)
-                            {
-                                if (playerData.Combinables[index] == _requiredKey)
-                                {
-                                    playerData.Combinables.Remove(_requiredKey);
-                                    Destroy(_requiredKey);
-                                    _currentDoorState = DoorState.Closed;
-                                    _changeDoorState = false;
-                                }
-                            }
+                            playerController.Inventory.Remove(_requiredKey);
+                            playerController.GetComponent<PlayerInventory>().Index = 0;
+
+                            Destroy(_requiredKey);
+                            _currentDoorState = DoorState.Closed;
+                            _changeDoorState = false;
                         }
                         else
                         {
@@ -80,7 +76,6 @@ public class Prop_Door : MonoBehaviour, IInteractable
                     }
                 case DoorState.Closed:
                     {
-                        print("hello");
                         if (!_doorLockedAudioSource.isPlaying)
                             _doorLockedAudioSource.PlayOneShot(_doorOpenClip, 0.2f);
 

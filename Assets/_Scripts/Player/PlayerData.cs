@@ -43,8 +43,7 @@ public class PlayerData : MonoBehaviour
     public AudioClip[] Footsteps;
 
     [Header("Interactable Control")]
-    public float itemPickupDistance = 10f;
-    public List<GameObject> Combinables;
+    public float InteractDistance = 5f;
    
     public CharacterController characterController;
 }
