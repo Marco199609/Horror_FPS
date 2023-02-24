@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 606678536177607072}
+  - component: {fileID: 1410592893958006880}
+  - component: {fileID: 411900566141552490}
   m_Layer: 0
   m_Name: clock
   m_TagString: Untagged
@@ -32,6 +34,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1410592893958006880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225332016953441050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f060d94c24fe3ec45b563045c04bee13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HourHand: {fileID: 5390691484765266365}
+  MinuteHand: {fileID: 5268861562995303630}
+--- !u!65 &411900566141552490
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225332016953441050}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.07761288, y: 0.07931343, z: 0.071442485}
+  m_Center: {x: 0.12129164, y: -0.049962893, z: 0.25752085}
 --- !u!1 &691482677638661169
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,7 +73,7 @@ GameObject:
   - component: {fileID: 3170766026669857413}
   - component: {fileID: 2863850435777591406}
   m_Layer: 0
-  m_Name: Obj_Hand
+  m_Name: Minute Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,7 +86,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691482677638661169}
-  m_LocalRotation: {x: 0, y: -0.15643448, z: -0, w: 0.98768836}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.0000000027270102, y: -0.021722198, z: 0.029063225}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -81,7 +110,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691482677638661169}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 2
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -127,7 +156,7 @@ GameObject:
   - component: {fileID: 9075280639780260857}
   - component: {fileID: 7330894982162418637}
   m_Layer: 0
-  m_Name: Obj_Hand.001
+  m_Name: Hour Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,7 +169,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5477675448136697323}
-  m_LocalRotation: {x: 0, y: -0.013089596, z: -0, w: 0.99991435}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.0000000027270102, y: -0.021722198, z: 0.029063225}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -164,7 +193,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5477675448136697323}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 2
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -223,16 +252,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8266830032571369781}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.2612281, y: 0.5658075, z: 0.75189644, w: -0.21511285}
+  m_LocalPosition: {x: 0.117, y: -0.054, z: 0.256}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5268861562995303630}
   - {fileID: 5390691484765266365}
   m_Father: {fileID: 606678536177607072}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -74.417, y: 393.793, z: -174.044}
 --- !u!33 &5146898340551897652
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -249,7 +278,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8266830032571369781}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 2
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
