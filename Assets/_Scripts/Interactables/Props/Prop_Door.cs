@@ -57,7 +57,7 @@ public class Prop_Door : MonoBehaviour, IInteractable
                     {
                         PlayerController playerController = FindObjectOfType<PlayerController>();
 
-                        if(playerController.SelectedInventoryItem == _requiredKey)
+                        if(_requiredKey != null && playerController.SelectedInventoryItem == _requiredKey)
                         {
                             playerController.Inventory.Remove(_requiredKey);
                             playerController.GetComponent<PlayerInventory>().Index = 0;
@@ -76,17 +76,20 @@ public class Prop_Door : MonoBehaviour, IInteractable
                     }
                 case DoorState.Closed:
                     {
-                        if (!_doorLockedAudioSource.isPlaying)
-                            _doorLockedAudioSource.PlayOneShot(_doorOpenClip, 0.2f);
+                        if(_changeDoorState) //Prevents the door from opening automatically when key inserted
+                        {
+                            if (!_doorLockedAudioSource.isPlaying)
+                                _doorLockedAudioSource.PlayOneShot(_doorOpenClip, 0.2f);
 
-                        if (_doorPivotPoint.transform.localEulerAngles.z > 270 || _doorPivotPoint.transform.localEulerAngles.z == 0)
-                        {
-                            _doorPivotPoint.transform.Rotate(0, 0, -_doorMoveVelocity * Time.deltaTime);
-                        }
-                        else
-                        {
-                            _currentDoorState = DoorState.Open;
-                            _changeDoorState = false;
+                            if (_doorPivotPoint.transform.localEulerAngles.z > 270 || _doorPivotPoint.transform.localEulerAngles.z == 0)
+                            {
+                                _doorPivotPoint.transform.Rotate(0, 0, -_doorMoveVelocity * Time.deltaTime);
+                            }
+                            else
+                            {
+                                _currentDoorState = DoorState.Open;
+                                _changeDoorState = false;
+                            }
                         }
                         break;
                     }

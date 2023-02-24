@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2036855763780777763
+--- !u!1 &1200896180551257940
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1661701999460904345}
-  - component: {fileID: 2350974385409712700}
-  - component: {fileID: 523721537643321078}
-  - component: {fileID: 7244860874150905641}
+  - component: {fileID: 2009062943241655790}
+  - component: {fileID: 3192625041864841803}
+  - component: {fileID: 840639065095024257}
+  - component: {fileID: 2047758386982597131}
+  - component: {fileID: 5048140347816743673}
   m_Layer: 0
-  m_Name: wall_2m
+  m_Name: item_battery
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1661701999460904345
+--- !u!4 &2009062943241655790
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2036855763780777763}
-  m_LocalRotation: {x: -0.49991274, y: 0.50008726, z: 0.49991274, w: 0.50008726}
-  m_LocalPosition: {x: -6.0000243, y: 0.5, z: 6.0000243}
-  m_LocalScale: {x: 1, y: 0.0375, z: 1.5}
+  m_GameObject: {fileID: 1200896180551257940}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.7000003, y: 2, z: -1.3000002}
+  m_LocalScale: {x: 0.47788635, y: 0.47788635, z: 0.47788635}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -89.98, y: 90, z: 0}
---- !u!33 &2350974385409712700
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &3192625041864841803
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2036855763780777763}
-  m_Mesh: {fileID: -8678823145569952518, guid: 52212e26f20ce054ea3a2f2cb0ad69e4, type: 3}
---- !u!23 &523721537643321078
+  m_GameObject: {fileID: 1200896180551257940}
+  m_Mesh: {fileID: -7387706064836869012, guid: 4af4dc349df0a404aaa21ee8fb93b36f, type: 3}
+--- !u!23 &840639065095024257
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2036855763780777763}
+  m_GameObject: {fileID: 1200896180551257940}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -62,8 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e223b595a4d7e044f832cb4e94998508, type: 2}
-  - {fileID: 2100000, guid: f8f0d04e6162cd24cb54a7aa8a3d5046, type: 2}
+  - {fileID: 2100000, guid: 9e2296d2f3346f440a8e72313855712a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,16 +85,30 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7244860874150905641
+--- !u!65 &2047758386982597131
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2036855763780777763}
+  m_GameObject: {fileID: 1200896180551257940}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 4.2656455, z: 2.001726}
-  m_Center: {x: 0, y: -0.0001898407, z: 1.0029359}
+  m_Size: {x: 0.07897768, y: 0.07340846, z: 0.19026622}
+  m_Center: {x: 0, y: 0, z: -0.017325943}
+--- !u!114 &5048140347816743673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200896180551257940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f505e91fc663fdc4d825ab53bae05255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _description: Batttery
+  _energy: 50

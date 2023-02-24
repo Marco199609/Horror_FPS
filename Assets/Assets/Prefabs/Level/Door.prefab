@@ -341,7 +341,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7972333549349043669}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 2
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -407,6 +407,7 @@ MonoBehaviour:
   _doorLockedClip: {fileID: 8300000, guid: 23c4fe66c94022f4ca3a084736d088de, type: 3}
   _doorOpenClip: {fileID: 8300000, guid: 8b6eec1f8a44b0d4a867a7597042a11a, type: 3}
   _doorCloseClip: {fileID: 8300000, guid: 6034151fe66ca2947bfab14b259812ab, type: 3}
+  _requiredKey: {fileID: 0}
   _currentDoorState: 0
 --- !u!1 &9116110669749386708
 GameObject:
@@ -432,8 +433,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9116110669749386708}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.5, y: 0, z: -1.2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.499, y: 0, z: -1.2}
+  m_LocalScale: {x: 1.02, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2761786018069256248}

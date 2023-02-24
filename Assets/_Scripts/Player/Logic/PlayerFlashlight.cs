@@ -60,8 +60,8 @@ public class PlayerFlashlight : MonoBehaviour, IFlashlightControl
         {
             if (_playerData.CurrentIntensity < _playerData.SwitchOnLimit)
             {
-                if(_previousIntensity > _playerData.MinIntensity) _playerData.CurrentIntensity = _previousIntensity; //If there's a previous intensity stored, turns on flashlight whith that intensity
-                else _playerData.CurrentIntensity = _playerData.MinIntensity + ((_playerData.MaxIntensity - _playerData.MinIntensity) / 2); //If no previous intensity stored, turns on flaslight on medium intensity
+                if (_previousIntensity > _playerData.MinIntensity) _playerData.CurrentIntensity = _previousIntensity; //If there's a previous intensity stored, turns on flashlight whith that intensity
+                else _playerData.CurrentIntensity = _playerData.SwitchOnLimit + 0.01f;//_playerData.MinIntensity + ((_playerData.MaxIntensity - _playerData.MinIntensity) / 2); //If no previous intensity stored, turns on flaslight on medium intensity
             }
             else
             {
