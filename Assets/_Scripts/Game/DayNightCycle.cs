@@ -101,22 +101,18 @@ public class DayNightCycle : MonoBehaviour
 
     private void ClockControl()
     {
-        float clockHandRotation, hourHandRotationsInADay = 2, minuteHandRotationsPerHour = 60;
+        float clockHandRotation, hourHandRotationsInADay = 2;
         var totalMinutesInADay = 1440;
 
-        TimeSpan timeDifference =  CalculateTimeDifference(TimeSpan.FromHours(0), _currentTime.TimeOfDay);
+        TimeSpan timeDifference = CalculateTimeDifference(TimeSpan.FromHours(0), _currentTime.TimeOfDay);
 
-        if(timeDifference.TotalMinutes >= totalMinutesInADay + 1)
-        {
-            timeDifference = TimeSpan.FromMinutes(0);
-        }
+        if (timeDifference.TotalMinutes >= totalMinutesInADay + 1) timeDifference = TimeSpan.FromMinutes(0);
 
         var percentage = timeDifference.TotalMinutes / totalMinutesInADay;
 
         clockHandRotation = Mathf.Lerp(0, 360, (float)percentage);
 
-
-        if(_clock.gameObject != _playerController.SelectedInventoryItem)
+        /*if(_clock.gameObject != _playerController.SelectedInventoryItem)
         {
             _clock.MinuteHand.localRotation = Quaternion.AngleAxis(clockHandRotation * (1440 / 60) * minuteHandRotationsPerHour, -Vector3.up);
         }
@@ -125,6 +121,12 @@ public class DayNightCycle : MonoBehaviour
             _clock.MinuteHand.localRotation = Quaternion.AngleAxis(clockHandRotation * 1440 / _timeMultiplier, -Vector3.up);
         }
 
-        _clock.HourHand.localRotation = Quaternion.AngleAxis(clockHandRotation * hourHandRotationsInADay, -Vector3.up);
+        _clock.HourHand.localRotation = Quaternion.AngleAxis(clockHandRotation * hourHandRotationsInADay, -Vector3.up);*/
+
+        if (_clock.gameObject == _playerController.SelectedInventoryItem)
+        {
+            _clock.MinuteHand.localRotation = Quaternion.AngleAxis(clockHandRotation * 1440 / _timeMultiplier, -Vector3.up);
+            _clock.HourHand.localRotation = Quaternion.AngleAxis(clockHandRotation * hourHandRotationsInADay, -Vector3.up);
+        }
     }
 }
