@@ -18,7 +18,7 @@ public class Item_Clock : MonoBehaviour, IInteractable
         playerController.Inventory.Add(gameObject);
         playerController.GetComponent<PlayerInventory>().Index = playerController.Inventory.Count - 1;
 
-        gameObject.transform.SetParent(FindObjectOfType<PlayerData>().camTransform);
+        gameObject.transform.SetParent(FindObjectOfType<PlayerData>().InventoryHolder);
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.Euler(Vector3.zero);
     }

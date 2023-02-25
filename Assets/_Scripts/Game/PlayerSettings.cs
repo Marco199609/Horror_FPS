@@ -14,6 +14,8 @@ public class PlayerSettings : MonoBehaviour
     [SerializeField] private float _mouseXSensitivity = 10;
     [SerializeField] private float _mouseYSensitivity = 10;
 
+    private PlayerData _playerData;
+
     #region Canvas Control
     public void OpenSettings()
     {
@@ -43,10 +45,15 @@ public class PlayerSettings : MonoBehaviour
 
     private void Update()
     {
-        if(ObjectManager.Instance != null)
+        if(_playerData == null)
         {
-            ObjectManager.Instance.PlayerData.mouseSensitivityX = _mouseXSensitivity;
-            ObjectManager.Instance.PlayerData.mouseSensitivityY = _mouseYSensitivity;
-        }
+            _playerData = FindObjectOfType<PlayerData>();
+
+            if(_playerData != null)
+            {
+                _playerData.mouseSensitivityX = _mouseXSensitivity;
+                _playerData.mouseSensitivityY = _mouseYSensitivity;
+            }
+        }    
     }
 }

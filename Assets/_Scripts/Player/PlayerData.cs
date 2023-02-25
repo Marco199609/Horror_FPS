@@ -34,7 +34,7 @@ public class PlayerData : MonoBehaviour
     public float DepletionSpeed = 0.3f;
     public float CurrentEnergy;
 
-    public GameObject WeaponLight;
+    //public GameObject WeaponLight;
 
     [Header("Player Audio Control")]
     public AudioSource PlayerAudioSource;
@@ -44,6 +44,7 @@ public class PlayerData : MonoBehaviour
 
     [Header("Interactable Control")]
     public float InteractDistance = 5f;
+    public Transform InventoryHolder;
    
     public CharacterController characterController;
 }

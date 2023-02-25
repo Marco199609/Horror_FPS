@@ -18,18 +18,10 @@ public class PlayerFlashlight : MonoBehaviour, IFlashlightControl
     public void FlashlightControl(PlayerData playerData, IPlayerInput playerInput)
     {
         if (_flashlight == null) _flashlight = playerData.Flashlight.GetComponent<Light>();
-        if (_weaponlight == null) _weaponlight = playerData.WeaponLight.GetComponent<Light>();
         if (_playerData == null) _playerData = playerData;
 
         InputControl(playerInput);
         IntensityControl(playerInput);
-        WeaponLightControl();
-    }
-
-    private void WeaponLightControl()
-    {
-        _weaponlight.intensity = _playerData.CurrentIntensity;
-        _weaponlight.intensity = Mathf.Clamp(_weaponlight.intensity, 1.5f, 5);
     }
 
     private void IntensityControl(IPlayerInput playerInput)
@@ -41,8 +33,8 @@ public class PlayerFlashlight : MonoBehaviour, IFlashlightControl
         _playerData.CurrentIntensity = Mathf.Clamp(_playerData.CurrentIntensity, _playerData.MinIntensity, _playerData.MaxIntensity * (_playerData.CurrentEnergy / 100)); 
 
         //Powers off flashlight if the intensity is below a certain limit
-        if (_playerData.CurrentIntensity < _playerData.SwitchOnLimit) _flashlight.gameObject.SetActive(false);
-        else _flashlight.gameObject.SetActive(true);
+        if (_playerData.CurrentIntensity < _playerData.SwitchOnLimit) _flashlight.transform.parent.gameObject.SetActive(false);
+        else _flashlight.transform.parent.gameObject.SetActive(true);
 
         _flashlight.intensity = _playerData.CurrentIntensity; //Sets intensity
     }

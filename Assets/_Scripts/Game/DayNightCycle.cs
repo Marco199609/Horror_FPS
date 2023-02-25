@@ -55,7 +55,7 @@ public class DayNightCycle : MonoBehaviour
 
     private void RotateSun()
     {
-        float sunlightRotation, clockHandRotation;
+        float sunlightRotation;
 
         if(_currentTime.TimeOfDay > _sunriseTime && _currentTime.TimeOfDay < _sunsetTime)
         {
