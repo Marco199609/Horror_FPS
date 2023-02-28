@@ -21,6 +21,7 @@ public class Item_Clock : MonoBehaviour, IInteractable
         gameObject.transform.SetParent(FindObjectOfType<PlayerData>().InventoryHolder);
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.Euler(Vector3.zero);
+        
     }
 
     public void Interact()
