@@ -5,17 +5,21 @@ using UnityEngine;
 
 public class Prop_Door : MonoBehaviour, IInteractable
 {
-    [SerializeField] GameObject _doorHandle, _doorPivotPoint;
+    [SerializeField] GameObject _doorHandle;
+    [SerializeField] Transform _doorPivotPoint;
     [SerializeField] Collider _doorCollider;
     [SerializeField] AudioSource _doorLockedAudioSource;
     [SerializeField] AudioClip _doorLockedClip, _doorOpenClip, _doorCloseClip;
     [SerializeField] private GameObject _requiredKey;
 
-    private float _doorMoveVelocity = 150;
+    private float _doorMoveVelocity;
 
     private enum DoorState {Locked, Closed, Open};
     [SerializeField] private DoorState _currentDoorState;
     private bool _changeDoorState;
+
+    private Vector3 _currentDoorRotateVelocity;
+
     public string InteractableDescription()
     {
         if (_currentDoorState == DoorState.Closed)
@@ -81,9 +85,13 @@ public class Prop_Door : MonoBehaviour, IInteractable
                             if (!_doorLockedAudioSource.isPlaying)
                                 _doorLockedAudioSource.PlayOneShot(_doorOpenClip, 0.2f);
 
-                            if (_doorPivotPoint.transform.localEulerAngles.z > 270 || _doorPivotPoint.transform.localEulerAngles.z == 0)
+                            if (_doorPivotPoint.localEulerAngles.y > 270 || _doorPivotPoint.localEulerAngles.y == 0)
                             {
-                                _doorPivotPoint.transform.Rotate(0, 0, -_doorMoveVelocity * Time.deltaTime);
+                                float degreesToRotate = 90;
+                                float timeToRotate = _doorOpenClip.length;
+                                _doorMoveVelocity = degreesToRotate / timeToRotate;
+
+                                _doorPivotPoint.Rotate(0, -_doorMoveVelocity * Time.deltaTime, 0);
                             }
                             else
                             {
@@ -95,15 +103,19 @@ public class Prop_Door : MonoBehaviour, IInteractable
                     }
                 case DoorState.Open:
                     {
+                        float degreesToRotate = 90;
+                        float timeToRotate = _doorCloseClip.length;
+                        _doorMoveVelocity = degreesToRotate / timeToRotate;
+
                         if (!_doorLockedAudioSource.isPlaying)
                             _doorLockedAudioSource.PlayOneShot(_doorCloseClip, 0.2f);
 
-                        if (_doorPivotPoint.transform.localEulerAngles.z > 260)
+                        if (_doorPivotPoint.localEulerAngles.y > 260)
                         {
-                            _doorPivotPoint.transform.Rotate(0, 0, _doorMoveVelocity * Time.deltaTime);
+                            _doorPivotPoint.Rotate(0, _doorMoveVelocity * Time.deltaTime, 0);
                         }
-                        else if (_doorPivotPoint.transform.localEulerAngles.z > 0)
-                            _doorPivotPoint.transform.localEulerAngles = new Vector3(_doorPivotPoint.transform.localEulerAngles.x, _doorPivotPoint.transform.localEulerAngles.y, 0);
+                        else if (_doorPivotPoint.localEulerAngles.y > 0)
+                            _doorPivotPoint.localEulerAngles = new Vector3(_doorPivotPoint.localEulerAngles.x, 0, _doorPivotPoint.localEulerAngles.z);
                         else
                         {
                             _currentDoorState = DoorState.Closed;
