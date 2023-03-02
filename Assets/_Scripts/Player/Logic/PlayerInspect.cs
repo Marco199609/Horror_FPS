@@ -30,7 +30,6 @@ public class PlayerInspect : MonoBehaviour
             {
                 _currentInspectableSelected.transform.SetParent(playerData.Camera);
                 _currentInspectableSelected.localPosition = Vector3.Lerp(_currentInspectableSelected.localPosition, new Vector3(0, 0, 0.5f), _goToInspectionPositionSpeed);
-                //_currentInspectableSelected.localRotation = Quaternion.Lerp(_currentInspectableSelected.localRotation, Quaternion.Euler(0, 90, 90), _goToInspectionPositionSpeed);
 
                 _currentItemRotation.x = 0;
                 _currentItemRotation.y += playerInput.mouseMovementInput.x * 0.5f;
