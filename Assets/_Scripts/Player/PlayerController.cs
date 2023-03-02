@@ -16,6 +16,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(PlayerAudio))]
 [RequireComponent(typeof(PlayerInventory))]
+[RequireComponent(typeof(PlayerInspect))]
 #endregion
 
 public class PlayerController : MonoBehaviour
@@ -25,7 +26,6 @@ public class PlayerController : MonoBehaviour
     private GameObject _player;
     private Ray _ray; //used for item interaction
 
-    //Player scripts attached to this gameobject
     private IPlayerMovement _playerMovement;
     private IPlayerRotate _playerRotate;
     private ICameraControl _playerCameraControl;
@@ -36,14 +36,14 @@ public class PlayerController : MonoBehaviour
     private IPlayerAudio _playerAudio;
 
     public IPlayerInventory Inventory { get; private set; }
+    public PlayerInspect PlayerInspect { get; private set; }
 
     //If there is one or more items in viewport, activate ui center point
     [NonSerialized] public List<GameObject> InteractablesInSight;
 
     private void Awake()
     {
-        //Gets required scripts on this gameobject
-        if(_playerData == null) _playerData = GetComponentInChildren<PlayerData>();
+        _playerData = GetComponentInChildren<PlayerData>();
 
         _playerMovement = GetComponent<IPlayerMovement>();
         _playerRotate = GetComponent<IPlayerRotate>();
@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
         _playerInput = GetComponent<IPlayerInput>();
         _playerAudio = GetComponent<IPlayerAudio>();
         Inventory = GetComponent<IPlayerInventory>();
+        PlayerInspect = GetComponent<PlayerInspect>();
 
         _player = _playerData.gameObject;
 
@@ -68,17 +69,25 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        CameraControl();
-        PlayerMovement();
-        PlayerAudioControl();
-        FlashlightControl();
-        ItemInteraction();
-        InventoryManage();
+        if(!PlayerInspect.Inspecting())
+        {
+            CameraControl();
+            PlayerMovement();
+            PlayerAudioControl();
+            FlashlightControl();
+            ItemInteraction();
+            InventoryManage();
+        }
+
+        ManageInspection();
     }
 
     private void LateUpdate()
     {
-        PlayerRotation();
+        if (!PlayerInspect.Inspecting())
+        {
+            PlayerRotation();
+        }
     }
 
     private void PlayerMovement()
@@ -109,6 +118,11 @@ public class PlayerController : MonoBehaviour
     private void InventoryManage()
     {
         Inventory.Manage(_playerData, _playerInput);
+    }
+
+    private void ManageInspection()
+    {
+        PlayerInspect.ManageInspection(_playerData, _playerInput);
     }
     private void ItemInteraction()
     {

@@ -19,7 +19,7 @@ public class PlayerData : MonoBehaviour
 
     [Header("Player Camera Movement Control")]
     public Transform camHolder;
-    public Transform camTransform;
+    public Transform Camera;
     [SerializeField, Range(0, 0.1f)] public float camMovementAmplitude = 0.005f;
     [SerializeField, Range(0, 30)] public float camMovementFrequency = 10.0f;
 

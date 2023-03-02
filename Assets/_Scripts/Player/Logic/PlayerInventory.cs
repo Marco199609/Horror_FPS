@@ -66,4 +66,9 @@ public class PlayerInventory : MonoBehaviour, IPlayerInventory
     {
         return _selectedItem;
     }
+
+    public void HideInventory()
+    {
+        _currentSelectedItemIndex = 0;
+    }
 }

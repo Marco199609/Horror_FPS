@@ -10,7 +10,6 @@ public class Character1Outside : MonoBehaviour, IInteractable
     private GameObject _player;
     private AudioSource _dialogueAudioSource;
 
-
     private void Awake()
     {
         _dialogueAudioSource = GetComponent<AudioSource>();
@@ -20,15 +19,10 @@ public class Character1Outside : MonoBehaviour, IInteractable
         return "Talk";
     }
 
-    public void Behaviour()
-    {
-        if(!_dialogueAudioSource.isPlaying)
-            _dialogueAudioSource.Play();
-    }
-
     public void Interact(PlayerController playerController)
     {
-        Behaviour();
+        if (!_dialogueAudioSource.isPlaying)
+            _dialogueAudioSource.Play();
     }
 
     public string InteractableDescription()
@@ -36,15 +30,10 @@ public class Character1Outside : MonoBehaviour, IInteractable
         return _description;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        _player = GameObject.FindWithTag("Player");
-    }
-
-    // Update is called once per frame
     void Update()
     {
+        if(_player == null) _player = GameObject.FindWithTag("Player");
+
         var newRotation = Quaternion.LookRotation(transform.position - _player.transform.position, Vector3.forward);
         newRotation.x = 0.0f;
         newRotation.z = 0.0f;

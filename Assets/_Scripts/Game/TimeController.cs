@@ -16,8 +16,7 @@ public class TimeController : MonoBehaviour
     [SerializeField] private Color _dayAmbientLight;
     [SerializeField] private Color _nightAmbientLight;
     [SerializeField] private AnimationCurve _lightChangeCurve;
-    //[SerializeField] private Light _moonlight;
-    [SerializeField] private float _maxSunlightIntensity; //, _maxMoonlightIntensity;
+    [SerializeField] private float _maxSunlightIntensity;
 
 
     [Header("Time Characteristics")]
@@ -28,9 +27,7 @@ public class TimeController : MonoBehaviour
     [Header("Clock game object")]
     [SerializeField] private GameObject _clock;
     [SerializeField] private Transform _hourHand, _minuteHand;
-    private PlayerController _playerController;
-
-
+    private IPlayerInventory _inventory;
 
     private void Start()
     {
@@ -39,7 +36,7 @@ public class TimeController : MonoBehaviour
         _sunriseTime = TimeSpan.FromHours(_sunriseHour);
         _sunsetTime = TimeSpan.FromHours(_sunsetHour);
 
-        _playerController = FindObjectOfType<PlayerController>();
+        _inventory = FindObjectOfType<PlayerInventory>();
     }
 
 
@@ -64,7 +61,6 @@ public class TimeController : MonoBehaviour
         {
             TimeSpan sunriseToSunsetDuration = CalculateTimeDifference(_sunriseTime, _sunsetTime);
             TimeSpan timeSinceSunrise = CalculateTimeDifference(_sunriseTime, _currentTime.TimeOfDay);
-
             double percentage = timeSinceSunrise.TotalMinutes / sunriseToSunsetDuration.TotalMinutes;
 
             sunlightRotation = Mathf.Lerp(0, 180, (float)percentage);
@@ -73,20 +69,18 @@ public class TimeController : MonoBehaviour
         {
             TimeSpan sunsetToSunriseRotation = CalculateTimeDifference(_sunsetTime, _sunriseTime);
             TimeSpan timeSinceSunset = CalculateTimeDifference(_sunsetTime, _currentTime.TimeOfDay);
-
             double percentage = timeSinceSunset.TotalMinutes / sunsetToSunriseRotation.TotalMinutes;
+
             sunlightRotation = Mathf.Lerp(180, 360, (float)percentage);
         }
 
         _sun.transform.rotation = Quaternion.AngleAxis(sunlightRotation, Vector3.right);
-
     }
 
     private void UpdateLightSettings()
     {
         float dotProduct = Vector3.Dot(_sun.transform.forward, Vector3.down);
         _sun.intensity = Mathf.Lerp(0, _maxSunlightIntensity, _lightChangeCurve.Evaluate(dotProduct));
-        //_moonlight.intensity = Mathf.Lerp(_maxMoonlightIntensity, 0, _lightChangeCurve.Evaluate(dotProduct));
         RenderSettings.ambientLight = Color.Lerp(_nightAmbientLight, _dayAmbientLight, _lightChangeCurve.Evaluate(dotProduct));
     }
 
@@ -115,18 +109,7 @@ public class TimeController : MonoBehaviour
 
         clockHandRotation = Mathf.Lerp(0, 360, (float)percentage);
 
-        /*if(_clock.gameObject != _playerController.SelectedInventoryItem)
-        {
-            _clock.MinuteHand.localRotation = Quaternion.AngleAxis(clockHandRotation * (1440 / 60) * minuteHandRotationsPerHour, -Vector3.up);
-        }
-        else //Enables realistic clock movement when clock selected
-        {
-            _clock.MinuteHand.localRotation = Quaternion.AngleAxis(clockHandRotation * 1440 / _timeMultiplier, -Vector3.up);
-        }
-
-        _clock.HourHand.localRotation = Quaternion.AngleAxis(clockHandRotation * hourHandRotationsInADay, -Vector3.up);*/
-
-        if (_clock == _playerController.Inventory.SelectedItem())
+        if (_clock == _inventory.SelectedItem())
         {
             _minuteHand.localRotation = Quaternion.AngleAxis(clockHandRotation * 1440 / _timeMultiplier, -Vector3.up);
             _hourHand.localRotation = Quaternion.AngleAxis(clockHandRotation * hourHandRotationsInADay, -Vector3.up);
