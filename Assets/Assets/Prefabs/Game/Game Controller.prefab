@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6462ee7685dcd50488ae41044a44ceda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sunlight: {fileID: 0}
+  _sun: {fileID: 0}
   _sunriseHour: 6
   _sunsetHour: 18
   _dayAmbientLight: {r: 1, g: 1, b: 1, a: 0}
@@ -115,9 +115,11 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _maxSunlightIntensity: 1
-  _timeMultiplier: 96
-  _startHour: 0
+  _timeMultiplier: 1
+  _startHour: 12
   _clock: {fileID: 0}
+  _hourHand: {fileID: 0}
+  _minuteHand: {fileID: 0}
 --- !u!82 &7199829948290837534
 AudioSource:
   m_ObjectHideFlags: 0

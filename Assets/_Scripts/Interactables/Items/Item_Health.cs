@@ -18,7 +18,7 @@ public class Item_Health : MonoBehaviour, IInteractable
         return "Take";
     }
 
-    public void Interact()
+    public void Interact(PlayerController playerController)
     {
         Behaviour();
     }

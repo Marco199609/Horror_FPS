@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Item_Energy : MonoBehaviour, IInteractable
 {
-    [SerializeField] private string _description;
+    [SerializeField] private string _interactableDescription, _actionDescription;
     [SerializeField] private float _energy;
 
     public string InteractableDescription()
     {
-        return _description;
+        return _interactableDescription;
     }
     public string ActionDescription()
     {
-        return "Take";
+        return _actionDescription;
     }
-    public void Interact()
+    public void Interact(PlayerController playerController)
     {
         Behaviour();
     }

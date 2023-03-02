@@ -26,7 +26,7 @@ public class Character1Outside : MonoBehaviour, IInteractable
             _dialogueAudioSource.Play();
     }
 
-    public void Interact()
+    public void Interact(PlayerController playerController)
     {
         Behaviour();
     }

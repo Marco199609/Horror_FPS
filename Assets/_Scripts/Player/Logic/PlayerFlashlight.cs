@@ -7,7 +7,7 @@ public class PlayerFlashlight : MonoBehaviour, IFlashlightControl
 {
     private bool _waitForScroll, _isScrolling;
     private float _previousIntensity;
-    private Light _flashlight, _weaponlight;
+    private Light _flashlight;
     private PlayerData _playerData;
 
     private void Awake()
@@ -21,10 +21,10 @@ public class PlayerFlashlight : MonoBehaviour, IFlashlightControl
         if (_playerData == null) _playerData = playerData;
 
         InputControl(playerInput);
-        IntensityControl(playerInput);
+        IntensityControl();
     }
 
-    private void IntensityControl(IPlayerInput playerInput)
+    private void IntensityControl()
     {
         //Depletes the battery faster if intensity higher
         if(_flashlight.gameObject.activeInHierarchy) _playerData.CurrentEnergy -= Time.deltaTime * _playerData.CurrentIntensity * _playerData.DepletionSpeed; //Only depletes battery if flashlight on

@@ -34,13 +34,11 @@ public class PlayerController : MonoBehaviour
     private IPlayerUI _playerUI;
     private IPlayerInput _playerInput;
     private IPlayerAudio _playerAudio;
-    private PlayerInventory _playerInventory;
+
+    public IPlayerInventory Inventory { get; private set; }
 
     //If there is one or more items in viewport, activate ui center point
     [NonSerialized] public List<GameObject> InteractablesInSight;
-
-    public List<GameObject> Inventory;
-    public GameObject SelectedInventoryItem;
 
     private void Awake()
     {
@@ -55,15 +53,12 @@ public class PlayerController : MonoBehaviour
         _playerUI = GetComponent<IPlayerUI>();
         _playerInput = GetComponent<IPlayerInput>();
         _playerAudio = GetComponent<IPlayerAudio>();
-        _playerInventory = GetComponent<PlayerInventory>();
+        Inventory = GetComponent<IPlayerInventory>();
 
         _player = _playerData.gameObject;
 
         //Adds this object to object manager for future use
         if(ObjectManager.Instance != null) ObjectManager.Instance.PlayerController = this;
-
-        Inventory.Add(null);
-        SelectedInventoryItem = Inventory[0];
     }
 
     void Start()
@@ -78,7 +73,7 @@ public class PlayerController : MonoBehaviour
         PlayerAudioControl();
         FlashlightControl();
         ItemInteraction();
-        PlayerInventory();
+        InventoryManage();
     }
 
     private void LateUpdate()
@@ -98,7 +93,7 @@ public class PlayerController : MonoBehaviour
 
     private void CameraControl()
     {
-        _playerCameraControl.ControlCamera(_player); //Controls camera head bob
+        _playerCameraControl.ControlCameraHeadBob(_player);
     }
 
     private void PlayerAudioControl()
@@ -108,12 +103,12 @@ public class PlayerController : MonoBehaviour
 
     private void FlashlightControl()
     {
-        _playerFlashlight.FlashlightControl(_playerData, _playerInput); //Controls flashlight intensity
+        _playerFlashlight.FlashlightControl(_playerData, _playerInput);
     }
 
-    private void PlayerInventory()
+    private void InventoryManage()
     {
-        SelectedInventoryItem = _playerInventory.Manage(Inventory, _playerInput);
+        Inventory.Manage(_playerData, _playerInput);
     }
     private void ItemInteraction()
     {
@@ -124,7 +119,7 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(_ray, out hit, Mathf.Infinity))
         {
             _playerUI.InteractableUI(_playerData, hit); //Activates UI elements when hovering over interactables
-            _playerInteract.Interact(_playerData, hit, _playerInput); //Interacts when player inputs
+            _playerInteract.Interact(_playerData, hit, _playerInput);
         }
 
         _playerUI.CenterPointControl(InteractablesInSight); //Controls the center point appearing and disapearing when interactables in cammera view

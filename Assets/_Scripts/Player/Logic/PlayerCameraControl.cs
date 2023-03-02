@@ -14,7 +14,7 @@ public class PlayerCameraControl : MonoBehaviour, ICameraControl
     private Vector3 _startPos;
 
     private PlayerData _playerData;
-    public void ControlCamera(GameObject player)
+    public void ControlCameraHeadBob(GameObject player)
     {
         if (_playerData == null) _playerData = player.GetComponent<PlayerData>();
 

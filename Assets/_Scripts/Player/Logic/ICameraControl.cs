@@ -2,5 +2,5 @@
 
 public interface ICameraControl
 {
-    void ControlCamera(GameObject player);
+    void ControlCameraHeadBob(GameObject player);
 }

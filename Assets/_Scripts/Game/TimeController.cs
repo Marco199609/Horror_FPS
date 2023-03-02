@@ -4,27 +4,30 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class DayNightCycle : MonoBehaviour
+public class TimeController : MonoBehaviour
 {
-    //Sunlight variables
-    [SerializeField] private Light _sunlight;
+    [Header("Sunlight")]
+    [SerializeField] private Light _sun;
     [SerializeField] private float _sunriseHour, _sunsetHour;
     private TimeSpan _sunriseTime;
     private TimeSpan _sunsetTime;
 
-    //Ambient light variables
-    [SerializeField] private Color _dayAmbientLight, _nightAmbientLight;
+    [Header("Ambient Light")]
+    [SerializeField] private Color _dayAmbientLight;
+    [SerializeField] private Color _nightAmbientLight;
     [SerializeField] private AnimationCurve _lightChangeCurve;
     //[SerializeField] private Light _moonlight;
     [SerializeField] private float _maxSunlightIntensity; //, _maxMoonlightIntensity;
 
 
-    //Time variables
-    [SerializeField] private float _timeMultiplier, _startHour;
+    [Header("Time Characteristics")]
+    [SerializeField] private float _timeMultiplier;
+    [SerializeField] private float _startHour;
     private DateTime _currentTime;
 
-    //Clock Variables
-    [SerializeField] private Item_Clock _clock;
+    [Header("Clock game object")]
+    [SerializeField] private GameObject _clock;
+    [SerializeField] private Transform _hourHand, _minuteHand;
     private PlayerController _playerController;
 
 
@@ -75,14 +78,14 @@ public class DayNightCycle : MonoBehaviour
             sunlightRotation = Mathf.Lerp(180, 360, (float)percentage);
         }
 
-        _sunlight.transform.rotation = Quaternion.AngleAxis(sunlightRotation, Vector3.right);
+        _sun.transform.rotation = Quaternion.AngleAxis(sunlightRotation, Vector3.right);
 
     }
 
     private void UpdateLightSettings()
     {
-        float dotProduct = Vector3.Dot(_sunlight.transform.forward, Vector3.down);
-        _sunlight.intensity = Mathf.Lerp(0, _maxSunlightIntensity, _lightChangeCurve.Evaluate(dotProduct));
+        float dotProduct = Vector3.Dot(_sun.transform.forward, Vector3.down);
+        _sun.intensity = Mathf.Lerp(0, _maxSunlightIntensity, _lightChangeCurve.Evaluate(dotProduct));
         //_moonlight.intensity = Mathf.Lerp(_maxMoonlightIntensity, 0, _lightChangeCurve.Evaluate(dotProduct));
         RenderSettings.ambientLight = Color.Lerp(_nightAmbientLight, _dayAmbientLight, _lightChangeCurve.Evaluate(dotProduct));
     }
@@ -123,10 +126,10 @@ public class DayNightCycle : MonoBehaviour
 
         _clock.HourHand.localRotation = Quaternion.AngleAxis(clockHandRotation * hourHandRotationsInADay, -Vector3.up);*/
 
-        if (_clock.gameObject == _playerController.SelectedInventoryItem)
+        if (_clock == _playerController.Inventory.SelectedItem())
         {
-            _clock.MinuteHand.localRotation = Quaternion.AngleAxis(clockHandRotation * 1440 / _timeMultiplier, -Vector3.up);
-            _clock.HourHand.localRotation = Quaternion.AngleAxis(clockHandRotation * hourHandRotationsInADay, -Vector3.up);
+            _minuteHand.localRotation = Quaternion.AngleAxis(clockHandRotation * 1440 / _timeMultiplier, -Vector3.up);
+            _hourHand.localRotation = Quaternion.AngleAxis(clockHandRotation * hourHandRotationsInADay, -Vector3.up);
         }
     }
 }

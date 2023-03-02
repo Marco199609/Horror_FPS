@@ -10,15 +10,14 @@ public class Prop_Door : MonoBehaviour, IInteractable
     [SerializeField] Collider _doorCollider;
     [SerializeField] AudioSource _doorLockedAudioSource;
     [SerializeField] AudioClip _doorLockedClip, _doorOpenClip, _doorCloseClip;
-    [SerializeField] private GameObject _requiredKey;
+    [SerializeField] private GameObject _key;
 
+    private IPlayerInventory _inventory;
     private float _doorMoveVelocity;
 
     private enum DoorState {Locked, Closed, Open};
     [SerializeField] private DoorState _currentDoorState;
     private bool _changeDoorState;
-
-    private Vector3 _currentDoorRotateVelocity;
 
     public string InteractableDescription()
     {
@@ -39,8 +38,9 @@ public class Prop_Door : MonoBehaviour, IInteractable
             return "Close door";
     }
 
-    public void Interact()
+    public void Interact(PlayerController playerController)
     {
+        if(_inventory == null) _inventory = playerController.Inventory;
         _changeDoorState = true;
     }
 
@@ -59,14 +59,11 @@ public class Prop_Door : MonoBehaviour, IInteractable
             {
                 case DoorState.Locked:
                     {
-                        PlayerController playerController = FindObjectOfType<PlayerController>();
-
-                        if(_requiredKey != null && playerController.SelectedInventoryItem == _requiredKey)
+                        if (_key != null && _inventory.SelectedItem() == _key)
                         {
-                            playerController.Inventory.Remove(_requiredKey);
-                            playerController.GetComponent<PlayerInventory>().Index = 0;
+                            _inventory.Remove(_key);
+                            Destroy(_key);
 
-                            Destroy(_requiredKey);
                             _currentDoorState = DoorState.Closed;
                             _changeDoorState = false;
                         }

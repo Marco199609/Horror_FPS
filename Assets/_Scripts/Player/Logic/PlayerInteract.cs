@@ -6,10 +6,9 @@ public class PlayerInteract : MonoBehaviour, IPlayerInteract
 {
     public void Interact(PlayerData playerData, RaycastHit hit, IPlayerInput playerInput)
     {
-        if (hit.distance <= playerData.InteractDistance && playerInput.playerPickupInput && 
-            hit.collider.GetComponent<IInteractable>() != null) //Checks if item interactable and reachable
+        if (hit.distance <= playerData.InteractDistance && playerInput.playerPickupInput && hit.collider.GetComponent<IInteractable>() != null)
         {
-            hit.collider.GetComponent<IInteractable>().Interact();
+            hit.collider.GetComponent<IInteractable>().Interact(GetComponent<PlayerController>());
         }
     }
 }

@@ -4,9 +4,7 @@ using UnityEngine;
 
 public interface IInteractable
 {
-    string InteractableDescription(); //Returns description to other scripts
+    string InteractableDescription();
     string ActionDescription();
-    void Interact(); //Interactable behaviour when clicked or picked up
-    void Behaviour(); //Interactable behaviour when used
-
+    void Interact(PlayerController playerController);
 }

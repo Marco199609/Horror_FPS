@@ -3,36 +3,67 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInventory : MonoBehaviour
+public class PlayerInventory : MonoBehaviour, IPlayerInventory
 {
     private GameObject _selectedItem;
-    [NonSerialized] public int Index;
+    private List<GameObject> _inventory;
+    private PlayerData _playerData;
 
-    public GameObject Manage(List<GameObject> inventory, IPlayerInput playerInput)
+    private int _currentSelectedItemIndex;
+
+    private void Awake()
     {
+        _inventory = new List<GameObject>();
+        _inventory.Add(null);
+    }
+
+    public void Manage(PlayerData playerData, IPlayerInput playerInput)
+    {
+        if (_playerData == null) _playerData = playerData;
+
         if (playerInput.MouseScrollInput != 0)
         {
-            if (Index < inventory.Count - 1 && inventory.Count > 1)
+            if (_currentSelectedItemIndex < _inventory.Count - 1 && _inventory.Count > 1)
             {
-                Index++;
-            } 
-            else Index = 0;
+                _currentSelectedItemIndex++;
+            }
+            else _currentSelectedItemIndex = 0;
 
-            _selectedItem = inventory[Index];
+            _selectedItem = _inventory[_currentSelectedItemIndex];
 
-            for (int i = 0; i < inventory.Count; i++)
+            for (int i = 0; i < _inventory.Count; i++)
             {
-                if(inventory[i] == _selectedItem && inventory[i] != null) _selectedItem.SetActive(true);
-                else if (inventory[i] != null) inventory[i].SetActive(false);
+                if (_inventory[i] == _selectedItem && _inventory[i] != null) _selectedItem.SetActive(true);
+                else if (_inventory[i] != null) _inventory[i].SetActive(false);
             }
         }
-        else if (Index > inventory.Count)
+        else if (_currentSelectedItemIndex > _inventory.Count)
         {
-            Index = 0;
-            _selectedItem = inventory[Index];
+            _currentSelectedItemIndex = 0;
+            _selectedItem = _inventory[_currentSelectedItemIndex];
         }
-        else if(_selectedItem != inventory[Index]) _selectedItem = inventory[Index];
+        else if (_selectedItem != _inventory[_currentSelectedItemIndex]) _selectedItem = _inventory[_currentSelectedItemIndex];
+    }
 
+    public void Add(GameObject interactable, Vector3 positionInInventory, Vector3 rotationInInventory)
+    {
+        _inventory.Add(interactable);
+        _currentSelectedItemIndex = _inventory.Count - 1;
+
+        interactable.transform.SetParent(_playerData.InventoryHolder);
+        interactable.transform.localPosition = positionInInventory;
+        interactable.transform.localRotation = Quaternion.Euler(rotationInInventory);
+        interactable.GetComponent<Collider>().enabled = false;
+    }
+
+    public void Remove(GameObject interactable)
+    {
+        _inventory.Remove(interactable);
+        _currentSelectedItemIndex = 0;
+    }
+
+    public GameObject SelectedItem()
+    {
         return _selectedItem;
     }
 }

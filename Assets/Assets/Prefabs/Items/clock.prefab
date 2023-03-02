@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 606678536177607072}
-  - component: {fileID: 1410592893958006880}
   - component: {fileID: 411900566141552490}
+  - component: {fileID: 2355169576251247079}
   m_Layer: 9
   m_Name: clock
   m_TagString: Untagged
@@ -34,20 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1410592893958006880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 225332016953441050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f060d94c24fe3ec45b563045c04bee13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HourHand: {fileID: 5390691484765266365}
-  MinuteHand: {fileID: 5268861562995303630}
 --- !u!65 &411900566141552490
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -61,6 +47,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.07761288, y: 0.07931343, z: 0.071442485}
   m_Center: {x: 0.12129164, y: -0.049962893, z: 0.25752085}
+--- !u!114 &2355169576251247079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225332016953441050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f75e64bf4d2324ca817dc1c8b05d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _positionInInventory: {x: 0, y: 0, z: 0}
+  _rotationInInventory: {x: 0, y: 0, z: 0}
 --- !u!1 &691482677638661169
 GameObject:
   m_ObjectHideFlags: 0
