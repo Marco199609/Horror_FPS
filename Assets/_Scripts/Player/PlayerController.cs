@@ -133,7 +133,7 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(_ray, out hit, Mathf.Infinity))
         {
             _playerUI.InteractableUI(_playerData, hit); //Activates UI elements when hovering over interactables
-            _playerInteract.Interact(_playerData, hit, _playerInput);
+            _playerInteract.Interact(_playerData, hit, _playerInput, PlayerInspect);
         }
 
         _playerUI.CenterPointControl(InteractablesInSight); //Controls the center point appearing and disapearing when interactables in cammera view

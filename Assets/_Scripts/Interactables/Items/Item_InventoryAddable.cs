@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Item_InventoryAddable : MonoBehaviour, IInteractable
 {
+    [SerializeField] private bool _nonInspectable;
     [SerializeField] private string _actionDescription, _interactableDescription;
     [SerializeField] private Vector3 _positionInInventory, _rotationInInventory;
 
@@ -20,5 +21,10 @@ public class Item_InventoryAddable : MonoBehaviour, IInteractable
     public string InteractableDescription()
     {
         return _interactableDescription;
+    }
+
+    public bool NonInspectable()
+    {
+        return _nonInspectable;
     }
 }

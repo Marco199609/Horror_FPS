@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Item_Inspectable : MonoBehaviour, IInteractable
 {
+    [SerializeField] private string _inspectableDescription;
+    
     public string ActionDescription()
     {
         return "Inspect";
@@ -16,6 +18,11 @@ public class Item_Inspectable : MonoBehaviour, IInteractable
 
     public string InteractableDescription()
     {
-        return "Letter";
+        return _inspectableDescription;
+    }
+
+    public bool NonInspectable()
+    {
+        return false;
     }
 }

@@ -5,6 +5,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Character1Outside : MonoBehaviour, IInteractable
 {
+    [SerializeField] private bool _nonInspectable = true;
     [SerializeField] private string _description;
 
     private GameObject _player;
@@ -39,5 +40,10 @@ public class Character1Outside : MonoBehaviour, IInteractable
         newRotation.z = 0.0f;
 
         transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * 80);
+    }
+
+    public bool NonInspectable()
+    {
+        return _nonInspectable;
     }
 }

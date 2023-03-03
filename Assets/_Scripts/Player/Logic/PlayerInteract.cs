@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour, IPlayerInteract
 {
-    public void Interact(PlayerData playerData, RaycastHit hit, IPlayerInput playerInput)
+    public void Interact(PlayerData playerData, RaycastHit hit, IPlayerInput playerInput, PlayerInspect playerInspect)
     {
-        if (hit.distance <= playerData.InteractDistance && playerInput.playerPickupInput && hit.collider.GetComponent<IInteractable>() != null)
+        if (hit.distance <= playerData.InteractDistance && hit.collider.GetComponent<IInteractable>() != null)
         {
-            hit.collider.GetComponent<IInteractable>().Interact(GetComponent<PlayerController>());
+            if (playerInput.playerPickupInput)
+            {
+                hit.collider.GetComponent<IInteractable>().Interact(GetComponent<PlayerController>());
+            }
+            else if (Input.GetMouseButtonDown(0) && hit.collider.GetComponent<IInteractable>().NonInspectable() == false)
+            {
+                playerInspect.Inspect(hit.transform);
+            }
         }
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Item_Energy : MonoBehaviour, IInteractable
 {
+    [SerializeField] private bool _nonInspectable;
     [SerializeField] private string _interactableDescription, _actionDescription;
     [SerializeField] private float _energy;
 
@@ -24,5 +25,10 @@ public class Item_Energy : MonoBehaviour, IInteractable
     {
         ObjectManager.Instance.PlayerFlashlight.AddEnergy(_energy);
         Destroy(gameObject);
+    }
+
+    public bool NonInspectable()
+    {
+        return _nonInspectable;
     }
 }

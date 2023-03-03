@@ -22,9 +22,9 @@ public class PlayerInspect : MonoBehaviour
 
     public void ManageInspection(PlayerData playerData, IPlayerInput playerInput)
     {
-        if(_currentInspectableSelected != null)
+        if (_currentInspectableSelected != null)
         {
-            if (Input.GetKeyDown(KeyCode.Escape)) _inspectingItem = false;
+            if (Input.GetMouseButtonDown(1)) _inspectingItem = false;
 
             if (_inspectingItem)
             {

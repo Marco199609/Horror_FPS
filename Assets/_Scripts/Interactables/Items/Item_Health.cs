@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Item_Health : MonoBehaviour, IInteractable
 {
+    [SerializeField] private bool _nonInspectable;
     [SerializeField] private string _description;
     [SerializeField] private int _health;
 
@@ -25,5 +26,10 @@ public class Item_Health : MonoBehaviour, IInteractable
     public void Behaviour()
     {
         ObjectManager.Instance.Player.GetComponent<Health>().ModifyHealth(_health);
+    }
+
+    public bool NonInspectable()
+    {
+        return _nonInspectable;
     }
 }

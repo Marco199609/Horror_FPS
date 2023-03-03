@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Prop_Door : MonoBehaviour, IInteractable
 {
+    [SerializeField] private bool _nonInspectable = true;
     [SerializeField] GameObject _doorHandle;
     [SerializeField] Transform _doorPivotPoint;
     [SerializeField] Collider _doorCollider;
@@ -123,5 +124,10 @@ public class Prop_Door : MonoBehaviour, IInteractable
             }
         }
         else if (!_doorCollider.enabled) _doorCollider.enabled = true;
+    }
+
+    public bool NonInspectable()
+    {
+        return _nonInspectable;
     }
 }
