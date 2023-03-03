@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInspect : MonoBehaviour
 {
-    private float _goToInspectionPositionSpeed = 0.1f;
+    private float _goToInspectionPositionSpeed = 0.1f, _deleteCurrentInspectableTimer = 0.5f;
     private bool _inspectingItem;
 
     private Transform _currentInspectableSelected;
@@ -42,6 +42,13 @@ public class PlayerInspect : MonoBehaviour
                 _currentInspectableSelected.transform.SetParent(null);
                 _currentInspectableSelected.transform.position = Vector3.Lerp(_currentInspectableSelected.position, _previousPosition, _goToInspectionPositionSpeed);
                 _currentInspectableSelected.transform.rotation = Quaternion.Lerp(_currentInspectableSelected.rotation, _previousRotation, _goToInspectionPositionSpeed);
+
+                if (_deleteCurrentInspectableTimer > 0 && _currentInspectableSelected != null) _deleteCurrentInspectableTimer -= Time.deltaTime;
+                else
+                {
+                    _currentInspectableSelected = null;
+                    _deleteCurrentInspectableTimer = 0.5f;
+                }
             }
         }
     }
