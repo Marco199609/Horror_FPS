@@ -509,10 +509,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 384181415}
     m_Modifications:
-    - target: {fileID: 919132148511135044, guid: 82f1ed541eec5ce4abe7e770b6007471, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
     - target: {fileID: 1661242436706752483, guid: 82f1ed541eec5ce4abe7e770b6007471, type: 3}
       propertyPath: m_Name
       value: Level1
@@ -562,7 +558,19 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1711813854432490641, guid: 82f1ed541eec5ce4abe7e770b6007471, type: 3}
-      propertyPath: m_ScaleInLightmap
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1711813854432490641, guid: 82f1ed541eec5ce4abe7e770b6007471, type: 3}
+      propertyPath: m_PreserveUVs
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1711813854432490641, guid: 82f1ed541eec5ce4abe7e770b6007471, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 92e4fadeecc8f6b468c5b40cf62b5aa7, type: 2}
+    - target: {fileID: 5730218962179513707, guid: 82f1ed541eec5ce4abe7e770b6007471, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
