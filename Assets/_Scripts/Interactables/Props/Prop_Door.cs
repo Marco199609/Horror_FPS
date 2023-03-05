@@ -20,23 +20,31 @@ public class Prop_Door : MonoBehaviour, IInteractable
     [SerializeField] private DoorState _currentDoorState;
     private bool _changeDoorState;
 
+
+    private void Awake()
+    {
+        
+    }
+
     public string InteractableDescription()
     {
         if (_currentDoorState == DoorState.Closed)
             return "";
         else if (_currentDoorState == DoorState.Locked)
-            return "Door locked";
+            return "";
         else
             return "";
     }
     public string ActionDescription()
     {
         if (_currentDoorState == DoorState.Closed)
-            return "Open door";
+            return "Open";
         else if (_currentDoorState == DoorState.Locked)
-            return "Find key";
+        {
+            return "Locked";
+        }
         else
-            return "Close door";
+            return "Close";
     }
 
     public void Interact(PlayerController playerController)
