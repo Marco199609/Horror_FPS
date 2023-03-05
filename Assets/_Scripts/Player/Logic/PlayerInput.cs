@@ -46,7 +46,7 @@ public class PlayerInput : MonoBehaviour, IPlayerInput
     {
         playerJumpInput = _mainInput.Player.Jump.inProgress;
         playerRunInput = _mainInput.Player.Run.inProgress;
-        playerPickupInput = _mainInput.Player.ItemPickup.inProgress;
+        playerPickupInput = _mainInput.Player.ItemPickup.triggered;
         FlashLightInput = _mainInput.Player.Flashlight.inProgress;
     }
 
