@@ -101,23 +101,26 @@ public class Prop_Door : MonoBehaviour, IInteractable
                     }
                 case DoorState.Open:
                     {
-                        float degreesToRotate = 90;
-                        float timeToRotate = _doorCloseClip.length;
-                        _doorMoveVelocity = degreesToRotate / timeToRotate;
-
-                        if (!_doorLockedAudioSource.isPlaying)
-                            _doorLockedAudioSource.PlayOneShot(_doorCloseClip, 0.2f);
-
-                        if (_doorPivotPoint.localEulerAngles.y > 260)
+                        if(_changeDoorState)
                         {
-                            _doorPivotPoint.Rotate(0, _doorMoveVelocity * Time.deltaTime, 0);
-                        }
-                        else if (_doorPivotPoint.localEulerAngles.y > 0)
-                            _doorPivotPoint.localEulerAngles = new Vector3(_doorPivotPoint.localEulerAngles.x, 0, _doorPivotPoint.localEulerAngles.z);
-                        else
-                        {
-                            _currentDoorState = DoorState.Closed;
-                            _changeDoorState = false;
+                            float degreesToRotate = 90;
+                            float timeToRotate = _doorCloseClip.length;
+                            _doorMoveVelocity = degreesToRotate / timeToRotate;
+
+                            if (!_doorLockedAudioSource.isPlaying)
+                                _doorLockedAudioSource.PlayOneShot(_doorCloseClip, 0.2f);
+
+                            if (_doorPivotPoint.localEulerAngles.y > 260)
+                            {
+                                _doorPivotPoint.Rotate(0, _doorMoveVelocity * Time.deltaTime, 0);
+                            }
+                            else if (_doorPivotPoint.localEulerAngles.y > 0)
+                                _doorPivotPoint.localEulerAngles = new Vector3(_doorPivotPoint.localEulerAngles.x, 0, _doorPivotPoint.localEulerAngles.z);
+                            else
+                            {
+                                _currentDoorState = DoorState.Closed;
+                                _changeDoorState = false;
+                            }
                         }
                         break;
                     }
