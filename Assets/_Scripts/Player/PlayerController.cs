@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
     private GameObject _player;
     private Ray _ray; //used for item interaction
+    private CinemachineBrain _cinemachine;
 
     private IPlayerMovement _playerMovement;
     private IPlayerRotate _playerRotate;
@@ -60,17 +61,23 @@ public class PlayerController : MonoBehaviour
         _player = _playerData.gameObject;
 
         //Adds this object to object manager for future use
-        if(ObjectManager.Instance != null) ObjectManager.Instance.PlayerController = this;
+        //if(ObjectManager.Instance != null) ObjectManager.Instance.PlayerController = this;
     }
 
     void Start()
     {
         InteractablesInSight = new List<GameObject>();
+        _cinemachine = _playerData.Camera.GetComponent<CinemachineBrain>();
     }
 
     private void Update()
     {
-        if(!PlayerInspect.Inspecting())
+        if(PlayerInspect.Inspecting())
+        {
+            if (_cinemachine.enabled) 
+                _cinemachine.enabled = false;
+        }
+        else
         {
             CameraControl();
             PlayerMovement();
@@ -78,23 +85,17 @@ public class PlayerController : MonoBehaviour
             FlashlightControl();
             ItemInteraction();
             InventoryManage();
-        }
+
+            if (!_cinemachine.enabled) 
+                _cinemachine.enabled = true;
+        } 
 
         ManageInspection();
     }
 
     private void LateUpdate()
     {
-        CinemachineBrain virtualCam = FindObjectOfType<CinemachineBrain>();
-        if (PlayerInspect.Inspecting())
-        {
-            virtualCam.enabled = false;
-            //PlayerRotationStop();
-        }
-        else
-        {
-            virtualCam.enabled = true;
-        }
+        //PlayerRotationStop();
     }
 
     private void PlayerMovement()
