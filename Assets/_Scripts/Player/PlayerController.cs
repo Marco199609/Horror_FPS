@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!PlayerInspect.Inspecting())
         {
-            //PlayerRotation();
+            PlayerRotation();
         }
     }
 

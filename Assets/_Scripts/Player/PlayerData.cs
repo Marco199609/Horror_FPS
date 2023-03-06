@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class PlayerData : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PlayerData : MonoBehaviour
     [Header("Player Rotation and Look")]
     public float mouseSensitivityX = 25f;
     public float mouseSensitivityY = 10f;
+    public Transform CinemachineLookAt;
 
     [Header("Player Camera Movement Control")]
     public Transform camHolder;

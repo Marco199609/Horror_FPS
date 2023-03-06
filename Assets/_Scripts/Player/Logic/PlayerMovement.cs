@@ -16,8 +16,12 @@ public class PlayerMovement : MonoBehaviour, IPlayerMovement
         _isGrounded = Physics.CheckSphere(_playerData.groundCheck.position, _playerData.groundDistance, _playerData.groundMask);
 
         // We are grounded, so recalculate move direction based on axes
-        Vector3 forward = player.transform.TransformDirection(Vector3.forward);
-        Vector3 right = player.transform.TransformDirection(Vector3.right);
+        //Vector3 forward = player.transform.TransformDirection(Vector3.forward);
+        //Vector3 right = player.transform.TransformDirection(Vector3.right);
+
+        //Using cinemachine, this is the implementation
+        Vector3 forward = _playerData.Camera.transform.TransformDirection(Vector3.forward);
+        Vector3 right = _playerData.Camera.transform.TransformDirection(Vector3.right);
 
         float curSpeedX = canMove ? (playerInput.playerRunInput ? _playerData.runSpeed : _playerData.walkSpeed) * playerInput.playerMovementInput.y : 0;
         float curSpeedY = canMove ? (playerInput.playerRunInput ? _playerData.runSpeed : _playerData.walkSpeed) * playerInput.playerMovementInput.x : 0;

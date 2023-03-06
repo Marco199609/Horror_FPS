@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 383493139}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.00000023841858, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -376,11 +376,11 @@ PrefabInstance:
     - target: {fileID: 945543576, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
       propertyPath: _objectLerpY
       value: 
-      objectReference: {fileID: 6533751894493500777}
+      objectReference: {fileID: 6533751894252567961}
     - target: {fileID: 945543576, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
       propertyPath: _objectLerpZ
       value: 
-      objectReference: {fileID: 6533751894493500777}
+      objectReference: {fileID: 6533751894252567961}
     - target: {fileID: 2443998527300629801, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
       propertyPath: m_Name
       value: Flashlight
@@ -395,11 +395,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3071739833897758611, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.3
+      value: 2.2999997
       objectReference: {fileID: 0}
     - target: {fileID: 3071739833897758611, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.0001
+      value: -5.000103
       objectReference: {fileID: 0}
     - target: {fileID: 3071739833897758611, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -411,7 +411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3071739833897758611, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.008726558
+      value: 0.008726537
       objectReference: {fileID: 0}
     - target: {fileID: 3071739833897758611, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
       propertyPath: m_LocalRotation.z
@@ -515,6 +515,18 @@ PrefabInstance:
     - target: {fileID: 2770187572269442953, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: orthographic size
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770187572269442958, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 20.62352
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770187572269442958, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.50005
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770187572269442958, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 14.066772
       objectReference: {fileID: 0}
     - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: Flashlight

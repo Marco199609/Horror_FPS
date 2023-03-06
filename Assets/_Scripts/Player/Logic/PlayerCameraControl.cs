@@ -34,7 +34,8 @@ public class PlayerCameraControl : MonoBehaviour, ICameraControl
 
     private void PlayMotion(Vector3 motion)
     {
-        _playerData.Camera.localPosition += motion;
+        _playerData.CinemachineLookAt.localPosition += motion;
+        _playerData.camHolder.localPosition += motion;
     }
 
     private void CheckMotion()
