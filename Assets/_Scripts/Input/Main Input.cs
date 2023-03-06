@@ -108,7 +108,7 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
                     ""id"": ""93f71c46-61e4-4305-bac2-db20136038f5"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""NormalizeVector2"",
                     ""groups"": ""Keyboard"",
                     ""action"": ""Rotate"",
                     ""isComposite"": false,

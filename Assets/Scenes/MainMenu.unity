@@ -928,6 +928,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 641706998}
     m_Modifications:
     - target: {fileID: 87454142, guid: e0266e7ffb84ba644bc5ef38ef0f7f8a, type: 3}
+      propertyPath: m_MaxValue
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 87454142, guid: e0266e7ffb84ba644bc5ef38ef0f7f8a, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1835515922}
@@ -970,6 +974,10 @@ PrefabInstance:
     - target: {fileID: 1383252941, guid: e0266e7ffb84ba644bc5ef38ef0f7f8a, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1816427435, guid: e0266e7ffb84ba644bc5ef38ef0f7f8a, type: 3}
+      propertyPath: m_MaxValue
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 1816427435, guid: e0266e7ffb84ba644bc5ef38ef0f7f8a, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target

@@ -59,7 +59,9 @@ public class PlayerInput : MonoBehaviour, IPlayerInput
     private void SmoothPlayerRotate()
     {
         Vector2 mouseInput = _mainInput.Player.Rotate.ReadValue<Vector2>();
-        mouseMovementInput = Vector2.Lerp(mouseMovementInput, mouseInput, 25 * Time.deltaTime);
+
+        //mouseMovementInput = Vector2.SmoothDamp(mouseMovementInput, mouseInput, ref currentMouseVelocity, 5 * Time.deltaTime);
+        mouseMovementInput = Vector2.Lerp(mouseMovementInput, mouseInput, 10 * Time.deltaTime);
     }
 
     private void MouseScrollFix()
