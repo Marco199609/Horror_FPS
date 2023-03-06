@@ -6,6 +6,7 @@ public class Prop_Mouse : MonoBehaviour, IInteractable
 {
     [SerializeField] private Material _screenMaterial;
     [SerializeField] private bool _screenOn;
+    [SerializeField] private AudioSource _mouseClick;
 
     public string ActionDescription()
     {
@@ -25,6 +26,8 @@ public class Prop_Mouse : MonoBehaviour, IInteractable
             _screenMaterial.EnableKeyword("_EMISSION");
             _screenOn = true;
         }
+
+        _mouseClick.Play();
     }
 
     public string InteractableDescription()

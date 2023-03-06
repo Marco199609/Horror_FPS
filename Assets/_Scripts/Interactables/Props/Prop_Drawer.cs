@@ -8,6 +8,8 @@ public class Prop_Drawer : MonoBehaviour, IInteractable
     [SerializeField] private float _moveVelocity;
     [SerializeField] private Transform _drawerOpenPosition, _drawerClosedPosition;
     [SerializeField] private GameObject _key;
+    [SerializeField] private AudioSource _drawerAudioSource;
+    [SerializeField] private AudioClip _drawerOpenClip, _drawerCloseClip, _drawerLockedClip;
 
     private bool _changeDrawerState;
 
@@ -68,16 +70,16 @@ public class Prop_Drawer : MonoBehaviour, IInteractable
                         }
                         else
                         {
-                            /*if (!_doorLockedAudioSource.isPlaying)
-                                _doorLockedAudioSource.PlayOneShot(_doorLockedClip, 0.2f);*/
+                            if (!_drawerAudioSource.isPlaying)
+                                _drawerAudioSource.PlayOneShot(_drawerLockedClip, 0.2f);
                         }
                         _changeDrawerState = false;
                         break;
                     }
                 case DrawerState.Closed:
                     {
-                        /*if (!_doorLockedAudioSource.isPlaying)
-                                _doorLockedAudioSource.PlayOneShot(_doorOpenClip, 0.2f);*/
+                        if (!_drawerAudioSource.isPlaying)
+                                _drawerAudioSource.PlayOneShot(_drawerOpenClip, 0.2f);
 
                         if(transform.localPosition.x > _drawerOpenPosition.localPosition.x + 0.02f)
                             transform.localPosition = Vector3.Lerp(transform.localPosition, _drawerOpenPosition.localPosition, _moveVelocity * Time.deltaTime);
@@ -90,8 +92,8 @@ public class Prop_Drawer : MonoBehaviour, IInteractable
                     }
                 case DrawerState.Open:
                     {
-                        /*if (!_doorLockedAudioSource.isPlaying)
-                            _doorLockedAudioSource.PlayOneShot(_doorCloseClip, 0.2f);*/
+                        if (!_drawerAudioSource.isPlaying)
+                            _drawerAudioSource.PlayOneShot(_drawerCloseClip, 0.2f);
 
                         if (transform.localPosition.x < _drawerClosedPosition.localPosition.x - 0.02f)
                             transform.localPosition = Vector3.Lerp(transform.localPosition, _drawerClosedPosition.localPosition, _moveVelocity * Time.deltaTime);

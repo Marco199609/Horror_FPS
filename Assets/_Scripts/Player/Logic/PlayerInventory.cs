@@ -51,8 +51,8 @@ public class PlayerInventory : MonoBehaviour, IPlayerInventory
         _currentSelectedItemIndex = _inventory.Count - 1;
 
         interactable.transform.SetParent(_playerData.InventoryHolder);
-        interactable.transform.localPosition = positionInInventory;
-        interactable.transform.localRotation = Quaternion.Euler(rotationInInventory);
+        interactable.transform.localPosition = positionInInventory; //Vector3.Lerp(interactable.transform.localPosition, positionInInventory, 1 * Time.deltaTime);
+        interactable.transform.localRotation = Quaternion.Euler(rotationInInventory); //Quaternion.Lerp(interactable.transform.rotation, Quaternion.Euler(rotationInInventory), 1 * Time.deltaTime);
         interactable.GetComponent<Collider>().enabled = false;
     }
 

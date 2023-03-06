@@ -7,8 +7,8 @@ public class PlayerRotate : MonoBehaviour, IPlayerRotate
 
     private float _rotationX = 0F;
     private float _rotationY = 0F;
-    private float _minimumY = -60F;
-    private float _maximumY = 60F;
+    private float _minimumY = -89F;
+    private float _maximumY = 89F;
 
     private PlayerData _playerData;
     private Transform _camHolder;
