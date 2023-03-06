@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 581701908695208402}
   - component: {fileID: 581701908695208401}
+  - component: {fileID: 5190784071836873033}
+  - component: {fileID: 3649166993603254745}
   m_Layer: 0
   m_Name: UI Manager
   m_TagString: Untagged
@@ -48,8 +50,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactableKeyPrompt: {fileID: 581701907953296276}
   _uiCenterPoint: {fileID: 8310470404716481225}
+  _playerDialogueText: {fileID: 0}
   _interactableDescription: {fileID: 6678748918848843834}
   _actionDescription: {fileID: 5333405507848936317}
+  _characterDialogueText: {fileID: 0}
+--- !u!114 &5190784071836873033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581701908695208403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee93a39cc20f3c94f9fefdd5d7c9a74b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3649166993603254745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581701908695208403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6cc959aaf4d303498bc4f51f72ad924, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &581701907404689453
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -246,6 +274,10 @@ PrefabInstance:
     - target: {fileID: 2231781814283210275, guid: 35008fab6c2254e4b85acd79f88b2eb7, type: 3}
       propertyPath: m_Name
       value: Player UI Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3686203007678299268, guid: 35008fab6c2254e4b85acd79f88b2eb7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35008fab6c2254e4b85acd79f88b2eb7, type: 3}
