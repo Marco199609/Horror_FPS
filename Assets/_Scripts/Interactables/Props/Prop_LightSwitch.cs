@@ -37,7 +37,7 @@ public class Prop_LightSwitch : MonoBehaviour, IInteractable
             for (int i = 0; i < _lightOnObjects.Count; i++)
             {
                 _lightOnObjects[i].gameObject.SetActive(true);
-                _lightOffObjects[i].gameObject.SetActive(true);
+                _lightOffObjects[i].gameObject.SetActive(false);
             }
             _lightsOn = true;
         }
