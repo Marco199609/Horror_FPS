@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!PlayerInspect.Inspecting())
         {
-            PlayerRotation();
+            //PlayerRotation();
         }
     }
 
@@ -128,7 +128,7 @@ public class PlayerController : MonoBehaviour
     {
         RaycastHit hit;
         _ray.origin = _playerData.camHolder.position;
-        _ray.direction = _playerData.camHolder.forward;
+        _ray.direction = _playerData.Camera.forward;
 
         if (Physics.Raycast(_ray, out hit, Mathf.Infinity))
         {

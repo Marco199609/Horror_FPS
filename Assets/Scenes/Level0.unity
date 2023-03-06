@@ -1419,7 +1419,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5730218962179513707, guid: 82f1ed541eec5ce4abe7e770b6007471, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82f1ed541eec5ce4abe7e770b6007471, type: 3}
@@ -3162,14 +3162,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2790741472255789107, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
-      propertyPath: mouseSensitivityX
-      value: 125
-      objectReference: {fileID: 0}
-    - target: {fileID: 2790741472255789107, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
-      propertyPath: mouseSensitivityY
-      value: 125
-      objectReference: {fileID: 0}
     - target: {fileID: 8997385359482471059, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_Name
       value: PlayerController

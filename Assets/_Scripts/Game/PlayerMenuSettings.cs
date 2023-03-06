@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class PlayerSettings : MonoBehaviour
+public class PlayerMenuSettings : MonoBehaviour
 {
     [SerializeField] private GameObject _settingsCanvas;
     [SerializeField] private GameObject _mainMenuCanvas;
