@@ -1,3 +1,4 @@
+using Cinemachine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -84,9 +85,15 @@ public class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (!PlayerInspect.Inspecting())
+        CinemachineBrain virtualCam = FindObjectOfType<CinemachineBrain>();
+        if (PlayerInspect.Inspecting())
         {
-            PlayerRotation();
+            virtualCam.enabled = false;
+            //PlayerRotationStop();
+        }
+        else
+        {
+            virtualCam.enabled = true;
         }
     }
 
@@ -95,8 +102,9 @@ public class PlayerController : MonoBehaviour
         _playerMovement.PlayerMove(_player, _playerInput);
     }
 
-    private void PlayerRotation()
+    private void PlayerRotationStop()
     {
+
         _playerRotate.RotatePlayer(_player, _playerInput);
     }
 
