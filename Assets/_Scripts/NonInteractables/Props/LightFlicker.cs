@@ -6,19 +6,20 @@ using UnityEngine;
 public class LightFlicker : MonoBehaviour
 {
     [SerializeField] private bool _enableFlicker;
-    [SerializeField] private float _timer = 1f;
+    [SerializeField] private float _minFlickerDuration, _maxFlickerDuration;
     [SerializeField] private Material _emisiveMaterial, _opaqueMaterial;
     [SerializeField] private Renderer _lamp;
     [SerializeField] private Light _light;
     [SerializeField] private AudioSource _audioSource;
 
-    private float _lightMaxIntensity;
+    private float _lightMaxIntensity, _timer;
     private bool _lightOn;
 
 
     private void Awake()
     {
         _lightMaxIntensity = _light.intensity;
+        _timer = UnityEngine.Random.Range(_minFlickerDuration, _maxFlickerDuration);
     }
 
     private void Update()
@@ -34,14 +35,14 @@ public class LightFlicker : MonoBehaviour
                     if(_audioSource.isPlaying) _audioSource.Stop();
                     _light.enabled = false;
                     _lamp.material = _opaqueMaterial;
-                    _timer = UnityEngine.Random.Range(0.5f, 1.5f);
+                    _timer = UnityEngine.Random.Range(_minFlickerDuration, _maxFlickerDuration);
                     _lightOn = false;
                 }
                 else
                 {
                     _light.enabled = true;
                     _lamp.material = _emisiveMaterial;
-                    _timer = UnityEngine.Random.Range(0.5f, 1.5f);
+                    _timer = UnityEngine.Random.Range(_minFlickerDuration, _maxFlickerDuration);
                     _lightOn = true;
                 }
             }

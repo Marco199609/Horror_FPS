@@ -143,12 +143,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enableFlicker: 0
-  _timer: 1
+  _minFlickerDuration: 0.5
+  _maxFlickerDuration: 1.5
   _emisiveMaterial: {fileID: 2100000, guid: fa4430ea7c23121409655c336b850dbb, type: 2}
   _opaqueMaterial: {fileID: 2100000, guid: ac047e052760f134a8729b4248eee1a2, type: 2}
   _lamp: {fileID: 3457510173066747747}
   _light: {fileID: 228717984363760802}
   _audioSource: {fileID: 2421622936578383645}
+  _timer: 1
 --- !u!82 &2421622936578383645
 AudioSource:
   m_ObjectHideFlags: 0
