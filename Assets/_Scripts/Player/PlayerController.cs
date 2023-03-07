@@ -72,12 +72,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if(PlayerInspect.Inspecting())
-        {
-            if (_cinemachine.enabled) 
-                _cinemachine.enabled = false;
-        }
-        else
+        if (!PlayerInspect.Inspecting())
         {
             CameraControl();
             PlayerMovement();
@@ -85,17 +80,10 @@ public class PlayerController : MonoBehaviour
             FlashlightControl();
             ItemInteraction();
             InventoryManage();
+        }
 
-            if (!_cinemachine.enabled) 
-                _cinemachine.enabled = true;
-        } 
-
+        PlayerCameraRotation();
         ManageInspection();
-    }
-
-    private void LateUpdate()
-    {
-        //PlayerRotationStop();
     }
 
     private void PlayerMovement()
@@ -103,10 +91,10 @@ public class PlayerController : MonoBehaviour
         _playerMovement.PlayerMove(_player, _playerInput);
     }
 
-    private void PlayerRotationStop()
+    private void PlayerCameraRotation()
     {
 
-        _playerRotate.RotatePlayer(_player, _playerInput);
+        _playerRotate.RotatePlayer(_playerData, _playerInput, PlayerInspect.Inspecting());
     }
 
     private void CameraControl()

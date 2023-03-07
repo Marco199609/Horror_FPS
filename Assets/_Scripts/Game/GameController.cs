@@ -6,19 +6,21 @@ using TMPro;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private int _targetFramerate, _vSyncCount;
+    public int TargetFramerate, VSyncCount;
+
+
     [SerializeField] private Text fpsText;
     [SerializeField] private float hudRefreshRate = 1f;
     [SerializeField] private bool _showFramerate;
     private float _timer;
 
-    private void Awake()
+    private void Start()
     {
         //Adds this object to object manager for future use
-        ObjectManager.Instance.GameController = this;
+        //ObjectManager.Instance.GameController = this;
         
-        Application.targetFrameRate = _targetFramerate;
-        QualitySettings.vSyncCount = _vSyncCount;
+        //Application.targetFrameRate = TargetFramerate;
+        //QualitySettings.vSyncCount = VSyncCount;
     }
 
     // Update is called once per frame

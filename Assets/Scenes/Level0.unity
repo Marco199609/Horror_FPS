@@ -3162,13 +3162,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6533751894493500777, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -30.72
+    - target: {fileID: 383493141, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
+      propertyPath: m_Lens.FarClipPlane
+      value: 150
       objectReference: {fileID: 0}
-    - target: {fileID: 6533751894493500777, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 9.96
+    - target: {fileID: 6533751894252567966, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
+      propertyPath: far clip plane
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 8997385359482471059, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_Name
@@ -4117,6 +4117,14 @@ PrefabInstance:
       propertyPath: fpsText
       value: 
       objectReference: {fileID: 1037141048}
+    - target: {fileID: 7199829948290837520, guid: 84fa7afec000b2847be7ff277027a393, type: 3}
+      propertyPath: _showFramerate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199829948290837520, guid: 84fa7afec000b2847be7ff277027a393, type: 3}
+      propertyPath: _targetFramerate
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7199829948290837522, guid: 84fa7afec000b2847be7ff277027a393, type: 3}
       propertyPath: m_Name
       value: Game Controller

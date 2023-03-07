@@ -2,5 +2,5 @@
 
 public interface IPlayerRotate
 {
-    void RotatePlayer(GameObject player, IPlayerInput playerInput);
+    void RotatePlayer(PlayerData playerData, IPlayerInput playerInput, bool disableCinemachine);
 }
