@@ -8,6 +8,13 @@ public class Prop_Mouse : MonoBehaviour, IInteractable
     [SerializeField] private bool _screenOn;
     [SerializeField] private AudioSource _mouseClick;
 
+
+    private void Start()
+    {
+        if (_screenOn) _screenMaterial.EnableKeyword("_EMISSION");
+        else _screenMaterial.DisableKeyword("_EMISSION");
+    }
+
     public string ActionDescription()
     {
         if (_screenOn) return "Turn computer off";
