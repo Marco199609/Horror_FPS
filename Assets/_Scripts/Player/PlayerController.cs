@@ -18,6 +18,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(PlayerAudio))]
 [RequireComponent(typeof(PlayerInventory))]
 [RequireComponent(typeof(PlayerInspect))]
+[RequireComponent(typeof(PlayerStressControl))]
 #endregion
 
 public class PlayerController : MonoBehaviour
@@ -36,9 +37,10 @@ public class PlayerController : MonoBehaviour
     private IPlayerUI _playerUI;
     private IPlayerInput _playerInput;
     private IPlayerAudio _playerAudio;
+    private PlayerStressControl _playerStressControl;
 
     public IPlayerInventory Inventory { get; private set; }
-    public PlayerInspect PlayerInspect { get; private set; }
+    public IPlayerInspect PlayerInspect { get; private set; }
 
     //If there is one or more items in viewport, activate ui center point
     [NonSerialized] public List<GameObject> InteractablesInSight;
@@ -56,7 +58,8 @@ public class PlayerController : MonoBehaviour
         _playerInput = GetComponent<IPlayerInput>();
         _playerAudio = GetComponent<IPlayerAudio>();
         Inventory = GetComponent<IPlayerInventory>();
-        PlayerInspect = GetComponent<PlayerInspect>();
+        PlayerInspect = GetComponent<IPlayerInspect>();
+        _playerStressControl = GetComponent<PlayerStressControl>();
 
         _player = _playerData.gameObject;
 

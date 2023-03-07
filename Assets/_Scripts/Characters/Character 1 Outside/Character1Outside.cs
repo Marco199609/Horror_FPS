@@ -46,4 +46,9 @@ public class Character1Outside : MonoBehaviour, IInteractable
     {
         return _nonInspectable;
     }
+
+    public bool InspectableOnly()
+    {
+        return false;
+    }
 }

@@ -27,4 +27,9 @@ public class Item_InventoryAddable : MonoBehaviour, IInteractable
     {
         return _nonInspectable;
     }
+
+    public bool InspectableOnly()
+    {
+        return false;
+    }
 }

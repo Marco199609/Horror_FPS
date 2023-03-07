@@ -39,4 +39,9 @@ public class Prop_Mouse : MonoBehaviour, IInteractable
     {
         return true;
     }
+
+    public bool InspectableOnly()
+    {
+        return false;
+    }
 }

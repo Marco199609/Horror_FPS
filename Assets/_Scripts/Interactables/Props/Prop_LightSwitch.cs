@@ -52,4 +52,9 @@ public class Prop_LightSwitch : MonoBehaviour, IInteractable
     {
         return true;
     }
+
+    public bool InspectableOnly()
+    {
+        return false;
+    }
 }

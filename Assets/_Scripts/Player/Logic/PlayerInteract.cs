@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour, IPlayerInteract
 {
-    public void Interact(PlayerData playerData, RaycastHit hit, IPlayerInput playerInput, PlayerInspect playerInspect)
+    public void Interact(PlayerData playerData, RaycastHit hit, IPlayerInput playerInput, IPlayerInspect playerInspect)
     {
         if (hit.distance <= playerData.InteractDistance && hit.collider.GetComponent<IInteractable>() != null)
         {

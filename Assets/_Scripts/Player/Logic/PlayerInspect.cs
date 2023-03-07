@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInspect : MonoBehaviour
+public class PlayerInspect : MonoBehaviour, IPlayerInspect
 {
     private float _goToInspectionPositionSpeed = 0.1f, _deleteCurrentInspectableTimer = 0.5f;
     private bool _inspectingItem;

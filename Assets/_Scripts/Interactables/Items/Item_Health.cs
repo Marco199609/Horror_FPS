@@ -32,4 +32,9 @@ public class Item_Health : MonoBehaviour, IInteractable
     {
         return _nonInspectable;
     }
+
+    public bool InspectableOnly()
+    {
+        return false;
+    }
 }

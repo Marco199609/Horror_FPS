@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
 {
     [Header("Player UI")]
     [SerializeField] private GameObject _interactableKeyPrompt;
+    [SerializeField] private GameObject _inspectableOnlyMousePrompt;
     [SerializeField] private Image _uiCenterPoint;
     [SerializeField] private TextMeshProUGUI _playerDialogueText;
 
@@ -26,7 +27,7 @@ public class UIManager : MonoBehaviour
     {
         _centerPointUIHandler = GetComponent<CenterPointUIHandler>();
         _interactableUIHandler = GetComponent<InteractableUIHandler>();
-        _interactableUIHandler.SetVariables(_interactableKeyPrompt, _interactableDescription, _actionDescription);
+        _interactableUIHandler.SetVariables(_interactableKeyPrompt, _inspectableOnlyMousePrompt, _interactableDescription, _actionDescription);
 
         //Subscribes to player UI events
         PlayerUI.ItemDescriptionActivated += _interactableUIHandler.ActivateInteractableUIElements;

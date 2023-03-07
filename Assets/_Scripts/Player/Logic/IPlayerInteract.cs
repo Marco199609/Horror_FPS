@@ -2,5 +2,5 @@
 
 public interface IPlayerInteract
 {
-    void Interact(PlayerData playerData, RaycastHit hit, IPlayerInput playerInput, PlayerInspect playerInspect);
+    void Interact(PlayerData playerData, RaycastHit hit, IPlayerInput playerInput, IPlayerInspect playerInspect);
 }

@@ -108,4 +108,9 @@ public class Prop_Drawer : MonoBehaviour, IInteractable
         }
         //else if (!_doorCollider.enabled) _doorCollider.enabled = true;
     }
+
+    public bool InspectableOnly()
+    {
+        return false;
+    }
 }

@@ -31,4 +31,8 @@ public class Item_Energy : MonoBehaviour, IInteractable
     {
         return _nonInspectable;
     }
+    public bool InspectableOnly()
+    {
+        return false;
+    }
 }

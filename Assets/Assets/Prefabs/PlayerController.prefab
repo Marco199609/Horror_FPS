@@ -56,7 +56,7 @@ MonoBehaviour:
     FieldOfView: 45
     OrthographicSize: 10
     NearClipPlane: 0.1
-    FarClipPlane: 5000
+    FarClipPlane: 150
     Dutch: 0
   m_ComponentOwner: {fileID: 898163649}
 --- !u!1 &898163648
@@ -196,6 +196,8 @@ GameObject:
   - component: {fileID: 2529688953871844350}
   - component: {fileID: 8368480306072899648}
   - component: {fileID: 4884786522411506679}
+  - component: {fileID: 3978340652355344648}
+  - component: {fileID: 1343923303}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -354,6 +356,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3108ef7126804f24db56a409eaf813ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3978340652355344648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8997385359482471059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec480c37463fc0347894719f50e67456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1343923303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8997385359482471059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec480c37463fc0347894719f50e67456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &711594097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -456,6 +482,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8997385359482471060}
     m_Modifications:
+    - target: {fileID: 801167030, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 801167030, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8051bfe520699514ca1d0f0deed8d5c4, type: 3}
     - target: {fileID: 2770187571978162041, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: m_Name
       value: Player
@@ -510,7 +544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2770187572269442953, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: far clip plane
-      value: 5000
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2770187572269442953, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: orthographic size

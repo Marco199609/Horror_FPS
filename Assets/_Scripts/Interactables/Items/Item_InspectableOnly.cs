@@ -25,4 +25,9 @@ public class Item_InspectableOnly : MonoBehaviour, IInteractable
     {
         return false;
     }
+
+    public bool InspectableOnly()
+    {
+        return true;
+    }
 }

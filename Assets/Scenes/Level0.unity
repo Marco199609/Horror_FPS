@@ -1882,6 +1882,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2125711309, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
+      propertyPath: m_Color.a
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2125711309, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2125711309, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2125711309, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 581701908695208402, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -3162,13 +3178,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 383493141, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
-      propertyPath: m_Lens.FarClipPlane
-      value: 150
+    - target: {fileID: 6533751894493500777, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -30.70307
       objectReference: {fileID: 0}
-    - target: {fileID: 6533751894252567966, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
-      propertyPath: far clip plane
-      value: 150
+    - target: {fileID: 6533751894493500777, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.001
       objectReference: {fileID: 0}
     - target: {fileID: 8997385359482471059, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_Name
