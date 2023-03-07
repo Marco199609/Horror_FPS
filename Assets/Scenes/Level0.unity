@@ -2383,7 +2383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_Intensity
-      value: 0.3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_Shadows.m_Bias
@@ -2508,39 +2508,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1368606833 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 898163648, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
-  m_PrefabInstance: {fileID: 1866197626}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1368606838
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1368606833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c9beda531928fc40968802117a5d256, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_VerticalAxis:
-    Value: 0
-    m_MaxSpeed: 0
-    m_AccelTime: 0.1
-    m_DecelTime: 0.1
-    m_InputAxisName: Mouse Y
-    m_InputAxisValue: 0
-    m_InvertAxis: 1
-  m_HorizontalAxis:
-    Value: 0
-    m_MaxSpeed: 0
-    m_AccelTime: 0.1
-    m_DecelTime: 0.1
-    m_InputAxisName: Mouse X
-    m_InputAxisValue: 0
-    m_InvertAxis: 0
 --- !u!4 &1371068801 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3256022585123351447, guid: 671b1a84953b368429e29f9d55cbc28e, type: 3}
@@ -3212,29 +3179,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 383493140, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2790741472255789107, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
-      propertyPath: camMovementAmplitude
-      value: 0.001
-      objectReference: {fileID: 0}
-    - target: {fileID: 6533751894252567961, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6533751894493500777, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -23.80238
-      objectReference: {fileID: 0}
-    - target: {fileID: 6533751894493500777, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997385357740913328, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+    - target: {fileID: 8997385358772540760, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
+      propertyPath: m_Range
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 8997385359482471059, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_Name
@@ -3284,8 +3231,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 898163653, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
+    - target: {fileID: 8997385359616104498, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
 --- !u!1 &1873577479
 GameObject:
@@ -4418,7 +4368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_Intensity
-      value: 0.3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_Shadows.m_Bias

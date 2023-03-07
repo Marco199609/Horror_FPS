@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PlayerInspect : MonoBehaviour, IPlayerInspect
 {
-    private float _goToInspectionPositionSpeed = 0.1f, _deleteCurrentInspectableTimer = 0.5f;
+    private float _goToInspectionPositionSpeed = 15f, _deleteCurrentInspectableTimer = 0.7f, _timer;
     private bool _inspectingItem;
 
     private Transform _currentInspectableSelected;
     private Vector3 _currentItemRotation;
+
+    private Transform _previousParent;
     private Vector3 _previousPosition;
     private Quaternion _previousRotation;
 
@@ -18,6 +20,9 @@ public class PlayerInspect : MonoBehaviour, IPlayerInspect
         _currentInspectableSelected = inspectable;
         _previousPosition = inspectable.position;
         _previousRotation = inspectable.rotation;
+        _previousParent = inspectable.parent;
+        inspectable.GetComponent<Collider>().enabled = false;
+        _timer = _deleteCurrentInspectableTimer;
     }
 
     public void ManageInspection(PlayerData playerData, IPlayerInput playerInput)
@@ -29,7 +34,7 @@ public class PlayerInspect : MonoBehaviour, IPlayerInspect
             if (_inspectingItem)
             {
                 _currentInspectableSelected.transform.SetParent(playerData.Camera);
-                _currentInspectableSelected.localPosition = Vector3.Lerp(_currentInspectableSelected.localPosition, new Vector3(0, 0, 0.5f), _goToInspectionPositionSpeed);
+                _currentInspectableSelected.localPosition = Vector3.Lerp(_currentInspectableSelected.localPosition, new Vector3(0, 0, 0.5f), _goToInspectionPositionSpeed * Time.deltaTime);
 
                 _currentItemRotation.x = 0;
                 _currentItemRotation.y += playerInput.mouseMovementInput.x * 3.5f;
@@ -39,15 +44,16 @@ public class PlayerInspect : MonoBehaviour, IPlayerInspect
             }
             else
             {
-                _currentInspectableSelected.transform.SetParent(null);
-                _currentInspectableSelected.transform.position = Vector3.Lerp(_currentInspectableSelected.position, _previousPosition, _goToInspectionPositionSpeed);
-                _currentInspectableSelected.transform.rotation = Quaternion.Lerp(_currentInspectableSelected.rotation, _previousRotation, _goToInspectionPositionSpeed);
+                _currentInspectableSelected.transform.SetParent(_previousParent);
+                _currentInspectableSelected.transform.position = Vector3.Lerp(_currentInspectableSelected.position, _previousPosition, _goToInspectionPositionSpeed * Time.deltaTime);
+                _currentInspectableSelected.transform.rotation = Quaternion.Lerp(_currentInspectableSelected.rotation, _previousRotation, _goToInspectionPositionSpeed * Time.deltaTime);
 
-                if (_deleteCurrentInspectableTimer > 0 && _currentInspectableSelected != null) _deleteCurrentInspectableTimer -= Time.deltaTime;
+                if (_timer > 0 && _currentInspectableSelected != null) _timer -= Time.deltaTime;
                 else
                 {
+                    _currentInspectableSelected.GetComponent<Collider>().enabled = true;
                     _currentInspectableSelected = null;
-                    _deleteCurrentInspectableTimer = 0.5f;
+                    _timer = _deleteCurrentInspectableTimer;
                 }
             }
         }
