@@ -186,6 +186,7 @@ Transform:
   - {fileID: 2000581749}
   - {fileID: 279839191}
   - {fileID: 344011038}
+  - {fileID: 1919208291}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -751,7 +752,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_Intensity
-      value: 0.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_Shadows.m_Bias
@@ -1559,7 +1560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_Intensity
-      value: 0.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_Shadows.m_Bias
@@ -2203,7 +2204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_Intensity
-      value: 0.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_Shadows.m_Bias
@@ -3217,7 +3218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2790741472255789107, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: camMovementAmplitude
-      value: 0.002
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 6533751894252567961, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_LocalRotation.y
@@ -3225,15 +3226,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6533751894493500777, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.70307
+      value: -23.80238
       objectReference: {fileID: 0}
     - target: {fileID: 6533751894493500777, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.80098
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8997385357740913328, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8997385359482471059, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_Name
@@ -3464,6 +3465,55 @@ Transform:
   m_Father: {fileID: 384181415}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1919208290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1919208291}
+  - component: {fileID: 1919208292}
+  m_Layer: 8
+  m_Name: Post Process Volume - Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1919208291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919208290}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 66287931}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1919208292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919208290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: e2984bbcafbeb3e45822584458a320d4, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!1 &1941409813 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8121106577573213314, guid: 448cadba039aeea4babec77736537148, type: 3}
@@ -3551,7 +3601,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_Intensity
-      value: 0.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_Shadows.m_Bias
@@ -3655,12 +3705,12 @@ GameObject:
   - component: {fileID: 2000581749}
   - component: {fileID: 2000581750}
   m_Layer: 8
-  m_Name: Post Process Volume
+  m_Name: Post Process Volume - Heavy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2000581749
 Transform:
   m_ObjectHideFlags: 0
