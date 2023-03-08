@@ -93,7 +93,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1200896180551257940}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.07897768, y: 0.07340846, z: 0.19026622}
@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f505e91fc663fdc4d825ab53bae05255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _nonInspectable: 0
   _interactableDescription: Battery
   _actionDescription: Insert into flashlight
   _energy: 50

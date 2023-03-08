@@ -1446,7 +1446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_Intensity
-      value: 0.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_Shadows.m_Bias
@@ -3179,10 +3179,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8997385358772540760, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
-      propertyPath: m_Range
-      value: 0.75
-      objectReference: {fileID: 0}
     - target: {fileID: 8997385359482471059, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_Name
       value: PlayerController
@@ -3230,10 +3226,6 @@ PrefabInstance:
     - target: {fileID: 8997385359482471060, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997385359616104498, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
-      propertyPath: m_Intensity
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
@@ -4096,10 +4088,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2047758386982597131, guid: 678b41585817fa840a89cc90868f1b93, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 678b41585817fa840a89cc90868f1b93, type: 3}
 --- !u!1001 &2355169576251247075
@@ -4157,14 +4145,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.037
       objectReference: {fileID: 0}
-    - target: {fileID: 2355169576251247079, guid: 42391985d31048a4d86e125e9d42d5db, type: 3}
-      propertyPath: _actionDescription
-      value: Pickup
-      objectReference: {fileID: 0}
-    - target: {fileID: 2355169576251247079, guid: 42391985d31048a4d86e125e9d42d5db, type: 3}
-      propertyPath: _interactableDescription
-      value: Clock
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42391985d31048a4d86e125e9d42d5db, type: 3}
 --- !u!4 &2355169576251247078 stripped
@@ -4183,14 +4163,6 @@ PrefabInstance:
       propertyPath: fpsText
       value: 
       objectReference: {fileID: 1037141048}
-    - target: {fileID: 7199829948290837520, guid: 84fa7afec000b2847be7ff277027a393, type: 3}
-      propertyPath: _showFramerate
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199829948290837520, guid: 84fa7afec000b2847be7ff277027a393, type: 3}
-      propertyPath: _targetFramerate
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7199829948290837522, guid: 84fa7afec000b2847be7ff277027a393, type: 3}
       propertyPath: m_Name
       value: Game Controller
@@ -4239,10 +4211,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7199829948290837534, guid: 84fa7afec000b2847be7ff277027a393, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7199829948290837535, guid: 84fa7afec000b2847be7ff277027a393, type: 3}
       propertyPath: _sun
       value: 
@@ -4256,41 +4224,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1834719887}
     - target: {fileID: 7199829948290837535, guid: 84fa7afec000b2847be7ff277027a393, type: 3}
-      propertyPath: _startHour
-      value: 23
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199829948290837535, guid: 84fa7afec000b2847be7ff277027a393, type: 3}
       propertyPath: _minuteHand
       value: 
       objectReference: {fileID: 662743870}
-    - target: {fileID: 7199829948290837535, guid: 84fa7afec000b2847be7ff277027a393, type: 3}
-      propertyPath: _dayAmbientLight.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199829948290837535, guid: 84fa7afec000b2847be7ff277027a393, type: 3}
-      propertyPath: _dayAmbientLight.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199829948290837535, guid: 84fa7afec000b2847be7ff277027a393, type: 3}
-      propertyPath: _dayAmbientLight.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199829948290837535, guid: 84fa7afec000b2847be7ff277027a393, type: 3}
-      propertyPath: _nightAmbientLight.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199829948290837535, guid: 84fa7afec000b2847be7ff277027a393, type: 3}
-      propertyPath: _nightAmbientLight.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199829948290837535, guid: 84fa7afec000b2847be7ff277027a393, type: 3}
-      propertyPath: _nightAmbientLight.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199829948290837535, guid: 84fa7afec000b2847be7ff277027a393, type: 3}
-      propertyPath: _maxSunlightIntensity
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84fa7afec000b2847be7ff277027a393, type: 3}
 --- !u!1001 &8550638853568134463

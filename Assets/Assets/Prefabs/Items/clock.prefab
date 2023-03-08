@@ -59,6 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f75e64bf4d2324ca817dc1c8b05d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _nonInspectable: 0
+  _actionDescription: Pickup
+  _interactableDescription: Clock
   _positionInInventory: {x: 0, y: 0, z: 0}
   _rotationInInventory: {x: 0, y: 0, z: 0}
 --- !u!1 &691482677638661169

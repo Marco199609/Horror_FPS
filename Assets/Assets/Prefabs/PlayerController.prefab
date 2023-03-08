@@ -407,6 +407,14 @@ PrefabInstance:
       propertyPath: _objectLerpZ
       value: 
       objectReference: {fileID: 6533751894252567961}
+    - target: {fileID: 910146696195727483, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1916856651642811952, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
+      propertyPath: m_Name
+      value: Model light
+      objectReference: {fileID: 0}
     - target: {fileID: 2443998527300629801, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
       propertyPath: m_Name
       value: Flashlight
@@ -417,19 +425,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3071739833897758611, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: -30.40304
       objectReference: {fileID: 0}
     - target: {fileID: 3071739833897758611, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.2999997
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 3071739833897758611, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.000103
+      value: 10.30103
       objectReference: {fileID: 0}
     - target: {fileID: 3071739833897758611, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.999962
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3071739833897758611, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -437,7 +445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3071739833897758611, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.008726537
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3071739833897758611, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
       propertyPath: m_LocalRotation.z
@@ -458,6 +466,14 @@ PrefabInstance:
     - target: {fileID: 4170656329935274972, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
       propertyPath: m_CastShadows
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5094822094850850147, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
+      propertyPath: m_Intensity
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5094822094850850147, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5094822094850850147, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
       propertyPath: m_BounceIntensity
@@ -482,6 +498,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8997385359482471060}
     m_Modifications:
+    - target: {fileID: 101712421, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 801167030, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: m_Volume
       value: 0.2
@@ -490,6 +510,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 8051bfe520699514ca1d0f0deed8d5c4, type: 3}
+    - target: {fileID: 903335759, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
+      propertyPath: m_Range
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 903335759, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: m_Intensity
       value: 1
@@ -576,15 +600,15 @@ PrefabInstance:
       objectReference: {fileID: 3263893871881081201}
     - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: MaxIntensity
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: MinIntensity
-      value: 0.2
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: SwitchOnLimit
-      value: 0.25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: VirtualCamera

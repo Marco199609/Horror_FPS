@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 897b82e27d4964a1789785edfe0338c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetFramerate: 144
-  _vSyncCount: 1
+  TargetFramerate: 0
+  VSyncCount: 0
   fpsText: {fileID: 0}
   hudRefreshRate: 0.5
   _showFramerate: 0
@@ -79,8 +79,8 @@ MonoBehaviour:
   _sun: {fileID: 0}
   _sunriseHour: 6
   _sunsetHour: 18
-  _dayAmbientLight: {r: 1, g: 1, b: 1, a: 0}
-  _nightAmbientLight: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 0}
+  _dayAmbientLight: {r: 0, g: 0, b: 0, a: 0}
+  _nightAmbientLight: {r: 0, g: 0, b: 0, a: 0}
   _lightChangeCurve:
     serializedVersion: 2
     m_Curve:
@@ -114,9 +114,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _maxSunlightIntensity: 1
+  _maxSunlightIntensity: 0.5
   _timeMultiplier: 1
-  _startHour: 12
+  _startHour: 23
   _clock: {fileID: 0}
   _hourHand: {fileID: 0}
   _minuteHand: {fileID: 0}
@@ -127,7 +127,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7199829948290837522}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 14129c364189298499a146a9ca4fafed, type: 3}
