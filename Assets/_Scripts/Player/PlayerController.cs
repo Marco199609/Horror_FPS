@@ -32,13 +32,13 @@ public class PlayerController : MonoBehaviour
     private IPlayerMovement _playerMovement;
     private IPlayerRotate _playerRotate;
     private ICameraControl _playerCameraControl;
-    private IFlashlightControl _playerFlashlight;
     private IPlayerInteract _playerInteract;
     private IPlayerUI _playerUI;
     private IPlayerInput _playerInput;
     private IPlayerAudio _playerAudio;
     private PlayerStressControl _playerStressControl;
 
+    public IFlashlightControl PlayerFlashlight;
     public IPlayerInventory Inventory { get; private set; }
     public IPlayerInspect PlayerInspect { get; private set; }
 
@@ -52,14 +52,16 @@ public class PlayerController : MonoBehaviour
         _playerMovement = GetComponent<IPlayerMovement>();
         _playerRotate = GetComponent<IPlayerRotate>();
         _playerCameraControl = GetComponent<ICameraControl>();
-        _playerFlashlight = GetComponent<IFlashlightControl>();
         _playerInteract = GetComponent<IPlayerInteract>();
         _playerUI = GetComponent<IPlayerUI>();
         _playerInput = GetComponent<IPlayerInput>();
         _playerAudio = GetComponent<IPlayerAudio>();
+        _playerStressControl = GetComponent<PlayerStressControl>();
+
+        PlayerFlashlight = GetComponent<IFlashlightControl>();
         Inventory = GetComponent<IPlayerInventory>();
         PlayerInspect = GetComponent<IPlayerInspect>();
-        _playerStressControl = GetComponent<PlayerStressControl>();
+
 
         _player = _playerData.gameObject;
 
@@ -112,7 +114,7 @@ public class PlayerController : MonoBehaviour
 
     private void FlashlightControl()
     {
-        _playerFlashlight.FlashlightControl(_playerData, _playerInput);
+        PlayerFlashlight.FlashlightControl(_playerData, _playerInput);
     }
 
     private void InventoryManage()

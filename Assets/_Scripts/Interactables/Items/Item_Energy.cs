@@ -6,7 +6,6 @@ public class Item_Energy : MonoBehaviour, IInteractable
 {
     [SerializeField] private bool _nonInspectable;
     [SerializeField] private string _interactableDescription, _actionDescription;
-    [SerializeField] private float _energy;
 
     public string InteractableDescription()
     {
@@ -18,12 +17,7 @@ public class Item_Energy : MonoBehaviour, IInteractable
     }
     public void Interact(PlayerController playerController)
     {
-        Behaviour();
-    }
-
-    public void Behaviour()
-    {
-        ObjectManager.Instance.PlayerFlashlight.AddEnergy(_energy);
+        playerController.PlayerFlashlight.AddBattery();
         Destroy(gameObject);
     }
 

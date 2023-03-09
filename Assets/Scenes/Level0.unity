@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: ee8f156730a4c4a48a5ee8e71ffc501b, type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 35e8aea0624ac3c40b24e0e3a7660da4, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -446,64 +446,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 695278044}
     m_Modifications:
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Range
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Intensity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Shadows.m_Bias
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Shadows.m_Type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Shadows.m_Strength
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4579378572968856243, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: _enableFlicker
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6398781451690568448, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_CastShadows
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8121106577573213314, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_Name
       value: fluorescent_lamp_ON (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 8121106577573213314, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8369315819948597842, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.49199992
-      objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
@@ -512,7 +464,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.492
+      value: 2.50025
       objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_LocalPosition.z
@@ -624,6 +576,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ac047e052760f134a8729b4248eee1a2, type: 2}
+    - target: {fileID: 5914724265916498963, guid: 448cadba039aeea4babec77736537148, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6398781451690568448, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_CastShadows
       value: 1
@@ -658,7 +614,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.492
+      value: 2.505
       objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1051,65 +1007,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 695278044}
     m_Modifications:
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Range
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Intensity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Shadows.m_Bias
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Shadows.m_Type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Shadows.m_Strength
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4579378572968856243, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: _enableFlicker
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6398781451690568448, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_CastShadows
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8121106577573213314, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_Name
       value: fluorescent_lamp_ON (6)
       objectReference: {fileID: 0}
-    - target: {fileID: 8121106577573213314, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8369315819948597842, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.49199992
-      objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1117,7 +1025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.492
+      value: 2.50025
       objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1165,61 +1073,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 695278044}
     m_Modifications:
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Range
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Intensity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Shadows.m_Bias
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Shadows.m_Type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Shadows.m_Strength
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6398781451690568448, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8121106577573213314, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_Name
       value: fluorescent_lamp_ON (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 8121106577573213314, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8369315819948597842, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.49199992
-      objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1227,7 +1087,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.492
+      value: 2.50025
       objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1727,6 +1587,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ac047e052760f134a8729b4248eee1a2, type: 2}
+    - target: {fileID: 5914724265916498963, guid: 448cadba039aeea4babec77736537148, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6398781451690568448, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_CastShadows
       value: 1
@@ -1761,7 +1625,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.492
+      value: 2.505
       objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1809,65 +1673,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 695278044}
     m_Modifications:
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Range
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Intensity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Shadows.m_Bias
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Shadows.m_Type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Shadows.m_Strength
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4579378572968856243, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: _enableFlicker
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6398781451690568448, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8121106577573213314, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_Name
       value: fluorescent_lamp_ON (5)
       objectReference: {fileID: 0}
-    - target: {fileID: 8121106577573213314, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8369315819948597842, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.49199992
-      objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1875,7 +1687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.492
+      value: 2.50025
       objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2046,7 +1858,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.492
+      value: 2.505
       objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2794,14 +2606,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6533751894493500777, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -30.70307
-      objectReference: {fileID: 0}
-    - target: {fileID: 6533751894493500777, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 10.10101
-      objectReference: {fileID: 0}
     - target: {fileID: 8997385359482471059, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_Name
       value: PlayerController
@@ -2977,61 +2781,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 695278044}
     m_Modifications:
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Range
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Intensity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Shadows.m_Bias
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Shadows.m_Type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 228717984363760802, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_Shadows.m_Strength
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6398781451690568448, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8121106577573213314, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_Name
       value: fluorescent_lamp_ON (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 8121106577573213314, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8369315819948597842, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.49199992
-      objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3039,7 +2795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.492
+      value: 2.50025
       objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3739,7 +3495,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.492
+      value: 2.505
       objectReference: {fileID: 0}
     - target: {fileID: 8932933614692642360, guid: 448cadba039aeea4babec77736537148, type: 3}
       propertyPath: m_LocalPosition.z
