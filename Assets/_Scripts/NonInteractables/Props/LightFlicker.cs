@@ -9,8 +9,8 @@ public class LightFlicker : MonoBehaviour
     [SerializeField] private float _minFlickerDuration, _maxFlickerDuration;
     [SerializeField] private Material _emisiveMaterial, _opaqueMaterial;
     [SerializeField] private Renderer _lamp;
-    [SerializeField] private Light _light;
-    [SerializeField] private AudioSource _audioSource;
+    private Light _light;
+    private AudioSource _audioSource;
 
     private float _lightMaxIntensity, _timer;
     private bool _lightOn;
@@ -18,6 +18,9 @@ public class LightFlicker : MonoBehaviour
 
     private void Awake()
     {
+        _light = GetComponent<Light>();
+        _audioSource = GetComponent<AudioSource>();
+
         _lightMaxIntensity = _light.intensity;
         _timer = UnityEngine.Random.Range(_minFlickerDuration, _maxFlickerDuration);
     }
@@ -49,7 +52,7 @@ public class LightFlicker : MonoBehaviour
 
             if (_lightOn)
             {
-                _light.intensity = UnityEngine.Random.Range(_lightMaxIntensity - 0.05f, _lightMaxIntensity);
+                _light.intensity = UnityEngine.Random.Range(_lightMaxIntensity - 0.2f, _lightMaxIntensity);
                 if(!_audioSource.isPlaying) _audioSource.Play();
             }
         }

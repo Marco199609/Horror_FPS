@@ -30,12 +30,7 @@ public class PlayerData : MonoBehaviour
     public GameObject Flashlight;
     public float MinIntensity = 1f;
     public float MaxIntensity = 5f;
-    public float CurrentIntensity;
-    public float SwitchOnLimit = 1.05f;
     public float ChangeVelocity = 7;
-    public float MaxEnergy = 100;
-    public float DepletionSpeed = 0.3f;
-    public float CurrentEnergy;
 
     //public GameObject WeaponLight;
 
