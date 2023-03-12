@@ -4,18 +4,13 @@
 
 >Current controls:
 
->- Q: Open inventory
 >- WASD: Player move
 >- Left Shift: Player Run
 >- Mouse Move: Player Rotate
->- 1: Pickup mode
->- 2: Hand weapon selected
->- 3: Long weapon selected
->- Mouse Scroll: Change weapon
+>- Mouse Scroll: Change item selected
 >- F + Mouse Scroll: Activate/deactivate flashlight, and change intensity
->- Left Mouse in pickup mode: Pickup items.
->- Left Mouse in weapon mode: Shoot.
->- Right Mouse: Weapon aim
+>- Left Mouse: Inspect item
+>- Right Mouse: Return item
 
 >Current features:
 
