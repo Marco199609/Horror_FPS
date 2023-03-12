@@ -43,10 +43,7 @@ public class GameSettings : MonoBehaviour
     {
         _settingsCanvas.SetActive(false);
         if (!_inGame) _mainMenuCanvas.SetActive(true);
-        else
-        {
-            Pause = false;
-        } 
+        else Pause = false;
     }
     #endregion
 
@@ -75,12 +72,31 @@ public class GameSettings : MonoBehaviour
 
     #endregion
 
+    #region Pause Control
+    private void PauseControl()
+    {
+        if (_inGame)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape)) Pause = !Pause;
+
+            if (Pause)
+            {
+                _settingsCanvas.SetActive(true);
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else
+            {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+        }
+    }
+    #endregion
+
     private void Update()
     {
-        if(_playerData == null)
-        {
-            _playerData = FindObjectOfType<PlayerData>();
-        }
+        if(_playerData == null) _playerData = FindObjectOfType<PlayerData>();
 
         if (_playerData != null)
         {
@@ -88,31 +104,13 @@ public class GameSettings : MonoBehaviour
             _playerData.mouseSensitivityY = _mouseSensitivity;
         }
 
-
         if (!_inGame)
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             if (SceneManager.GetActiveScene().name == "Level0") _inGame = true;
         }
-        else
-        {
-            if(Input.GetKeyDown(KeyCode.Escape))
-            {
-                Pause = !Pause;
-            }
-        }
 
-        if(_inGame && Pause)
-        {
-            _settingsCanvas.SetActive(true);
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else if(_inGame && !Pause)
-        {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-        }
+        PauseControl();
     }
 }

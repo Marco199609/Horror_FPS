@@ -450,10 +450,10 @@ VideoPlayer:
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_SkipOnDrop: 1
   m_Looping: 0
-  m_WaitForFirstFrame: 1
+  m_WaitForFirstFrame: 0
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
 --- !u!4 &1530733269
@@ -483,6 +483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae82cac4e45fa042ac5624621220263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _snowhorseVideo: {fileID: 1530733268}
 --- !u!1 &1653712387
 GameObject:
   m_ObjectHideFlags: 0
