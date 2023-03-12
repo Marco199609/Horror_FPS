@@ -104,52 +104,34 @@ public class GameSettings : MonoBehaviour
     #region Pause Control
     private void PauseControl()
     {
-        if (_inGame)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                if (Pause) ContinueGame();
-                else
-                {
-                    Pause = true;
-                    _mainMenuCanvas.SetActive(true);
-                } 
-            }
-
-            if (Pause)
-            {
-                if (!_continueGameButton.activeInHierarchy) _continueGameButton.SetActive(true);
-                if (_startGameButton.activeInHierarchy) _startGameButton.SetActive(false);
-
-                _playerData.mouseSensitivityX = 0;
-                _playerData.mouseSensitivityY = 0;
-            }
+            if (Pause) ContinueGame();
             else
             {
-                _playerData.mouseSensitivityX = _mouseSensitivity;
-                _playerData.mouseSensitivityY = _mouseSensitivity;
+                Pause = true;
+                _mainMenuCanvas.SetActive(true);
             }
         }
-    }
-    #endregion
 
-    private void Update()
-    {
-        if (!_inGame)
+        if (Pause)
         {
-           if(_continueGameButton.activeInHierarchy) _continueGameButton.SetActive(false);
-           if(!_startGameButton.activeInHierarchy) _startGameButton.SetActive(true);
+            if (!_continueGameButton.activeInHierarchy) _continueGameButton.SetActive(true);
+            if (_startGameButton.activeInHierarchy) _startGameButton.SetActive(false);
+
+            _playerData.mouseSensitivityX = 0;
+            _playerData.mouseSensitivityY = 0;
         }
         else
         {
-            PauseControl();
-            CursorControl();
+            _playerData.mouseSensitivityX = _mouseSensitivity;
+            _playerData.mouseSensitivityY = _mouseSensitivity;
         }
     }
 
     private void CursorControl()
     {
-        if(Pause || !_inGame)
+        if (Pause)
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
@@ -158,6 +140,21 @@ public class GameSettings : MonoBehaviour
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+        }
+    }
+    #endregion
+
+    private void Update()
+    {
+        if(_inGame)
+        {
+            PauseControl();
+            CursorControl();
+        }
+        else
+        {
+           if(_continueGameButton.activeInHierarchy) _continueGameButton.SetActive(false);
+           if(!_startGameButton.activeInHierarchy) _startGameButton.SetActive(true);
         }
     }
 }
