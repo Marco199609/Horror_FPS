@@ -21,7 +21,7 @@ public class PlayerInventory : MonoBehaviour, IPlayerInventory
     {
         if (_playerData == null) _playerData = playerData;
 
-        if (playerInput.MouseScrollInput != 0)
+        if (playerInput.MouseScrollInput != 0 && !playerInput.FlashLightInput)
         {
             if (_currentSelectedItemIndex < _inventory.Count - 1 && _inventory.Count > 1)
             {
@@ -48,7 +48,8 @@ public class PlayerInventory : MonoBehaviour, IPlayerInventory
     public void Add(GameObject interactable, Vector3 positionInInventory, Vector3 rotationInInventory)
     {
         _inventory.Add(interactable);
-        _currentSelectedItemIndex = _inventory.Count - 1;
+        if (_inventory[_currentSelectedItemIndex] != null) _inventory[_currentSelectedItemIndex].SetActive(false); //Deactivates previous item selected
+        _currentSelectedItemIndex = _inventory.Count - 1; //Sets new item as selected
 
         interactable.transform.SetParent(_playerData.InventoryHolder);
         interactable.transform.localPosition = positionInInventory; //Vector3.Lerp(interactable.transform.localPosition, positionInInventory, 1 * Time.deltaTime);

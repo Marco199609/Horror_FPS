@@ -64,8 +64,6 @@ public class GameSettings : MonoBehaviour
     {
         if (_vSyncToggle.isOn) QualitySettings.vSyncCount = 1;
         else QualitySettings.vSyncCount = 0;
-
-        print(QualitySettings.vSyncCount);
     }
 
     #endregion

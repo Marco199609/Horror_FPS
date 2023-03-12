@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInspect : MonoBehaviour, IPlayerInspect
 {
-    private float _goToInspectionPositionSpeed = 15f, _deleteCurrentInspectableTimer = 0.7f, _timer;
+    private float _goToInspectionPositionSpeed = 15f, _deleteCurrentInspectableTimer = 0.7f, _timer, _rotationSpeed = 500f;
     private bool _inspectingItem;
 
     private Transform _currentInspectableSelected;
@@ -37,8 +37,8 @@ public class PlayerInspect : MonoBehaviour, IPlayerInspect
                 _currentInspectableSelected.localPosition = Vector3.Lerp(_currentInspectableSelected.localPosition, new Vector3(0, 0, 0.5f), _goToInspectionPositionSpeed * Time.deltaTime);
 
                 _currentItemRotation.x = 0;
-                _currentItemRotation.y += playerInput.mouseMovementInput.x * 3.5f;
-                _currentItemRotation.z += playerInput.mouseMovementInput.y * 3.5f;
+                _currentItemRotation.y += playerInput.mouseMovementInput.x * _rotationSpeed * Time.deltaTime;
+                _currentItemRotation.z += playerInput.mouseMovementInput.y * _rotationSpeed * Time.deltaTime;
 
                 _currentInspectableSelected.rotation = Quaternion.Euler(_currentItemRotation);
             }
