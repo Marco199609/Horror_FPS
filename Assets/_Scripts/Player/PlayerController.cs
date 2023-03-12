@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if(!_gameSettings.Pause)
+        if (_gameSettings == null || _gameSettings != null && !_gameSettings.Pause)
         {
             if (!PlayerInspect.Inspecting())
             {
