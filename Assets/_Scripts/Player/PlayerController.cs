@@ -23,6 +23,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private GameSettings _gameSettings;
     [SerializeField] private PlayerData _playerData;
 
     private GameObject _player;
@@ -64,31 +65,32 @@ public class PlayerController : MonoBehaviour
 
 
         _player = _playerData.gameObject;
-
-        //Adds this object to object manager for future use
-        //if(ObjectManager.Instance != null) ObjectManager.Instance.PlayerController = this;
     }
 
     void Start()
     {
+        _gameSettings = FindObjectOfType<GameSettings>();
         InteractablesInSight = new List<GameObject>();
         _cinemachine = _playerData.Camera.GetComponent<CinemachineBrain>();
     }
 
     private void Update()
     {
-        if (!PlayerInspect.Inspecting())
+        if(!_gameSettings.Pause)
         {
-            CameraControl();
-            PlayerMovement();
-            PlayerAudioControl();
-            FlashlightControl();
-            ItemInteraction();
-            InventoryManage();
-        }
+            if (!PlayerInspect.Inspecting())
+            {
+                CameraControl();
+                PlayerMovement();
+                PlayerAudioControl();
+                FlashlightControl();
+                ItemInteraction();
+                InventoryManage();
+            }
 
-        PlayerCameraRotation();
-        ManageInspection();
+            PlayerCameraRotation();
+            ManageInspection();
+        }
     }
 
     private void PlayerMovement()

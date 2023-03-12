@@ -26,8 +26,8 @@ public class PlayerCameraControl : MonoBehaviour, ICameraControl
 
         if (!_enable) return;
 
-        CheckMotion();
-        ResetPosition();
+        //CheckMotion();
+        //ResetPosition();
         //_playerData.Camera.LookAt(FocusTarget(player));
     }
 

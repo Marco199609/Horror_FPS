@@ -9,6 +9,8 @@ using TMPro;
 
 public class GameSettings : MonoBehaviour
 {
+    public bool Pause;
+
     [SerializeField] private GameObject _settingsCanvas;
     [SerializeField] private GameObject _mainMenuCanvas;
 
@@ -19,6 +21,7 @@ public class GameSettings : MonoBehaviour
 
     private float _mouseSensitivity = 200;
     private int _targetFramerate;
+    private bool _inGame;
 
     private PlayerData _playerData;
 
@@ -33,13 +36,17 @@ public class GameSettings : MonoBehaviour
     public void OpenSettings()
     {
         _settingsCanvas.SetActive(true);
-        _mainMenuCanvas.SetActive(false);
+        if(!_inGame) _mainMenuCanvas.SetActive(false);
     }
 
     public void CloseSettings()
     {
         _settingsCanvas.SetActive(false);
-        _mainMenuCanvas.SetActive(true);
+        if (!_inGame) _mainMenuCanvas.SetActive(true);
+        else
+        {
+            Pause = false;
+        } 
     }
     #endregion
 
@@ -73,12 +80,39 @@ public class GameSettings : MonoBehaviour
         if(_playerData == null)
         {
             _playerData = FindObjectOfType<PlayerData>();
+        }
 
-            if(_playerData != null)
+        if (_playerData != null)
+        {
+            _playerData.mouseSensitivityX = _mouseSensitivity;
+            _playerData.mouseSensitivityY = _mouseSensitivity;
+        }
+
+
+        if (!_inGame)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            if (SceneManager.GetActiveScene().name == "Level0") _inGame = true;
+        }
+        else
+        {
+            if(Input.GetKeyDown(KeyCode.Escape))
             {
-                _playerData.mouseSensitivityX = _mouseSensitivity;
-                _playerData.mouseSensitivityY = _mouseSensitivity;
+                Pause = !Pause;
             }
-        }   
+        }
+
+        if(_inGame && Pause)
+        {
+            _settingsCanvas.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else if(_inGame && !Pause)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 }

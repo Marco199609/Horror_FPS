@@ -14,26 +14,9 @@ public class GameController : MonoBehaviour
     [SerializeField] private bool _showFramerate;
     private float _timer;
 
-    private void Start()
-    {
-        //Adds this object to object manager for future use
-        //ObjectManager.Instance.GameController = this;
-        
-        //Application.targetFrameRate = TargetFramerate;
-        //QualitySettings.vSyncCount = VSyncCount;
-    }
-
-    // Update is called once per frame
     void Update()
     {
         ShowFPS();
-        LockCursor();
-    }
-
-    private void LockCursor()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 
     void ShowFPS()
