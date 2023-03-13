@@ -679,13 +679,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8921139093065652308, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
-      propertyPath: m_text
-      value: "            [WSAD]\n         [Left Shift + WSAD]\n                        
-        [Mouse Move]\n                [E]\n                                                 
-        [Mouse Scroll]\n                             [E]\n               [Left Mouse]\n                                            
-        [Right Mouse]\n            [Esc]\n                    [F]\n                                    
-        [F + Mouse Scroll]\n"
+    - target: {fileID: 7945313950865428911, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945313950865428911, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945313951154517082, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945313951154517082, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945313951154517082, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
