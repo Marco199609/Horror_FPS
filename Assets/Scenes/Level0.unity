@@ -338,6 +338,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 295085307}
     m_Modifications:
+    - target: {fileID: 1280920262641158576, guid: e7c026a96f49fd648b2f6fa503281690, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8196860876277593636, guid: e7c026a96f49fd648b2f6fa503281690, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -385,6 +389,10 @@ PrefabInstance:
     - target: {fileID: 8196860876277593637, guid: e7c026a96f49fd648b2f6fa503281690, type: 3}
       propertyPath: m_Name
       value: Trash can
+      objectReference: {fileID: 0}
+    - target: {fileID: 8196860876277593637, guid: e7c026a96f49fd648b2f6fa503281690, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7c026a96f49fd648b2f6fa503281690, type: 3}
