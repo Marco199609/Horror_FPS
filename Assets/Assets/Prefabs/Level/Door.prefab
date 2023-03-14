@@ -157,7 +157,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5742059651430763556}
-  - {fileID: 8708576283734610858}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -190,6 +189,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8487384200133945198}
+  - {fileID: 8708576283734610858}
   m_Father: {fileID: 5713482428703261747}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -449,7 +449,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 5713482428703261747}
+    m_TransformParent: {fileID: 5742059651430763556}
     m_Modifications:
     - target: {fileID: 2499866013306146086, guid: 6b054de5b8f4d0846875032e669a02ee, type: 3}
       propertyPath: m_RootOrder
@@ -498,14 +498,6 @@ PrefabInstance:
     - target: {fileID: 2777979544332454521, guid: 6b054de5b8f4d0846875032e669a02ee, type: 3}
       propertyPath: m_Name
       value: door_sign
-      objectReference: {fileID: 0}
-    - target: {fileID: 2777979544332454521, guid: 6b054de5b8f4d0846875032e669a02ee, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 127
-      objectReference: {fileID: 0}
-    - target: {fileID: 3920206392612940428, guid: 6b054de5b8f4d0846875032e669a02ee, type: 3}
-      propertyPath: m_CastShadows
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b054de5b8f4d0846875032e669a02ee, type: 3}

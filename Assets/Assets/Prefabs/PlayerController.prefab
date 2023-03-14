@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 383493139}
-  m_LocalRotation: {x: -0.000000003725293, y: -0, z: 5.551115e-16, w: 1}
+  m_LocalRotation: {x: -0.000000007450576, y: -0, z: 0.0000000037252859, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -71,6 +71,7 @@ GameObject:
   - component: {fileID: 898163652}
   - component: {fileID: 1274784235}
   - component: {fileID: 1368606838}
+  - component: {fileID: 1784241892}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -145,6 +146,21 @@ MonoBehaviour:
     m_InputAxisName: Mouse X
     m_InputAxisValue: 0
     m_InvertAxis: 0
+--- !u!114 &1784241892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898163648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: cbec645ee72e52947ba73d6f7e624839, type: 2}
+  m_AmplitudeGain: 1
+  m_FrequencyGain: 1
 --- !u!1 &1491512275
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,6 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6c9c52646ead4dcaa3ccede1356de7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameSettings: {fileID: 0}
   _playerData: {fileID: 2790741472255789107}
 --- !u!114 &8997385359482471052
 MonoBehaviour:
@@ -407,6 +424,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flashlight
       objectReference: {fileID: 0}
+    - target: {fileID: 2443998527300629801, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2738327677547158458, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9996296
+      objectReference: {fileID: 0}
+    - target: {fileID: 2738327677547158458, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.015838498
+      objectReference: {fileID: 0}
+    - target: {fileID: 2738327677547158458, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.021745142
+      objectReference: {fileID: 0}
+    - target: {fileID: 2738327677547158458, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.004113184
+      objectReference: {fileID: 0}
     - target: {fileID: 3071739833897758611, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -471,8 +508,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 8997385359482471060}
     m_Modifications:
     - target: {fileID: 101712421, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
+      propertyPath: m_Range
+      value: 4.0172954
+      objectReference: {fileID: 0}
+    - target: {fileID: 101712421, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: m_Intensity
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 801167030, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: m_Volume
@@ -520,11 +561,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2770187571978162046, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.7
+      value: 9.269
       objectReference: {fileID: 0}
     - target: {fileID: 2770187571978162046, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.78204703
+      value: 0.84673804
       objectReference: {fileID: 0}
     - target: {fileID: 2770187571978162046, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: m_LocalRotation.x
@@ -532,7 +573,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2770187571978162046, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6232195
+      value: 0.5320101
       objectReference: {fileID: 0}
     - target: {fileID: 2770187571978162046, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: m_LocalRotation.z
@@ -544,7 +585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2770187571978162046, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 77.103
+      value: 64.283
       objectReference: {fileID: 0}
     - target: {fileID: 2770187571978162046, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -576,11 +617,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2770187572269442958, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.000000003725293
+      value: -0.000000007450576
       objectReference: {fileID: 0}
     - target: {fileID: 2770187572269442958, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 5.551115e-16
+      value: 0.0000000037252859
       objectReference: {fileID: 0}
     - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: Flashlight
@@ -588,7 +629,7 @@ PrefabInstance:
       objectReference: {fileID: 3263893871881081201}
     - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: MaxIntensity
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: MinIntensity
@@ -604,7 +645,7 @@ PrefabInstance:
       objectReference: {fileID: 383493141}
     - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: ChangeVelocity
-      value: 35
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: CinemachineLookAt
