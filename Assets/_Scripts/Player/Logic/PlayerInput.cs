@@ -22,8 +22,7 @@ public class PlayerInput : MonoBehaviour, IPlayerInput
 
     private void Awake()
     {
-        if(ObjectManager.Instance != null) ObjectManager.Instance.PlayerInput = this;
-
+        //if(ObjectManager.Instance != null) ObjectManager.Instance.PlayerInput = this;
 
         //New input manager
         _mainInput = new MainInput();
@@ -34,7 +33,7 @@ public class PlayerInput : MonoBehaviour, IPlayerInput
 
     private void Update()
     {
-        NewInputSystem();
+        InputSystem();
 
         //Input system bug fixes
         SmoothPlayerMovement();
@@ -42,7 +41,7 @@ public class PlayerInput : MonoBehaviour, IPlayerInput
         MouseScrollFix();
     }
 
-    private void NewInputSystem()
+    private void InputSystem()
     {
         playerJumpInput = _mainInput.Player.Jump.inProgress;
         playerRunInput = _mainInput.Player.Run.inProgress;
