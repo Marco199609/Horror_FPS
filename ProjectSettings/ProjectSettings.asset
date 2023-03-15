@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: SnowHorse Studios
-  productName: Spectral:Demise
+  companyName: SnowHorse Entertainment
+  productName: Lost In the Silent Darkness
   defaultCursor: {fileID: 2800000, guid: afa29dde79be1a14e8fb42fd0fdfb63b, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -156,7 +156,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.SnowHorseStudios.Horror_FPS
-    Standalone: com.SnowHorse-Studios.Spectral-Demise
+    Standalone: com.SnowHorse-Entertainment.Lost-In-the-Silent-Darkness
   buildNumber:
     Standalone: 0
     iPhone: 0
@@ -432,7 +432,7 @@ PlayerSettings:
     m_Automatic: 1
   - m_BuildTarget: WebGLSupport
     m_APIs: 0b000000
-    m_Automatic: 1
+    m_Automatic: 0
   m_BuildTargetVRSettings:
   - m_BuildTarget: Standalone
     m_Enabled: 0

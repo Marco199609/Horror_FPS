@@ -6,30 +6,30 @@ public class Prop_LightSwitch : MonoBehaviour, IInteractable
 {
     [SerializeField] private string _actionDescription;
     [SerializeField] private List<GameObject> _lightOnObjects, _lightOffObjects; //Make sure each light on object has its light off object
+    [SerializeField] private GameObject _switchOnModel, _switchOffModel;
+    [SerializeField] private AudioClip _switchOnClip, _switchOffClip;
+    [SerializeField] private AudioSource _audioSource;
 
     private bool _lightsOn;
     public string ActionDescription()
     {
-        if (_lightsOn)
-        {
-            return "Turn lights off";
-        }
-        else
-        {
-            return "Turn lights on";
-        }
+        return null;
     }
 
     public void Interact(PlayerController playerController)
     {
-        if(_lightsOn)
+        if (_lightsOn)
         {
-            for(int  i = 0; i < _lightOnObjects.Count; i++)
+            for (int i = 0; i < _lightOnObjects.Count; i++)
             {
                 _lightOnObjects[i].gameObject.SetActive(false);
                 _lightOffObjects[i].gameObject.SetActive(true);
             }
 
+            _switchOnModel.SetActive(false);
+            _switchOffModel.SetActive(true);
+
+            _audioSource.PlayOneShot(_switchOffClip);
             _lightsOn = false;
         }
         else
@@ -39,6 +39,11 @@ public class Prop_LightSwitch : MonoBehaviour, IInteractable
                 _lightOnObjects[i].gameObject.SetActive(true);
                 _lightOffObjects[i].gameObject.SetActive(false);
             }
+
+            _switchOnModel.SetActive(true);
+            _switchOffModel.SetActive(false);
+
+            _audioSource.PlayOneShot(_switchOnClip);
             _lightsOn = true;
         }
     }

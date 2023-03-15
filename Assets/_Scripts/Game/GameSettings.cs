@@ -13,6 +13,8 @@ public class GameSettings : MonoBehaviour
 
     [SerializeField] private GameObject _settingsCanvas;
     [SerializeField] private GameObject _mainMenuCanvas;
+    [SerializeField] private GameObject _startGameButton;
+    [SerializeField] private GameObject _continueGameButton;
 
     [Header("Game Settings")]
     [SerializeField] private TMP_Dropdown _framerateDropdownButton;
@@ -33,17 +35,45 @@ public class GameSettings : MonoBehaviour
     }
 
     #region Canvas Control
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Level0", LoadSceneMode.Single);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if(scene.name == "Level0")
+        {
+            _inGame = true;
+            _playerData = FindObjectOfType<PlayerData>();
+            _settingsCanvas.SetActive(false);
+            _mainMenuCanvas.SetActive(false);
+        }
+    }
+
+    public void ContinueGame()
+    {
+        Pause = false;
+        _mainMenuCanvas.SetActive(false);
+    }
+
     public void OpenSettings()
     {
         _settingsCanvas.SetActive(true);
-        if(!_inGame) _mainMenuCanvas.SetActive(false);
+        _mainMenuCanvas.SetActive(false);
     }
 
     public void CloseSettings()
     {
         _settingsCanvas.SetActive(false);
-        if (!_inGame) _mainMenuCanvas.SetActive(true);
-        else Pause = false;
+        _mainMenuCanvas.SetActive(true);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
     #endregion
 
@@ -53,7 +83,6 @@ public class GameSettings : MonoBehaviour
         _mouseSensitivity = _mouseSensitivitySlider.value;
     }
     
-
     public void SetFramerate()
     {
         if (_framerateDropdownButton.value == 0) _targetFramerate = 30;
@@ -75,42 +104,57 @@ public class GameSettings : MonoBehaviour
     #region Pause Control
     private void PauseControl()
     {
-        if (_inGame)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Input.GetKeyDown(KeyCode.Escape)) Pause = !Pause;
-
-            if (Pause)
-            {
-                _settingsCanvas.SetActive(true);
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-            }
+            if (Pause) ContinueGame();
             else
             {
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
+                Pause = true;
+                _mainMenuCanvas.SetActive(true);
             }
+        }
+
+        if (Pause)
+        {
+            if (!_continueGameButton.activeInHierarchy) _continueGameButton.SetActive(true);
+            if (_startGameButton.activeInHierarchy) _startGameButton.SetActive(false);
+
+            _playerData.mouseSensitivityX = 0;
+            _playerData.mouseSensitivityY = 0;
+        }
+        else
+        {
+            _playerData.mouseSensitivityX = _mouseSensitivity;
+            _playerData.mouseSensitivityY = _mouseSensitivity;
+        }
+    }
+
+    private void CursorControl()
+    {
+        if (Pause)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
     #endregion
 
     private void Update()
     {
-        if(_playerData == null) _playerData = FindObjectOfType<PlayerData>();
-
-        if (_playerData != null)
+        if(_inGame)
         {
-            _playerData.mouseSensitivityX = _mouseSensitivity;
-            _playerData.mouseSensitivityY = _mouseSensitivity;
+            PauseControl();
+            CursorControl();
         }
-
-        if (!_inGame)
+        else
         {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            if (SceneManager.GetActiveScene().name == "Level0") _inGame = true;
+           if(_continueGameButton.activeInHierarchy) _continueGameButton.SetActive(false);
+           if(!_startGameButton.activeInHierarchy) _startGameButton.SetActive(true);
         }
-
-        PauseControl();
     }
 }

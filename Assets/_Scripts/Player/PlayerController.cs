@@ -88,9 +88,10 @@ public class PlayerController : MonoBehaviour
                 InventoryManage();
             }
 
-            PlayerCameraRotation();
             ManageInspection();
         }
+
+        PlayerCameraRotation();
     }
 
     private void PlayerMovement()
