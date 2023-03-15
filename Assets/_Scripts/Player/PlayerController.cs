@@ -8,16 +8,16 @@ using UnityEngine.UI;
 
 
 #region Components Required
-[RequireComponent(typeof(PlayerMovement))]
-[RequireComponent(typeof(PlayerRotate))]
-[RequireComponent(typeof(PlayerCameraControl))]
-[RequireComponent(typeof(PlayerFlashlight))]
-[RequireComponent(typeof(PlayerInteract))]
-[RequireComponent(typeof(PlayerUI))]
-[RequireComponent(typeof(PlayerInput))]
-[RequireComponent(typeof(PlayerAudio))]
-[RequireComponent(typeof(PlayerInventory))]
-[RequireComponent(typeof(PlayerInspect))]
+[RequireComponent(typeof(IPlayerMovement))]
+[RequireComponent(typeof(IPlayerRotate))]
+[RequireComponent(typeof(ICameraControl))]
+[RequireComponent(typeof(IFlashlightControl))]
+[RequireComponent(typeof(IPlayerInteract))]
+[RequireComponent(typeof(IPlayerUI))]
+[RequireComponent(typeof(IPlayerInput))]
+[RequireComponent(typeof(IPlayerAudio))]
+[RequireComponent(typeof(IPlayerInventory))]
+[RequireComponent(typeof(IPlayerInspect))]
 [RequireComponent(typeof(PlayerStressControl))]
 #endregion
 

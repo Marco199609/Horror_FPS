@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public interface IFlashlightControl
+{
+    void FlashlightControl(PlayerData playerData, IPlayerInput playerInput);
+    void AddBattery();
+}
+
 public class PlayerFlashlight : MonoBehaviour, IFlashlightControl
 {
     private bool _waitForScroll, _isScrolling, _hasBattery, _turnOn;

@@ -1,5 +1,10 @@
 using UnityEngine;
 
+public interface IPlayerMovement
+{
+    void PlayerMove(GameObject player, IPlayerInput playerInput);
+}
+
 public class PlayerMovement : MonoBehaviour, IPlayerMovement
 {
     [HideInInspector]

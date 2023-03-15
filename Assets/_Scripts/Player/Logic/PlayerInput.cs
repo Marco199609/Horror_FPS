@@ -2,6 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public interface IPlayerInput
+{
+    bool FlashLightInput { get; }
+    Vector2 mouseMovementInput { get; }
+    float MouseScrollInput { get; }
+    bool playerJumpInput { get; }
+    Vector2 playerMovementInput { get; }
+    bool playerPickupInput { get; }
+    bool playerRunInput { get; }
+}
+
+
 public class PlayerInput : MonoBehaviour, IPlayerInput
 {
     private MainInput _mainInput;

@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public interface IPlayerInspect
+{
+    void Inspect(Transform inspectable);
+    bool Inspecting();
+    void ManageInspection(PlayerData playerData, IPlayerInput playerInput);
+}
+
 public class PlayerInspect : MonoBehaviour, IPlayerInspect
 {
     private float _goToInspectionPositionSpeed = 30f, _deleteCurrentInspectableTimer = 0.7f, _timer, _rotationSpeed = 500f;

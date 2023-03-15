@@ -3,6 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public interface IPlayerRotate
+{
+    void RotatePlayer(PlayerData playerData, IPlayerInput playerInput, bool disableCinemachine);
+}
+
 public class PlayerRotate : MonoBehaviour, IPlayerRotate
 {
     private CinemachinePOV _cinemachinePOV;
