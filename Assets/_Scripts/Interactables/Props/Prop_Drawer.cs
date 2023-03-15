@@ -10,6 +10,7 @@ public class Prop_Drawer : MonoBehaviour, IInteractable
     [SerializeField] private GameObject _key;
     [SerializeField] private AudioSource _drawerAudioSource;
     [SerializeField] private AudioClip _drawerOpenClip, _drawerCloseClip, _drawerLockedClip;
+    [SerializeField] private float _audioVolume = 0.2f;
 
     private bool _changeDrawerState;
 
@@ -70,16 +71,14 @@ public class Prop_Drawer : MonoBehaviour, IInteractable
                         }
                         else
                         {
-                            if (!_drawerAudioSource.isPlaying)
-                                _drawerAudioSource.PlayOneShot(_drawerLockedClip, 0.2f);
+                            SoundManager.Instance.PlaySoundEffect(_drawerLockedClip, transform.position, _audioVolume, true);
                         }
                         _changeDrawerState = false;
                         break;
                     }
                 case DrawerState.Closed:
                     {
-                        if (!_drawerAudioSource.isPlaying)
-                                _drawerAudioSource.PlayOneShot(_drawerOpenClip, 0.2f);
+                        SoundManager.Instance.PlaySoundEffect(_drawerOpenClip, transform.position, _audioVolume, true);
 
                         if(transform.localPosition.x > _drawerOpenPosition.localPosition.x + 0.02f)
                             transform.localPosition = Vector3.Lerp(transform.localPosition, _drawerOpenPosition.localPosition, _moveVelocity * Time.deltaTime);
@@ -92,8 +91,7 @@ public class Prop_Drawer : MonoBehaviour, IInteractable
                     }
                 case DrawerState.Open:
                     {
-                        if (!_drawerAudioSource.isPlaying)
-                            _drawerAudioSource.PlayOneShot(_drawerCloseClip, 0.2f);
+                        SoundManager.Instance.PlaySoundEffect(_drawerCloseClip, transform.position, _audioVolume, true);
 
                         if (transform.localPosition.x < _drawerClosedPosition.localPosition.x - 0.02f)
                             transform.localPosition = Vector3.Lerp(transform.localPosition, _drawerClosedPosition.localPosition, _moveVelocity * Time.deltaTime);

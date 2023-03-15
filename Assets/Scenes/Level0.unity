@@ -510,6 +510,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 384181415}
     m_Modifications:
+    - target: {fileID: 1575492214161754208, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: _mouseClick
+      value: 
+      objectReference: {fileID: 8300000, guid: 6d1dcd14a41e359469ed13bf4ff3851b, type: 3}
     - target: {fileID: 3735146972033543701, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
       propertyPath: m_LocalPosition.x
       value: -53.19
@@ -723,6 +727,10 @@ PrefabInstance:
       propertyPath: fpsText
       value: 
       objectReference: {fileID: 1037141048}
+    - target: {fileID: 7199829948290837520, guid: 84fa7afec000b2847be7ff277027a393, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7199829948290837522, guid: 84fa7afec000b2847be7ff277027a393, type: 3}
       propertyPath: m_Name
       value: Game Controller

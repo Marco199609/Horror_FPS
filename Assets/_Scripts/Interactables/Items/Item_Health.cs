@@ -25,7 +25,7 @@ public class Item_Health : MonoBehaviour, IInteractable
     }
     public void Behaviour()
     {
-        ObjectManager.Instance.Player.GetComponent<Health>().ModifyHealth(_health);
+        //ObjectManager.Instance.Player.GetComponent<Health>().ModifyHealth(_health);
     }
 
     public bool NonInspectable()

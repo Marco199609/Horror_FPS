@@ -5,11 +5,10 @@ using UnityEngine;
 public class Prop_Mouse : MonoBehaviour, IInteractable
 {
     [SerializeField] private Material _screenMaterial;
-    [SerializeField] private AudioSource _mouseClick;
+    [SerializeField] private AudioClip _mouseClick;
+    [SerializeField] private float _audioVolume = 0.2f;
     [SerializeField] private Light _screenLight;
     [SerializeField] private bool _screenOn;
-
-
 
     private void Start()
     {
@@ -27,8 +26,7 @@ public class Prop_Mouse : MonoBehaviour, IInteractable
 
     public string ActionDescription()
     {
-        if (_screenOn) return "Turn computer off";
-        else return "Turn computer on";
+        return null;
     }
 
     public void Interact(PlayerController playerController)
@@ -46,7 +44,7 @@ public class Prop_Mouse : MonoBehaviour, IInteractable
             _screenOn = true;
         }
 
-        _mouseClick.Play();
+        SoundManager.Instance.PlaySoundEffect(_mouseClick, transform.position, _audioVolume); ;
     }
 
     public string InteractableDescription()
