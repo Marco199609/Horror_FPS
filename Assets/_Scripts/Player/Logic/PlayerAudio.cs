@@ -9,31 +9,21 @@ public interface IPlayerAudio
 
 public class PlayerAudio : MonoBehaviour, IPlayerAudio
 {
-    private float _playerWalkingTimer, _playerRunningTimer;
+    private float timer;
     public void Footsteps(PlayerData playerData, IPlayerInput playerInput)
     {
-        if (playerInput.playerMovementInput != Vector2.zero)
+        if(playerInput.UnsmoothedPlayerMovementInput != Vector2.zero)
         {
-            if (playerInput.playerRunInput)
+            if(timer <= 0)
             {
-                if (_playerRunningTimer <= 0)
-                {
-                    int i = Random.Range(0, playerData.Footsteps.Length);
-                    playerData.PlayerAudioSource.PlayOneShot(playerData.Footsteps[i], 0.3f);
-                    _playerRunningTimer = playerData.FootstepsRunningTime;
-                }
-                _playerRunningTimer -= Time.deltaTime;
+                int i = Random.Range(0, playerData.FootstepClips.Length);
+                SoundManager.Instance.Play2DSoundEffect(playerData.FootstepClips[i], playerData.FootstepsVolume);
+
+                if (playerInput.playerRunInput)  timer = playerData.FootstepsRunningTime;
+                else timer = playerData.FootstepWalkingTime;
             }
-            else
-            {
-                if (_playerWalkingTimer <= 0)
-                {
-                    int i = Random.Range(0, playerData.Footsteps.Length);
-                    playerData.PlayerAudioSource.PlayOneShot(playerData.Footsteps[i], 0.3f);
-                    _playerWalkingTimer = playerData.FootstepWalkingTime;
-                }
-                _playerWalkingTimer -= Time.deltaTime;
-            }
+            timer -= Time.deltaTime;
         }
+        else timer = 0;
     }
 }

@@ -9,6 +9,7 @@ public interface IPlayerInput
     float MouseScrollInput { get; }
     bool playerJumpInput { get; }
     Vector2 playerMovementInput { get; }
+    Vector2 UnsmoothedPlayerMovementInput { get; }
     bool playerPickupInput { get; }
     bool playerRunInput { get; }
 }
@@ -23,6 +24,7 @@ public class PlayerInput : MonoBehaviour, IPlayerInput
     public bool FlashLightInput { get; private set; }
     public float MouseScrollInput { get; private set; }
     public Vector2 playerMovementInput { get; private set; }
+    public Vector2 UnsmoothedPlayerMovementInput { get; private set; }
     public Vector2 mouseMovementInput { get; private set; }
 
     //Variables for smoothing player move
@@ -64,8 +66,8 @@ public class PlayerInput : MonoBehaviour, IPlayerInput
     //Smoothens player WSAD input
     private void SmoothPlayerMovement()
     {
-        Vector2 movementInput = _mainInput.Player.Move.ReadValue<Vector2>(); ;
-        playerMovementInput = Vector2.SmoothDamp(playerMovementInput, movementInput, ref currentVelocity, smoothTime);
+        UnsmoothedPlayerMovementInput = _mainInput.Player.Move.ReadValue<Vector2>(); ;
+        playerMovementInput = Vector2.SmoothDamp(playerMovementInput, UnsmoothedPlayerMovementInput, ref currentVelocity, smoothTime);
     }
     private void SmoothPlayerRotate()
     {

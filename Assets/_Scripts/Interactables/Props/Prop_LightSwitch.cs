@@ -8,7 +8,7 @@ public class Prop_LightSwitch : MonoBehaviour, IInteractable
     [SerializeField] private List<GameObject> _lightOnObjects, _lightOffObjects; //Make sure each light on object has its light off object
     [SerializeField] private GameObject _switchOnModel, _switchOffModel;
     [SerializeField] private AudioClip _switchOnClip, _switchOffClip;
-    [SerializeField] private float _audioVolume = 0.2f;
+    [SerializeField] private float _clipVolume = 0.2f;
 
     private bool _lightsOn;
     public string ActionDescription()
@@ -29,7 +29,7 @@ public class Prop_LightSwitch : MonoBehaviour, IInteractable
             _switchOnModel.SetActive(false);
             _switchOffModel.SetActive(true);
 
-            SoundManager.Instance.PlaySoundEffect(_switchOffClip, transform.position, _audioVolume);
+            SoundManager.Instance.PlaySoundEffect(_switchOffClip, transform.position, _clipVolume);
             _lightsOn = false;
         }
         else
@@ -43,7 +43,7 @@ public class Prop_LightSwitch : MonoBehaviour, IInteractable
             _switchOnModel.SetActive(true);
             _switchOffModel.SetActive(false);
 
-            SoundManager.Instance.PlaySoundEffect(_switchOnClip, transform.position, _audioVolume);
+            SoundManager.Instance.PlaySoundEffect(_switchOnClip, transform.position, _clipVolume);
             _lightsOn = true;
         }
     }

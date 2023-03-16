@@ -32,13 +32,13 @@ public class PlayerData : MonoBehaviour
     public float MaxIntensity = 5f;
     public float ChangeVelocity = 7;
 
-    //public GameObject WeaponLight;
-
     [Header("Player Audio Control")]
-    public AudioSource PlayerAudioSource;
     public float FootstepWalkingTime;
     public float FootstepsRunningTime;
-    public AudioClip[] Footsteps;
+    public AudioClip[] FootstepClips;
+    public float FootstepsVolume;
+    public AudioClip PlayerPickupClip;
+    public float PickupClipVolume;
 
     [Header("Interactable Control")]
     public float InteractDistance = 5f;

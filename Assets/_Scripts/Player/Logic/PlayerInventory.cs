@@ -16,7 +16,6 @@ public class PlayerInventory : MonoBehaviour, IPlayerInventory
     private GameObject _selectedItem;
     private List<GameObject> _inventory;
     private PlayerData _playerData;
-    private AudioSource _pickupAudioSource;
 
     private int _currentSelectedItemIndex;
 
@@ -30,7 +29,6 @@ public class PlayerInventory : MonoBehaviour, IPlayerInventory
     public void Manage(PlayerData playerData, IPlayerInput playerInput)
     {
         if (_playerData == null) _playerData = playerData;
-        if(_pickupAudioSource == null) _pickupAudioSource = _playerData.InventoryHolder.GetComponent<AudioSource>();
 
         if (playerInput.MouseScrollInput != 0 && !playerInput.FlashLightInput)
         {
@@ -62,7 +60,8 @@ public class PlayerInventory : MonoBehaviour, IPlayerInventory
         if (_inventory[_currentSelectedItemIndex] != null) _inventory[_currentSelectedItemIndex].SetActive(false); //Deactivates previous item selected
         _currentSelectedItemIndex = _inventory.Count - 1; //Sets new item as selected
 
-        _pickupAudioSource.Play();
+        SoundManager.Instance.Play2DSoundEffect(_playerData.PlayerPickupClip, _playerData.PickupClipVolume);
+
         interactable.transform.SetParent(_playerData.InventoryHolder);
         interactable.transform.localPosition = positionInInventory; //Vector3.Lerp(interactable.transform.localPosition, positionInInventory, 1 * Time.deltaTime);
         interactable.transform.localRotation = Quaternion.Euler(rotationInInventory); //Quaternion.Lerp(interactable.transform.rotation, Quaternion.Euler(rotationInInventory), 1 * Time.deltaTime);

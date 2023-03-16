@@ -6,7 +6,7 @@ public class SoundManager : MonoBehaviour
 {
     [SerializeField] private float _globalSoundFXVolume = 1;
 
-    [SerializeField] private AudioSource _musicSource, _effectsSource;
+    [SerializeField] private AudioSource _musicSource, _effectsSource, _2dEffectsSource;
 
     public static SoundManager Instance;
     private void Awake()
@@ -21,6 +21,7 @@ public class SoundManager : MonoBehaviour
         
 
         _effectsSource.spatialBlend = 1.0f;
+        _2dEffectsSource.spatialBlend = 0.0f;
         _musicSource.spatialBlend = 0.0f;
     }
 
@@ -36,5 +37,28 @@ public class SoundManager : MonoBehaviour
         {
             _effectsSource.PlayOneShot(soundEffectClip, soundEffectVolume * _globalSoundFXVolume);
         }
+    }
+
+    public void Play2DSoundEffect(AudioClip soundEffectClip, float soundEffectVolume, bool playOnce = false)
+    {
+        if (playOnce)
+        {
+            if (!_2dEffectsSource.isPlaying) _2dEffectsSource.PlayOneShot(soundEffectClip, soundEffectVolume * _globalSoundFXVolume);
+        }
+        else
+        {
+            _2dEffectsSource.PlayOneShot(soundEffectClip, soundEffectVolume * _globalSoundFXVolume);
+        }
+    }
+
+    public AudioSource CreateModifiableAudioSource(AudioClip soundEffectClip, GameObject audioSourceHolder, float soundEffectVolume)
+    {
+
+        AudioSource modifiableSource = audioSourceHolder.AddComponent<AudioSource>();
+        modifiableSource.clip = soundEffectClip;
+        modifiableSource.volume = soundEffectVolume;
+        modifiableSource.spatialBlend = 1.0f;
+
+        return modifiableSource;
     }
 }

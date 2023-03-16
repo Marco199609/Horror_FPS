@@ -9,8 +9,8 @@ public class Prop_Door : MonoBehaviour, IInteractable
     [SerializeField] GameObject _doorHandle;
     [SerializeField] Transform _doorPivotPoint;
     [SerializeField] Collider _doorCollider;
-    [SerializeField] AudioSource _doorLockedAudioSource;
     [SerializeField] AudioClip _doorLockedClip, _doorOpenClip, _doorCloseClip;
+    [SerializeField] private float _clipVolume = 0.2f;
     [SerializeField] private GameObject _key;
 
     private IPlayerInventory _inventory;
@@ -72,16 +72,14 @@ public class Prop_Door : MonoBehaviour, IInteractable
                         }
                         else
                         {
-                            if (!_doorLockedAudioSource.isPlaying)
-                                _doorLockedAudioSource.PlayOneShot(_doorLockedClip, 0.2f);
+                            SoundManager.Instance.PlaySoundEffect(_doorLockedClip, transform.position, _clipVolume, true);
                         }
                         _changeDoorState = false;
                         break;
                     }
                 case DoorState.Closed:
                     {
-                        if (!_doorLockedAudioSource.isPlaying)
-                            _doorLockedAudioSource.PlayOneShot(_doorOpenClip, 0.2f);
+                        SoundManager.Instance.PlaySoundEffect(_doorOpenClip, transform.position, _clipVolume, true);
 
                         if (_doorPivotPoint.localEulerAngles.y > 270 || _doorPivotPoint.localEulerAngles.y == 0)
                         {
@@ -89,7 +87,7 @@ public class Prop_Door : MonoBehaviour, IInteractable
                             float timeToRotate = _doorOpenClip.length;
                             _doorMoveVelocity = degreesToRotate / timeToRotate;
 
-                            _doorPivotPoint.Rotate(0, -_doorMoveVelocity * Time.deltaTime, 0);
+                            _doorPivotPoint.Rotate(0, -_doorMoveVelocity * Time.deltaTime * 1.05f, 0); //1.05 prevents audioclip from playing mor than once
                         }
                         else
                         {
@@ -104,12 +102,11 @@ public class Prop_Door : MonoBehaviour, IInteractable
                         float timeToRotate = _doorCloseClip.length;
                         _doorMoveVelocity = degreesToRotate / timeToRotate;
 
-                        if (!_doorLockedAudioSource.isPlaying)
-                            _doorLockedAudioSource.PlayOneShot(_doorCloseClip, 0.2f);
+                        SoundManager.Instance.PlaySoundEffect(_doorCloseClip, transform.position, _clipVolume, true);
 
                         if (_doorPivotPoint.localEulerAngles.y > 260)
                         {
-                            _doorPivotPoint.Rotate(0, _doorMoveVelocity * Time.deltaTime, 0);
+                            _doorPivotPoint.Rotate(0, _doorMoveVelocity * Time.deltaTime * 1.05f, 0); //1.05 prevents audioclip from playing mor than once
                         }
                         else if (_doorPivotPoint.localEulerAngles.y > 0)
                             _doorPivotPoint.localEulerAngles = new Vector3(_doorPivotPoint.localEulerAngles.x, 0, _doorPivotPoint.localEulerAngles.z);
