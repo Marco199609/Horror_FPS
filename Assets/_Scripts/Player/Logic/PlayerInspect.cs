@@ -21,6 +21,7 @@ public class PlayerInspect : MonoBehaviour, IPlayerInspect
     private Vector3 _previousPosition, _previousScale;
     private Quaternion _previousRotation;
 
+    private PlayerData _playerData;
     public void Inspect(Transform inspectable)
     {
         _currentInspectableSelected = inspectable;
@@ -30,12 +31,15 @@ public class PlayerInspect : MonoBehaviour, IPlayerInspect
         _previousParent = inspectable.parent;
         inspectable.GetComponent<Collider>().enabled = false;
         _timer = _deleteCurrentInspectableTimer;
+        SoundManager.Instance.Play2DSoundEffect(_playerData.InspectClip, _playerData.InspectClipVolume);
 
         _inspectingItem = true;
     }
 
     public void ManageInspection(PlayerData playerData, IPlayerInput playerInput)
     {
+        if (_playerData == null) _playerData = playerData;
+
         if (_currentInspectableSelected != null)
         {
             if (Input.GetMouseButtonDown(1)) _inspectingItem = false;
@@ -53,6 +57,7 @@ public class PlayerInspect : MonoBehaviour, IPlayerInspect
             }
             else
             {
+                if(_currentInspectableSelected.transform.parent != _previousParent) SoundManager.Instance.Play2DSoundEffect(_playerData.InspectClip, _playerData.InspectClipVolume);
                 _currentInspectableSelected.transform.SetParent(_previousParent);
                 _currentInspectableSelected.position = Vector3.Lerp(_currentInspectableSelected.position, _previousPosition, _goToInspectionPositionSpeed * Time.deltaTime);
                 _currentInspectableSelected.localScale = Vector3.Lerp(_currentInspectableSelected.localScale, _previousScale, _goToInspectionPositionSpeed * Time.deltaTime);

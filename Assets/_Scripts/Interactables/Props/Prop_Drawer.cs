@@ -8,7 +8,6 @@ public class Prop_Drawer : MonoBehaviour, IInteractable
     [SerializeField] private float _moveVelocity;
     [SerializeField] private Transform _drawerOpenPosition, _drawerClosedPosition;
     [SerializeField] private GameObject _key;
-    [SerializeField] private AudioSource _drawerAudioSource;
     [SerializeField] private AudioClip _drawerOpenClip, _drawerCloseClip, _drawerLockedClip;
     [SerializeField] private float _audioVolume = 0.2f;
 

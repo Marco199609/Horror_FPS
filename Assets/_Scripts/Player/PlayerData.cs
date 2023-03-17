@@ -31,6 +31,8 @@ public class PlayerData : MonoBehaviour
     public float MinIntensity = 1f;
     public float MaxIntensity = 5f;
     public float ChangeVelocity = 7;
+    public AudioClip FlashlightClip;
+    public float FlashlightClipVolume;
 
     [Header("Player Audio Control")]
     public float FootstepWalkingTime;
@@ -43,6 +45,8 @@ public class PlayerData : MonoBehaviour
     [Header("Interactable Control")]
     public float InteractDistance = 5f;
     public Transform InventoryHolder;
+    public AudioClip InspectClip;
+    public float InspectClipVolume;
    
     public CharacterController characterController;
 }

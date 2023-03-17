@@ -55,6 +55,7 @@ public class SoundManager : MonoBehaviour
     {
 
         AudioSource modifiableSource = audioSourceHolder.AddComponent<AudioSource>();
+        modifiableSource.playOnAwake = false;
         modifiableSource.clip = soundEffectClip;
         modifiableSource.volume = soundEffectVolume;
         modifiableSource.spatialBlend = 1.0f;

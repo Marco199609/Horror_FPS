@@ -9,7 +9,7 @@ public class Prop_Door : MonoBehaviour, IInteractable
     [SerializeField] GameObject _doorHandle;
     [SerializeField] Transform _doorPivotPoint;
     [SerializeField] Collider _doorCollider;
-    [SerializeField] AudioClip _doorLockedClip, _doorOpenClip, _doorCloseClip;
+    [SerializeField] AudioClip _doorLockedClip, _doorUnlockedClip, _doorOpenClip, _doorCloseClip;
     [SerializeField] private float _clipVolume = 0.2f;
     [SerializeField] private GameObject _key;
 
@@ -64,6 +64,7 @@ public class Prop_Door : MonoBehaviour, IInteractable
                     {
                         if (_key != null && _inventory.SelectedItem() == _key)
                         {
+                            SoundManager.Instance.PlaySoundEffect(_doorUnlockedClip, transform.position, _clipVolume, true);
                             _inventory.Remove(_key);
                             Destroy(_key);
 
