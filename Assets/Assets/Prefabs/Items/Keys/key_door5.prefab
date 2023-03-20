@@ -228,7 +228,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3f3213e151989d149be7cad6a0a87823, type: 2}
+  - {fileID: 2100000, guid: f0a95a76f5aa25e4d8f47ed710ab2d76, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 6380186425155410858}
   - component: {fileID: 919132149101415057}
   m_Layer: 0
-  m_Name: door_key
+  m_Name: key_door5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
