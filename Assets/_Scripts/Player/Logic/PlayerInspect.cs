@@ -49,7 +49,7 @@ public class PlayerInspect : MonoBehaviour, IPlayerInspect
                 _currentInspectableSelected.transform.SetParent(playerData.Camera);
                 _currentInspectableSelected.localPosition = Vector3.Lerp(_currentInspectableSelected.localPosition, new Vector3(0, 0, 1f), _goToInspectionPositionSpeed * Time.deltaTime);
 
-                if(Input.GetMouseButton(0)) _currentItemRotation.x += playerInput.mouseMovementInput.y * _rotationSpeed * Time.deltaTime; //Changes rotation axis if necessary
+                if (Input.GetMouseButton(0)) _currentItemRotation.x += playerInput.mouseMovementInput.y * _rotationSpeed* Time.deltaTime; //Changes rotation axis if necessary
                 else _currentItemRotation.z += playerInput.mouseMovementInput.y * _rotationSpeed * Time.deltaTime;
                 _currentItemRotation.y += playerInput.mouseMovementInput.x * _rotationSpeed * Time.deltaTime;
 
@@ -57,7 +57,7 @@ public class PlayerInspect : MonoBehaviour, IPlayerInspect
             }
             else
             {
-                if(_currentInspectableSelected.transform.parent != _previousParent) SoundManager.Instance.Play2DSoundEffect(_playerData.InspectClip, _playerData.InspectClipVolume);
+                if (_currentInspectableSelected.transform.parent != _previousParent) SoundManager.Instance.Play2DSoundEffect(_playerData.InspectClip, _playerData.InspectClipVolume);
                 _currentInspectableSelected.transform.SetParent(_previousParent);
                 _currentInspectableSelected.position = Vector3.Lerp(_currentInspectableSelected.position, _previousPosition, _goToInspectionPositionSpeed * Time.deltaTime);
                 _currentInspectableSelected.localScale = Vector3.Lerp(_currentInspectableSelected.localScale, _previousScale, _goToInspectionPositionSpeed * Time.deltaTime);

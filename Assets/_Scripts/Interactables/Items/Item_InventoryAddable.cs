@@ -6,7 +6,7 @@ public class Item_InventoryAddable : MonoBehaviour, IInteractable
 {
     [SerializeField] private bool _nonInspectable;
     [SerializeField] private string _actionDescription, _interactableDescription;
-    [SerializeField] private Vector3 _positionInInventory, _rotationInInventory;
+    [SerializeField] private Vector3 _positionInInventory, _rotationInInventory, _scaleInInventory;
 
     public string ActionDescription()
     {
@@ -15,7 +15,7 @@ public class Item_InventoryAddable : MonoBehaviour, IInteractable
 
     public void Interact(PlayerController playerController)
     {
-        playerController.Inventory.Add(gameObject, _positionInInventory, _rotationInInventory);
+        playerController.Inventory.Add(gameObject, _positionInInventory, _rotationInInventory, _scaleInInventory);
     }
 
     public string InteractableDescription()

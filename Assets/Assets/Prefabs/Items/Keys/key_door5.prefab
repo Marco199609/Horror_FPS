@@ -316,6 +316,7 @@ MonoBehaviour:
   _interactableDescription: 
   _positionInInventory: {x: 0.301, y: -0.103, z: 0.644}
   _rotationInInventory: {x: 186.162, y: -95.37601, z: -169.531}
+  _scaleInInventory: {x: 0.7, y: 0.7, z: 0.24472724}
 --- !u!1 &8451665783332020171
 GameObject:
   m_ObjectHideFlags: 0

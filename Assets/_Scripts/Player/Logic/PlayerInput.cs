@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public interface IPlayerInput
 {
     bool FlashLightInput { get; }
     Vector2 mouseMovementInput { get; }
+    Vector2 UnsmoothedMouseMovementInput { get; }
     float MouseScrollInput { get; }
     bool playerJumpInput { get; }
     Vector2 playerMovementInput { get; }
@@ -26,6 +28,7 @@ public class PlayerInput : MonoBehaviour, IPlayerInput
     public Vector2 playerMovementInput { get; private set; }
     public Vector2 UnsmoothedPlayerMovementInput { get; private set; }
     public Vector2 mouseMovementInput { get; private set; }
+    public Vector2 UnsmoothedMouseMovementInput { get; private set; }
 
     //Variables for smoothing player move
     private float smoothTime = 0.1f;
@@ -36,8 +39,6 @@ public class PlayerInput : MonoBehaviour, IPlayerInput
 
     private void Awake()
     {
-        //if(ObjectManager.Instance != null) ObjectManager.Instance.PlayerInput = this;
-
         //New input manager
         _mainInput = new MainInput();
         _mainInput.Player.Enable();
@@ -71,10 +72,8 @@ public class PlayerInput : MonoBehaviour, IPlayerInput
     }
     private void SmoothPlayerRotate()
     {
-        Vector2 mouseInput = _mainInput.Player.Rotate.ReadValue<Vector2>();
-
-        //mouseMovementInput = Vector2.SmoothDamp(mouseMovementInput, mouseInput, ref currentMouseVelocity, 5 * Time.deltaTime);
-        mouseMovementInput = Vector2.Lerp(mouseMovementInput, mouseInput, 10 * Time.deltaTime);
+        UnsmoothedMouseMovementInput = _mainInput.Player.Rotate.ReadValue<Vector2>();
+        mouseMovementInput = Vector2.SmoothDamp(mouseMovementInput, UnsmoothedMouseMovementInput, ref currentMouseVelocity, smoothTime);
     }
 
     private void MouseScrollFix()

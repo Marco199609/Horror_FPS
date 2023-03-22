@@ -6,7 +6,7 @@ using UnityEngine;
 public interface IPlayerInventory
 {
     void Manage(PlayerData playerData, IPlayerInput playerInput);
-    void Add(GameObject interactable, Vector3 positionInInventory, Vector3 rotationInInventory);
+    void Add(GameObject interactable, Vector3 positionInInventory, Vector3 rotationInInventory,Vector3 scaleInInventory);
     void Remove(GameObject interactable);
     public GameObject SelectedItem();
 }
@@ -54,7 +54,7 @@ public class PlayerInventory : MonoBehaviour, IPlayerInventory
         else if (_selectedItem != _inventory[_currentSelectedItemIndex]) _selectedItem = _inventory[_currentSelectedItemIndex];
     }
 
-    public void Add(GameObject interactable, Vector3 positionInInventory, Vector3 rotationInInventory)
+    public void Add(GameObject interactable, Vector3 positionInInventory, Vector3 rotationInInventory, Vector3 scaleInInventory)
     {
         _inventory.Add(interactable);
         if (_inventory[_currentSelectedItemIndex] != null) _inventory[_currentSelectedItemIndex].SetActive(false); //Deactivates previous item selected
@@ -63,8 +63,9 @@ public class PlayerInventory : MonoBehaviour, IPlayerInventory
         SoundManager.Instance.Play2DSoundEffect(_playerData.PlayerPickupClip, _playerData.PickupClipVolume);
 
         interactable.transform.SetParent(_playerData.InventoryHolder);
-        interactable.transform.localPosition = positionInInventory; //Vector3.Lerp(interactable.transform.localPosition, positionInInventory, 1 * Time.deltaTime);
-        interactable.transform.localRotation = Quaternion.Euler(rotationInInventory); //Quaternion.Lerp(interactable.transform.rotation, Quaternion.Euler(rotationInInventory), 1 * Time.deltaTime);
+        interactable.transform.localPosition = positionInInventory;
+        interactable.transform.localRotation = Quaternion.Euler(rotationInInventory);
+        interactable.transform.localScale = scaleInInventory;
         interactable.GetComponent<Collider>().enabled = false;
     }
 
