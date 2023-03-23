@@ -60,7 +60,7 @@ public class PlayerInventory : MonoBehaviour, IPlayerInventory
         if (_inventory[_currentSelectedItemIndex] != null) _inventory[_currentSelectedItemIndex].SetActive(false); //Deactivates previous item selected
         _currentSelectedItemIndex = _inventory.Count - 1; //Sets new item as selected
 
-        SoundManager.Instance.Play2DSoundEffect(_playerData.PlayerPickupClip, _playerData.PickupClipVolume);
+        SoundManager.Instance.Play2DSoundEffect(SoundManager.Instance.PlayerPickupClip, SoundManager.Instance.PlayerPickupClipVolume);
 
         interactable.transform.SetParent(_playerData.InventoryHolder);
         interactable.transform.localPosition = positionInInventory;

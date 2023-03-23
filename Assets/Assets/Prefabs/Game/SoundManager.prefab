@@ -48,6 +48,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _globalSoundFXVolume: 1
+  <MainMenuMusicClip>k__BackingField: {fileID: 8300000, guid: edd5edaa4048d774582bd9837d95fd14, type: 3}
+  MainMenuMusicClipVolume: 0.2
+  <DoorOpenClip>k__BackingField: {fileID: 8300000, guid: 8b6eec1f8a44b0d4a867a7597042a11a, type: 3}
+  DoorOpenClipVolume: 0.7
+  <DoorCloseClip>k__BackingField: {fileID: 8300000, guid: 6034151fe66ca2947bfab14b259812ab, type: 3}
+  DoorCloseClipVolume: 0.7
+  <DoorLockedClip>k__BackingField: {fileID: 8300000, guid: 23c4fe66c94022f4ca3a084736d088de, type: 3}
+  DoorLockedClipVolume: 0.7
+  <DoorUnlockClip>k__BackingField: {fileID: 8300000, guid: 0a03357e4c701394a993b584dde95cc1, type: 3}
+  DoorUnlockClipVolume: 0.7
+  <DrawerOpenClip>k__BackingField: {fileID: 8300000, guid: c45dc8b4779986d4b8e8fb71b81d266e, type: 3}
+  DrawerOpenClipVolume: 0.7
+  <DrawerCloseClip>k__BackingField: {fileID: 8300000, guid: c9c9caf41b05de64a8100375623466af, type: 3}
+  DrawerCloseClipVolume: 0.7
+  <DrawerLockedClip>k__BackingField: {fileID: 8300000, guid: 23c4fe66c94022f4ca3a084736d088de, type: 3}
+  DrawerLockedClipVolume: 0.7
+  <DrawerUnlockClip>k__BackingField: {fileID: 8300000, guid: 0a03357e4c701394a993b584dde95cc1, type: 3}
+  DrawerUnlockClipVolume: 0.7
+  <LightSwitchOnClip>k__BackingField: {fileID: 8300000, guid: 4d8412d5c3fdd014182d591320855a6c, type: 3}
+  LightSwitchOnClipVolume: 0.2
+  <LightSwitchOffClip>k__BackingField: {fileID: 8300000, guid: 29a74440afb53444cb0c748f3c96fe30, type: 3}
+  LightSwitchOffClipVolume: 0.2
+  <MouseClickClip>k__BackingField: {fileID: 8300000, guid: 6d1dcd14a41e359469ed13bf4ff3851b, type: 3}
+  MouseClickClipVolume: 0.2
+  <ItemInspectClip>k__BackingField: {fileID: 8300000, guid: 4d73b3e889c930f4a9fb776f98ae1395, type: 3}
+  ItemInspectClipVolume: 0.05
+  <PlayerPickupClip>k__BackingField: {fileID: 8300000, guid: 1ba146d2c30757b4ab5675f3c6726949, type: 3}
+  PlayerPickupClipVolume: 0.05
+  <FootstepClips>k__BackingField:
+  - {fileID: 8300000, guid: f55d6ce004cb3464ea528dab24a18305, type: 3}
+  - {fileID: 8300000, guid: 038d81d584d6e6249af01d4f4c0dd147, type: 3}
+  - {fileID: 8300000, guid: 8c6e9e8669139da4599590a6ed6ea4a2, type: 3}
+  - {fileID: 8300000, guid: ebc26e041b2e90b40b7a4d5a8b86e5c2, type: 3}
+  - {fileID: 8300000, guid: cc94e824554e83948a8fcfbae33eb53b, type: 3}
+  - {fileID: 8300000, guid: bee2391cf57cfb94b872bfb01ad5c3f4, type: 3}
+  - {fileID: 8300000, guid: 51d9f421ae69b2e44b7d2ce50f9682bd, type: 3}
+  - {fileID: 8300000, guid: 6f328b454525c7d43af7537b0edd1281, type: 3}
+  - {fileID: 8300000, guid: 11e8d2e42d38673418e0f8b053ba7987, type: 3}
+  - {fileID: 8300000, guid: 304497acce8a9b74cb466a3921b70ed7, type: 3}
+  - {fileID: 8300000, guid: 9e1a8ae317f31554b825ff1f09debe79, type: 3}
+  - {fileID: 8300000, guid: 8543ceb68619549418300263937ee1ed, type: 3}
+  FootstepClipsVolume: 0.5
+  <FlashlightClip>k__BackingField: {fileID: 8300000, guid: 09f7133a03e3524408a25d639c1935df, type: 3}
+  FlashlightClipVolume: 0.2
+  <PlayerBreathClip>k__BackingField: {fileID: 8300000, guid: 8051bfe520699514ca1d0f0deed8d5c4, type: 3}
+  PlayerBreathClipVolume: 0.2
+  <LightFlickerClip>k__BackingField: {fileID: 8300000, guid: d4e44f94832a8614d8cd621e93af3ad0, type: 3}
+  LightFlickerClipVolume: 0.2
   _musicSource: {fileID: 5733869729842296541}
   _effectsSource: {fileID: 5733869729129616781}
   _2dEffectsSource: {fileID: 5733869729964003878}

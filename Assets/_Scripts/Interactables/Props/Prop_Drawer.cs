@@ -8,8 +8,6 @@ public class Prop_Drawer : MonoBehaviour, IInteractable
     [SerializeField] private float _moveVelocity;
     [SerializeField] private Transform _drawerOpenPosition, _drawerClosedPosition;
     [SerializeField] private GameObject _key;
-    [SerializeField] private AudioClip _drawerOpenClip, _drawerCloseClip, _drawerLockedClip;
-    [SerializeField] private float _audioVolume = 0.2f;
 
     private bool _changeDrawerState;
 
@@ -62,6 +60,7 @@ public class Prop_Drawer : MonoBehaviour, IInteractable
                     {
                         if (_key != null && _inventory.SelectedItem() == _key)
                         {
+                            SoundManager.Instance.PlaySoundEffect(SoundManager.Instance.DrawerUnlockClip, transform.position, SoundManager.Instance.DrawerUnlockClipVolume, true);
                             _inventory.Remove(_key);
                             Destroy(_key);
 
@@ -70,14 +69,14 @@ public class Prop_Drawer : MonoBehaviour, IInteractable
                         }
                         else
                         {
-                            SoundManager.Instance.PlaySoundEffect(_drawerLockedClip, transform.position, _audioVolume, true);
+                            SoundManager.Instance.PlaySoundEffect(SoundManager.Instance.DrawerLockedClip, transform.position, SoundManager.Instance.DrawerLockedClipVolume, true);
                         }
                         _changeDrawerState = false;
                         break;
                     }
                 case DrawerState.Closed:
                     {
-                        SoundManager.Instance.PlaySoundEffect(_drawerOpenClip, transform.position, _audioVolume, true);
+                        SoundManager.Instance.PlaySoundEffect(SoundManager.Instance.DrawerOpenClip, transform.position, SoundManager.Instance.DrawerOpenClipVolume, true);
 
                         if(transform.localPosition.x > _drawerOpenPosition.localPosition.x + 0.02f)
                             transform.localPosition = Vector3.Lerp(transform.localPosition, _drawerOpenPosition.localPosition, _moveVelocity * Time.deltaTime);
@@ -90,7 +89,7 @@ public class Prop_Drawer : MonoBehaviour, IInteractable
                     }
                 case DrawerState.Open:
                     {
-                        SoundManager.Instance.PlaySoundEffect(_drawerCloseClip, transform.position, _audioVolume, true);
+                        SoundManager.Instance.PlaySoundEffect(SoundManager.Instance.DrawerCloseClip, transform.position, SoundManager.Instance.DrawerCloseClipVolume, true);
 
                         if (transform.localPosition.x < _drawerClosedPosition.localPosition.x - 0.02f)
                             transform.localPosition = Vector3.Lerp(transform.localPosition, _drawerClosedPosition.localPosition, _moveVelocity * Time.deltaTime);

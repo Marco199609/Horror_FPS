@@ -5,8 +5,6 @@ using UnityEngine;
 public class Prop_Mouse : MonoBehaviour, IInteractable
 {
     [SerializeField] private Material _screenMaterial;
-    [SerializeField] private AudioClip _mouseClick;
-    [SerializeField] private float _audioVolume = 0.2f;
     [SerializeField] private Light _screenLight;
     [SerializeField] private bool _screenOn;
 
@@ -44,7 +42,7 @@ public class Prop_Mouse : MonoBehaviour, IInteractable
             _screenOn = true;
         }
 
-        SoundManager.Instance.PlaySoundEffect(_mouseClick, transform.position, _audioVolume); ;
+        SoundManager.Instance.PlaySoundEffect(SoundManager.Instance.MouseClickClip, transform.position, SoundManager.Instance.MouseClickClipVolume); ;
     }
 
     public string InteractableDescription()

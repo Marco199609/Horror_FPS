@@ -7,8 +7,6 @@ public class LightFlicker : MonoBehaviour
 {
     [SerializeField] private bool _enableFlicker;
     [SerializeField] private float _minFlickerDuration, _maxFlickerDuration;
-    [SerializeField] private AudioClip _flickerClip;
-    [SerializeField] private float _flickerClipVolume = 0.2f;
     [SerializeField] private Material _emisiveMaterial, _opaqueMaterial;
     [SerializeField] private Renderer _lamp;
 
@@ -16,7 +14,6 @@ public class LightFlicker : MonoBehaviour
     private Light _light;
     private float _lightMaxIntensity, _timer;
     private bool _lightOn;
-    private bool _lightOff;
 
     private void Awake()
     {
@@ -27,7 +24,7 @@ public class LightFlicker : MonoBehaviour
 
     private void Start()
     {
-        _flickerSource = SoundManager.Instance.CreateModifiableAudioSource(_flickerClip, _lamp.gameObject, _flickerClipVolume);
+        _flickerSource = SoundManager.Instance.CreateModifiableAudioSource(SoundManager.Instance.LightFlickerClip, _lamp.gameObject, SoundManager.Instance.LightFlickerClipVolume);
     }
 
     private void Update()
@@ -59,7 +56,11 @@ public class LightFlicker : MonoBehaviour
             {
                 _light.intensity = UnityEngine.Random.Range(_lightMaxIntensity - 0.2f, _lightMaxIntensity);
 
-                if(!_flickerSource.isPlaying) _flickerSource.Play();
+                if (!_flickerSource.isPlaying)
+                {
+                    _flickerSource.volume = SoundManager.Instance.LightFlickerClipVolume;
+                    _flickerSource.Play();
+                } 
             }
         }
     }

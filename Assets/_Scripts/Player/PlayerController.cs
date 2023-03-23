@@ -113,6 +113,7 @@ public class PlayerController : MonoBehaviour
     private void PlayerAudioControl()
     {
         _playerAudio.Footsteps(_playerData, _playerInput);
+        _playerAudio.PlayerBreath();
     }
 
     private void FlashlightControl()
