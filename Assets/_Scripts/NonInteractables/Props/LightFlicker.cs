@@ -58,7 +58,7 @@ public class LightFlicker : MonoBehaviour
 
                 if (!_flickerSource.isPlaying)
                 {
-                    _flickerSource.volume = SoundManager.Instance.LightFlickerClipVolume;
+                    _flickerSource.volume = SoundManager.Instance.LightFlickerClipVolume * SoundManager.Instance.GlobalSoundFXVolume;
                     _flickerSource.Play();
                 } 
             }

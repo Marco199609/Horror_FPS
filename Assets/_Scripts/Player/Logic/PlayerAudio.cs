@@ -13,7 +13,7 @@ public class PlayerAudio : MonoBehaviour, IPlayerAudio
     private AudioSource _playerBreathSource;
     private float timer;
 
-    private void Awake()
+    private void Start()
     {
         _playerBreathSource = SoundManager.Instance.CreateModifiableAudioSource(SoundManager.Instance.PlayerBreathClip, GameObject.FindWithTag("Player"), SoundManager.Instance.PlayerBreathClipVolume);
     }
@@ -38,7 +38,7 @@ public class PlayerAudio : MonoBehaviour, IPlayerAudio
     {
         if(!_playerBreathSource.isPlaying)
         {
-            _playerBreathSource.volume = SoundManager.Instance.PlayerBreathClipVolume;
+            _playerBreathSource.volume = SoundManager.Instance.PlayerBreathClipVolume * SoundManager.Instance.GlobalSoundFXVolume;
             _playerBreathSource.Play();
         }
     }
