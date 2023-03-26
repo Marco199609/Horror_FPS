@@ -190,7 +190,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6533751894493500777}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8997385359482471059
 GameObject:
@@ -430,7 +430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2443998527300629801, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2738327677547158458, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -513,11 +513,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 101712421, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: m_Range
-      value: 30
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 101712421, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: m_Intensity
-      value: 0.5
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 101712421, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
+      propertyPath: m_SpotAngle
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 101712421, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 101712421, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: m_Shadows.m_Type
@@ -589,7 +597,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2770187571978162046, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -61.71
+      value: -34
       objectReference: {fileID: 0}
     - target: {fileID: 2770187571978162046, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: m_LocalPosition.y
@@ -597,7 +605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2770187571978162046, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2770187571978162046, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: m_LocalRotation.w
