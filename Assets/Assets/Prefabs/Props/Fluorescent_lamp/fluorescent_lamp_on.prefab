@@ -50,8 +50,6 @@ MonoBehaviour:
   _enableFlicker: 1
   _minFlickerDuration: 0.5
   _maxFlickerDuration: 1.5
-  _flickerClip: {fileID: 8300000, guid: d4e44f94832a8614d8cd621e93af3ad0, type: 3}
-  _flickerClipVolume: 0.2
   _emisiveMaterial: {fileID: 2100000, guid: fa4430ea7c23121409655c336b850dbb, type: 2}
   _opaqueMaterial: {fileID: 2100000, guid: ac047e052760f134a8729b4248eee1a2, type: 2}
   _lamp: {fileID: 3457510173066747747}
@@ -66,7 +64,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.9594621, b: 0.9103774, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
