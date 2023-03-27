@@ -109,4 +109,19 @@ public class Prop_Drawer : MonoBehaviour, IInteractable
     {
         return false;
     }
+
+    public bool PassRotateX()
+    {
+        return false;
+    }
+
+    public bool PassRotateY()
+    {
+        return false;
+    }
+
+    public bool PassRotateZ()
+    {
+        return false;
+    }
 }

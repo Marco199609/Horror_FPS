@@ -19,7 +19,8 @@ public class PlayerInteract : MonoBehaviour, IPlayerInteract
             }
             else if (Input.GetMouseButtonDown(0) && hit.collider.GetComponent<IInteractable>().NonInspectable() == false)
             {
-                playerInspect.Inspect(hit.transform);
+                IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+                playerInspect.Inspect(hit.transform, interactable.PassRotateX(), interactable.PassRotateY(), interactable.PassRotateZ());
             }
         }
     }

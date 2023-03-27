@@ -59,4 +59,19 @@ public class Prop_Mouse : MonoBehaviour, IInteractable
     {
         return false;
     }
+
+    public bool PassRotateX()
+    {
+        return false;
+    }
+
+    public bool PassRotateY()
+    {
+        return false;
+    }
+
+    public bool PassRotateZ()
+    {
+        return false;
+    }
 }

@@ -51,4 +51,19 @@ public class Character1Outside : MonoBehaviour, IInteractable
     {
         return false;
     }
+
+    public bool PassRotateX()
+    {
+        return false;
+    }
+
+    public bool PassRotateY()
+    {
+        return false;
+    }
+
+    public bool PassRotateZ()
+    {
+        return false;
+    }
 }
