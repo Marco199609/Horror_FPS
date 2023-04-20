@@ -255,7 +255,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 822368b1e85cedd43bf5909c9f632f8e, type: 2}
+  - {fileID: 2100000, guid: 2d4195b5efac9684391488b0785ea644, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -405,10 +405,6 @@ MonoBehaviour:
   _doorHandle: {fileID: 7972333549349043669}
   _doorPivotPoint: {fileID: 5742059651430763556}
   _doorCollider: {fileID: 7572032535198982690}
-  _doorLockedAudioSource: {fileID: 1151370510995084858}
-  _doorLockedClip: {fileID: 8300000, guid: 23c4fe66c94022f4ca3a084736d088de, type: 3}
-  _doorOpenClip: {fileID: 8300000, guid: 8b6eec1f8a44b0d4a867a7597042a11a, type: 3}
-  _doorCloseClip: {fileID: 8300000, guid: 6034151fe66ca2947bfab14b259812ab, type: 3}
   _key: {fileID: 0}
   _currentDoorState: 1
 --- !u!1 &9116110669749386708
