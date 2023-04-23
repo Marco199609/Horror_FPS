@@ -599,6 +599,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 384181415}
     m_Modifications:
+    - target: {fileID: 1495979781592144012, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: _key
+      value: 
+      objectReference: {fileID: 1846155209}
+    - target: {fileID: 1495979781592144012, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: _currentDrawerState
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8121106578238291148, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -657,6 +665,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+--- !u!1 &1846155209 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 601579420117874360, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+  m_PrefabInstance: {fileID: 1846155208}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2110718019
 GameObject:
   m_ObjectHideFlags: 0
