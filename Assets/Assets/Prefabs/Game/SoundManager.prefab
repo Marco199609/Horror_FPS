@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c817c8f2475b324f94f8a86588a408f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _globalSoundFXVolume: 1
-  <MainMenuMusicClip>k__BackingField: {fileID: 8300000, guid: edd5edaa4048d774582bd9837d95fd14, type: 3}
+  GlobalSoundFXVolume: 1
+  <MainMenuMusicClip>k__BackingField: {fileID: 8300000, guid: fae85b98ca4a80043ae09bbd7519fc61, type: 3}
   MainMenuMusicClipVolume: 0.2
   <DoorOpenClip>k__BackingField: {fileID: 8300000, guid: 8b6eec1f8a44b0d4a867a7597042a11a, type: 3}
   DoorOpenClipVolume: 0.7
