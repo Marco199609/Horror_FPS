@@ -15,13 +15,14 @@ public class PlayerAudio : MonoBehaviour, IPlayerAudio
 
     private void Start()
     {
-        _playerBreathSource = SoundManager.Instance.CreateModifiableAudioSource(SoundManager.Instance.PlayerBreathClip, GameObject.FindWithTag("Player"), SoundManager.Instance.PlayerBreathClipVolume);
+        if(SoundManager.Instance != null)
+            _playerBreathSource = SoundManager.Instance.CreateModifiableAudioSource(SoundManager.Instance.PlayerBreathClip, GameObject.FindWithTag("Player"), SoundManager.Instance.PlayerBreathClipVolume);
     }
     public void Footsteps(PlayerData playerData, IPlayerInput playerInput)
     {
         if(playerInput.UnsmoothedPlayerMovementInput != Vector2.zero)
         {
-            if(timer <= 0)
+            if(_playerBreathSource != null && timer <= 0)
             {
                 int i = Random.Range(0, SoundManager.Instance.FootstepClips.Length);
                 SoundManager.Instance.Play2DSoundEffect(SoundManager.Instance.FootstepClips[i], SoundManager.Instance.FootstepClipsVolume);
@@ -36,7 +37,7 @@ public class PlayerAudio : MonoBehaviour, IPlayerAudio
 
     public void PlayerBreath()
     {
-        if(!_playerBreathSource.isPlaying)
+        if(_playerBreathSource != null && !_playerBreathSource.isPlaying)
         {
             _playerBreathSource.volume = SoundManager.Instance.PlayerBreathClipVolume * SoundManager.Instance.GlobalSoundFXVolume;
             _playerBreathSource.Play();
