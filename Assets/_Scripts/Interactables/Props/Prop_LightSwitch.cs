@@ -7,8 +7,6 @@ public class Prop_LightSwitch : MonoBehaviour, IInteractable
     [SerializeField] private string _actionDescription;
     [SerializeField] private List<GameObject> _lightOnObjects, _lightOffObjects; //Make sure each light on object has its light off object
     [SerializeField] private GameObject _switchOnModel, _switchOffModel;
-    [SerializeField] private AudioClip _switchOnClip, _switchOffClip;
-    [SerializeField] private AudioSource _audioSource;
 
     private bool _lightsOn;
     public string ActionDescription()
@@ -29,7 +27,7 @@ public class Prop_LightSwitch : MonoBehaviour, IInteractable
             _switchOnModel.SetActive(false);
             _switchOffModel.SetActive(true);
 
-            _audioSource.PlayOneShot(_switchOffClip);
+            SoundManager.Instance.PlaySoundEffect(SoundManager.Instance.LightSwitchOffClip, transform.position, SoundManager.Instance.LightSwitchOffClipVolume);
             _lightsOn = false;
         }
         else
@@ -43,7 +41,7 @@ public class Prop_LightSwitch : MonoBehaviour, IInteractable
             _switchOnModel.SetActive(true);
             _switchOffModel.SetActive(false);
 
-            _audioSource.PlayOneShot(_switchOnClip);
+            SoundManager.Instance.PlaySoundEffect(SoundManager.Instance.LightSwitchOnClip, transform.position, SoundManager.Instance.LightSwitchOnClipVolume);
             _lightsOn = true;
         }
     }
@@ -59,6 +57,21 @@ public class Prop_LightSwitch : MonoBehaviour, IInteractable
     }
 
     public bool InspectableOnly()
+    {
+        return false;
+    }
+
+    public bool PassRotateX()
+    {
+        return false;
+    }
+
+    public bool PassRotateY()
+    {
+        return false;
+    }
+
+    public bool PassRotateZ()
     {
         return false;
     }

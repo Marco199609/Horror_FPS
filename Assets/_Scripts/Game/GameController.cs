@@ -6,9 +6,6 @@ using TMPro;
 
 public class GameController : MonoBehaviour
 {
-    public int TargetFramerate, VSyncCount;
-
-
     [SerializeField] private Text fpsText;
     [SerializeField] private float hudRefreshRate = 1f;
     [SerializeField] private bool _showFramerate;

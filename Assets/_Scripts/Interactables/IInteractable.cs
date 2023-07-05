@@ -9,4 +9,7 @@ public interface IInteractable
     string InteractableDescription();
     string ActionDescription();
     void Interact(PlayerController playerController);
+    bool PassRotateX();
+    bool PassRotateY();
+    bool PassRotateZ();
 }

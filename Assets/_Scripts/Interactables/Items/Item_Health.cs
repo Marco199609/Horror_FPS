@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Item_Health : MonoBehaviour, IInteractable
 {
+    [SerializeField] private bool _rotateX = true, _rotateY = true, _rotateZ = true;
     [SerializeField] private bool _nonInspectable;
     [SerializeField] private string _description;
     [SerializeField] private int _health;
@@ -25,7 +26,7 @@ public class Item_Health : MonoBehaviour, IInteractable
     }
     public void Behaviour()
     {
-        ObjectManager.Instance.Player.GetComponent<Health>().ModifyHealth(_health);
+        //ObjectManager.Instance.Player.GetComponent<Health>().ModifyHealth(_health);
     }
 
     public bool NonInspectable()
@@ -36,5 +37,20 @@ public class Item_Health : MonoBehaviour, IInteractable
     public bool InspectableOnly()
     {
         return false;
+    }
+
+    public bool PassRotateX()
+    {
+        return _rotateX;
+    }
+
+    public bool PassRotateY()
+    {
+        return _rotateY;
+    }
+
+    public bool PassRotateZ()
+    {
+        return _rotateZ;
     }
 }

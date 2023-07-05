@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Item_InventoryAddable : MonoBehaviour, IInteractable
 {
+    [SerializeField] private bool _rotateX = true, _rotateY = true, _rotateZ = true;
     [SerializeField] private bool _nonInspectable;
     [SerializeField] private string _actionDescription, _interactableDescription;
-    [SerializeField] private Vector3 _positionInInventory, _rotationInInventory;
+    [SerializeField] private Vector3 _positionInInventory, _rotationInInventory, _scaleInInventory;
 
     public string ActionDescription()
     {
@@ -15,7 +17,7 @@ public class Item_InventoryAddable : MonoBehaviour, IInteractable
 
     public void Interact(PlayerController playerController)
     {
-        playerController.Inventory.Add(gameObject, _positionInInventory, _rotationInInventory);
+        playerController.Inventory.Add(gameObject, _positionInInventory, _rotationInInventory, _scaleInInventory);
     }
 
     public string InteractableDescription()
@@ -31,5 +33,20 @@ public class Item_InventoryAddable : MonoBehaviour, IInteractable
     public bool InspectableOnly()
     {
         return false;
+    }
+
+    public bool PassRotateX()
+    {
+        return _rotateX;
+    }
+
+    public bool PassRotateY()
+    {
+        return _rotateY;
+    }
+
+    public bool PassRotateZ()
+    {
+        return _rotateZ;
     }
 }

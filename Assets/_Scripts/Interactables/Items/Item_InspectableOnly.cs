@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Item_InspectableOnly : MonoBehaviour, IInteractable
 {
+    [SerializeField] private bool _rotateX = true, _rotateY = true, _rotateZ = true;
+
     [SerializeField] private string _inspectableDescription;
-    
+
     public string ActionDescription()
     {
         return "Inspect";
@@ -13,7 +15,7 @@ public class Item_InspectableOnly : MonoBehaviour, IInteractable
 
     public void Interact(PlayerController playerController)
     {
-        playerController.PlayerInspect.Inspect(transform);
+        playerController.PlayerInspect.Inspect(transform, _rotateX, _rotateY, _rotateZ);
     }
 
     public string InteractableDescription()
@@ -29,5 +31,20 @@ public class Item_InspectableOnly : MonoBehaviour, IInteractable
     public bool InspectableOnly()
     {
         return true;
+    }
+
+    public bool PassRotateX()
+    {
+        return _rotateX;
+    }
+
+    public bool PassRotateY()
+    {
+        return _rotateY;
+    }
+
+    public bool PassRotateZ()
+    {
+        return _rotateZ;
     }
 }

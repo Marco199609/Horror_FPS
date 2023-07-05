@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7199829948290837523}
   - component: {fileID: 7199829948290837520}
-  - component: {fileID: 7199829948290837521}
   - component: {fileID: 7199829948290837535}
   - component: {fileID: 7199829948290837534}
   m_Layer: 0
@@ -47,23 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 897b82e27d4964a1789785edfe0338c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetFramerate: 0
-  VSyncCount: 0
   fpsText: {fileID: 0}
   hudRefreshRate: 0.5
   _showFramerate: 0
---- !u!114 &7199829948290837521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7199829948290837522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 447b4473b62e542528d3f8ddb7be62aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7199829948290837535
 MonoBehaviour:
   m_ObjectHideFlags: 0

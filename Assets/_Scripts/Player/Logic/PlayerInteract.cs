@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public interface IPlayerInteract
+{
+    void Interact(PlayerData playerData, RaycastHit hit, IPlayerInput playerInput, IPlayerInspect playerInspect);
+}
+
 public class PlayerInteract : MonoBehaviour, IPlayerInteract
 {
     public void Interact(PlayerData playerData, RaycastHit hit, IPlayerInput playerInput, IPlayerInspect playerInspect)
@@ -14,7 +19,8 @@ public class PlayerInteract : MonoBehaviour, IPlayerInteract
             }
             else if (Input.GetMouseButtonDown(0) && hit.collider.GetComponent<IInteractable>().NonInspectable() == false)
             {
-                playerInspect.Inspect(hit.transform);
+                IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+                playerInspect.Inspect(hit.transform, interactable.PassRotateX(), interactable.PassRotateY(), interactable.PassRotateZ());
             }
         }
     }

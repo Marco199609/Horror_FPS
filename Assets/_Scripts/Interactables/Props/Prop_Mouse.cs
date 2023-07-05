@@ -5,11 +5,8 @@ using UnityEngine;
 public class Prop_Mouse : MonoBehaviour, IInteractable
 {
     [SerializeField] private Material _screenMaterial;
-    [SerializeField] private AudioSource _mouseClick;
     [SerializeField] private Light _screenLight;
     [SerializeField] private bool _screenOn;
-
-
 
     private void Start()
     {
@@ -27,8 +24,7 @@ public class Prop_Mouse : MonoBehaviour, IInteractable
 
     public string ActionDescription()
     {
-        if (_screenOn) return "Turn computer off";
-        else return "Turn computer on";
+        return null;
     }
 
     public void Interact(PlayerController playerController)
@@ -46,7 +42,7 @@ public class Prop_Mouse : MonoBehaviour, IInteractable
             _screenOn = true;
         }
 
-        _mouseClick.Play();
+        SoundManager.Instance.PlaySoundEffect(SoundManager.Instance.MouseClickClip, transform.position, SoundManager.Instance.MouseClickClipVolume); ;
     }
 
     public string InteractableDescription()
@@ -60,6 +56,21 @@ public class Prop_Mouse : MonoBehaviour, IInteractable
     }
 
     public bool InspectableOnly()
+    {
+        return false;
+    }
+
+    public bool PassRotateX()
+    {
+        return false;
+    }
+
+    public bool PassRotateY()
+    {
+        return false;
+    }
+
+    public bool PassRotateZ()
     {
         return false;
     }

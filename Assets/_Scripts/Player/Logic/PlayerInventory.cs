@@ -3,12 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public interface IPlayerInventory
+{
+    void Manage(PlayerData playerData, IPlayerInput playerInput);
+    void Add(GameObject interactable, Vector3 positionInInventory, Vector3 rotationInInventory,Vector3 scaleInInventory);
+    void Remove(GameObject interactable);
+    public GameObject SelectedItem();
+}
+
 public class PlayerInventory : MonoBehaviour, IPlayerInventory
 {
     private GameObject _selectedItem;
     private List<GameObject> _inventory;
     private PlayerData _playerData;
-    private AudioSource _pickupAudioSource;
 
     private int _currentSelectedItemIndex;
 
@@ -22,7 +29,6 @@ public class PlayerInventory : MonoBehaviour, IPlayerInventory
     public void Manage(PlayerData playerData, IPlayerInput playerInput)
     {
         if (_playerData == null) _playerData = playerData;
-        if(_pickupAudioSource == null) _pickupAudioSource = _playerData.InventoryHolder.GetComponent<AudioSource>();
 
         if (playerInput.MouseScrollInput != 0 && !playerInput.FlashLightInput)
         {
@@ -48,16 +54,18 @@ public class PlayerInventory : MonoBehaviour, IPlayerInventory
         else if (_selectedItem != _inventory[_currentSelectedItemIndex]) _selectedItem = _inventory[_currentSelectedItemIndex];
     }
 
-    public void Add(GameObject interactable, Vector3 positionInInventory, Vector3 rotationInInventory)
+    public void Add(GameObject interactable, Vector3 positionInInventory, Vector3 rotationInInventory, Vector3 scaleInInventory)
     {
         _inventory.Add(interactable);
         if (_inventory[_currentSelectedItemIndex] != null) _inventory[_currentSelectedItemIndex].SetActive(false); //Deactivates previous item selected
         _currentSelectedItemIndex = _inventory.Count - 1; //Sets new item as selected
 
-        _pickupAudioSource.Play();
+        SoundManager.Instance.Play2DSoundEffect(SoundManager.Instance.PlayerPickupClip, SoundManager.Instance.PlayerPickupClipVolume);
+
         interactable.transform.SetParent(_playerData.InventoryHolder);
-        interactable.transform.localPosition = positionInInventory; //Vector3.Lerp(interactable.transform.localPosition, positionInInventory, 1 * Time.deltaTime);
-        interactable.transform.localRotation = Quaternion.Euler(rotationInInventory); //Quaternion.Lerp(interactable.transform.rotation, Quaternion.Euler(rotationInInventory), 1 * Time.deltaTime);
+        interactable.transform.localPosition = positionInInventory;
+        interactable.transform.localRotation = Quaternion.Euler(rotationInInventory);
+        interactable.transform.localScale = scaleInInventory;
         interactable.GetComponent<Collider>().enabled = false;
     }
 

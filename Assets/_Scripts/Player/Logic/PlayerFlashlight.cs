@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public interface IFlashlightControl
+{
+    void FlashlightControl(PlayerData playerData, IPlayerInput playerInput);
+    void AddBattery();
+}
+
 public class PlayerFlashlight : MonoBehaviour, IFlashlightControl
 {
     private bool _waitForScroll, _isScrolling, _hasBattery, _turnOn;
@@ -52,6 +58,9 @@ public class PlayerFlashlight : MonoBehaviour, IFlashlightControl
         else if(!playerInput.FlashLightInput && _waitForScroll && !_isScrolling) // If the player didn't scroll, this turns the flashlight on or off 
         {
             _turnOn = !_turnOn;
+
+            if(SoundManager.Instance != null)
+                SoundManager.Instance.Play2DSoundEffect(SoundManager.Instance.FlashlightClip, SoundManager.Instance.FlashlightClipVolume);
 
             //Resets bools if player input no longer pressing button
             _waitForScroll = false;

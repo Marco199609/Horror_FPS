@@ -2,33 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public interface IPlayerAudio
+{
+    void Footsteps(PlayerData playerData, IPlayerInput playerInput);
+    void PlayerBreath();
+}
+
 public class PlayerAudio : MonoBehaviour, IPlayerAudio
 {
-    private float _playerWalkingTimer, _playerRunningTimer;
+    private AudioSource _playerBreathSource;
+    private float timer;
+
+    private void Start()
+    {
+        if(SoundManager.Instance != null)
+            _playerBreathSource = SoundManager.Instance.CreateModifiableAudioSource(SoundManager.Instance.PlayerBreathClip, GameObject.FindWithTag("Player"), SoundManager.Instance.PlayerBreathClipVolume);
+    }
     public void Footsteps(PlayerData playerData, IPlayerInput playerInput)
     {
-        if (playerInput.playerMovementInput != Vector2.zero)
+        if(playerInput.UnsmoothedPlayerMovementInput != Vector2.zero)
         {
-            if (playerInput.playerRunInput)
+            if(_playerBreathSource != null && timer <= 0)
             {
-                if (_playerRunningTimer <= 0)
-                {
-                    int i = Random.Range(0, playerData.Footsteps.Length);
-                    playerData.PlayerAudioSource.PlayOneShot(playerData.Footsteps[i], 0.3f);
-                    _playerRunningTimer = playerData.FootstepsRunningTime;
-                }
-                _playerRunningTimer -= Time.deltaTime;
+                int i = Random.Range(0, SoundManager.Instance.FootstepClips.Length);
+                SoundManager.Instance.Play2DSoundEffect(SoundManager.Instance.FootstepClips[i], SoundManager.Instance.FootstepClipsVolume);
+
+                if (playerInput.playerRunInput)  timer = playerData.FootstepsRunningTime;
+                else timer = playerData.FootstepWalkingTime;
             }
-            else
-            {
-                if (_playerWalkingTimer <= 0)
-                {
-                    int i = Random.Range(0, playerData.Footsteps.Length);
-                    playerData.PlayerAudioSource.PlayOneShot(playerData.Footsteps[i], 0.3f);
-                    _playerWalkingTimer = playerData.FootstepWalkingTime;
-                }
-                _playerWalkingTimer -= Time.deltaTime;
-            }
+            timer -= Time.deltaTime;
+        }
+        else timer = 0;
+    }
+
+    public void PlayerBreath()
+    {
+        if(_playerBreathSource != null && !_playerBreathSource.isPlaying)
+        {
+            _playerBreathSource.volume = SoundManager.Instance.PlayerBreathClipVolume * SoundManager.Instance.GlobalSoundFXVolume;
+            _playerBreathSource.Play();
         }
     }
 }

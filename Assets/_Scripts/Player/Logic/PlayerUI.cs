@@ -3,6 +3,12 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+public interface IPlayerUI
+{
+    void InteractableUI(PlayerData playerData, RaycastHit hit);
+    void CenterPointControl(List<GameObject> itemsVisible);
+}
+
 public class PlayerUI : MonoBehaviour, IPlayerUI
 {
     //Interactable UI variables
