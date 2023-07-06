@@ -303,7 +303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &920502743
 Transform:
   m_ObjectHideFlags: 0
@@ -719,6 +719,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5733869728958587170, guid: 7bdb959cf2dfc8c40bfe8878505052b5, type: 3}
+      propertyPath: MainMenuMusicClipVolume
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5733869728958587171, guid: 7bdb959cf2dfc8c40bfe8878505052b5, type: 3}
       propertyPath: m_RootOrder
       value: 7

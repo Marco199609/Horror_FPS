@@ -27,6 +27,8 @@ public class GameSettings : MonoBehaviour
 
     private PlayerData _playerData;
 
+    private AudioSource _mainMusicSource;
+
     private void Awake()
     {
         SetFramerate();
@@ -146,7 +148,9 @@ public class GameSettings : MonoBehaviour
 
     private void Update()
     {
-        if(_inGame)
+        SoundControl();
+
+        if (_inGame)
         {
             PauseControl();
             CursorControl();
@@ -155,6 +159,30 @@ public class GameSettings : MonoBehaviour
         {
            if(_continueGameButton.activeInHierarchy) _continueGameButton.SetActive(false);
            if(!_startGameButton.activeInHierarchy) _startGameButton.SetActive(true);
+        }
+    }
+
+
+    private void SoundControl()
+    {
+        if (_mainMusicSource == null)
+        {
+            _mainMusicSource = SoundManager.Instance.CreateModifiableAudioSource(SoundManager.Instance.MainMenuMusicClip, gameObject, SoundManager.Instance.MainMenuMusicClipVolume);
+            _mainMusicSource.loop = true;
+            _mainMusicSource.spatialBlend = 0;
+            _mainMusicSource.Play();
+        }
+
+        if(_inGame)
+        {
+            if(Pause)
+            {
+                _mainMusicSource.volume = Mathf.Lerp(_mainMusicSource.volume, SoundManager.Instance.MainMenuMusicClipVolume, Time.deltaTime * 3f);
+            }
+            else
+            {
+                _mainMusicSource.volume = Mathf.Lerp(_mainMusicSource.volume, SoundManager.Instance.MainMenuMusicClipVolume / 4, Time.deltaTime * 2f);
+            }
         }
     }
 }

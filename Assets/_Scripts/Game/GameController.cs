@@ -34,4 +34,9 @@ public class GameController : MonoBehaviour
             }
         }
     }
+
+    void MainMusicControl()
+    {
+
+    }
 }

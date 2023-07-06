@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GlobalSoundFXVolume: 1
   <MainMenuMusicClip>k__BackingField: {fileID: 8300000, guid: fae85b98ca4a80043ae09bbd7519fc61, type: 3}
-  MainMenuMusicClipVolume: 0.2
+  MainMenuMusicClipVolume: 1
   <DoorOpenClip>k__BackingField: {fileID: 8300000, guid: 8b6eec1f8a44b0d4a867a7597042a11a, type: 3}
   DoorOpenClipVolume: 0.7
   <DoorCloseClip>k__BackingField: {fileID: 8300000, guid: 6034151fe66ca2947bfab14b259812ab, type: 3}
