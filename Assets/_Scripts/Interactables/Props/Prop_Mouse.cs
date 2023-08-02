@@ -10,6 +10,9 @@ public class Prop_Mouse : MonoBehaviour, IInteractable
 
     private void Start()
     {
+        _screenMaterial.DisableKeyword("_EMISSION");
+        _screenLight.enabled = false;
+        /*
         if (_screenOn)
         {
             _screenMaterial.EnableKeyword("_EMISSION");
@@ -19,7 +22,7 @@ public class Prop_Mouse : MonoBehaviour, IInteractable
         {
             _screenMaterial.DisableKeyword("_EMISSION");
             _screenLight.enabled = false;
-        } 
+        } */
     }
 
     public string ActionDescription()
