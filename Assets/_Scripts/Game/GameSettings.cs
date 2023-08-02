@@ -181,6 +181,10 @@ public class GameSettings : MonoBehaviour
             }
             else
             {
+                if(SceneManager.GetActiveScene().name == "Level_House")
+                {
+                    _mainMusicSource.volume = 0;
+                }
                 _mainMusicSource.volume = Mathf.Lerp(_mainMusicSource.volume, SoundManager.Instance.MainMenuMusicClipVolume / 4, Time.deltaTime * 2f);
             }
         }
