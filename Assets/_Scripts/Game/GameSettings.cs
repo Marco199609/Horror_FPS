@@ -40,13 +40,13 @@ public class GameSettings : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Level0", LoadSceneMode.Single);
+        SceneManager.LoadScene("Level_Dream", LoadSceneMode.Single);
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if(scene.name == "Level0")
+        if(scene.name == "Level_Dream")
         {
             _inGame = true;
             _playerData = FindObjectOfType<PlayerData>();

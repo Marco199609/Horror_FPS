@@ -5,12 +5,45 @@ using UnityEngine;
 public class Wire_crawler : MonoBehaviour, IInteractable
 {
     [SerializeField] private LevelManager _levelManager;
-    public void Interact(PlayerController playerController)
+    [SerializeField] private GameObject _playerLookingLight;
+    [SerializeField] private Material _wireCrawlerMaterial;
+    [SerializeField] private AudioSource _wireCrawlerAudioSource;
+
+    private PlayerController _playerController;
+
+    private float _emissionIntensity;
+    private bool _enableEmission = false;
+
+    private void Start()
     {
-        throw new System.NotImplementedException();
+        _wireCrawlerMaterial.SetVector("_EmissionColor", new Vector4(1, 1, 1, 1) * 1/10);
     }
 
+    public void Interact(PlayerController playerController)
+    {
 
+        _enableEmission = true;
+        _wireCrawlerAudioSource.Play();
+
+        _playerController = playerController;
+        _playerController.FreezePlayerMovement = true;
+    }
+
+    private void Update()
+    {
+        if (_enableEmission)
+        {
+            _emissionIntensity += Time.deltaTime;
+            _wireCrawlerMaterial.SetVector("_EmissionColor", new Vector4(1, 1, 1, 1) * _emissionIntensity);
+
+            if (!_wireCrawlerAudioSource.isPlaying)
+            {
+                _playerLookingLight.SetActive(false);
+                _playerController.FreezePlayerMovement = false;
+                _levelManager.LoadHouseLevel();
+            }
+        }
+    }
 
 
     public string ActionDescription()

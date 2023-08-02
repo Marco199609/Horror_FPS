@@ -46,6 +46,9 @@ public class PlayerController : MonoBehaviour
     //If there is one or more items in viewport, activate ui center point
     [NonSerialized] public List<GameObject> InteractablesInSight;
 
+   //Used in crawler, to freeze player for next level
+    public bool FreezePlayerMovement;
+
     private void Awake()
     {
         _playerData = GetComponentInChildren<PlayerData>();
@@ -96,7 +99,8 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerMovement()
     {
-        _playerMovement.PlayerMove(_player, _playerInput);
+        if(!FreezePlayerMovement)
+            _playerMovement.PlayerMove(_player, _playerInput);
     }
 
     private void PlayerCameraRotation()
