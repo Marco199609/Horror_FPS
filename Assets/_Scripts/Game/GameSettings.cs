@@ -58,6 +58,7 @@ public class GameSettings : MonoBehaviour
     public void ContinueGame()
     {
         Pause = false;
+        _settingsCanvas.SetActive(false);
         _mainMenuCanvas.SetActive(false);
     }
 
