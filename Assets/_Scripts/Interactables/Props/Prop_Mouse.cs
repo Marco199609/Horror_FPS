@@ -12,6 +12,7 @@ public class Prop_Mouse : MonoBehaviour, IInteractable
     {
         _screenMaterial.DisableKeyword("_EMISSION");
         _screenLight.enabled = false;
+        _screenOn = false;
         /*
         if (_screenOn)
         {
