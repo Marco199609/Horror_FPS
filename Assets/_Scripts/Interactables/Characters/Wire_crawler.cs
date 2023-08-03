@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Wire_crawler : MonoBehaviour, IInteractable
 {
+    
     [SerializeField] private LevelManager _levelManager;
     [SerializeField] private GameObject _playerLookingLight;
     [SerializeField] private Material _wireCrawlerMaterial;
-    [SerializeField] private AudioSource _wireCrawlerAudioSource;
+    [SerializeField] private Renderer _wireCrawlerRenderer;
+    [SerializeField] private AudioSource _wireCrawlerAudioSource, _muffledTalkAudioSource;
+    [SerializeField] private AudioClip _lastMuffledTalkClip, _tensionBuildClip;
 
     private PlayerController _playerController;
 
@@ -21,12 +24,15 @@ public class Wire_crawler : MonoBehaviour, IInteractable
 
     public void Interact(PlayerController playerController)
     {
-
         _enableEmission = true;
+        _muffledTalkAudioSource.Stop();
+        _wireCrawlerAudioSource.PlayOneShot(_lastMuffledTalkClip);
+        _wireCrawlerAudioSource.clip = _tensionBuildClip;
         _wireCrawlerAudioSource.Play();
 
         _playerController = playerController;
         _playerController.FreezePlayerMovement = true;
+        _muffledTalkAudioSource.Stop();
     }
 
     private void Update()
