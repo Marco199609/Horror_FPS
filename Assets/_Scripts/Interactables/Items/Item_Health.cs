@@ -45,4 +45,9 @@ public class Item_Health : MonoBehaviour, IInteractable
 
         return rotateXYZ;
     }
+
+    public void TriggerActions(ITriggerAction trigger, bool alreadyTriggered)
+    {
+        throw new System.NotImplementedException();
+    }
 }

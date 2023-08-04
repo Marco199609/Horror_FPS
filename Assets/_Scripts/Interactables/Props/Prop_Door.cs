@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class Prop_Door : MonoBehaviour, IInteractable
 {
-    [SerializeField] private bool _nonInspectable = true;
-    [SerializeField] GameObject _doorHandle;
+    //[SerializeField] GameObject _doorHandle;
     [SerializeField] Transform _doorPivotPoint;
     [SerializeField] Collider _doorCollider;
     [SerializeField] private GameObject _key;
+    [SerializeField] private GameObject[] _triggers;
+    [SerializeField] private bool[] _alreadyTriggered;
 
     private IPlayerInventory _inventory;
     private float _doorMoveVelocity;
@@ -36,6 +37,14 @@ public class Prop_Door : MonoBehaviour, IInteractable
     {
         if(_inventory == null) _inventory = playerController.Inventory;
         _changeDoorState = true;
+
+        if (_triggers != null)
+        {
+            for(int i = 0; i < _triggers.Length; i++)
+            {
+                TriggerActions(_triggers[i].GetComponent<ITriggerAction>(), _alreadyTriggered[i]);
+            }
+        }
     }
 
     private void Update()
@@ -117,7 +126,7 @@ public class Prop_Door : MonoBehaviour, IInteractable
 
     public bool[] InteractableType()
     {
-        bool nonInspectable = _nonInspectable;
+        bool nonInspectable = true;
         bool inspectableOnly = false;
 
         bool[] interactableType = new bool[] { nonInspectable, inspectableOnly };
@@ -130,5 +139,14 @@ public class Prop_Door : MonoBehaviour, IInteractable
         bool[] rotateXYZ = new bool[] { false, false, false };
 
         return rotateXYZ;
+    }
+
+    public void TriggerActions(ITriggerAction trigger, bool alreadyTriggered)
+    {
+        if(!alreadyTriggered)
+        {
+            trigger.TriggerAction();
+            alreadyTriggered = true;
+        }
     }
 }

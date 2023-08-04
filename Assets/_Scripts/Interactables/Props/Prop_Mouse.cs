@@ -70,4 +70,9 @@ public class Prop_Mouse : MonoBehaviour, IInteractable
 
         return rotateXYZ;
     }
+
+    public void TriggerActions(ITriggerAction trigger, bool alreadyTriggered)
+    {
+        throw new System.NotImplementedException();
+    }
 }
