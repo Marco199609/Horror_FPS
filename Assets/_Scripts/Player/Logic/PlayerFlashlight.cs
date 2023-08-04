@@ -11,7 +11,7 @@ public interface IFlashlightControl
 
 public class PlayerFlashlight : MonoBehaviour, IFlashlightControl
 {
-    private bool _waitForScroll, _isScrolling, _hasBattery, _turnOn;
+    private bool _waitForScroll, _isScrolling, _hasBattery, _turnOn = true;
     private float _currentIntensity;
     private Light _flashlight;
     private PlayerData _playerData;
