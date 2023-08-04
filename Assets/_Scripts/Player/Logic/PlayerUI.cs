@@ -35,7 +35,7 @@ public class PlayerUI : MonoBehaviour, IPlayerUI
                 _interactableDescription = interactable.InteractableDescription();
                 _actionDescription = interactable.ActionDescription();
 
-                ItemDescriptionActivated?.Invoke(_interactableDescription, _actionDescription, interactable.InspectableOnly()); //Passes description to UI manager
+                ItemDescriptionActivated?.Invoke(_interactableDescription, _actionDescription, interactable.InteractableType()[1]);//Index 1 is Inspectable only; passes description to UI manager
                 _playerUIActive = true;
             }
 

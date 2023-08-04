@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IPlayerInspect
 {
-    void Inspect(Transform inspectable, bool rotateX, bool rotateY, bool rotateZ);
+    void Inspect(Transform inspectable, bool[] rotateXYZ);
     bool Inspecting();
     void ManageInspection(PlayerData playerData, IPlayerInput playerInput);
 }
@@ -23,16 +23,16 @@ public class PlayerInspect : MonoBehaviour, IPlayerInspect
     private Quaternion _previousRotation;
 
     private PlayerData _playerData;
-    public void Inspect(Transform inspectable, bool rotateX, bool rotateY, bool rotateZ)
+    public void Inspect(Transform inspectable, bool[] rotateXYZ)
     {
         _currentInspectableSelected = inspectable;
         _previousPosition = inspectable.position;
         _previousScale = inspectable.localScale;
         _previousRotation = inspectable.rotation;
         _previousParent = inspectable.parent;
-        _rotateX = rotateX;
-        _rotateY = rotateY;
-        _rotateZ = rotateZ;
+        _rotateX = rotateXYZ[0];
+        _rotateY = rotateXYZ[1];
+        _rotateZ = rotateXYZ[2];
 
         inspectable.GetComponent<Collider>().enabled = false;
         _timer = _deleteCurrentInspectableTimer;

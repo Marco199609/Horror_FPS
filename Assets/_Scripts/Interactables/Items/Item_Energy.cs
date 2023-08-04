@@ -23,26 +23,20 @@ public class Item_Energy : MonoBehaviour, IInteractable
         Destroy(gameObject);
     }
 
-    public bool NonInspectable()
+    public bool[] InteractableType()
     {
-        return _nonInspectable;
-    }
-    public bool InspectableOnly()
-    {
-        return false;
-    }
-    public bool PassRotateX()
-    {
-        return _rotateX;
+        bool nonInspectable = _nonInspectable;
+        bool inspectableOnly = false;
+
+        bool[] interactableType = new bool[] { nonInspectable, inspectableOnly };
+
+        return interactableType;
     }
 
-    public bool PassRotateY()
+    public bool[] RotateXYZ()
     {
-        return _rotateY;
-    }
+        bool[] rotateXYZ = new bool[] { _rotateX, _rotateY, _rotateZ };
 
-    public bool PassRotateZ()
-    {
-        return _rotateZ;
+        return rotateXYZ;
     }
 }

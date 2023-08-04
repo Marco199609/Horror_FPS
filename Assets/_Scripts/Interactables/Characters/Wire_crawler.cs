@@ -61,29 +61,20 @@ public class Wire_crawler : MonoBehaviour, IInteractable
     {
         return "";
     }
-
-    public bool InspectableOnly()
+    public bool[] InteractableType()
     {
-        return false;
+        bool nonInspectable = true;
+        bool inspectableOnly = false;
+
+        bool[] interactableType = new bool[] { nonInspectable, inspectableOnly };
+
+        return interactableType;
     }
 
-    public bool NonInspectable()
+    public bool[] RotateXYZ()
     {
-        return true;
-    }
+        bool[] rotateXYZ = new bool[] { false, false, false };
 
-    public bool PassRotateX()
-    {
-        return false;
-    }
-
-    public bool PassRotateY()
-    {
-        return false;
-    }
-
-    public bool PassRotateZ()
-    {
-        return false;
+        return rotateXYZ;
     }
 }

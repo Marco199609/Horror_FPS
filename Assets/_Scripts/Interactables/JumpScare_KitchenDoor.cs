@@ -13,10 +13,7 @@ public class JumpScare_KitchenDoor : MonoBehaviour, IInteractable
         return "";
     }
 
-    public bool InspectableOnly()
-    {
-        return false;
-    }
+    
 
     public void Interact(PlayerController playerController)
     {
@@ -41,23 +38,20 @@ public class JumpScare_KitchenDoor : MonoBehaviour, IInteractable
         return "";
     }
 
-    public bool NonInspectable()
+    public bool[] InteractableType()
     {
-        return true;
+        bool nonInspectable = true;
+        bool inspectableOnly = false;
+
+        bool[] interactableType = new bool[] { nonInspectable, inspectableOnly };
+
+        return interactableType;
     }
 
-    public bool PassRotateX()
+    public bool[] RotateXYZ()
     {
-        return false;
-    }
+        bool[] rotateXYZ = new bool[] { false, false, false };
 
-    public bool PassRotateY()
-    {
-        return false;
-    }
-
-    public bool PassRotateZ()
-    {
-        return false;
+        return rotateXYZ;
     }
 }

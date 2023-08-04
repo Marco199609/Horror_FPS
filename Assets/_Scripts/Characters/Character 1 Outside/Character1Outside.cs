@@ -42,28 +42,20 @@ public class Character1Outside : MonoBehaviour, IInteractable
         transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * 80);
     }
 
-    public bool NonInspectable()
+    public bool[] InteractableType()
     {
-        return _nonInspectable;
+        bool nonInspectable = _nonInspectable;
+        bool inspectableOnly = false;
+
+        bool[] interactableType = new bool[] { nonInspectable, inspectableOnly };
+
+        return interactableType;
     }
 
-    public bool InspectableOnly()
+    public bool[] RotateXYZ()
     {
-        return false;
-    }
+        bool[] rotateXYZ = new bool[] { false, false, false };
 
-    public bool PassRotateX()
-    {
-        return false;
-    }
-
-    public bool PassRotateY()
-    {
-        return false;
-    }
-
-    public bool PassRotateZ()
-    {
-        return false;
+        return rotateXYZ;
     }
 }

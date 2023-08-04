@@ -29,28 +29,20 @@ public class Item_Health : MonoBehaviour, IInteractable
         //ObjectManager.Instance.Player.GetComponent<Health>().ModifyHealth(_health);
     }
 
-    public bool NonInspectable()
+    public bool[] InteractableType()
     {
-        return _nonInspectable;
+        bool nonInspectable = _nonInspectable;
+        bool inspectableOnly = false;
+
+        bool[] interactableType = new bool[] { nonInspectable, inspectableOnly };
+
+        return interactableType;
     }
 
-    public bool InspectableOnly()
+    public bool[] RotateXYZ()
     {
-        return false;
-    }
+        bool[] rotateXYZ = new bool[] { _rotateX, _rotateY, _rotateZ };
 
-    public bool PassRotateX()
-    {
-        return _rotateX;
-    }
-
-    public bool PassRotateY()
-    {
-        return _rotateY;
-    }
-
-    public bool PassRotateZ()
-    {
-        return _rotateZ;
+        return rotateXYZ;
     }
 }

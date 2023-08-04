@@ -17,10 +17,10 @@ public class PlayerInteract : MonoBehaviour, IPlayerInteract
             {
                 hit.collider.GetComponent<IInteractable>().Interact(GetComponent<PlayerController>());
             }
-            else if (Input.GetMouseButtonDown(0) && hit.collider.GetComponent<IInteractable>().NonInspectable() == false)
+            else if (Input.GetMouseButtonDown(0) && hit.collider.GetComponent<IInteractable>().InteractableType()[0] == false) //index 0 is NonInspectable
             {
                 IInteractable interactable = hit.collider.GetComponent<IInteractable>();
-                playerInspect.Inspect(hit.transform, interactable.PassRotateX(), interactable.PassRotateY(), interactable.PassRotateZ());
+                playerInspect.Inspect(hit.transform, interactable.RotateXYZ());
             }
         }
     }

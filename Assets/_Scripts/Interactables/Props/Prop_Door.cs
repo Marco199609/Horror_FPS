@@ -114,28 +114,21 @@ public class Prop_Door : MonoBehaviour, IInteractable
         else if (!_doorCollider.enabled) _doorCollider.enabled = true;
     }
 
-    public bool NonInspectable()
+
+    public bool[] InteractableType()
     {
-        return _nonInspectable;
+        bool nonInspectable = _nonInspectable;
+        bool inspectableOnly = false;
+
+        bool[] interactableType = new bool[] { nonInspectable, inspectableOnly };
+
+        return interactableType;
     }
 
-    public bool InspectableOnly()
+    public bool[] RotateXYZ()
     {
-        return false;
-    }
+        bool[] rotateXYZ = new bool[] { false, false, false };
 
-    public bool PassRotateX()
-    {
-        return false;
-    }
-
-    public bool PassRotateY()
-    {
-        return false;
-    }
-
-    public bool PassRotateZ()
-    {
-        return false;
+        return rotateXYZ;
     }
 }

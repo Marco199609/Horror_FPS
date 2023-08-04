@@ -15,7 +15,8 @@ public class Item_InspectableOnly : MonoBehaviour, IInteractable
 
     public void Interact(PlayerController playerController)
     {
-        playerController.PlayerInspect.Inspect(transform, _rotateX, _rotateY, _rotateZ);
+        bool[] rotateXYZ = new bool[] { _rotateX, _rotateY, _rotateZ };
+        playerController.PlayerInspect.Inspect(transform, rotateXYZ);
     }
 
     public string InteractableDescription()
@@ -23,28 +24,20 @@ public class Item_InspectableOnly : MonoBehaviour, IInteractable
         return _inspectableDescription;
     }
 
-    public bool NonInspectable()
+    public bool[] InteractableType()
     {
-        return false;
+        bool nonInspectable = false;
+        bool inspectableOnly = true;
+
+        bool[] interactableType = new bool[] { nonInspectable, inspectableOnly };
+
+        return interactableType;
     }
 
-    public bool InspectableOnly()
+    public bool[] RotateXYZ()
     {
-        return true;
-    }
+        bool[] rotateXYZ = new bool[] { _rotateX, _rotateY, _rotateZ };
 
-    public bool PassRotateX()
-    {
-        return _rotateX;
-    }
-
-    public bool PassRotateY()
-    {
-        return _rotateY;
-    }
-
-    public bool PassRotateZ()
-    {
-        return _rotateZ;
+        return rotateXYZ;
     }
 }
