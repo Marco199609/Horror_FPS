@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wire_crawler : MonoBehaviour, IInteractable
+public class Wire_crawler : MonoBehaviour, IInteractable, ITriggerAction
 {
     
     [SerializeField] private LevelManager _levelManager;
@@ -78,8 +78,22 @@ public class Wire_crawler : MonoBehaviour, IInteractable
         return rotateXYZ;
     }
 
-    public void TriggerActions(ITriggerAction trigger, bool alreadyTriggered)
+    public bool TriggerActions(ITriggerAction trigger, bool alreadyTriggered, float triggerDelay)
     {
         throw new System.NotImplementedException();
     }
+
+
+    #region Triggers
+    public void TriggerAction(float triggerDelay)
+    {
+        StartCoroutine(Trigger(triggerDelay));
+    }
+
+    public IEnumerator Trigger(float triggerDelay)
+    {
+        yield return new WaitForSeconds(triggerDelay);
+       _muffledTalkAudioSource.Play();
+    }
+    #endregion
 }

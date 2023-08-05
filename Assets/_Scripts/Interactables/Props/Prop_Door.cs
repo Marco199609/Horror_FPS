@@ -10,6 +10,7 @@ public class Prop_Door : MonoBehaviour, IInteractable
     [SerializeField] Collider _doorCollider;
     [SerializeField] private GameObject _key;
     [SerializeField] private GameObject[] _triggers;
+    [SerializeField] private float[] _triggerDelays;
     [SerializeField] private bool[] _alreadyTriggered;
 
     private IPlayerInventory _inventory;
@@ -42,7 +43,7 @@ public class Prop_Door : MonoBehaviour, IInteractable
         {
             for(int i = 0; i < _triggers.Length; i++)
             {
-                TriggerActions(_triggers[i].GetComponent<ITriggerAction>(), _alreadyTriggered[i]);
+                _alreadyTriggered[i] = TriggerActions(_triggers[i].GetComponent<ITriggerAction>(), _alreadyTriggered[i], _triggerDelays[i]);
             }
         }
     }
@@ -141,12 +142,14 @@ public class Prop_Door : MonoBehaviour, IInteractable
         return rotateXYZ;
     }
 
-    public void TriggerActions(ITriggerAction trigger, bool alreadyTriggered)
+    public bool TriggerActions(ITriggerAction trigger, bool alreadyTriggered, float triggerDelay)
     {
         if(!alreadyTriggered)
         {
-            trigger.TriggerAction();
+            trigger.TriggerAction(triggerDelay);
             alreadyTriggered = true;
         }
+
+        return alreadyTriggered;
     }
 }

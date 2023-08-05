@@ -332,6 +332,43 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &243136972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 243136973}
+  m_Layer: 0
+  m_Name: Trigger Colliders
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &243136973
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243136972}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 976208183}
+  m_Father: {fileID: 794589571}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &306880176 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3700915964454133950, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+  m_PrefabInstance: {fileID: 1846155208}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &329660959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -535,6 +572,11 @@ GameObject:
 --- !u!1 &340922147 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8997385359616104500, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
+  m_PrefabInstance: {fileID: 340922145}
+  m_PrefabAsset: {fileID: 0}
+--- !u!143 &340922153 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 6533751894493500773, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
   m_PrefabInstance: {fileID: 340922145}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &379479352 stripped
@@ -883,6 +925,82 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!1 &976208182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 976208183}
+  - component: {fileID: 976208184}
+  - component: {fileID: 976208186}
+  - component: {fileID: 976208185}
+  m_Layer: 0
+  m_Name: Hall Light Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &976208183
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976208182}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15.8, y: 3.82, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 243136973}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &976208184
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976208182}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.3111038, y: 6.282522, z: 9.804203}
+  m_Center: {x: -1.1555519, y: 0.110052586, z: 0}
+--- !u!114 &976208185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976208182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d436e9a29bd451a41871c9c0194fa7c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameObject: {fileID: 306880176}
+--- !u!114 &976208186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976208182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33447ff7f9ecbc54680035a8326d6731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggerCollider: {fileID: 340922153}
+  _gameObjectActivator: {fileID: 976208185}
+  _delay: 5
+  _deactivateThis: 1
 --- !u!1001 &1037141047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1103,7 +1221,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 699617e2f72420249bd5c494e60fbee9, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
@@ -1389,8 +1507,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 802227796}
     - target: {fileID: 1171639717336832538, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: _triggerDelays.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171639717336832538, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
       propertyPath: _alreadyTriggered.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171639717336832538, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: _triggerDelays.Array.data[0]
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1171639717367093585, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
       propertyPath: _currentDoorState
@@ -1399,6 +1525,26 @@ PrefabInstance:
     - target: {fileID: 1171639717565148201, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
       propertyPath: _currentDoorState
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171639718208146638, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: _triggers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171639718208146638, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: _triggers.Array.data[0]
+      value: 
+      objectReference: {fileID: 919132147839547609}
+    - target: {fileID: 1171639718208146638, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: _triggerDelays.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171639718208146638, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: _alreadyTriggered.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171639718208146638, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: _triggerDelays.Array.data[0]
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1171639718366477128, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
       propertyPath: _currentDoorState
@@ -1446,7 +1592,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2111418601662554633, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2550073340794442915, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1468,6 +1614,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ac047e052760f134a8729b4248eee1a2, type: 2}
+    - target: {fileID: 3700915964454133950, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3722383350653460468, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1496,6 +1646,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 49b088a0e2664f04bab89f06e90b1a7d, type: 2}
+    - target: {fileID: 6963582376485648761, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ac047e052760f134a8729b4248eee1a2, type: 2}
     - target: {fileID: 7124353084518893427, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
       propertyPath: _enableFlicker
       value: 1

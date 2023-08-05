@@ -4,5 +4,7 @@ using UnityEngine;
 
 public interface ITriggerAction
 {
-    void TriggerAction();
+    void TriggerAction(float triggerDelay);
+
+    IEnumerator Trigger(float triggerDelay);
 }

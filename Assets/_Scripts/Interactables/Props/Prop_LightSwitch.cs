@@ -67,7 +67,7 @@ public class Prop_LightSwitch : MonoBehaviour, IInteractable
         return rotateXYZ;
     }
 
-    public void TriggerActions(ITriggerAction trigger, bool alreadyTriggered)
+    public bool TriggerActions(ITriggerAction trigger, bool alreadyTriggered, float triggerDelay)
     {
         throw new System.NotImplementedException();
     }

@@ -9,5 +9,5 @@ public interface IInteractable
     string ActionDescription();
     void Interact(PlayerController playerController);
     bool[] RotateXYZ();
-    void TriggerActions(ITriggerAction trigger, bool alreadyTriggered);
+    bool TriggerActions(ITriggerAction trigger, bool alreadyTriggered, float triggerDelay);
 }
