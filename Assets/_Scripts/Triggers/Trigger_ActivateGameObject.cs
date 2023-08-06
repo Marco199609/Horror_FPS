@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Trigger_ActivateGameObject : MonoBehaviour, ITriggerAction
 {
-    public GameObject _gameObject;
+    public GameObject[] _gameObjects;
     public void TriggerAction(float triggerDelay)
     {
         StartCoroutine(Trigger(triggerDelay));
@@ -14,6 +14,9 @@ public class Trigger_ActivateGameObject : MonoBehaviour, ITriggerAction
     {
         yield return new WaitForSeconds(triggerDelay);
 
-        _gameObject.SetActive(true);
+        for(int i = 0; i < _gameObjects.Length; i++)
+        {
+            _gameObjects[i].SetActive(true);
+        }
     }
 }
