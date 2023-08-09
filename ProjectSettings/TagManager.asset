@@ -9,6 +9,7 @@ TagManager:
   - InputManager
   - Hand
   - Weapon
+  - DialogueText
   layers:
   - Default
   - TransparentFX

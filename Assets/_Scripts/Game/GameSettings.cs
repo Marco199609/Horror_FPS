@@ -17,9 +17,9 @@ public class GameSettings : MonoBehaviour
     [SerializeField] private GameObject _continueGameButton;
 
     [Header("Game Settings")]
-    [SerializeField] private TMP_Dropdown _framerateDropdownButton;
+    [SerializeField] private TMP_Dropdown _framerateDropdownButton, _languageDropdownButton;
     [SerializeField] private Slider _mouseSensitivitySlider;
-    [SerializeField] private Toggle _vSyncToggle;
+    [SerializeField] private Toggle _vSyncToggle, _subtitlesToggle;
 
     private float _mouseSensitivity = 200;
     private int _targetFramerate;
@@ -28,6 +28,8 @@ public class GameSettings : MonoBehaviour
     private PlayerData _playerData;
 
     private AudioSource _mainMusicSource;
+
+    private bool english, spanish;
 
     private void Awake()
     {
@@ -100,6 +102,46 @@ public class GameSettings : MonoBehaviour
     {
         if (_vSyncToggle.isOn) QualitySettings.vSyncCount = 1;
         else QualitySettings.vSyncCount = 0;
+    }
+
+    public void SetLanguage()
+    {
+        if (_languageDropdownButton.value == 0)
+        {
+            english = true;
+            spanish = false;
+        }
+        else if(_languageDropdownButton.value == 1)
+        {
+            english = false;
+            spanish = true;
+        }
+
+        SetSubtitles();
+    }
+
+    public void SetSubtitles()
+    {
+        if (_subtitlesToggle.isOn)
+        {
+            if (english)
+            {
+                DialogueSystem.instance._dialogueData.english = true;
+                DialogueSystem.instance._dialogueData.spanish = false;
+            }
+            if (spanish)
+            {
+                DialogueSystem.instance._dialogueData.english = false;
+                DialogueSystem.instance._dialogueData.spanish = true;
+            }
+        }
+        else
+        {
+            DialogueSystem.instance._dialogueData.english = false;
+            DialogueSystem.instance._dialogueData.spanish = false;
+        }
+
+        DialogueSystem.instance.ChangeLanguage();
     }
 
     #endregion

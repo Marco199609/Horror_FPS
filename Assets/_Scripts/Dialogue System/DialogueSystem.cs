@@ -6,7 +6,7 @@ using TMPro;
 
 public class DialogueSystem : MonoBehaviour
 {
-    [SerializeField] private TMP_Text DialogueUI;
+    private TMP_Text _dialogueUI;
     public DialogueData _dialogueData;
     private DialogueTextList _dialogueTextList;
 
@@ -26,6 +26,14 @@ public class DialogueSystem : MonoBehaviour
         ParseJSON();
     }
 
+    private void Update()
+    {
+        if(_dialogueUI == null)
+        {
+            _dialogueUI = GameObject.FindWithTag("DialogueText").GetComponent<TMP_Text>();
+        }
+    }
+
     public void ManageDialogues(int dialogueIndex)
     {
         _dialogueData.DialogueAudioSource.PlayOneShot(_dialogueData.DialogueClips[dialogueIndex]);
@@ -36,9 +44,14 @@ public class DialogueSystem : MonoBehaviour
 
     private IEnumerator SetTextUI(string dialogueText, float duration)
     {
-        DialogueUI.text = dialogueText;
+        _dialogueUI.text = dialogueText;
         yield return new WaitForSeconds(duration);
-        DialogueUI.text = "";
+        _dialogueUI.text = "";
+    }
+
+    public void ChangeLanguage()
+    {
+        ParseJSON();
     }
 
 
