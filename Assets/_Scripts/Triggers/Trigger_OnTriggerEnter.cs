@@ -5,6 +5,7 @@ using UnityEngine;
 public class Trigger_OnTriggerEnter : MonoBehaviour
 {
     [SerializeField] private Collider _triggerCollider;
+    [SerializeField] private string _triggerColliderTag; //Use if collider not in same scene
     [SerializeField] private float _delay;
     [SerializeField] private bool _deactivateThis;
 
@@ -13,22 +14,15 @@ public class Trigger_OnTriggerEnter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        _trigger = gameObject.GetComponent<ITriggerAction>();
-
-        if(other == _triggerCollider)
+        if(other == _triggerCollider || other.CompareTag(_triggerColliderTag))
         {
+            _trigger = gameObject.GetComponent<ITriggerAction>();
             _trigger.TriggerAction(_delay);
         }
 
         if(_deactivateThis)
         {
-            StartCoroutine(DeactivateTrigger(_delay + 0.01f));
+            Destroy(this, _delay + 0.01f);
         }
-    }
-
-    IEnumerator DeactivateTrigger(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        gameObject.SetActive(false);
     }
 }

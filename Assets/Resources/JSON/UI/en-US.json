@@ -1,60 +1,60 @@
 {"MenuTexts":[{
 	"Text":"START GAME"
-}
+},
 {
 	"Text":"SETTINGS"
-}
+},
 {
 	"Text":"EXIT"
-}
+},
 {
 	"Text":"Mouse Sensitivity"
-}
+},
 {
 	"Text":"Lock Framerate"
-}
+},
 {
 	"Text":"Vsync"
-}
+},
 {
 	"Text":"BACK"
-}
+},
 {
 	"Text":"Move Up"
-}
+},
 {
 	"Text":"Move Down"
-}
+},
 {
 	"Text":"Move Left"
-}
+},
 {
 	"Text":"Move Right"
-}
+},
 {
 	"Text":"Run"
-}
+},
 {
 	"Text":"Action/Interact"
-}
+},
 {
 	"Text":"Flashlight"
-}
+},
 {
 	"Text":"Pause"
-}
+},
 {
 	"Text":"Mouse Move - Look Around"
-}
+},
 {
 	"Text":"Scroll - Change Item"
-}
+},
 {
 	"Text":"Left Mouse - Inspect"
-}
+},
 {
 	"Text":"Right Mouse - Return Inspected"
-}
+},
 {
 	"Text":"F + Scroll - Flashlight Intensity"
 }]
@@ -66,79 +66,79 @@
 },
 {
 	"Text": "Weird. I don't remember lying down yet."
-}
+},
 {
 	"Text": "My heart is racing."
-}
+},
 {
 	"Text": "I should take my pills now"
-}
+},
 {
 	"Text": "I really should take my pills, right now."
-}
+},
 {
 	"Text": "I thought I had more pills"
-}
+},
 {
 	"Text": "How many did I take last night?"
-}
+},
 {
 	"Text": "What was that earlier?"
-}
+},
 {
 	"Text": "It didn´t feel like a dream."
-}
+},
 {
 	"Text": "But it game me chills"
-}
+},
 {
 	"Text": "Well, I really need to get some sleep."
-}
+},
 {
 	"Text": "I really should get some sleep now."
-}
+},
 {
 	"Text": ""
-}
+},
 {
 	"Text": ""
-}
+},
 {
 	"Text": ""
-}
+},
 {
 	"Text": ""
-}
+},
 {
 	"Text": ""
-}
+},
 {
 	"Text": ""
-}
+},
 {
 	"Text": ""
-}
+},
 {
 	"Text": ""
-}
+},
 {
 	"Text": ""
-}
+},
 {
 	"Text": ""
-}
+},
 {
 	"Text": ""
-}
+},
 {
 	"Text": ""
-}
+},
 {
 	"Text": ""
-}
+},
 {
 	"Text": ""
-}
+},
 {
 	"Text": ""
 }]
