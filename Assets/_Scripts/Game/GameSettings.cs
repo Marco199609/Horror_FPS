@@ -106,12 +106,12 @@ public class GameSettings : MonoBehaviour
 
     public void SetLanguage()
     {
-        if (_languageDropdownButton.value == 0)
+        if (_languageDropdownButton.captionText.text == "English") // value == 0)
         {
             english = true;
             spanish = false;
         }
-        else if(_languageDropdownButton.value == 1)
+        else if (_languageDropdownButton.captionText.text == "Spanish")// == 1)
         {
             english = false;
             spanish = true;

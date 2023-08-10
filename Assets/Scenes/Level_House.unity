@@ -10548,7 +10548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueIndex: 0000000001000000
   _dialogueDelay:
-  - 2
+  - 1
   - 0
 --- !u!114 &1937197336
 MonoBehaviour:
