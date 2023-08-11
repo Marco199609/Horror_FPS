@@ -46,7 +46,8 @@ public class Wire_crawler : MonoBehaviour, IInteractable, ITriggerAction
             {
                 _playerLookingLight.SetActive(false);
                 _playerController.FreezePlayerMovement = false;
-                _levelManager.LoadHouseLevel();
+                _levelManager.LoadHouseLevel(_playerController, new Vector3(11.2f, 
+                    _playerController.Player.transform.localPosition.y, 19.6f), 175f); //Sets player in bedroom
             }
         }
     }

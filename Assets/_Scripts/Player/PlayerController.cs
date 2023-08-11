@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameSettings _gameSettings;
     [SerializeField] private PlayerData _playerData;
 
-    private GameObject _player;
+
     private Ray _ray; //used for item interaction
     private CinemachineBrain _cinemachine;
 
@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     private IPlayerAudio _playerAudio;
     private PlayerStressControl _playerStressControl;
 
+    public GameObject Player { get; private set; }
     public IFlashlightControl PlayerFlashlight;
     public IPlayerInventory Inventory { get; private set; }
     public IPlayerInspect PlayerInspect { get; private set; }
@@ -67,7 +68,7 @@ public class PlayerController : MonoBehaviour
         PlayerInspect = GetComponent<IPlayerInspect>();
 
 
-        _player = _playerData.gameObject;
+        Player = _playerData.gameObject;
     }
 
     void Start()
@@ -100,7 +101,7 @@ public class PlayerController : MonoBehaviour
     private void PlayerMovement()
     {
         if(!FreezePlayerMovement)
-            _playerMovement.PlayerMove(_player, _playerInput);
+            _playerMovement.PlayerMove(Player, _playerInput);
     }
 
     private void PlayerCameraRotation()
@@ -111,7 +112,7 @@ public class PlayerController : MonoBehaviour
 
     private void CameraControl()
     {
-        _playerCameraControl.ControlCameraHeadBob(_player);
+        _playerCameraControl.ControlCameraHeadBob(Player);
     }
 
     private void PlayerAudioControl()

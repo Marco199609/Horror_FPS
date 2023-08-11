@@ -6,6 +6,7 @@ public interface IPlayerAudio
 {
     void Footsteps(PlayerData playerData, IPlayerInput playerInput);
     void PlayerBreath();
+    void PlayerHeartbeat();
 }
 
 public class PlayerAudio : MonoBehaviour, IPlayerAudio
@@ -42,5 +43,10 @@ public class PlayerAudio : MonoBehaviour, IPlayerAudio
             _playerBreathSource.volume = SoundManager.Instance.PlayerBreathClipVolume * SoundManager.Instance.GlobalSoundFXVolume;
             _playerBreathSource.Play();
         }
+    }
+
+    public void PlayerHeartbeat()
+    {
+        throw new System.NotImplementedException();
     }
 }
