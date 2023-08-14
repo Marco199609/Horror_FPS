@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactable_LevelChanger : MonoBehaviour, IInteractable
+public class Interactable_LevelLoader : MonoBehaviour, IInteractable
 {
     public string ActionDescription()
     {
@@ -11,7 +11,7 @@ public class Interactable_LevelChanger : MonoBehaviour, IInteractable
 
     public void Interact(PlayerController playerController)
     {
-        gameObject.GetComponent<Trigger_LevelChange>().LoadLevel(playerController);
+        gameObject.GetComponent<Trigger_LevelLoader>().LoadLevel();
     }
 
     public string InteractableDescription()

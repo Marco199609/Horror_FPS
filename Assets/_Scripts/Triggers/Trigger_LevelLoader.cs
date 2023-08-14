@@ -2,29 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trigger_LevelChange : MonoBehaviour
+public class Trigger_LevelLoader : MonoBehaviour
 {
     private enum Level {House, Dream};
     [SerializeField] private Level _loadLevel;
 
-    [SerializeField] private Vector3 _playerSpawnPosition; //Leave y as 0, z is y rotation in Unity
+    [SerializeField] private Vector3 _playerSpawnPosition; //Leave y as 0
     [SerializeField] private float _playerSpawnRotation; //Player y rotation
     [SerializeField] private bool _setLevelMaskInstantly;
 
-    public void LoadLevel(PlayerController playerController)
+    public void LoadLevel()
     {
         switch (_loadLevel)
         {
             case Level.House:
                 {
-                    LevelManager.Instance.LoadHouseLevel(new Vector3(_playerSpawnPosition.x, 
-                        playerController.Player.transform.localPosition.y, _playerSpawnPosition.z), _playerSpawnRotation, _setLevelMaskInstantly);
+                    LevelLoader.Instance.LoadHouseLevel(new Vector3(_playerSpawnPosition.x, 
+                        0, _playerSpawnPosition.z), _playerSpawnRotation, _setLevelMaskInstantly);
                     break;
                 }
             case Level.Dream:
                 {
-                    LevelManager.Instance.LoadDreamLevel(new Vector3(_playerSpawnPosition.x,
-                        playerController.Player.transform.localPosition.y, _playerSpawnPosition.z), _playerSpawnRotation, _setLevelMaskInstantly);
+                    LevelLoader.Instance.LoadDreamLevel(new Vector3(_playerSpawnPosition.x,
+                        0, _playerSpawnPosition.z), _playerSpawnRotation, _setLevelMaskInstantly);
                     break;
                 }
         }

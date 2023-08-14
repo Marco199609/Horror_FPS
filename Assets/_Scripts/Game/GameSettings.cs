@@ -42,7 +42,8 @@ public class GameSettings : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Level_Dream", LoadSceneMode.Single);
+        gameObject.GetComponent<Trigger_LevelLoader>().LoadLevel();
+        //SceneManager.LoadScene("Level_Dream", LoadSceneMode.Single);
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 

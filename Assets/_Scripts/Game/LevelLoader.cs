@@ -4,16 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LevelManager : MonoBehaviour
+public class LevelLoader : MonoBehaviour
 {
-    public static LevelManager Instance { get; private set; }
+    public static LevelLoader Instance { get; private set; }
 
+    [SerializeField] private PlayerController _playerController;
     [SerializeField] private CinemachineVirtualCamera _virtualCamera;
     [SerializeField] private Image _levelChangeMask;
-    [SerializeField] private PlayerController _playerController;
     [SerializeField] private GameObject _playerLookingLight;
 
-    private float _playerFreezeTime = 0.5f, _removeMaskDefaultDelay = 1.5f, _maskSpeed = 1.5f; //Defaults
+    private float _removeMaskDefaultDelay = 1.5f, _maskSpeed = 1.5f; //Defaults
     private float _playerRotationY, _currentTransparency, _removeMaskDelay;
     private bool _changeScene, _removeMask, _isMaskInstant, _activatePlayerLookingLight;
     private string _sceneName;
@@ -35,9 +35,9 @@ public class LevelManager : MonoBehaviour
     private void Update()
     {
         if (_changeScene)
-            PrepareSceneChange(_isMaskInstant, _maskSpeed);
+            PrepareSceneChange();
         else if (_removeMask)
-            StartCoroutine(RemoveLevelChangeMask(_removeMaskDelay, _maskSpeed));
+            StartCoroutine(RemoveLevelChangeMask(_removeMaskDelay));
     }
 
     #region Level Change
@@ -62,30 +62,34 @@ public class LevelManager : MonoBehaviour
     }
     #endregion
 
-    private void PrepareSceneChange(bool isLevelMaskInstant, float speed)
+    private void PrepareSceneChange()
     {
-        if (isLevelMaskInstant)
+        if(_isMaskInstant)
         {
             _currentTransparency = 1;
             _removeMaskDelay = _removeMaskDefaultDelay;
         }
-
         else
         {
             _removeMaskDelay = _removeMaskDefaultDelay / 3;
-            _currentTransparency += Time.deltaTime * speed;
+            _currentTransparency += Time.deltaTime * _maskSpeed;
         }
-
 
         if (_currentTransparency >= 1)
         {
             _currentTransparency = 1;
             _levelChangeMask.color = new Color(0, 0, 0, _currentTransparency); //Prevents light leaks
 
+            //Setup player controller
+            if (!_playerController.gameObject.activeInHierarchy) _playerController.gameObject.SetActive(true);
             _playerLookingLight.SetActive(_activatePlayerLookingLight);
             _playerController.PlayerFlashlight.TurnOff();
+            _playerController.FreezePlayerRotation = true;
+            _playerController.FreezePlayerMovement = true;
+
             SceneManager.LoadScene(_sceneName);
-            StartCoroutine(FreezePlayerMotion(_playerLocalPosition, _playerFreezeTime));
+
+            SetPlayerPosition(_playerLocalPosition);
             SetPlayerRotation(_playerRotationY);
 
             _changeScene = false;
@@ -96,15 +100,6 @@ public class LevelManager : MonoBehaviour
     }
 
     #region Player Props
-    IEnumerator FreezePlayerMotion(Vector3 playerLocalPosition, float freezeTime)
-    {
-        _playerController.FreezePlayerMovement = true;
-        SetPlayerPosition(playerLocalPosition);
-
-        yield return new WaitForSeconds(freezeTime);
-
-        _playerController.FreezePlayerMovement = false;
-    }
 
     private void SetPlayerPosition(Vector3 playerLocalPosition)
     {
@@ -122,18 +117,18 @@ public class LevelManager : MonoBehaviour
     }
     #endregion
 
-    private IEnumerator RemoveLevelChangeMask(float delay, float speed)
+    private IEnumerator RemoveLevelChangeMask(float delay)
     {
         yield return new WaitForSeconds(delay);
 
-        if (_currentTransparency > 0)
-        {
-            _currentTransparency -= Time.deltaTime * speed;
-        }
+        if (_currentTransparency > 0) _currentTransparency -= Time.deltaTime * _maskSpeed;
         else if (_currentTransparency <= 0)
         {
             _currentTransparency = 0;
             _removeMask = false;
+
+            _playerController.FreezePlayerMovement = false;
+            _playerController.FreezePlayerRotation = false;
         }
 
         _levelChangeMask.color = new Color(0, 0, 0, _currentTransparency);

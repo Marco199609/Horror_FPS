@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Wire_crawler : MonoBehaviour, IInteractable, ITriggerAction
-{
-    
-    [SerializeField] private LevelManager _levelManager;
-    
+{    
     [SerializeField] private Material _wireCrawlerMaterial;
     [SerializeField] private Renderer _wireCrawlerRenderer;
     [SerializeField] private AudioSource _wireCrawlerAudioSource, _muffledTalkAudioSource;
@@ -44,7 +41,7 @@ public class Wire_crawler : MonoBehaviour, IInteractable, ITriggerAction
 
             if (!_wireCrawlerAudioSource.isPlaying)
             {
-                gameObject.GetComponent<Trigger_LevelChange>().LoadLevel(_playerController);
+                gameObject.GetComponent<Trigger_LevelLoader>().LoadLevel();
             }
         }
     }

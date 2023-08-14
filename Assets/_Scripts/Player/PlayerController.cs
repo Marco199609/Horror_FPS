@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     [NonSerialized] public List<GameObject> InteractablesInSight;
 
    //Used in crawler, to freeze player for next level
-    public bool FreezePlayerMovement;
+    public bool FreezePlayerMovement, FreezePlayerRotation;
 
     private void Awake()
     {
@@ -112,8 +112,8 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerCameraRotation()
     {
-
-        _playerRotate.RotatePlayer(_playerData, _playerInput, PlayerInspect.Inspecting());
+        if(!FreezePlayerRotation)
+            _playerRotate.RotatePlayer(_playerData, _playerInput, PlayerInspect.Inspecting());
     }
 
     private void CameraControl()
