@@ -10,11 +10,16 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private CinemachineVirtualCamera _virtualCamera;
     [SerializeField] private Image _levelChangeMask;
+    [SerializeField] private PlayerController _playerController;
     [SerializeField] private GameObject _playerLookingLight;
 
-    private float _playerFreezeTime = 0.5f, _currentTransparency;
-    private bool _removeMask;
+    private float _playerFreezeTime = 0.5f, _removeMaskDefaultDelay = 1.5f, _maskSpeed = 1.5f; //Defaults
+    private float _playerRotationY, _currentTransparency, _removeMaskDelay;
+    private bool _changeScene, _removeMask, _isMaskInstant, _activatePlayerLookingLight;
+    private string _sceneName;
+    private Vector3 _playerLocalPosition;
     private CinemachinePOV _vCamCinemachinePOV;
+
 
     private void Awake()
     {
@@ -29,54 +34,87 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
-        if(_removeMask)
-            RemoveLevelChangeMask(1.5f);
+        if (_changeScene)
+            PrepareSceneChange(_isMaskInstant, _maskSpeed);
+        else if (_removeMask)
+            StartCoroutine(RemoveLevelChangeMask(_removeMaskDelay, _maskSpeed));
     }
 
     #region Level Change
-    public void LoadHouseLevel(PlayerController playerController, Vector3 playerLocalPosition, float playerRotationY)
+    public void LoadHouseLevel(Vector3 playerLocalPosition, float playerRotationY, bool isLevelMaskInstant)
     {
-        _levelChangeMask.color = Color.black;
-        playerController.PlayerFlashlight.TurnOff();
-        _playerLookingLight.SetActive(false);
-        SceneManager.LoadScene("Level_House");
-        StartCoroutine(FreezePlayerMotion(playerController, playerLocalPosition, _playerFreezeTime));
-        SetPlayerRotation(playerController, playerRotationY);
-        _removeMask = true;
+        _sceneName = "Level_House";
+        _changeScene = true;
+        _isMaskInstant = isLevelMaskInstant;
+        _activatePlayerLookingLight = false;
+        _playerLocalPosition = playerLocalPosition;
+        _playerRotationY = playerRotationY;
     }
 
-    public void LoadDreamLevel(PlayerController playerController, Vector3 playerLocalPosition, float playerRotationY)
+    public void LoadDreamLevel(Vector3 playerLocalPosition, float playerRotationY, bool isLevelMaskInstant)
     {
-        _levelChangeMask.color = Color.black;
-        playerController.PlayerFlashlight.TurnOff();
-        _playerLookingLight.SetActive(true);
-        SceneManager.LoadScene("Level_Dream");
-        StartCoroutine(FreezePlayerMotion(playerController, playerLocalPosition, _playerFreezeTime));
-        SetPlayerRotation(playerController, playerRotationY);
-        _removeMask = true;
+        _sceneName = "Level_Dream";
+        _changeScene = true;
+        _isMaskInstant = isLevelMaskInstant;
+        _activatePlayerLookingLight = true;
+        _playerLocalPosition = playerLocalPosition;
+        _playerRotationY = playerRotationY;
     }
     #endregion
 
-    #region Player Props
-    IEnumerator FreezePlayerMotion(PlayerController playerController, Vector3 playerLocalPosition, float freezeTime)
+    private void PrepareSceneChange(bool isLevelMaskInstant, float speed)
     {
-        playerController.FreezePlayerMovement = true;
-        SetPlayerPosition(playerController, playerLocalPosition);
+        if (isLevelMaskInstant)
+        {
+            _currentTransparency = 1;
+            _removeMaskDelay = _removeMaskDefaultDelay;
+        }
+
+        else
+        {
+            _removeMaskDelay = _removeMaskDefaultDelay / 3;
+            _currentTransparency += Time.deltaTime * speed;
+        }
+
+
+        if (_currentTransparency >= 1)
+        {
+            _currentTransparency = 1;
+            _levelChangeMask.color = new Color(0, 0, 0, _currentTransparency); //Prevents light leaks
+
+            _playerLookingLight.SetActive(_activatePlayerLookingLight);
+            _playerController.PlayerFlashlight.TurnOff();
+            SceneManager.LoadScene(_sceneName);
+            StartCoroutine(FreezePlayerMotion(_playerLocalPosition, _playerFreezeTime));
+            SetPlayerRotation(_playerRotationY);
+
+            _changeScene = false;
+            _removeMask = true;
+        }
+
+        _levelChangeMask.color = new Color(0, 0, 0, _currentTransparency);
+    }
+
+    #region Player Props
+    IEnumerator FreezePlayerMotion(Vector3 playerLocalPosition, float freezeTime)
+    {
+        _playerController.FreezePlayerMovement = true;
+        SetPlayerPosition(playerLocalPosition);
 
         yield return new WaitForSeconds(freezeTime);
 
-        playerController.FreezePlayerMovement = false;
+        _playerController.FreezePlayerMovement = false;
     }
 
-    private void SetPlayerPosition(PlayerController playerController, Vector3 playerLocalPosition)
+    private void SetPlayerPosition(Vector3 playerLocalPosition)
     {
-        playerController.Player.transform.localPosition = new Vector3(playerLocalPosition.x, 
-            playerController.Player.transform.localPosition.y, playerLocalPosition.z);
+        _playerController.Player.transform.localPosition = new Vector3(playerLocalPosition.x, 
+            _playerController.Player.transform.localPosition.y, playerLocalPosition.z);
     }
 
-    private void SetPlayerRotation(PlayerController playerController, float playerRotationY)
+    private void SetPlayerRotation(float playerRotationY)
     {
-        playerController.Player.transform.rotation = Quaternion.Euler(new Vector3(0, 
+        _playerController.Player.transform.rotation = Quaternion.Euler(new Vector3(0, 
             playerRotationY, 0)); //Easier to rotate player than cinemachine
 
         _vCamCinemachinePOV.m_HorizontalAxis.Value = 0;
@@ -84,15 +122,20 @@ public class LevelManager : MonoBehaviour
     }
     #endregion
 
-    private void RemoveLevelChangeMask(float speed)
+    private IEnumerator RemoveLevelChangeMask(float delay, float speed)
     {
-        if (_levelChangeMask.color == Color.black)
-            _currentTransparency = 1;
+        yield return new WaitForSeconds(delay);
 
-        _currentTransparency -= Time.deltaTime * speed;
-        _levelChangeMask.color = new Color(0, 0, 0, _currentTransparency);
-        
-        if(_currentTransparency <= 0)
+        if (_currentTransparency > 0)
+        {
+            _currentTransparency -= Time.deltaTime * speed;
+        }
+        else if (_currentTransparency <= 0)
+        {
+            _currentTransparency = 0;
             _removeMask = false;
+        }
+
+        _levelChangeMask.color = new Color(0, 0, 0, _currentTransparency);
     }
 }

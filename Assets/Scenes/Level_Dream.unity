@@ -233,6 +233,17 @@ MonoBehaviour:
   _triggerColliderTag: 
   _delay: 3
   _deactivateThis: 1
+--- !u!114 &87138422 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8997385359482471061, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
+  m_PrefabInstance: {fileID: 340922145}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6c9c52646ead4dcaa3ccede1356de7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &104846448 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 383493141, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
@@ -291,6 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _virtualCamera: {fileID: 104846448}
   _levelChangeMask: {fileID: 1516295343}
+  _playerController: {fileID: 87138422}
   _playerLookingLight: {fileID: 340922147}
 --- !u!114 &340751741
 MonoBehaviour:
@@ -333,7 +345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3071739833254592482, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -61.62
+      value: -57.15
       objectReference: {fileID: 0}
     - target: {fileID: 3071739833254592482, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_LocalPosition.z
@@ -357,7 +369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6533751894493500777, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -56
+      value: -55.7
       objectReference: {fileID: 0}
     - target: {fileID: 6533751894493500777, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_LocalPosition.y
@@ -365,7 +377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6533751894493500777, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19
+      value: 20.7
       objectReference: {fileID: 0}
     - target: {fileID: 6533751894493500777, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_LocalRotation.w
@@ -944,6 +956,7 @@ MonoBehaviour:
   _loadLevel: 0
   _playerSpawnPosition: {x: 11.2, y: 0, z: 19.6}
   _playerSpawnRotation: 175
+  _setLevelMaskInstantly: 1
 --- !u!1 &2110718019
 GameObject:
   m_ObjectHideFlags: 0

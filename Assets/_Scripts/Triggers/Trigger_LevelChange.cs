@@ -9,6 +9,7 @@ public class Trigger_LevelChange : MonoBehaviour
 
     [SerializeField] private Vector3 _playerSpawnPosition; //Leave y as 0, z is y rotation in Unity
     [SerializeField] private float _playerSpawnRotation; //Player y rotation
+    [SerializeField] private bool _setLevelMaskInstantly;
 
     public void LoadLevel(PlayerController playerController)
     {
@@ -16,14 +17,14 @@ public class Trigger_LevelChange : MonoBehaviour
         {
             case Level.House:
                 {
-                    LevelManager.Instance.LoadHouseLevel(playerController, new Vector3(_playerSpawnPosition.x, 
-                        playerController.Player.transform.localPosition.y, _playerSpawnPosition.z), _playerSpawnRotation);
+                    LevelManager.Instance.LoadHouseLevel(new Vector3(_playerSpawnPosition.x, 
+                        playerController.Player.transform.localPosition.y, _playerSpawnPosition.z), _playerSpawnRotation, _setLevelMaskInstantly);
                     break;
                 }
             case Level.Dream:
                 {
-                    LevelManager.Instance.LoadDreamLevel(playerController, new Vector3(_playerSpawnPosition.x,
-                        playerController.Player.transform.localPosition.y, _playerSpawnPosition.z), _playerSpawnRotation);
+                    LevelManager.Instance.LoadDreamLevel(new Vector3(_playerSpawnPosition.x,
+                        playerController.Player.transform.localPosition.y, _playerSpawnPosition.z), _playerSpawnRotation, _setLevelMaskInstantly);
                     break;
                 }
         }
