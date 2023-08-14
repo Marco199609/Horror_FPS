@@ -17,15 +17,15 @@ public class Trigger_DialogueSystem : MonoBehaviour, ITriggerAction
         {
             for(int i = 0; i < _dialogueIndex.Length; i++)
             {
-                DialogueSystem.instance.ManageDialogues(_dialogueIndex[i]);
+                DialogueSystem.Instance.ManageDialogues(_dialogueIndex[i]);
 
                 //Takes the length of the audioclip, as to not overlap clips one on the other 
-                yield return new WaitForSeconds(DialogueSystem.instance._dialogueData.DialogueClips[i].length + _dialogueDelay[i]); 
+                yield return new WaitForSeconds(DialogueSystem.Instance._dialogueData.DialogueClips[i].length + _dialogueDelay[i]); 
             }
         }
         else
         {
-            DialogueSystem.instance.ManageDialogues(_dialogueIndex[0]);
+            DialogueSystem.Instance.ManageDialogues(_dialogueIndex[0]);
         }
     }
 

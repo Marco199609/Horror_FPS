@@ -6,7 +6,7 @@ public class Wire_crawler : MonoBehaviour, IInteractable, ITriggerAction
 {
     
     [SerializeField] private LevelManager _levelManager;
-    [SerializeField] private GameObject _playerLookingLight;
+    
     [SerializeField] private Material _wireCrawlerMaterial;
     [SerializeField] private Renderer _wireCrawlerRenderer;
     [SerializeField] private AudioSource _wireCrawlerAudioSource, _muffledTalkAudioSource;
@@ -44,10 +44,7 @@ public class Wire_crawler : MonoBehaviour, IInteractable, ITriggerAction
 
             if (!_wireCrawlerAudioSource.isPlaying)
             {
-                _playerLookingLight.SetActive(false);
-                _playerController.FreezePlayerMovement = false;
-                _levelManager.LoadHouseLevel(_playerController, new Vector3(11.2f, 
-                    _playerController.Player.transform.localPosition.y, 19.6f), 175f); //Sets player in bedroom
+                gameObject.GetComponent<Trigger_LevelChange>().LoadLevel(_playerController);
             }
         }
     }

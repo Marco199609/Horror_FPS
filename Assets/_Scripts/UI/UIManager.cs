@@ -8,6 +8,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof(InteractableUIHandler))]
 public class UIManager : MonoBehaviour
 {
+    public static UIManager Instance { get; private set; }
+
     [Header("Player UI")]
     [SerializeField] private GameObject _interactableKeyPrompt;
     [SerializeField] private GameObject _inspectableOnlyMousePrompt;
@@ -22,6 +24,13 @@ public class UIManager : MonoBehaviour
     //Required scripts
     private CenterPointUIHandler _centerPointUIHandler;
     private InteractableUIHandler _interactableUIHandler;
+
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this) Destroy(gameObject);
+        else Instance = this;
+    }
 
     private void OnEnable()
     {

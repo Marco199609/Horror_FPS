@@ -6,11 +6,20 @@ using TMPro;
 
 public class GameController : MonoBehaviour
 {
+
+
     [SerializeField] private Text fpsText;
     [SerializeField] private float hudRefreshRate = 1f;
     [SerializeField] private bool _showFramerate;
     private float _timer;
 
+    public static GameController Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this) Destroy(gameObject);
+        else Instance = this;
+    }
     void Update()
     {
         ShowFPS();

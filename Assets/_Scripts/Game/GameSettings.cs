@@ -126,22 +126,22 @@ public class GameSettings : MonoBehaviour
         {
             if (english)
             {
-                DialogueSystem.instance._dialogueData.english = true;
-                DialogueSystem.instance._dialogueData.spanish = false;
+                DialogueSystem.Instance._dialogueData.english = true;
+                DialogueSystem.Instance._dialogueData.spanish = false;
             }
             if (spanish)
             {
-                DialogueSystem.instance._dialogueData.english = false;
-                DialogueSystem.instance._dialogueData.spanish = true;
+                DialogueSystem.Instance._dialogueData.english = false;
+                DialogueSystem.Instance._dialogueData.spanish = true;
             }
         }
         else
         {
-            DialogueSystem.instance._dialogueData.english = false;
-            DialogueSystem.instance._dialogueData.spanish = false;
+            DialogueSystem.Instance._dialogueData.english = false;
+            DialogueSystem.Instance._dialogueData.spanish = false;
         }
 
-        DialogueSystem.instance.ChangeLanguage();
+        DialogueSystem.Instance.ChangeLanguage();
     }
 
     #endregion
@@ -226,7 +226,8 @@ public class GameSettings : MonoBehaviour
             {
                 if(SceneManager.GetActiveScene().name == "Level_House")
                 {
-                    _mainMusicSource.volume = 0;
+                    if (_mainMusicSource.volume > 0)
+                        _mainMusicSource.volume -= Time.deltaTime * 0.5f;
                 }
                 _mainMusicSource.volume = Mathf.Lerp(_mainMusicSource.volume, SoundManager.Instance.MainMenuMusicClipVolume / 4, Time.deltaTime * 2f);
             }

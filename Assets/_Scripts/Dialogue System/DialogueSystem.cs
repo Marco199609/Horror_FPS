@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DialogueSystem : MonoBehaviour
 {
@@ -11,13 +12,11 @@ public class DialogueSystem : MonoBehaviour
     private DialogueTextList _dialogueTextList;
 
 
-    public static DialogueSystem instance { get; private set; }
+    public static DialogueSystem Instance { get; private set; }
     private void Awake()
     {
-        if (instance != null && instance != this)
-            Destroy(this);
-        else
-            instance = this;
+        if (Instance != null && Instance != this) Destroy(gameObject);
+        else Instance = this;
     }
 
     private void Start()
@@ -28,7 +27,7 @@ public class DialogueSystem : MonoBehaviour
 
     private void Update()
     {
-        if(_dialogueUI == null)
+        if(_dialogueUI == null && SceneManager.GetActiveScene().name != "MainMenu")
         {
             _dialogueUI = GameObject.FindWithTag("DialogueText").GetComponent<TMP_Text>();
         }

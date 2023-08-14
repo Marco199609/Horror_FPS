@@ -7,6 +7,7 @@ public interface IFlashlightControl
 {
     void FlashlightControl(PlayerData playerData, IPlayerInput playerInput);
     void AddBattery();
+    void TurnOff();
 }
 
 public class PlayerFlashlight : MonoBehaviour, IFlashlightControl
@@ -77,5 +78,10 @@ public class PlayerFlashlight : MonoBehaviour, IFlashlightControl
     {
         _currentIntensity = _playerData.MaxIntensity - (_playerData.MaxIntensity - _playerData.MinIntensity) / 2; //Sets current intensity in a midpoint
         _hasBattery = true;
+    }
+
+    public void TurnOff() //Used in level change
+    {
+        _turnOn = false;
     }
 }

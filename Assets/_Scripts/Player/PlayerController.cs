@@ -23,6 +23,8 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance { get; private set; }
+
     [SerializeField] private GameSettings _gameSettings;
     [SerializeField] private PlayerData _playerData;
 
@@ -52,6 +54,9 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this) Destroy(gameObject);
+        else Instance = this;
+
         _playerData = GetComponentInChildren<PlayerData>();
 
         _playerMovement = GetComponent<IPlayerMovement>();
@@ -100,7 +105,8 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerMovement()
     {
-        if(!FreezePlayerMovement)
+        
+        if (!FreezePlayerMovement)
             _playerMovement.PlayerMove(Player, _playerInput);
     }
 

@@ -11,6 +11,12 @@ public class Trigger_OnTriggerEnter : MonoBehaviour
 
     private ITriggerAction _trigger;
 
+    private void Awake()
+    {
+        //Prevents blank tag error
+        if(_triggerCollider != null)
+            _triggerColliderTag = _triggerCollider.tag;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
