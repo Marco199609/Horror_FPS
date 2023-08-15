@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(LoadSceneState))]
 public class Trigger_LevelLoader : MonoBehaviour
 {
     private enum Level {House, Dream};
@@ -18,18 +19,15 @@ public class Trigger_LevelLoader : MonoBehaviour
             case Level.House:
                 {
                     LevelLoader.Instance.LoadHouseLevel(new Vector3(_playerSpawnPosition.x, 
-                        0, _playerSpawnPosition.z), _playerSpawnRotation, _setLevelMaskInstantly);
+                        0, _playerSpawnPosition.z), _playerSpawnRotation, _setLevelMaskInstantly, gameObject.GetComponent<LoadSceneState>());
                     break;
                 }
             case Level.Dream:
                 {
                     LevelLoader.Instance.LoadDreamLevel(new Vector3(_playerSpawnPosition.x,
-                        0, _playerSpawnPosition.z), _playerSpawnRotation, _setLevelMaskInstantly);
+                        0, _playerSpawnPosition.z), _playerSpawnRotation, _setLevelMaskInstantly, gameObject.GetComponent<LoadSceneState>());
                     break;
                 }
         }
-
-        //_levelManager.LoadHouseLevel(_playerController, new Vector3(11.2f,
-        //_playerController.Player.transform.localPosition.y, 19.6f), 175f); //Sets player in bedroom
     }
 }

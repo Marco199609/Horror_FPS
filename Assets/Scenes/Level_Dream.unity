@@ -186,7 +186,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &70052721
 BoxCollider:
@@ -233,72 +233,6 @@ MonoBehaviour:
   _triggerColliderTag: 
   _delay: 3
   _deactivateThis: 1
---- !u!1 &340751738
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 340751739}
-  - component: {fileID: 340751741}
-  - component: {fileID: 340751740}
-  m_Layer: 0
-  m_Name: LevelLoader
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &340751739
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 340751738}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.942287, y: 0.24197769, z: 19.972563}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &340751740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 340751738}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f1ca6ba91f063b4c9bb346383b55cd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerController: {fileID: 0}
-  _virtualCamera: {fileID: 0}
-  _levelChangeMask: {fileID: 1516295343}
-  _playerLookingLight: {fileID: 0}
---- !u!114 &340751741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 340751738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe2bafa56ba254c45af267ad5d093fd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &379479352 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8366581373924157239, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
-  m_PrefabInstance: {fileID: 1846155208}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &384181414
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,9 +334,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791dc12116b5e0b46b4384bad23bcf9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level0: {fileID: 379479352}
-  _player: {fileID: 0}
-  _playerLookingLight: {fileID: 0}
 --- !u!54 &922404330
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -700,37 +631,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 384181415}
     m_Modifications:
-    - target: {fileID: 546735401, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
-      propertyPath: _triggerCollider
-      value: 
+    - target: {fileID: 1846155211, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: Doors.Array.size
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 546735401, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
-      propertyPath: _triggerColliderTag
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 577392459, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
-      propertyPath: _triggerCollider
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 577392459, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
-      propertyPath: _triggerColliderTag
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 976208186, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
-      propertyPath: _triggerCollider
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 976208186, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
-      propertyPath: _triggerColliderTag
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132147839547612, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
-      propertyPath: _levelManager
-      value: 
-      objectReference: {fileID: 340751740}
-    - target: {fileID: 919132147839547612, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
-      propertyPath: _playerLookingLight
-      value: 
+    - target: {fileID: 1846155211, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: DoorStates.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8366581373924157238, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
       propertyPath: m_RootOrder
@@ -782,27 +689,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
---- !u!1 &1846155209 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132147839547609, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
-  m_PrefabInstance: {fileID: 1846155208}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1846155210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1846155209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bdcce9515bdb4649bf30b27df31c661, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _loadLevel: 0
-  _playerSpawnPosition: {x: 11.2, y: 0, z: 19.6}
-  _playerSpawnRotation: 175
-  _setLevelMaskInstantly: 1
 --- !u!1 &2110718019
 GameObject:
   m_ObjectHideFlags: 0

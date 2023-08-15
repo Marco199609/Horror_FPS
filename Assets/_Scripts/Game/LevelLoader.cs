@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(LoadSceneState))] 
 public class LevelLoader : MonoBehaviour
 {
     public static LevelLoader Instance { get; private set; }
@@ -19,7 +20,7 @@ public class LevelLoader : MonoBehaviour
     private string _sceneName;
     private Vector3 _playerLocalPosition;
     private CinemachinePOV _vCamCinemachinePOV;
-
+    private LoadSceneState _sceneStateLoader;
 
     private void Awake()
     {
@@ -30,6 +31,7 @@ public class LevelLoader : MonoBehaviour
     private void Start()
     {
         _vCamCinemachinePOV = _virtualCamera.GetCinemachineComponent<CinemachinePOV>();
+        _sceneStateLoader = gameObject.GetComponent<LoadSceneState>();
     }
 
     private void Update()
@@ -41,7 +43,7 @@ public class LevelLoader : MonoBehaviour
     }
 
     #region Level Change
-    public void LoadHouseLevel(Vector3 playerLocalPosition, float playerRotationY, bool isLevelMaskInstant)
+    public void LoadHouseLevel(Vector3 playerLocalPosition, float playerRotationY, bool isLevelMaskInstant, LoadSceneState sceneState)
     {
         _sceneName = "Level_House";
         _changeScene = true;
@@ -49,9 +51,10 @@ public class LevelLoader : MonoBehaviour
         _activatePlayerLookingLight = false;
         _playerLocalPosition = playerLocalPosition;
         _playerRotationY = playerRotationY;
+        _sceneStateLoader = sceneState.GetSceneState(_sceneStateLoader);
     }
 
-    public void LoadDreamLevel(Vector3 playerLocalPosition, float playerRotationY, bool isLevelMaskInstant)
+    public void LoadDreamLevel(Vector3 playerLocalPosition, float playerRotationY, bool isLevelMaskInstant, LoadSceneState sceneState)
     {
         _sceneName = "Level_Dream";
         _changeScene = true;
@@ -59,6 +62,7 @@ public class LevelLoader : MonoBehaviour
         _activatePlayerLookingLight = true;
         _playerLocalPosition = playerLocalPosition;
         _playerRotationY = playerRotationY;
+        _sceneStateLoader = sceneState.GetSceneState(_sceneStateLoader);
     }
     #endregion
 
@@ -88,6 +92,7 @@ public class LevelLoader : MonoBehaviour
             _playerController.FreezePlayerMovement = true;
 
             SceneManager.LoadScene(_sceneName);
+            
 
             SetPlayerPosition(_playerLocalPosition);
             SetPlayerRotation(_playerRotationY);
@@ -126,6 +131,8 @@ public class LevelLoader : MonoBehaviour
         {
             _currentTransparency = 0;
             _removeMask = false;
+
+            _sceneStateLoader.ApplySceneState();
 
             _playerController.FreezePlayerMovement = false;
             _playerController.FreezePlayerRotation = false;

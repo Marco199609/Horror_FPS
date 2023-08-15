@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+public enum DoorState { Locked, Closed, Open };
+
 public class Prop_Door : MonoBehaviour, IInteractable
 {
-    //[SerializeField] GameObject _doorHandle;
+    [Range(0, 13)]
+    public int DoorIndex;
+
     [SerializeField] Transform _doorPivotPoint;
     [SerializeField] Collider _doorCollider;
     [SerializeField] private GameObject _key;
@@ -16,8 +20,7 @@ public class Prop_Door : MonoBehaviour, IInteractable
     private IPlayerInventory _inventory;
     private float _doorMoveVelocity;
 
-    private enum DoorState {Locked, Closed, Open};
-    [SerializeField] private DoorState _currentDoorState;
+    public DoorState _currentDoorState;
     private bool _changeDoorState;
 
     private void Start()

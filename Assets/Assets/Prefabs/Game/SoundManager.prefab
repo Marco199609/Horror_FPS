@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GlobalSoundFXVolume: 1
   <MainMenuMusicClip>k__BackingField: {fileID: 8300000, guid: fae85b98ca4a80043ae09bbd7519fc61, type: 3}
-  MainMenuMusicClipVolume: 1
+  MainMenuMusicClipVolume: 0.2
   <DoorOpenClip>k__BackingField: {fileID: 8300000, guid: 8b6eec1f8a44b0d4a867a7597042a11a, type: 3}
   DoorOpenClipVolume: 0.7
   <DoorCloseClip>k__BackingField: {fileID: 8300000, guid: 6034151fe66ca2947bfab14b259812ab, type: 3}
@@ -76,7 +76,7 @@ MonoBehaviour:
   ItemInspectClipVolume: 0.05
   <PlayerPickupClip>k__BackingField: {fileID: 8300000, guid: 1ba146d2c30757b4ab5675f3c6726949, type: 3}
   PlayerPickupClipVolume: 0.05
-  <FootstepClips>k__BackingField:
+  <ConcreteFootstepClips>k__BackingField:
   - {fileID: 8300000, guid: f55d6ce004cb3464ea528dab24a18305, type: 3}
   - {fileID: 8300000, guid: 038d81d584d6e6249af01d4f4c0dd147, type: 3}
   - {fileID: 8300000, guid: 8c6e9e8669139da4599590a6ed6ea4a2, type: 3}
@@ -89,6 +89,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 304497acce8a9b74cb466a3921b70ed7, type: 3}
   - {fileID: 8300000, guid: 9e1a8ae317f31554b825ff1f09debe79, type: 3}
   - {fileID: 8300000, guid: 8543ceb68619549418300263937ee1ed, type: 3}
+  <WoodFootstepClips>k__BackingField:
+  - {fileID: 8300000, guid: a120fa99cebff914b9d77133283c23f9, type: 3}
+  - {fileID: 8300000, guid: 4e5092c65c19b3e40a69fe3817a3ad02, type: 3}
+  - {fileID: 8300000, guid: a1105a5609930ae438b3084b209b1328, type: 3}
   FootstepClipsVolume: 0.5
   <FlashlightClip>k__BackingField: {fileID: 8300000, guid: 09f7133a03e3524408a25d639c1935df, type: 3}
   FlashlightClipVolume: 0.2

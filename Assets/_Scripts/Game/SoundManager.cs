@@ -42,7 +42,8 @@ public class SoundManager : MonoBehaviour
     [Range(0.0f, 1.0f)] public float ItemInspectClipVolume = 0.2f;
     [field: SerializeField] public AudioClip PlayerPickupClip { get; private set; }
     [Range(0.0f, 1.0f)] public float PlayerPickupClipVolume = 0.2f;
-    [field: SerializeField] public AudioClip[] FootstepClips { get; private set; }
+    [field: SerializeField] public AudioClip[] ConcreteFootstepClips { get; private set; }
+    [field: SerializeField] public AudioClip[] WoodFootstepClips { get; private set; }
     [Range(0.0f, 1.0f)] public float FootstepClipsVolume = 0.2f;
     [field: SerializeField] public AudioClip FlashlightClip { get; private set; }
     [Range(0.0f, 1.0f)] public float FlashlightClipVolume = 0.2f;

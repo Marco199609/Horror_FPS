@@ -790,6 +790,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4361104872933272333 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4361104874454018820, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
+  m_PrefabInstance: {fileID: 4361104872933272331}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4361104872933272334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4361104872933272333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70cad029dd5031641b26936341626358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Doors: []
+  DoorStates: 
 --- !u!1001 &4935903053352003375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -842,6 +861,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4935903052212915882, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4935903052212915882, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
       propertyPath: _virtualCamera
       value: 
       objectReference: {fileID: 2111540798}
@@ -871,8 +894,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5733869728958587170, guid: 7bdb959cf2dfc8c40bfe8878505052b5, type: 3}
-      propertyPath: MainMenuMusicClipVolume
-      value: 0.2
+      propertyPath: <WoodFootstepClips>k__BackingField.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5733869728958587171, guid: 7bdb959cf2dfc8c40bfe8878505052b5, type: 3}
       propertyPath: m_RootOrder

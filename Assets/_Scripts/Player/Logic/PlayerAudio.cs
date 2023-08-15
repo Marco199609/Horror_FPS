@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public interface IPlayerAudio
 {
@@ -25,9 +26,16 @@ public class PlayerAudio : MonoBehaviour, IPlayerAudio
         {
             if(_playerBreathSource != null && timer <= 0)
             {
-                int i = Random.Range(0, SoundManager.Instance.FootstepClips.Length);
-                SoundManager.Instance.Play2DSoundEffect(SoundManager.Instance.FootstepClips[i], SoundManager.Instance.FootstepClipsVolume);
-
+                if(SceneManager.GetActiveScene().name == "Level_Dream")
+                {
+                    int i = Random.Range(0, SoundManager.Instance.ConcreteFootstepClips.Length);
+                    SoundManager.Instance.Play2DSoundEffect(SoundManager.Instance.ConcreteFootstepClips[i], SoundManager.Instance.FootstepClipsVolume);
+                }
+                else
+                {
+                    int i = Random.Range(0, SoundManager.Instance.WoodFootstepClips.Length);
+                    SoundManager.Instance.Play2DSoundEffect(SoundManager.Instance.WoodFootstepClips[i], SoundManager.Instance.FootstepClipsVolume);
+                }
                 if (playerInput.playerRunInput)  timer = playerData.FootstepsRunningTime;
                 else timer = playerData.FootstepWalkingTime;
             }
