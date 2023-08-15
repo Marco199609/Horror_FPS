@@ -7,9 +7,9 @@ using UnityEngine;
 
 public class LoadSceneState : MonoBehaviour
 {
-    public GameObject[] Doors;
+    private GameObject[] Doors;
 
-    //public enum DoorState { Locked, Closed, Open };
+    [Header("Door states in index order")]
     public DoorState[] DoorStates;
 
     public LoadSceneState GetSceneState(LoadSceneState sceneStateLoader)
