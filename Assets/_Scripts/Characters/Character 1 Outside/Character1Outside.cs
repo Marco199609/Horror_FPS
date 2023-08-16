@@ -5,11 +5,17 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Character1Outside : MonoBehaviour, IInteractable
 {
+    [SerializeField] private int _id;
     [SerializeField] private bool _nonInspectable = true;
     [SerializeField] private string _description;
 
     private GameObject _player;
     private AudioSource _dialogueAudioSource;
+
+    public void AssignInStateLoader()
+    {
+        SceneStateLoader.Instance.objects.Add(_id, gameObject);
+    }
 
     private void Awake()
     {

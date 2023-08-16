@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5908621932067446649}
   - component: {fileID: 5908621932067446648}
   m_Layer: 0
-  m_Name: Trigger_Hall light
+  m_Name: Hall_Trigger hall light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,6 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33447ff7f9ecbc54680035a8326d6731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id: 50
   _triggerCollider: {fileID: 0}
   _triggerColliderTag: Player
   _delay: 1
@@ -100,7 +101,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5908621932137586777}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -124,7 +125,7 @@ GameObject:
   - component: {fileID: 5908621932174817715}
   - component: {fileID: 5908621932174817714}
   m_Layer: 0
-  m_Name: Trigger_ Director's, 5 year olds, hall light off
+  m_Name: Teachers room_Trigger Director's, 5 year olds, hall light off
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33447ff7f9ecbc54680035a8326d6731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id: 51
   _triggerCollider: {fileID: 0}
   _triggerColliderTag: Player
   _delay: 0
@@ -207,7 +209,7 @@ GameObject:
   - component: {fileID: 5908621932645060976}
   - component: {fileID: 5908621932645060979}
   m_Layer: 0
-  m_Name: Trigger_all hall lights
+  m_Name: Bathroom_Trigger all lights on
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -253,6 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33447ff7f9ecbc54680035a8326d6731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id: 52
   _triggerCollider: {fileID: 0}
   _triggerColliderTag: Player
   _delay: 1

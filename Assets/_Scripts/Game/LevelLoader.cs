@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(LoadSceneState))] 
+[RequireComponent(typeof(SceneStateLoader))]
 public class LevelLoader : MonoBehaviour
 {
     public static LevelLoader Instance { get; private set; }
@@ -16,11 +16,11 @@ public class LevelLoader : MonoBehaviour
 
     private float _removeMaskDefaultDelay = 1.5f, _maskSpeed = 1.5f; //Defaults
     private float _playerRotationY, _currentTransparency, _removeMaskDelay;
-    private bool _changeScene, _removeMask, _isMaskInstant, _activatePlayerLookingLight;
+    private bool _changeScene, _removeMask, _isMaskInstant, _activatePlayerLookingLight, _sceneStateLoaded;
     private string _sceneName;
     private Vector3 _playerLocalPosition;
     private CinemachinePOV _vCamCinemachinePOV;
-    private LoadSceneState _sceneStateLoader;
+    private SceneStateLoader _sceneStateLoader;
 
     private void Awake()
     {
@@ -31,7 +31,7 @@ public class LevelLoader : MonoBehaviour
     private void Start()
     {
         _vCamCinemachinePOV = _virtualCamera.GetCinemachineComponent<CinemachinePOV>();
-        _sceneStateLoader = gameObject.GetComponent<LoadSceneState>();
+        _sceneStateLoader = gameObject.GetComponent<SceneStateLoader>();
     }
 
     private void Update()
@@ -39,11 +39,11 @@ public class LevelLoader : MonoBehaviour
         if (_changeScene)
             PrepareSceneChange();
         else if (_removeMask)
-            StartCoroutine(RemoveLevelChangeMask(_removeMaskDelay));
+            StartCoroutine(RemoveLevelChangeMask(_removeMaskDelay));     
     }
 
     #region Level Change
-    public void LoadHouseLevel(Vector3 playerLocalPosition, float playerRotationY, bool isLevelMaskInstant, LoadSceneState sceneState)
+    public void LoadHouseLevel(Vector3 playerLocalPosition, float playerRotationY, bool isLevelMaskInstant, SceneState sceneState)
     {
         _sceneName = "Level_House";
         _changeScene = true;
@@ -51,10 +51,12 @@ public class LevelLoader : MonoBehaviour
         _activatePlayerLookingLight = false;
         _playerLocalPosition = playerLocalPosition;
         _playerRotationY = playerRotationY;
-        _sceneStateLoader = sceneState.GetSceneState(_sceneStateLoader);
+
+        _sceneStateLoader.GetSceneState(sceneState);
+        _sceneStateLoaded = false;
     }
 
-    public void LoadDreamLevel(Vector3 playerLocalPosition, float playerRotationY, bool isLevelMaskInstant, LoadSceneState sceneState)
+    public void LoadDreamLevel(Vector3 playerLocalPosition, float playerRotationY, bool isLevelMaskInstant, SceneState sceneState)
     {
         _sceneName = "Level_Dream";
         _changeScene = true;
@@ -62,7 +64,9 @@ public class LevelLoader : MonoBehaviour
         _activatePlayerLookingLight = true;
         _playerLocalPosition = playerLocalPosition;
         _playerRotationY = playerRotationY;
-        _sceneStateLoader = sceneState.GetSceneState(_sceneStateLoader);
+
+        _sceneStateLoader.GetSceneState(sceneState);
+        _sceneStateLoaded = false;
     }
     #endregion
 
@@ -131,11 +135,14 @@ public class LevelLoader : MonoBehaviour
         {
             _currentTransparency = 0;
             _removeMask = false;
-
-            _sceneStateLoader.ApplySceneState();
-
             _playerController.FreezePlayerMovement = false;
             _playerController.FreezePlayerRotation = false;
+
+            if(!_sceneStateLoaded)
+            {
+                _sceneStateLoader.LoadSceneState();
+                _sceneStateLoaded = true;
+            }
         }
 
         _levelChangeMask.color = new Color(0, 0, 0, _currentTransparency);

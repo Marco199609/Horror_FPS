@@ -7,9 +7,7 @@ public enum DoorState { Locked, Closed, Open };
 
 public class Prop_Door : MonoBehaviour, IInteractable
 {
-    [Range(0, 13)]
-    public int DoorIndex;
-
+    [SerializeField] private int _id;
     [SerializeField] Transform _doorPivotPoint;
     [SerializeField] Collider _doorCollider;
     [SerializeField] private GameObject _key;
@@ -17,15 +15,30 @@ public class Prop_Door : MonoBehaviour, IInteractable
     [SerializeField] private float[] _triggerDelays;
     [SerializeField] private bool[] _alreadyTriggered;
 
+    public void AssignInStateLoader()
+    {
+        if (_id != 0) SceneStateLoader.Instance.objects.Add(_id, gameObject);
+        else print("id is 0 in gameobject " + gameObject.name + "!");
+    }
+
     private IPlayerInventory _inventory;
     private float _doorMoveVelocity;
 
     public DoorState _currentDoorState;
     private bool _changeDoorState;
 
+    private void OnEnable()
+    {
+        AssignInStateLoader();
+    }
+    private void OnDestroy()
+    {
+        if (_id != 0) SceneStateLoader.Instance.objects.Remove(_id);
+    }
+
     private void Start()
     {
-        if (_key != null) _currentDoorState = DoorState.Locked;
+        //if (_key != null) _currentDoorState = DoorState.Locked;
     }
 
     public string InteractableDescription()

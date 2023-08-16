@@ -256,94 +256,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1069967848
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 2063332862}
-    m_Modifications:
-    - target: {fileID: 7952213772189583216, guid: 2774a094c8c72164c91bb57a5f53d32b, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7952213772189583216, guid: 2774a094c8c72164c91bb57a5f53d32b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -9.666476
-      objectReference: {fileID: 0}
-    - target: {fileID: 7952213772189583216, guid: 2774a094c8c72164c91bb57a5f53d32b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.2276175
-      objectReference: {fileID: 0}
-    - target: {fileID: 7952213772189583216, guid: 2774a094c8c72164c91bb57a5f53d32b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 14.908554
-      objectReference: {fileID: 0}
-    - target: {fileID: 7952213772189583216, guid: 2774a094c8c72164c91bb57a5f53d32b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7952213772189583216, guid: 2774a094c8c72164c91bb57a5f53d32b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7952213772189583216, guid: 2774a094c8c72164c91bb57a5f53d32b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7952213772189583216, guid: 2774a094c8c72164c91bb57a5f53d32b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7952213772189583216, guid: 2774a094c8c72164c91bb57a5f53d32b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7952213772189583216, guid: 2774a094c8c72164c91bb57a5f53d32b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7952213772189583216, guid: 2774a094c8c72164c91bb57a5f53d32b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7952213772189583217, guid: 2774a094c8c72164c91bb57a5f53d32b, type: 3}
-      propertyPath: m_Name
-      value: Triggers_house
-      objectReference: {fileID: 0}
-    - target: {fileID: 7952213773476427301, guid: 2774a094c8c72164c91bb57a5f53d32b, type: 3}
-      propertyPath: _activateDreamLevelTriggers.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7952213773476427301, guid: 2774a094c8c72164c91bb57a5f53d32b, type: 3}
-      propertyPath: _activateHouseLevelTriggers.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7952213773476427301, guid: 2774a094c8c72164c91bb57a5f53d32b, type: 3}
-      propertyPath: _activateDreamLevelTriggers.Array.data[2]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7952213773476427301, guid: 2774a094c8c72164c91bb57a5f53d32b, type: 3}
-      propertyPath: _activateDreamLevelTriggers.Array.data[3]
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2774a094c8c72164c91bb57a5f53d32b, type: 3}
---- !u!4 &1069967849 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7952213772189583216, guid: 2774a094c8c72164c91bb57a5f53d32b, type: 3}
-  m_PrefabInstance: {fileID: 1069967848}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1069967850 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7952213773476427322, guid: 2774a094c8c72164c91bb57a5f53d32b, type: 3}
-  m_PrefabInstance: {fileID: 1069967848}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1069967851 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7952213773689841409, guid: 2774a094c8c72164c91bb57a5f53d32b, type: 3}
-  m_PrefabInstance: {fileID: 1069967848}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1098588700
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,11 +287,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1137892611 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5908621932137586790, guid: 939ba073246691e48b7a9656b081cfc6, type: 3}
-  m_PrefabInstance: {fileID: 1384183946}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1341665079
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,78 +371,6 @@ Transform:
   m_Father: {fileID: 181078750}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1384183946
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 2063332862}
-    m_Modifications:
-    - target: {fileID: 5908621932137586777, guid: 939ba073246691e48b7a9656b081cfc6, type: 3}
-      propertyPath: m_Name
-      value: Triggers_dream
-      objectReference: {fileID: 0}
-    - target: {fileID: 5908621932137586790, guid: 939ba073246691e48b7a9656b081cfc6, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5908621932137586790, guid: 939ba073246691e48b7a9656b081cfc6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5908621932137586790, guid: 939ba073246691e48b7a9656b081cfc6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5908621932137586790, guid: 939ba073246691e48b7a9656b081cfc6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5908621932137586790, guid: 939ba073246691e48b7a9656b081cfc6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5908621932137586790, guid: 939ba073246691e48b7a9656b081cfc6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5908621932137586790, guid: 939ba073246691e48b7a9656b081cfc6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5908621932137586790, guid: 939ba073246691e48b7a9656b081cfc6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5908621932137586790, guid: 939ba073246691e48b7a9656b081cfc6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5908621932137586790, guid: 939ba073246691e48b7a9656b081cfc6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5908621932137586790, guid: 939ba073246691e48b7a9656b081cfc6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 939ba073246691e48b7a9656b081cfc6, type: 3}
---- !u!1 &1384183947 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5908621932645060981, guid: 939ba073246691e48b7a9656b081cfc6, type: 3}
-  m_PrefabInstance: {fileID: 1384183946}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1384183949 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5908621932174817716, guid: 939ba073246691e48b7a9656b081cfc6, type: 3}
-  m_PrefabInstance: {fileID: 1384183946}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1384183950 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5908621932067446650, guid: 939ba073246691e48b7a9656b081cfc6, type: 3}
-  m_PrefabInstance: {fileID: 1384183946}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1567319051
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,57 +433,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2063332861
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2063332862}
-  - component: {fileID: 2063332863}
-  m_Layer: 0
-  m_Name: Triggers (Colliders)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2063332862
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063332861}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1137892611}
-  - {fileID: 1069967849}
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2063332863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063332861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe2bafa56ba254c45af267ad5d093fd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &2072488584 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1395814569, guid: 2774a094c8c72164c91bb57a5f53d32b, type: 3}
-  m_PrefabInstance: {fileID: 1069967848}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2110742871
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,6 +729,62 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
+      propertyPath: _doorStateNotes
+      value: Only door 6 (5 year old room) and door 9 (kitchen) state "closed"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
+      propertyPath: DoorStates.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
+      propertyPath: _triggerActivationNotes
+      value: House triggers not necessary
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
+      propertyPath: DoorStates.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
+      propertyPath: DoorStates.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
+      propertyPath: DoorStates.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
+      propertyPath: DoorStates.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
+      propertyPath: DoorStates.Array.data[5]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
+      propertyPath: DoorStates.Array.data[6]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
+      propertyPath: DoorStates.Array.data[9]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
+      propertyPath: DreamTriggerCollidersActivate.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
+      propertyPath: HouseTriggerCollidersActivate.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
+      propertyPath: DreamTriggerCollidersActivate.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
+      propertyPath: DreamTriggerCollidersActivate.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4361104874454018820, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
       propertyPath: m_Name
       value: Game Settings
@@ -1006,28 +846,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &4361104872933272333 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4361104874454018820, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
-  m_PrefabInstance: {fileID: 4361104872933272331}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4361104872933272334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4361104872933272333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70cad029dd5031641b26936341626358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DoorStates: 
-  _dreamLevelTriggers: []
-  _activateDreamLevelTriggers: 010100
-  _houseLevelTriggers: []
-  _activateHouseLevelTriggers: 000000
 --- !u!1001 &4935903053352003375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1110,11 +928,11 @@ PrefabInstance:
     - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
       propertyPath: _triggers.Array.data[0]
       value: 
-      objectReference: {fileID: 1384183950}
+      objectReference: {fileID: 0}
     - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
       propertyPath: _triggers.Array.data[1]
       value: 
-      objectReference: {fileID: 1384183949}
+      objectReference: {fileID: 0}
     - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
       propertyPath: _triggers.Array.data[2]
       value: 
@@ -1122,15 +940,15 @@ PrefabInstance:
     - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
       propertyPath: _triggers.Array.data[3]
       value: 
-      objectReference: {fileID: 1384183947}
+      objectReference: {fileID: 0}
     - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
       propertyPath: _triggers.Array.data[4]
       value: 
-      objectReference: {fileID: 1069967851}
+      objectReference: {fileID: 0}
     - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
       propertyPath: _triggers.Array.data[5]
       value: 
-      objectReference: {fileID: 1069967850}
+      objectReference: {fileID: 0}
     - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
       propertyPath: _activateTriggers.Array.size
       value: 4
@@ -1146,15 +964,15 @@ PrefabInstance:
     - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
       propertyPath: _dreamLevelTriggers.Array.data[0]
       value: 
-      objectReference: {fileID: 1384183950}
+      objectReference: {fileID: 0}
     - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
       propertyPath: _dreamLevelTriggers.Array.data[1]
       value: 
-      objectReference: {fileID: 1384183949}
+      objectReference: {fileID: 0}
     - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
       propertyPath: _dreamLevelTriggers.Array.data[2]
       value: 
-      objectReference: {fileID: 1384183947}
+      objectReference: {fileID: 0}
     - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
       propertyPath: _dreamLevelTriggers.Array.data[3]
       value: 
@@ -1162,15 +980,15 @@ PrefabInstance:
     - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
       propertyPath: _houseLevelTriggers.Array.data[0]
       value: 
-      objectReference: {fileID: 1069967851}
+      objectReference: {fileID: 0}
     - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
       propertyPath: _houseLevelTriggers.Array.data[1]
       value: 
-      objectReference: {fileID: 1069967850}
+      objectReference: {fileID: 0}
     - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
       propertyPath: _houseLevelTriggers.Array.data[2]
       value: 
-      objectReference: {fileID: 2072488584}
+      objectReference: {fileID: 0}
     - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
       propertyPath: _activateDreamLevelTriggers.Array.size
       value: 3

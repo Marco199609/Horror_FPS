@@ -5,11 +5,15 @@ using UnityEngine.UIElements;
 
 public class Item_InventoryAddable : MonoBehaviour, IInteractable
 {
+    [SerializeField] private int _id;
     [SerializeField] private bool _rotateX = true, _rotateY = true, _rotateZ = true;
     [SerializeField] private bool _nonInspectable;
     [SerializeField] private string _actionDescription, _interactableDescription;
     [SerializeField] private Vector3 _positionInInventory, _rotationInInventory, _scaleInInventory;
-
+    public void AssignInStateLoader()
+    {
+        SceneStateLoader.Instance.objects.Add(_id, gameObject);
+    }
     public string ActionDescription()
     {
         return _actionDescription;

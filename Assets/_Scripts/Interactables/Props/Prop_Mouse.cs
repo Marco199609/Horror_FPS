@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Prop_Mouse : MonoBehaviour, IInteractable
 {
+    [SerializeField] private int _id;
     [SerializeField] private Material _screenMaterial;
     [SerializeField] private Light _screenLight;
     [SerializeField] private bool _screenOn;
+
+    public void AssignInStateLoader()
+    {
+        SceneStateLoader.Instance.objects.Add(_id, gameObject);
+    }
 
     private void Start()
     {

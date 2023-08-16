@@ -4,6 +4,21 @@ using UnityEngine;
 
 public class Interactable_LevelLoader : MonoBehaviour, IInteractable
 {
+    [SerializeField] private int _id;
+
+    private void OnEnable()
+    {
+        AssignInStateLoader();
+    }
+    private void OnDestroy()
+    {
+        if (_id != 0) SceneStateLoader.Instance.objects.Remove(_id);
+    }
+    public void AssignInStateLoader()
+    {
+        if (_id != 0) SceneStateLoader.Instance.objects.Add(_id, gameObject);
+        else print("id is 0 in gameobject " + gameObject.name + "!");
+    }
     public string ActionDescription()
     {
         return "";

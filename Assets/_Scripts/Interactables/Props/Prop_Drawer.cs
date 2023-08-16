@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Prop_Drawer : MonoBehaviour, IInteractable
 {
+    [SerializeField] private int _id;
     [SerializeField] private float _moveVelocity;
     [SerializeField] private Transform _drawerOpenPosition, _drawerClosedPosition;
     [SerializeField] private GameObject _key;
@@ -17,6 +18,10 @@ public class Prop_Drawer : MonoBehaviour, IInteractable
     private enum DrawerState { Locked, Closed, Open };
     [SerializeField] private DrawerState _currentDrawerState;
 
+    public void AssignInStateLoader()
+    {
+        SceneStateLoader.Instance.objects.Add(_id, gameObject);
+    }
     public string ActionDescription()
     {
         if (_currentDrawerState == DrawerState.Closed)

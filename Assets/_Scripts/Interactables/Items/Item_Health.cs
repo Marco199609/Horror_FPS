@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Item_Health : MonoBehaviour, IInteractable
 {
+    [SerializeField] private int _id;
     [SerializeField] private bool _rotateX = true, _rotateY = true, _rotateZ = true;
     [SerializeField] private bool _nonInspectable;
     [SerializeField] private string _description;
     [SerializeField] private int _health;
 
+    public void AssignInStateLoader()
+    {
+        SceneStateLoader.Instance.objects.Add(_id, gameObject);
+    }
 
     public string InteractableDescription()
     {

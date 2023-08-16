@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(LoadSceneState))]
+[RequireComponent(typeof(SceneState))]
 public class Trigger_LevelLoader : MonoBehaviour
 {
     private enum Level {House, Dream};
@@ -19,13 +19,13 @@ public class Trigger_LevelLoader : MonoBehaviour
             case Level.House:
                 {
                     LevelLoader.Instance.LoadHouseLevel(new Vector3(_playerSpawnPosition.x, 
-                        0, _playerSpawnPosition.z), _playerSpawnRotation, _setLevelMaskInstantly, gameObject.GetComponent<LoadSceneState>());
+                        0, _playerSpawnPosition.z), _playerSpawnRotation, _setLevelMaskInstantly, gameObject.GetComponent<SceneState>());
                     break;
                 }
             case Level.Dream:
                 {
                     LevelLoader.Instance.LoadDreamLevel(new Vector3(_playerSpawnPosition.x,
-                        0, _playerSpawnPosition.z), _playerSpawnRotation, _setLevelMaskInstantly, gameObject.GetComponent<LoadSceneState>());
+                        0, _playerSpawnPosition.z), _playerSpawnRotation, _setLevelMaskInstantly, gameObject.GetComponent<SceneState>());
                     break;
                 }
         }

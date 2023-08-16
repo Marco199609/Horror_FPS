@@ -5,10 +5,15 @@ using UnityEngine.UIElements;
 
 public class Item_Energy : MonoBehaviour, IInteractable
 {
+    [SerializeField] private int _id;
     [SerializeField] private bool _rotateX = true, _rotateY = true, _rotateZ = true;
     [SerializeField] private bool _nonInspectable;
     [SerializeField] private string _interactableDescription, _actionDescription;
 
+    public void AssignInStateLoader()
+    {
+        SceneStateLoader.Instance.objects.Add(_id, gameObject);
+    }
     public string InteractableDescription()
     {
         return _interactableDescription;
