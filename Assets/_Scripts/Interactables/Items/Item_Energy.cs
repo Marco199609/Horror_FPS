@@ -45,7 +45,7 @@ public class Item_Energy : MonoBehaviour, IInteractable
         return rotateXYZ;
     }
 
-    public bool TriggerActions(ITriggerAction trigger, bool alreadyTriggered, float triggerDelay)
+    public void TriggerActions()
     {
         throw new System.NotImplementedException();
     }

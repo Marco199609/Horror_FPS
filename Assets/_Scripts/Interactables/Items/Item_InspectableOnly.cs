@@ -26,13 +26,7 @@ public class Item_InspectableOnly : MonoBehaviour, IInteractable
     public void Interact(PlayerController playerController)
     {
         bool[] rotateXYZ = new bool[] { _rotateX, _rotateY, _rotateZ };
-        playerController.PlayerInspect.Inspect(transform, rotateXYZ);
-
-        _trigger = gameObject.GetComponent<ITriggerAction>();
-        if(_trigger != null && !_alreadyTriggered)
-        {
-            _alreadyTriggered = TriggerActions(_trigger, _alreadyTriggered, _triggerDelay);
-        }
+        playerController.PlayerInspect.Inspect(transform, rotateXYZ); 
     }
 
     public string InteractableDescription()
@@ -57,9 +51,14 @@ public class Item_InspectableOnly : MonoBehaviour, IInteractable
         return rotateXYZ;
     }
 
-    public bool TriggerActions(ITriggerAction trigger, bool alreadyTriggered, float triggerDelay)
+    public void TriggerActions()
     {
-        trigger.TriggerAction(triggerDelay);
-        return true;
+        _trigger = gameObject.GetComponent<ITriggerAction>();
+
+        if (_trigger != null && !_alreadyTriggered)
+        {
+            _trigger.TriggerAction(_triggerDelay);
+            _alreadyTriggered = true;
+        }
     }
 }

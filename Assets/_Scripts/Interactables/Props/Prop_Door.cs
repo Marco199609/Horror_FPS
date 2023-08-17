@@ -36,11 +36,6 @@ public class Prop_Door : MonoBehaviour, IInteractable
         if (_id != 0) SceneStateLoader.Instance.objects.Remove(_id);
     }
 
-    private void Start()
-    {
-        //if (_key != null) _currentDoorState = DoorState.Locked;
-    }
-
     public string InteractableDescription()
     {
         return "";
@@ -55,13 +50,7 @@ public class Prop_Door : MonoBehaviour, IInteractable
         if(_inventory == null) _inventory = playerController.Inventory;
         _changeDoorState = true;
 
-        if (_triggers != null)
-        {
-            for(int i = 0; i < _triggers.Length; i++)
-            {
-                _alreadyTriggered[i] = TriggerActions(_triggers[i].GetComponent<ITriggerAction>(), _alreadyTriggered[i], _triggerDelays[i]);
-            }
-        }
+
     }
 
     private void Update()
@@ -158,14 +147,18 @@ public class Prop_Door : MonoBehaviour, IInteractable
         return rotateXYZ;
     }
 
-    public bool TriggerActions(ITriggerAction trigger, bool alreadyTriggered, float triggerDelay)
+    public void TriggerActions()
     {
-        if(!alreadyTriggered)
+        if (_triggers != null)
         {
-            trigger.TriggerAction(triggerDelay);
-            alreadyTriggered = true;
+            for (int i = 0; i < _triggers.Length; i++)
+            {
+                if (!_alreadyTriggered[i])
+                {
+                    _triggers[i].GetComponent<ITriggerAction>().TriggerAction(_triggerDelays[i]);
+                    _alreadyTriggered[i] = true;
+                }
+            }
         }
-
-        return alreadyTriggered;
     }
 }

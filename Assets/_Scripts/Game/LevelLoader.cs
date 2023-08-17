@@ -96,7 +96,7 @@ public class LevelLoader : MonoBehaviour
             _playerController.FreezePlayerMovement = true;
 
             SceneManager.LoadScene(_sceneName);
-            
+            SceneManager.sceneLoaded += GameSettings.Instance.OnSceneLoaded;
 
             SetPlayerPosition(_playerLocalPosition);
             SetPlayerRotation(_playerRotationY);

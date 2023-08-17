@@ -13,14 +13,17 @@ public class PlayerInteract : MonoBehaviour, IPlayerInteract
     {
         if (hit.distance <= playerData.InteractDistance && hit.collider.GetComponent<IInteractable>() != null)
         {
+            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+
             if (playerInput.playerPickupInput)
             {
-                hit.collider.GetComponent<IInteractable>().Interact(GetComponent<PlayerController>());
+                interactable.Interact(GetComponent<PlayerController>());
+                interactable.TriggerActions();
             }
             else if (Input.GetMouseButtonDown(0) && hit.collider.GetComponent<IInteractable>().InteractableType()[0] == false) //index 0 is NonInspectable
             {
-                IInteractable interactable = hit.collider.GetComponent<IInteractable>();
                 playerInspect.Inspect(hit.transform, interactable.RotateXYZ());
+                interactable.TriggerActions();
             }
         }
     }

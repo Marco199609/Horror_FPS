@@ -20,19 +20,25 @@ public class GameSettings : MonoBehaviour
     [SerializeField] private TMP_Dropdown _framerateDropdownButton, _languageDropdownButton;
     [SerializeField] private Slider _mouseSensitivitySlider;
     [SerializeField] private Toggle _vSyncToggle, _subtitlesToggle;
+    [SerializeField] private PlayerData _playerData;
 
     private float _mouseSensitivity = 200;
     private int _targetFramerate;
     private bool _inGame;
 
-    private PlayerData _playerData;
+
 
     private AudioSource _mainMusicSource;
 
     private bool english, spanish;
 
+    public static GameSettings Instance;
+
     private void Awake()
     {
+        if (Instance != null && Instance != this) Destroy(gameObject);
+        else Instance = this;
+
         SetFramerate();
         SetMouseSensitivity();
         SetVsync();
@@ -43,16 +49,13 @@ public class GameSettings : MonoBehaviour
     public void StartGame()
     {
         gameObject.GetComponent<Trigger_LevelLoader>().LoadLevel();
-        //SceneManager.LoadScene("Level_Dream", LoadSceneMode.Single);
-        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if(scene.name == "Level_Dream")
         {
             _inGame = true;
-            _playerData = FindObjectOfType<PlayerData>();
             _settingsCanvas.SetActive(false);
             _mainMenuCanvas.SetActive(false);
         }
