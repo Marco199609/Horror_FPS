@@ -740,61 +740,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
-      propertyPath: _doorStateNotes
-      value: Only door 6 (5 year old room) and door 9 (kitchen) state "closed"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
-      propertyPath: DoorStates.Array.size
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
-      propertyPath: _triggerActivationNotes
-      value: House triggers not necessary
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
-      propertyPath: DoorStates.Array.data[0]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
-      propertyPath: DoorStates.Array.data[1]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
-      propertyPath: DoorStates.Array.data[2]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
-      propertyPath: DoorStates.Array.data[3]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
-      propertyPath: DoorStates.Array.data[5]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
-      propertyPath: DoorStates.Array.data[6]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
-      propertyPath: DoorStates.Array.data[9]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
-      propertyPath: DreamTriggerCollidersActivate.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
-      propertyPath: HouseTriggerCollidersActivate.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
-      propertyPath: DreamTriggerCollidersActivate.Array.data[0]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881448549774929959, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
-      propertyPath: DreamTriggerCollidersActivate.Array.data[1]
-      value: 1
+    - target: {fileID: 2221363527894554839, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetGame
       objectReference: {fileID: 0}
     - target: {fileID: 4361104874454018820, guid: 03449e6667772e2438361b074bcb8e63, type: 3}
       propertyPath: m_Name

@@ -68,6 +68,17 @@ public class GameSettings : MonoBehaviour
         _mainMenuCanvas.SetActive(false);
     }
 
+    public void ResetGame()
+    {
+        SceneManager.LoadScene("SnowHorse", LoadSceneMode.Single);
+        DontDestroyOnLoad[] nonDestructables = FindObjectsOfType<DontDestroyOnLoad>();
+
+        for(int i = 0; i < nonDestructables.Length; i++)
+        {
+            Destroy(nonDestructables[i].gameObject);
+        }
+    }
+
     public void OpenSettings()
     {
         _settingsCanvas.SetActive(true);
