@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 [RequireComponent(typeof(SceneStateLoader))]
 public class LevelLoader : MonoBehaviour
@@ -12,6 +13,7 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private CinemachineVirtualCamera _virtualCamera;
     [SerializeField] private Image _levelChangeMask;
+    [SerializeField] private TextMeshProUGUI _tipText;
     [SerializeField] private GameObject _playerLookingLight;
 
     private float _removeMaskDefaultDelay = 1.5f, _maskSpeed = 1.5f; //Defaults
@@ -106,6 +108,7 @@ public class LevelLoader : MonoBehaviour
         }
 
         _levelChangeMask.color = new Color(0, 0, 0, _currentTransparency);
+        _tipText.color = new Color(1, 1, 1, _currentTransparency);
     }
 
     #region Player Props
@@ -146,5 +149,6 @@ public class LevelLoader : MonoBehaviour
         }
 
         _levelChangeMask.color = new Color(0, 0, 0, _currentTransparency);
+        _tipText.color = new Color(1, 1, 1, _currentTransparency);
     }
 }

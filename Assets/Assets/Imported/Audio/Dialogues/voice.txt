@@ -14,3 +14,6 @@ Reverb Settings
 - Dry Gain (dB): -1
 - Stereo Width (%): 100
 - Wet Only (Unchecked)
+
+-Hard "s" Amplify about -2.5dB
+- Cut end of clip short, duration of clip is used for calculating dialogue times

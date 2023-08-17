@@ -1,5 +1,90 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1013121837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1013121838}
+  - component: {fileID: 1013121841}
+  - component: {fileID: 1013121839}
+  - component: {fileID: 1013121840}
+  m_Layer: 0
+  m_Name: Living Room_Trigger Dialogue 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1013121838
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013121837}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7, y: 3.152, z: 36.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7952213772189583216}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1013121841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013121837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33447ff7f9ecbc54680035a8326d6731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 0
+  _triggerCollider: {fileID: 2770187571978162034, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
+  _triggerColliderTag: Player
+  _delay: 0
+  _deactivateThis: 1
+--- !u!114 &1013121839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013121837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbcf7fba41981a04abd609b4d2869b7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialogueIndex: 0400000005000000060000000700000008000000090000000a000000
+  _dialogueDelay:
+  - 1
+  - 0
+  - 2
+  - 0
+  - 4
+  - 0
+  - 1
+--- !u!65 &1013121840
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013121837}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.0460906, y: 7.719401, z: 4.6848297}
+  m_Center: {x: 0.3431952, y: 0.16256595, z: 0.14450455}
 --- !u!1 &1395814569
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,7 +147,7 @@ MonoBehaviour:
   _id: 102
   _triggerCollider: {fileID: 2770187571978162034, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
   _triggerColliderTag: Player
-  _delay: 1
+  _delay: 0
   _deactivateThis: 1
 --- !u!114 &1395814571
 MonoBehaviour:
@@ -78,7 +163,87 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueIndex: 02000000
   _dialogueDelay:
-  - 0
+  - 2
+--- !u!1 &1618327635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1618327636}
+  - component: {fileID: 1618327639}
+  - component: {fileID: 1618327638}
+  - component: {fileID: 1618327637}
+  m_Layer: 0
+  m_Name: Hallway_Trigger Dialogue 4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1618327636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618327635}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9, y: 3.7, z: 25.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7952213772189583216}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1618327639
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618327635}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 5.834918, z: 4.7046757}
+  m_Center: {x: 0, y: -0.18837357, z: 0.21976948}
+--- !u!114 &1618327638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618327635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33447ff7f9ecbc54680035a8326d6731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 0
+  _triggerCollider: {fileID: 2770187571978162034, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
+  _triggerColliderTag: Player
+  _delay: 0
+  _deactivateThis: 1
+--- !u!114 &1618327637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618327635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbcf7fba41981a04abd609b4d2869b7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialogueIndex: 0b0000000c000000
+  _dialogueDelay:
+  - 2
+  - 10
 --- !u!1 &7952213772189583217
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,7 +267,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7952213772189583217}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -110,6 +275,8 @@ Transform:
   - {fileID: 7952213773689841421}
   - {fileID: 7952213773476427321}
   - {fileID: 1395814570}
+  - {fileID: 1013121838}
+  - {fileID: 1618327636}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -202,11 +369,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d96bf2337bb478e4aab01caf334e762d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _doorStateNotes: 
-  DoorStates: 
-  _triggerActivationNotes: 
-  DreamTriggerCollidersActivate: 
-  HouseTriggerCollidersActivate: 
+  _doorStateNotes: 'Leave 4: Women''s Bathroom in state closed'
+  DoorStates: 0000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000
+  _triggerActivationNotes: 'Activate 52: Bathroom_Trigger all hall lights on'
+  DreamTriggerCollidersActivate: 00000100
+  HouseTriggerCollidersActivate: 000000
 --- !u!1 &7952213773689841409
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +436,7 @@ MonoBehaviour:
   _id: 100
   _triggerCollider: {fileID: 2770187571978162034, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
   _triggerColliderTag: Player
-  _delay: 5
+  _delay: 0
   _deactivateThis: 1
 --- !u!114 &7952213773689841408
 MonoBehaviour:
@@ -285,5 +452,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueIndex: 0000000001000000
   _dialogueDelay:
-  - 1
+  - 3
   - 0

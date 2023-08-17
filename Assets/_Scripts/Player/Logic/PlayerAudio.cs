@@ -29,12 +29,12 @@ public class PlayerAudio : MonoBehaviour, IPlayerAudio
                 if(SceneManager.GetActiveScene().name == "Level_Dream")
                 {
                     int i = Random.Range(0, SoundManager.Instance.ConcreteFootstepClips.Length);
-                    SoundManager.Instance.Play2DSoundEffect(SoundManager.Instance.ConcreteFootstepClips[i], SoundManager.Instance.FootstepClipsVolume);
+                    SoundManager.Instance.Play2DSoundEffect(SoundManager.Instance.ConcreteFootstepClips[i], SoundManager.Instance.ConcreteFootstepClipsVolume);
                 }
                 else
                 {
                     int i = Random.Range(0, SoundManager.Instance.WoodFootstepClips.Length);
-                    SoundManager.Instance.Play2DSoundEffect(SoundManager.Instance.WoodFootstepClips[i], SoundManager.Instance.FootstepClipsVolume);
+                    SoundManager.Instance.Play2DSoundEffect(SoundManager.Instance.WoodFootstepClips[i], SoundManager.Instance.WoodFootstepClipsVolume);
                 }
                 if (playerInput.playerRunInput)  timer = playerData.FootstepsRunningTime;
                 else timer = playerData.FootstepWalkingTime;

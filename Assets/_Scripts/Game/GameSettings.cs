@@ -26,8 +26,6 @@ public class GameSettings : MonoBehaviour
     private int _targetFramerate;
     private bool _inGame;
 
-
-
     private AudioSource _mainMusicSource;
 
     private bool english, spanish;

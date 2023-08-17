@@ -38,7 +38,7 @@ public class DialogueSystem : MonoBehaviour
         _dialogueData.DialogueAudioSource.PlayOneShot(_dialogueData.DialogueClips[dialogueIndex]);
 
         StartCoroutine(SetTextUI(_dialogueTextList.DialogueTexts[dialogueIndex].Text,
-            _dialogueData.DialogueClips[dialogueIndex].length + 1));
+            _dialogueData.DialogueClips[dialogueIndex].length + 0.5f));
     }
 
     private IEnumerator SetTextUI(string dialogueText, float duration)
