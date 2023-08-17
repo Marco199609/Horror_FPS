@@ -1,0 +1,16 @@
+website: https://www.naturalreaders.com/online/
+voice: Tony
+pitch: -5%
+speed: -5%
+
+Reverb Settings
+- Room Size (%): 19
+- Pre-delay (ms): 10
+- Reverberance (%): 50
+- Damping (%): 50
+- Tone Low (%): 68
+- Tone Hight (%): 0
+- Wet Gain (dB): -9
+- Dry Gain (dB): -1
+- Stereo Width (%): 100
+- Wet Only (Unchecked)

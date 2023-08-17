@@ -66,7 +66,7 @@ MonoBehaviour:
   DialogueClips:
   - {fileID: 8300000, guid: 15161d3170704794a9c4215e4146482c, type: 3}
   - {fileID: 8300000, guid: 4de6d73a84ea70b46b340ced0b2e53e6, type: 3}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 9ef2a8c362ef76b498e190604d1cf880, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
