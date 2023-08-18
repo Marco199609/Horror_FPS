@@ -12,7 +12,7 @@ public class Item_Pillbottle : MonoBehaviour, IInteractable
 
     [SerializeField] private ITriggerAction _trigger;
     [SerializeField] private bool _alreadyTriggered;
-    [SerializeField] private float _triggerDelay;
+    [SerializeField] private float _triggerDelay; //Use in case of having more than one trigger
 
     public string ActionDescription()
     {

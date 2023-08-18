@@ -9,9 +9,14 @@ public class Trigger_DialogueSystem : MonoBehaviour, ITriggerAction
     [SerializeField] private int[] _dialogueIndex;
     [SerializeField] private float[] _dialogueDelay; //Delays in case of using more than one dialogue lines with the same trigger.
 
+    public void TriggerAction(float triggerDelay)
+    {
+        StartCoroutine(Trigger(triggerDelay));
+    }
+
     public IEnumerator Trigger(float triggerDelay)
     {
-        yield return new WaitForSeconds(triggerDelay);
+        yield return new WaitForSeconds(0); //Trigger delays dont work with dialogue, use in built dialogue delays
 
         if(_dialogueDelay.Length > 0)
         {
@@ -29,8 +34,5 @@ public class Trigger_DialogueSystem : MonoBehaviour, ITriggerAction
         }
     }
 
-    public void TriggerAction(float triggerDelay)
-    {
-        StartCoroutine(Trigger(triggerDelay));
-    }
+
 }

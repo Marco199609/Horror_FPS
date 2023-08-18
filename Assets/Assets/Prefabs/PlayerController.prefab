@@ -738,7 +738,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 4d73b3e889c930f4a9fb776f98ae1395, type: 3}
     - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: MaxIntensity
-      value: 2
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: MinIntensity
