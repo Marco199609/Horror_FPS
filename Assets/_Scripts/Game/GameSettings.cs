@@ -9,14 +9,10 @@ using TMPro;
 
 public class GameSettings : MonoBehaviour
 {
+    public static GameSettings Instance;
     public bool Pause;
+    public bool InGame { get; private set; }
 
-    [SerializeField] private GameObject _settingsCanvas;
-    [SerializeField] private GameObject _mainMenuCanvas;
-    [SerializeField] private GameObject _startGameButton;
-    [SerializeField] private GameObject _continueGameButton;
-
-    [Header("Game Settings")]
     [SerializeField] private TMP_Dropdown _framerateDropdownButton, _languageDropdownButton;
     [SerializeField] private Slider _mouseSensitivitySlider;
     [SerializeField] private Toggle _vSyncToggle, _subtitlesToggle;
@@ -24,13 +20,8 @@ public class GameSettings : MonoBehaviour
 
     private float _mouseSensitivity = 200;
     private int _targetFramerate;
-    private bool _inGame;
-
-    private AudioSource _mainMusicSource;
-
     private bool english, spanish;
-
-    public static GameSettings Instance;
+    private AudioSource _mainMusicSource;
 
     private void Awake()
     {
@@ -42,58 +33,15 @@ public class GameSettings : MonoBehaviour
         SetVsync();
     }
 
-    #region Canvas Control
-
-    public void StartGame()
-    {
-        gameObject.GetComponent<Trigger_LevelLoader>().LoadLevel();
-    }
-
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if(scene.name == "Level_Dream")
         {
-            _inGame = true;
-            _settingsCanvas.SetActive(false);
-            _mainMenuCanvas.SetActive(false);
+            InGame = true;
+            UIManager.Instance.SettingsCanvas.SetActive(false);
+            UIManager.Instance.MainMenuCanvas.SetActive(false);
         }
     }
-
-    public void ContinueGame()
-    {
-        Pause = false;
-        _settingsCanvas.SetActive(false);
-        _mainMenuCanvas.SetActive(false);
-    }
-
-    public void ResetGame()
-    {
-        SceneManager.LoadScene("SnowHorse", LoadSceneMode.Single);
-        DontDestroyOnLoad[] nonDestructables = FindObjectsOfType<DontDestroyOnLoad>();
-
-        for(int i = 0; i < nonDestructables.Length; i++)
-        {
-            Destroy(nonDestructables[i].gameObject);
-        }
-    }
-
-    public void OpenSettings()
-    {
-        _settingsCanvas.SetActive(true);
-        _mainMenuCanvas.SetActive(false);
-    }
-
-    public void CloseSettings()
-    {
-        _settingsCanvas.SetActive(false);
-        _mainMenuCanvas.SetActive(true);
-    }
-
-    public void ExitGame()
-    {
-        Application.Quit();
-    }
-    #endregion
 
     #region Game Settings
     public void SetMouseSensitivity()
@@ -164,18 +112,25 @@ public class GameSettings : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Pause) ContinueGame();
+            if (Pause)
+            {
+                Pause = false;
+                UIManager.Instance.SettingsCanvas.SetActive(false);
+                UIManager.Instance.MainMenuCanvas.SetActive(false);
+            }
             else
             {
                 Pause = true;
-                _mainMenuCanvas.SetActive(true);
+                UIManager.Instance.MainMenuCanvas.SetActive(true);
             }
         }
 
         if (Pause)
         {
-            if (!_continueGameButton.activeInHierarchy) _continueGameButton.SetActive(true);
-            if (_startGameButton.activeInHierarchy) _startGameButton.SetActive(false);
+            if (!UIManager.Instance.ContinueGameButton.activeInHierarchy) 
+                UIManager.Instance.ContinueGameButton.SetActive(true);
+            if (UIManager.Instance.StartGameButton.activeInHierarchy) 
+                UIManager.Instance.StartGameButton.SetActive(false);
 
             _playerData.mouseSensitivityX = 0;
             _playerData.mouseSensitivityY = 0;
@@ -187,7 +142,7 @@ public class GameSettings : MonoBehaviour
         }
     }
 
-    private void CursorControl()
+    public void CursorControl()
     {
         if (Pause)
         {
@@ -206,15 +161,15 @@ public class GameSettings : MonoBehaviour
     {
         SoundControl();
 
-        if (_inGame)
+        if (InGame)
         {
             PauseControl();
             CursorControl();
         }
         else
         {
-           if(_continueGameButton.activeInHierarchy) _continueGameButton.SetActive(false);
-           if(!_startGameButton.activeInHierarchy) _startGameButton.SetActive(true);
+           if(UIManager.Instance.ContinueGameButton.activeInHierarchy) UIManager.Instance.ContinueGameButton.SetActive(false);
+           if(!UIManager.Instance.StartGameButton.activeInHierarchy) UIManager.Instance.StartGameButton.SetActive(true);
         }
     }
 
@@ -229,7 +184,7 @@ public class GameSettings : MonoBehaviour
             _mainMusicSource.Play();
         }
 
-        if(_inGame)
+        if(InGame)
         {
             if(Pause)
             {

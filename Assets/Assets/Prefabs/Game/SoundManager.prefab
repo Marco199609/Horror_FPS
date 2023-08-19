@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5733869728958587171}
   - component: {fileID: 5733869728958587170}
+  - component: {fileID: 1980724491}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -72,6 +73,8 @@ MonoBehaviour:
   LightSwitchOffClipVolume: 0.2
   <MouseClickClip>k__BackingField: {fileID: 8300000, guid: 6d1dcd14a41e359469ed13bf4ff3851b, type: 3}
   MouseClickClipVolume: 0.2
+  <PillbottleClip>k__BackingField: {fileID: 8300000, guid: f3634509df2d7614091a4c8c47979fbd, type: 3}
+  PillbottleClipVolume: 0.2
   <ItemInspectClip>k__BackingField: {fileID: 8300000, guid: 4d73b3e889c930f4a9fb776f98ae1395, type: 3}
   ItemInspectClipVolume: 0.05
   <PlayerPickupClip>k__BackingField: {fileID: 8300000, guid: 1ba146d2c30757b4ab5675f3c6726949, type: 3}
@@ -98,11 +101,25 @@ MonoBehaviour:
   FlashlightClipVolume: 0.2
   <PlayerBreathClip>k__BackingField: {fileID: 8300000, guid: 8051bfe520699514ca1d0f0deed8d5c4, type: 3}
   PlayerBreathClipVolume: 0.2
+  <PlayerHeartbeatClip>k__BackingField: {fileID: 8300000, guid: 6e041f4933519884aba1aae25c973784, type: 3}
+  PlayerHeartbeatClipVolume: 0.03
   <LightFlickerClip>k__BackingField: {fileID: 8300000, guid: d4e44f94832a8614d8cd621e93af3ad0, type: 3}
   LightFlickerClipVolume: 0.2
   _musicSource: {fileID: 5733869729842296541}
   _effectsSource: {fileID: 5733869729129616781}
   _2dEffectsSource: {fileID: 5733869729964003878}
+--- !u!114 &1980724491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5733869728958587172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2bafa56ba254c45af267ad5d093fd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5733869729129616782
 GameObject:
   m_ObjectHideFlags: 0

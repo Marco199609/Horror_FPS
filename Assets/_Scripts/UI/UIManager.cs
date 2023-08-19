@@ -11,16 +11,24 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance { get; private set; }
 
     [Header("Player UI")]
+    [SerializeField] private GameObject _playerCanvas;
     [SerializeField] private GameObject _interactableKeyPrompt;
     [SerializeField] private GameObject _inspectableOnlyMousePrompt;
     [SerializeField] private Image _uiCenterPoint;
-    [SerializeField] private TextMeshProUGUI _playerDialogueText;
 
     [Header("Interactables UI")]
     [SerializeField] private TextMeshProUGUI _interactableDescription;
     [SerializeField] private TextMeshProUGUI _actionDescription;
-    [SerializeField] private TextMeshProUGUI _characterDialogueText;
-    
+
+    [Header("Dialogue UI")]
+    public TextMeshProUGUI DialogueText;
+
+    [Header("Menu UI")]
+    public GameObject SettingsCanvas;
+    public GameObject MainMenuCanvas;
+    public GameObject StartGameButton;
+    public GameObject ContinueGameButton;
+
     //Required scripts
     private CenterPointUIHandler _centerPointUIHandler;
     private InteractableUIHandler _interactableUIHandler;
@@ -54,6 +62,12 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
+        if (GameSettings.Instance.InGame)
+        {
+            if(GameSettings.Instance.Pause) _playerCanvas.SetActive(false);
+            else _playerCanvas.SetActive(true);
+        } 
+
         _centerPointUIHandler.UpdateCenterPoint(_uiCenterPoint);
     }
 }

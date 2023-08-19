@@ -52,6 +52,8 @@ public class SoundManager : MonoBehaviour
     [Range(0.0f, 1.0f)] public float FlashlightClipVolume = 0.2f;
     [field: SerializeField] public AudioClip PlayerBreathClip { get; private set; }
     [Range(0.0f, 1.0f)] public float PlayerBreathClipVolume = 0.2f;
+    [field: SerializeField] public AudioClip PlayerHeartbeatClip { get; private set; }
+    [Range(0.0f, 1.0f)] public float PlayerHeartbeatClipVolume = 0.2f;
 
     //Light flicker clips
     [field: SerializeField] public AudioClip LightFlickerClip { get; private set; }
@@ -63,12 +65,8 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(this);
-        }
-        else Destroy(gameObject);
+        if (Instance != null && Instance != this) Destroy(gameObject);
+        else Instance = this;
 
         _effectsSource.spatialBlend = 1.0f;
         _2dEffectsSource.spatialBlend = 0.0f;

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class DialogueSystem : MonoBehaviour
 {
-    private TMP_Text _dialogueUI;
+    private TextMeshProUGUI _dialogueUI;
     public DialogueData _dialogueData;
     private DialogueTextList _dialogueTextList;
 
@@ -27,10 +27,10 @@ public class DialogueSystem : MonoBehaviour
 
     private void Update()
     {
-        if(_dialogueUI == null && SceneManager.GetActiveScene().name != "MainMenu")
+        /*if(_dialogueUI == null && SceneManager.GetActiveScene().name != "MainMenu")
         {
             _dialogueUI = GameObject.FindWithTag("DialogueText").GetComponent<TMP_Text>();
-        }
+        }*/
     }
 
     public void ManageDialogues(int dialogueIndex)
@@ -43,9 +43,9 @@ public class DialogueSystem : MonoBehaviour
 
     private IEnumerator SetTextUI(string dialogueText, float duration)
     {
-        _dialogueUI.text = dialogueText;
+        UIManager.Instance.DialogueText.text = dialogueText;
         yield return new WaitForSeconds(duration);
-        _dialogueUI.text = "";
+        UIManager.Instance.DialogueText.text = "";
     }
 
     public void ChangeLanguage()
