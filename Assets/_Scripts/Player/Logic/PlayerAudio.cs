@@ -57,24 +57,25 @@ public class PlayerAudio : MonoBehaviour, IPlayerAudio
 
     public void PlayerBreathAndHeartbeat()
     {
-        if (_playerBreathSource != null && !_playerBreathSource.isPlaying)
+        if(SceneManager.GetActiveScene().name == "Level_Dream") 
         {
-            if (SceneManager.GetActiveScene().name == "Level_House")
-                _playerBreathSource.volume = _soundManager.PlayerBreathClipVolume * _soundManager.GlobalSoundFXVolume;
-            else
-                _playerBreathSource.volume = 0;
+            if (_playerBreathSource != null && _playerBreathSource.isPlaying) _playerBreathSource.Stop(); //Stop breathing
 
-            _playerBreathSource.Play();
-        }
-
-        if(_playerHeartbeatSource != null && !_playerHeartbeatSource.isPlaying)
-        {
-            if (SceneManager.GetActiveScene().name == "Level_Dream")
+            if (_playerHeartbeatSource != null && !_playerHeartbeatSource.isPlaying) //Activate heartbeat
+            {
                 _playerHeartbeatSource.volume = _soundManager.PlayerHeartbeatClipVolume * _soundManager.GlobalSoundFXVolume;
-            else
-                _playerHeartbeatSource.volume = 0;
-
-            _playerHeartbeatSource.Play();
+                _playerHeartbeatSource.Play();
+            }
         }
+        else if(SceneManager.GetActiveScene().name == "Level_House")
+        {
+            if (_playerHeartbeatSource != null && _playerHeartbeatSource.isPlaying) _playerHeartbeatSource.Stop(); //Stop heartbeat
+
+            if (_playerBreathSource != null && !_playerBreathSource.isPlaying) //Activate breathing
+            {
+                _playerBreathSource.volume = _soundManager.PlayerBreathClipVolume * _soundManager.GlobalSoundFXVolume;
+                _playerBreathSource.Play();
+            }   
+        }  
     }
 }

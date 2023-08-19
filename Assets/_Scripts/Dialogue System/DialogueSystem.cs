@@ -7,10 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class DialogueSystem : MonoBehaviour
 {
-    private TextMeshProUGUI _dialogueUI;
     public DialogueData _dialogueData;
-    private DialogueTextList _dialogueTextList;
 
+    private DialogueTextList _dialogueTextList;
+    private TextAsset _dialogueAsset;
 
     public static DialogueSystem Instance { get; private set; }
     private void Awake()
@@ -23,14 +23,6 @@ public class DialogueSystem : MonoBehaviour
     {
         _dialogueData = GetComponent<DialogueData>();
         ParseJSON();
-    }
-
-    private void Update()
-    {
-        /*if(_dialogueUI == null && SceneManager.GetActiveScene().name != "MainMenu")
-        {
-            _dialogueUI = GameObject.FindWithTag("DialogueText").GetComponent<TMP_Text>();
-        }*/
     }
 
     public void ManageDialogues(int dialogueIndex)
@@ -53,8 +45,6 @@ public class DialogueSystem : MonoBehaviour
         ParseJSON();
     }
 
-
-    TextAsset _dialogueAsset;
     private void ParseJSON()
     {
         if (_dialogueData.english)
@@ -68,7 +58,6 @@ public class DialogueSystem : MonoBehaviour
         _dialogueTextList = JsonUtility.FromJson<DialogueTextList>(json);
     }
 }
-
 
 [Serializable]
 public class DialogueTextList
