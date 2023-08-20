@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5733869728958587171}
   - component: {fileID: 5733869728958587170}
+  - component: {fileID: 6038798442093337468}
   - component: {fileID: 1980724491}
   m_Layer: 0
   m_Name: SoundManager
@@ -49,6 +50,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GlobalSoundFXVolume: 1
+  _musicSource: {fileID: 5733869729842296541}
+  _effectsSource: {fileID: 5733869729129616781}
+  _2dEffectsSource: {fileID: 5733869729964003878}
+  SoundData: {fileID: 6038798442093337468}
+--- !u!114 &6038798442093337468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5733869728958587172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b6c1d539594544392f4b59a2851f36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   <MainMenuMusicClip>k__BackingField: {fileID: 8300000, guid: fae85b98ca4a80043ae09bbd7519fc61, type: 3}
   MainMenuMusicClipVolume: 0.2
   <DoorOpenClip>k__BackingField: {fileID: 8300000, guid: 8b6eec1f8a44b0d4a867a7597042a11a, type: 3}
@@ -111,9 +128,6 @@ MonoBehaviour:
   PlayerHeartbeatClipVolume: 0.03
   <LightFlickerClip>k__BackingField: {fileID: 8300000, guid: d4e44f94832a8614d8cd621e93af3ad0, type: 3}
   LightFlickerClipVolume: 0.2
-  _musicSource: {fileID: 5733869729842296541}
-  _effectsSource: {fileID: 5733869729129616781}
-  _2dEffectsSource: {fileID: 5733869729964003878}
 --- !u!114 &1980724491
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class LightFlicker : MonoBehaviour
 
     private AudioSource _flickerSource;
     private Light _light;
+    private SoundData _soundData;
     private float _lightMaxIntensity, _timer;
     private bool _lightOn;
 
@@ -24,7 +25,8 @@ public class LightFlicker : MonoBehaviour
 
     private void Start()
     {
-        _flickerSource = SoundManager.Instance.CreateModifiableAudioSource(SoundManager.Instance.LightFlickerClip, _lamp.gameObject, SoundManager.Instance.LightFlickerClipVolume);
+        if (_soundData == null) _soundData = SoundManager.Instance.SoundData;
+        _flickerSource = SoundManager.Instance.CreateModifiableAudioSource(_soundData.LightFlickerClip, _lamp.gameObject, _soundData.LightFlickerClipVolume);
     }
 
     private void Update()
@@ -58,7 +60,7 @@ public class LightFlicker : MonoBehaviour
 
                 if (!_flickerSource.isPlaying)
                 {
-                    _flickerSource.volume = SoundManager.Instance.LightFlickerClipVolume * SoundManager.Instance.GlobalSoundFXVolume;
+                    _flickerSource.volume = _soundData.LightFlickerClipVolume * SoundManager.Instance.GlobalSoundFXVolume;
                     _flickerSource.Play();
                 } 
             }

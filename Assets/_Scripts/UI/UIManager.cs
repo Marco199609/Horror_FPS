@@ -16,10 +16,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _inspectableOnlyMousePrompt;
     [SerializeField] private Image _uiCenterPoint;
 
-    [Header("Interactables UI")]
-    [SerializeField] private TextMeshProUGUI _interactableDescription;
-    [SerializeField] private TextMeshProUGUI _actionDescription;
-
     [Header("Dialogue UI")]
     public TextMeshProUGUI DialogueText;
 

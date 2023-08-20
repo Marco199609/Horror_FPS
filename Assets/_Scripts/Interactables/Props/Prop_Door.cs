@@ -23,6 +23,7 @@ public class Prop_Door : MonoBehaviour, IInteractable
 
     private IPlayerInventory _inventory;
     private float _doorMoveVelocity;
+    private SoundData _soundData;
 
     public DoorState _currentDoorState;
     private bool _changeDoorState;
@@ -39,9 +40,8 @@ public class Prop_Door : MonoBehaviour, IInteractable
     public void Interact(PlayerController playerController)
     {
         if(_inventory == null) _inventory = playerController.Inventory;
+        if (_soundData == null) _soundData = SoundManager.Instance.SoundData;
         _changeDoorState = true;
-
-
     }
 
     private void Update()
@@ -61,7 +61,7 @@ public class Prop_Door : MonoBehaviour, IInteractable
                     {
                         if (_key != null && _inventory.SelectedItem() == _key)
                         {
-                            SoundManager.Instance.PlaySoundEffect(SoundManager.Instance.DoorUnlockClip, transform.position, SoundManager.Instance.DoorUnlockClipVolume, true);
+                            SoundManager.Instance.PlaySoundEffect(_soundData.DoorUnlockClip, transform.position, _soundData.DoorUnlockClipVolume, true);
                             _inventory.Remove(_key);
                             Destroy(_key);
 
@@ -70,19 +70,19 @@ public class Prop_Door : MonoBehaviour, IInteractable
                         }
                         else
                         {
-                            SoundManager.Instance.PlaySoundEffect(SoundManager.Instance.DoorLockedClip, transform.position, SoundManager.Instance.DoorLockedClipVolume, true);
+                            SoundManager.Instance.PlaySoundEffect(_soundData.DoorLockedClip, transform.position, _soundData.DoorLockedClipVolume, true);
                         }
                         _changeDoorState = false;
                         break;
                     }
                 case DoorState.Closed:
                     {
-                        SoundManager.Instance.PlaySoundEffect(SoundManager.Instance.DoorOpenClip, transform.position, SoundManager.Instance.DoorOpenClipVolume, true);
+                        SoundManager.Instance.PlaySoundEffect(_soundData.DoorOpenClip, transform.position, _soundData.DoorOpenClipVolume, true);
 
                         if (_doorPivotPoint.localEulerAngles.y > 270 || _doorPivotPoint.localEulerAngles.y == 0)
                         {
                             float degreesToRotate = 90;
-                            float timeToRotate = SoundManager.Instance.DoorOpenClip.length;
+                            float timeToRotate = _soundData.DoorOpenClip.length;
                             _doorMoveVelocity = degreesToRotate / timeToRotate;
 
                             _doorPivotPoint.Rotate(0, -_doorMoveVelocity * Time.deltaTime * 1.05f, 0); //1.05 prevents audioclip from playing mor than once
@@ -97,10 +97,10 @@ public class Prop_Door : MonoBehaviour, IInteractable
                 case DoorState.Open:
                     {
                         float degreesToRotate = 90;
-                        float timeToRotate = SoundManager.Instance.DoorCloseClip.length;
+                        float timeToRotate = _soundData.DoorCloseClip.length;
                         _doorMoveVelocity = degreesToRotate / timeToRotate;
 
-                        SoundManager.Instance.PlaySoundEffect(SoundManager.Instance.DoorCloseClip, transform.position, SoundManager.Instance.DoorCloseClipVolume, true);
+                        SoundManager.Instance.PlaySoundEffect(_soundData.DoorCloseClip, transform.position, _soundData.DoorCloseClipVolume, true);
 
                         if (_doorPivotPoint.localEulerAngles.y > 260)
                         {

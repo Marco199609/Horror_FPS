@@ -23,7 +23,7 @@ public class Item_Pillbottle : MonoBehaviour, IInteractable
     {
         if(_pills.Count > 0)
         {
-            SoundManager.Instance.Play2DSoundEffect(SoundManager.Instance.PillbottleClip, SoundManager.Instance.PillbottleClipVolume);
+            SoundManager.Instance.Play2DSoundEffect(SoundManager.Instance.SoundData.PillbottleClip, SoundManager.Instance.SoundData.PillbottleClipVolume);
             Destroy(_pills[_pills.Count - 1]);
             _pills.RemoveAt(_pills.Count - 1);
         }

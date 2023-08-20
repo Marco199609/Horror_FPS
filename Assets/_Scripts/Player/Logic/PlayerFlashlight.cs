@@ -61,7 +61,7 @@ public class PlayerFlashlight : MonoBehaviour, IFlashlightControl
             _turnOn = !_turnOn;
 
             if(SoundManager.Instance != null)
-                SoundManager.Instance.Play2DSoundEffect(SoundManager.Instance.FlashlightClip, SoundManager.Instance.FlashlightClipVolume);
+                SoundManager.Instance.Play2DSoundEffect(SoundManager.Instance.SoundData.FlashlightClip, SoundManager.Instance.SoundData.FlashlightClipVolume);
 
             //Resets bools if player input no longer pressing button
             _waitForScroll = false;

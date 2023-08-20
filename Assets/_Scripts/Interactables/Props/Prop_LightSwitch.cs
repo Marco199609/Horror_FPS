@@ -10,6 +10,7 @@ public class Prop_LightSwitch : MonoBehaviour, IInteractable
     [SerializeField] private GameObject _switchOnModel, _switchOffModel;
 
     private bool _lightsOn;
+    private SoundData _soundData;
 
     public void AssignInStateLoader()
     {
@@ -18,6 +19,8 @@ public class Prop_LightSwitch : MonoBehaviour, IInteractable
 
     public void Interact(PlayerController playerController)
     {
+        if (_soundData == null) _soundData = SoundManager.Instance.SoundData;
+
         if (_lightsOn)
         {
             for (int i = 0; i < _lightOnObjects.Count; i++)
@@ -29,7 +32,7 @@ public class Prop_LightSwitch : MonoBehaviour, IInteractable
             _switchOnModel.SetActive(false);
             _switchOffModel.SetActive(true);
 
-            SoundManager.Instance.PlaySoundEffect(SoundManager.Instance.LightSwitchOffClip, transform.position, SoundManager.Instance.LightSwitchOffClipVolume);
+            SoundManager.Instance.PlaySoundEffect(_soundData.LightSwitchOffClip, transform.position, _soundData.LightSwitchOffClipVolume);
             _lightsOn = false;
         }
         else
@@ -43,7 +46,7 @@ public class Prop_LightSwitch : MonoBehaviour, IInteractable
             _switchOnModel.SetActive(true);
             _switchOffModel.SetActive(false);
 
-            SoundManager.Instance.PlaySoundEffect(SoundManager.Instance.LightSwitchOnClip, transform.position, SoundManager.Instance.LightSwitchOnClipVolume);
+            SoundManager.Instance.PlaySoundEffect(_soundData.LightSwitchOnClip, transform.position, _soundData.LightSwitchOnClipVolume);
             _lightsOn = true;
         }
     }
@@ -67,6 +70,6 @@ public class Prop_LightSwitch : MonoBehaviour, IInteractable
 
     public void TriggerActions()
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 }

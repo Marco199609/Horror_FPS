@@ -36,7 +36,7 @@ public class PlayerInspect : MonoBehaviour, IPlayerInspect
 
         inspectable.GetComponent<Collider>().enabled = false;
         _timer = _deleteCurrentInspectableTimer;
-        SoundManager.Instance.Play2DSoundEffect(SoundManager.Instance.ItemInspectClip, SoundManager.Instance.ItemInspectClipVolume);
+        SoundManager.Instance.Play2DSoundEffect(SoundManager.Instance.SoundData.ItemInspectClip, SoundManager.Instance.SoundData.ItemInspectClipVolume);
 
         _inspectingItem = true;
     }
@@ -62,7 +62,11 @@ public class PlayerInspect : MonoBehaviour, IPlayerInspect
             }
             else
             {
-                if (_currentInspectableSelected.transform.parent != _previousParent) SoundManager.Instance.Play2DSoundEffect(SoundManager.Instance.ItemInspectClip, SoundManager.Instance.ItemInspectClipVolume);
+                if (_currentInspectableSelected.transform.parent != _previousParent) 
+                    SoundManager.Instance.Play2DSoundEffect(
+                        SoundManager.Instance.SoundData.ItemInspectClip, 
+                        SoundManager.Instance.SoundData.ItemInspectClipVolume);
+
                 _currentInspectableSelected.transform.SetParent(_previousParent);
                 _currentInspectableSelected.position = Vector3.Lerp(_currentInspectableSelected.position, _previousPosition, _goToInspectionPositionSpeed * Time.deltaTime);
                 _currentInspectableSelected.localScale = Vector3.Lerp(_currentInspectableSelected.localScale, _previousScale, _goToInspectionPositionSpeed * Time.deltaTime);

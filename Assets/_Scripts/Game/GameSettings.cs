@@ -22,6 +22,7 @@ public class GameSettings : MonoBehaviour
     private int _targetFramerate;
     private bool english, spanish;
     private AudioSource _mainMusicSource;
+    private SoundData _soundData;
 
     private void Awake()
     {
@@ -176,9 +177,11 @@ public class GameSettings : MonoBehaviour
 
     private void SoundControl()
     {
+        if(_soundData == null) _soundData = SoundManager.Instance.SoundData;
+
         if (_mainMusicSource == null)
         {
-            _mainMusicSource = SoundManager.Instance.CreateModifiableAudioSource(SoundManager.Instance.MainMenuMusicClip, gameObject, SoundManager.Instance.MainMenuMusicClipVolume);
+            _mainMusicSource = SoundManager.Instance.CreateModifiableAudioSource(_soundData.MainMenuMusicClip, gameObject, _soundData.MainMenuMusicClipVolume);
             _mainMusicSource.loop = true;
             _mainMusicSource.spatialBlend = 0;
             _mainMusicSource.Play();
@@ -188,7 +191,7 @@ public class GameSettings : MonoBehaviour
         {
             if(Pause)
             {
-                _mainMusicSource.volume = Mathf.Lerp(_mainMusicSource.volume, SoundManager.Instance.MainMenuMusicClipVolume, Time.deltaTime * 3f);
+                _mainMusicSource.volume = Mathf.Lerp(_mainMusicSource.volume, _soundData.MainMenuMusicClipVolume, Time.deltaTime * 3f);
             }
             else
             {
@@ -197,7 +200,7 @@ public class GameSettings : MonoBehaviour
                     if (_mainMusicSource.volume > 0)
                         _mainMusicSource.volume -= Time.deltaTime * 0.5f;
                 }
-                _mainMusicSource.volume = Mathf.Lerp(_mainMusicSource.volume, SoundManager.Instance.MainMenuMusicClipVolume / 4, Time.deltaTime * 2f);
+                _mainMusicSource.volume = Mathf.Lerp(_mainMusicSource.volume, _soundData.MainMenuMusicClipVolume / 4, Time.deltaTime * 2f);
             }
         }
     }

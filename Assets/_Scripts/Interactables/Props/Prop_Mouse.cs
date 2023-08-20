@@ -36,7 +36,7 @@ public class Prop_Mouse : MonoBehaviour, IInteractable
             _screenOn = true;
         }
 
-        SoundManager.Instance.PlaySoundEffect(SoundManager.Instance.MouseClickClip, transform.position, SoundManager.Instance.MouseClickClipVolume); ;
+        SoundManager.Instance.PlaySoundEffect(SoundManager.Instance.SoundData.MouseClickClip, transform.position, SoundManager.Instance.SoundData.MouseClickClipVolume); ;
     }
 
     public bool[] InteractableType()

@@ -11,7 +11,7 @@ public class Prop_Guitar : MonoBehaviour, IInteractable
     private void SetVariables()
     {
         if (_soundManager == null) _soundManager = SoundManager.Instance;
-        if (_guitarStrumSource == null) _guitarStrumSource = _soundManager.CreateModifiableAudioSource(null, gameObject, _soundManager.GuitarStrumClipVolume);
+        if (_guitarStrumSource == null) _guitarStrumSource = _soundManager.CreateModifiableAudioSource(null, gameObject, _soundManager.SoundData.GuitarStrumClipVolume);
         _guitarStrumSource.spatialBlend = 1;
     }
     public void AssignInStateLoader()
@@ -32,7 +32,7 @@ public class Prop_Guitar : MonoBehaviour, IInteractable
             _currentStrumIndex = Random.Range(0, 2); //minInclusive, maxExclusive
         }
 
-        _guitarStrumSource.clip = _soundManager.GuitarStrumClips[_currentStrumIndex];
+        _guitarStrumSource.clip = _soundManager.SoundData.GuitarStrumClips[_currentStrumIndex];
         _guitarStrumSource.Play();
     }
 
