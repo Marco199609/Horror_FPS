@@ -7,7 +7,6 @@ public class Item_InspectableOnly : MonoBehaviour, IInteractable
 {
     [SerializeField] private int _id;
     [SerializeField] private bool _rotateX = true, _rotateY = true, _rotateZ = true;
-    [SerializeField] private string _inspectableDescription;
 
     [SerializeField] private ITriggerAction _trigger;
     [SerializeField] private bool _alreadyTriggered;
@@ -18,20 +17,10 @@ public class Item_InspectableOnly : MonoBehaviour, IInteractable
         SceneStateLoader.Instance.objects.Add(_id, gameObject);
     }
 
-    public string ActionDescription()
-    {
-        return "Inspect";
-    }
-
     public void Interact(PlayerController playerController)
     {
         bool[] rotateXYZ = new bool[] { _rotateX, _rotateY, _rotateZ };
         playerController.PlayerInspect.Inspect(transform, rotateXYZ); 
-    }
-
-    public string InteractableDescription()
-    {
-        return _inspectableDescription;
     }
 
     public bool[] InteractableType()

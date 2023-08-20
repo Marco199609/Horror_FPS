@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerStressControl : MonoBehaviour
 {
+    [SerializeField] private float _currentStessLevel;
+
     // Start is called before the first frame update
     void Start()
     {

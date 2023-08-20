@@ -19,22 +19,6 @@ public class Prop_Mouse : MonoBehaviour, IInteractable
         _screenMaterial.DisableKeyword("_EMISSION");
         _screenLight.enabled = false;
         _screenOn = false;
-        /*
-        if (_screenOn)
-        {
-            _screenMaterial.EnableKeyword("_EMISSION");
-            _screenLight.enabled = true;
-        }
-        else
-        {
-            _screenMaterial.DisableKeyword("_EMISSION");
-            _screenLight.enabled = false;
-        } */
-    }
-
-    public string ActionDescription()
-    {
-        return null;
     }
 
     public void Interact(PlayerController playerController)
@@ -53,11 +37,6 @@ public class Prop_Mouse : MonoBehaviour, IInteractable
         }
 
         SoundManager.Instance.PlaySoundEffect(SoundManager.Instance.MouseClickClip, transform.position, SoundManager.Instance.MouseClickClipVolume); ;
-    }
-
-    public string InteractableDescription()
-    {
-        return null;
     }
 
     public bool[] InteractableType()

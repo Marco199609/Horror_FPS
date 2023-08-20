@@ -75,6 +75,12 @@ MonoBehaviour:
   MouseClickClipVolume: 0.2
   <PillbottleClip>k__BackingField: {fileID: 8300000, guid: f3634509df2d7614091a4c8c47979fbd, type: 3}
   PillbottleClipVolume: 0.2
+  <GuitarStrumClips>k__BackingField:
+  - {fileID: 8300000, guid: e9689eb3f7210df41ad257af4356c593, type: 3}
+  - {fileID: 8300000, guid: b29a0cc47bdcbb041b213bfa5925dfb0, type: 3}
+  - {fileID: 8300000, guid: f9b6f2dfaa3c1554196151da9dd0bd38, type: 3}
+  - {fileID: 8300000, guid: d9a7fe2d3bfe93b4d973a1c50471dd6f, type: 3}
+  GuitarStrumClipVolume: 0.5
   <ItemInspectClip>k__BackingField: {fileID: 8300000, guid: 4d73b3e889c930f4a9fb776f98ae1395, type: 3}
   ItemInspectClipVolume: 0.05
   <PlayerPickupClip>k__BackingField: {fileID: 8300000, guid: 1ba146d2c30757b4ab5675f3c6726949, type: 3}

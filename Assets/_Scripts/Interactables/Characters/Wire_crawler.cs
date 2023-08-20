@@ -52,16 +52,6 @@ public class Wire_crawler : MonoBehaviour, IInteractable, ITriggerAction
         }
     }
 
-
-    public string ActionDescription()
-    {
-        return "";
-    }
-
-    public string InteractableDescription()
-    {
-        return "";
-    }
     public bool[] InteractableType()
     {
         bool nonInspectable = true;

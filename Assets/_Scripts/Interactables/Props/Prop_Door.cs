@@ -36,15 +36,6 @@ public class Prop_Door : MonoBehaviour, IInteractable
         if (_id != 0) SceneStateLoader.Instance.objects.Remove(_id);
     }
 
-    public string InteractableDescription()
-    {
-        return "";
-    }
-    public string ActionDescription()
-    {
-        return "";
-    }
-
     public void Interact(PlayerController playerController)
     {
         if(_inventory == null) _inventory = playerController.Inventory;

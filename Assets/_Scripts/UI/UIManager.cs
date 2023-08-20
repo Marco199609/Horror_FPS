@@ -44,7 +44,7 @@ public class UIManager : MonoBehaviour
     {
         _centerPointUIHandler = GetComponent<CenterPointUIHandler>();
         _interactableUIHandler = GetComponent<InteractableUIHandler>();
-        _interactableUIHandler.SetVariables(_interactableKeyPrompt, _inspectableOnlyMousePrompt, _interactableDescription, _actionDescription);
+        _interactableUIHandler.SetVariables(_interactableKeyPrompt, _inspectableOnlyMousePrompt);
 
         //Subscribes to player UI events
         PlayerUI.ItemDescriptionActivated += _interactableUIHandler.ActivateInteractableUIElements;

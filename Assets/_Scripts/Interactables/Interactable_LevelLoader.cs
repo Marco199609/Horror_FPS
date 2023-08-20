@@ -19,19 +19,10 @@ public class Interactable_LevelLoader : MonoBehaviour, IInteractable
         if (_id != 0) SceneStateLoader.Instance.objects.Add(_id, gameObject);
         else print("id is 0 in gameobject " + gameObject.name + "!");
     }
-    public string ActionDescription()
-    {
-        return "";
-    }
 
     public void Interact(PlayerController playerController)
     {
         gameObject.GetComponent<Trigger_LevelLoader>().LoadLevel();
-    }
-
-    public string InteractableDescription()
-    {
-        return "";
     }
 
     public bool[] InteractableType()

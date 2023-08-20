@@ -14,11 +14,6 @@ public class Item_Pillbottle : MonoBehaviour, IInteractable
     [SerializeField] private bool _alreadyTriggered;
     [SerializeField] private float _triggerDelay; //Use in case of having more than one trigger
 
-    public string ActionDescription()
-    {
-        return "";
-    }
-
     public void AssignInStateLoader()
     {
         SceneStateLoader.Instance.objects.Add(_id, gameObject);
@@ -38,11 +33,6 @@ public class Item_Pillbottle : MonoBehaviour, IInteractable
             _pillbottleCap.SetActive(false);
             gameObject.transform.localEulerAngles = Vector3.zero;
         }
-    }
-
-    public string InteractableDescription()
-    {
-        return "";
     }
 
     public bool[] InteractableType()

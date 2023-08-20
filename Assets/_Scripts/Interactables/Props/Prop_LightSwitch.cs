@@ -15,10 +15,6 @@ public class Prop_LightSwitch : MonoBehaviour, IInteractable
     {
         SceneStateLoader.Instance.objects.Add(_id, gameObject);
     }
-    public string ActionDescription()
-    {
-        return null;
-    }
 
     public void Interact(PlayerController playerController)
     {
@@ -52,10 +48,6 @@ public class Prop_LightSwitch : MonoBehaviour, IInteractable
         }
     }
 
-    public string InteractableDescription()
-    {
-        return null;
-    }
     public bool[] InteractableType()
     {
         bool nonInspectable = true;

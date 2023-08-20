@@ -22,28 +22,12 @@ public class Prop_Drawer : MonoBehaviour, IInteractable
     {
         SceneStateLoader.Instance.objects.Add(_id, gameObject);
     }
-    public string ActionDescription()
-    {
-        if (_currentDrawerState == DrawerState.Closed)
-            return "Open";
-        else if (_currentDrawerState == DrawerState.Locked)
-            return "Locked";
-        else
-            return "Close";
-    }
 
     public void Interact(PlayerController playerController)
     {
         if (_inventory == null) _inventory = playerController.Inventory;
         _changeDrawerState = true;
     }
-
-    public string InteractableDescription()
-    {
-        return null;
-    }
-
-
 
     private void Update()
     {

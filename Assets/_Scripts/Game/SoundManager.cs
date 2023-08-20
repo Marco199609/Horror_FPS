@@ -38,6 +38,8 @@ public class SoundManager : MonoBehaviour
     [Range(0.0f, 1.0f)] public float MouseClickClipVolume = 0.2f;
     [field:SerializeField] public AudioClip PillbottleClip { get; private set; }
     [Range(0.0f, 1.0f)] public float PillbottleClipVolume = 0.2f;
+    [field:SerializeField] public AudioClip[] GuitarStrumClips { get; private set; }
+    [Range(0.0f, 1.0f)] public float GuitarStrumClipVolume = 0.2f;
 
     //Player clips
     [field: SerializeField] public AudioClip ItemInspectClip { get; private set; }
@@ -53,7 +55,7 @@ public class SoundManager : MonoBehaviour
     [field: SerializeField] public AudioClip PlayerBreathClip { get; private set; }
     [Range(0.0f, 1.0f)] public float PlayerBreathClipVolume = 0.2f;
     [field: SerializeField] public AudioClip PlayerHeartbeatClip { get; private set; }
-    [Range(0.0f, 1.0f)] public float PlayerHeartbeatClipVolume = 0.2f;
+    [Range(0.0f, 1.0f)] public float PlayerHeartbeatClipVolume = 0.03f;
 
     //Light flicker clips
     [field: SerializeField] public AudioClip LightFlickerClip { get; private set; }

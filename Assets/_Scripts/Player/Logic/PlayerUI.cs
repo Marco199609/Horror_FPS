@@ -13,9 +13,9 @@ public class PlayerUI : MonoBehaviour, IPlayerUI
 {
     //Interactable UI variables
     private bool _playerUIActive = true, _itemsCurrentlyVisible;
-    private string _interactableDescription, _blankText, _actionDescription;
+    private string _blankText;
 
-    public delegate void UpdateItemDescription(string interactableDescription, string actionDescription, bool interactableOnly);
+    public delegate void UpdateItemDescription(bool interactableOnly);
     public static event UpdateItemDescription ItemDescriptionActivated;
     public static event UpdateItemDescription ItemDescriptionReset;
 
@@ -32,10 +32,7 @@ public class PlayerUI : MonoBehaviour, IPlayerUI
             {
                 IInteractable interactable = interactableHit.collider.GetComponent<IInteractable>();
 
-                _interactableDescription = interactable.InteractableDescription();
-                _actionDescription = interactable.ActionDescription();
-
-                ItemDescriptionActivated?.Invoke(_interactableDescription, _actionDescription, interactable.InteractableType()[1]);//Index 1 is Inspectable only; passes description to UI manager
+                ItemDescriptionActivated?.Invoke(interactable.InteractableType()[1]);//Index 1 is Inspectable only; passes description to UI manager
                 _playerUIActive = true;
             }
 
@@ -47,7 +44,7 @@ public class PlayerUI : MonoBehaviour, IPlayerUI
         {
             if (_playerUIActive)
             {
-                ItemDescriptionReset?.Invoke(_blankText, _blankText, false);
+                ItemDescriptionReset?.Invoke(false);
                 _playerUIActive = false;
             }
         }
