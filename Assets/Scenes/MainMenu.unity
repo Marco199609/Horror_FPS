@@ -685,25 +685,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3978340652355344648, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
-      propertyPath: _minStessLevel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3978340652355344648, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
-      propertyPath: _maxStressLevel
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3978340652355344648, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
-      propertyPath: _stressLowerSpeed
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 8997385359482471059, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_Name
       value: PlayerController
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997385359482471059, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8997385359482471060, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_RootOrder
