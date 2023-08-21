@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1285507144799149237, guid: 02b96c19bf476d742b74e0c3e2ae1936, type: 3}
+  - {fileID: 2100000, guid: 2d4195b5efac9684391488b0785ea644, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -144,7 +144,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2413751341462511734, guid: 02b96c19bf476d742b74e0c3e2ae1936, type: 3}
+  - {fileID: 2100000, guid: 2d4195b5efac9684391488b0785ea644, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -227,7 +227,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1859426020009997765, guid: 02b96c19bf476d742b74e0c3e2ae1936, type: 3}
+  - {fileID: 2100000, guid: e0991008b46513a45b3bf53fbc7c0fc5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -310,7 +310,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1129505859253339258, guid: 02b96c19bf476d742b74e0c3e2ae1936, type: 3}
+  - {fileID: 2100000, guid: db04653b3f96d254d8a2c1c9c597908b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -393,7 +393,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 752492319262309027, guid: 02b96c19bf476d742b74e0c3e2ae1936, type: 3}
+  - {fileID: 2100000, guid: 2d4195b5efac9684391488b0785ea644, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -424,6 +424,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7834464881815679692}
+  - component: {fileID: 1090366611}
   m_Layer: 0
   m_Name: Water dispenser with bottle
   m_TagString: Untagged
@@ -440,7 +441,7 @@ Transform:
   m_GameObject: {fileID: 7834464881815679695}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.01, y: 1.9254334, z: -7.07}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1193866950817507980}
@@ -452,6 +453,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1090366611
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7834464881815679695}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5402511
+  m_Height: 4.7278094
+  m_Direction: 1
+  m_Center: {x: 0.12825304, y: 0.44753373, z: -0.043456927}
 --- !u!1 &8738820952923282635
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,7 +528,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1859426020009997765, guid: 02b96c19bf476d742b74e0c3e2ae1936, type: 3}
+  - {fileID: 2100000, guid: e0991008b46513a45b3bf53fbc7c0fc5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

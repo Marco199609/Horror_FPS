@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8432461393272139958, guid: bbe423bea612ed945905aaecc9c854af, type: 3}
+  - {fileID: 2100000, guid: 789a1b4b67fc1fb49ace84b7b04c609b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -145,7 +145,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8239730753235656572, guid: bbe423bea612ed945905aaecc9c854af, type: 3}
+  - {fileID: 2100000, guid: 3596347e1670a6e4d977e97bbfaddb13, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -311,12 +311,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f75e64bf4d2324ca817dc1c8b05d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id: 0
   _rotateX: 1
   _rotateY: 1
   _rotateZ: 1
   _nonInspectable: 0
-  _actionDescription: 
-  _interactableDescription: 
   _positionInInventory: {x: 0.301, y: -0.103, z: 0.644}
   _rotationInInventory: {x: 186.162, y: -95.37601, z: -169.531}
   _scaleInInventory: {x: 0.7, y: 0.7, z: 0.24472724}
@@ -381,7 +380,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -56664853607673411, guid: bbe423bea612ed945905aaecc9c854af, type: 3}
+  - {fileID: 2100000, guid: ebc523695b9067b429cf59d940ee1183, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
