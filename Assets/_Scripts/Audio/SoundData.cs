@@ -37,7 +37,7 @@ public class SoundData : MonoBehaviour
     [field: SerializeField] public AudioClip PillbottleClip { get; private set; }
     [Range(0.0f, 1.0f)] public float PillbottleClipVolume = 0.2f;
     [field: SerializeField] public AudioClip[] GuitarStrumClips { get; private set; }
-    [Range(0.0f, 1.0f)] public float GuitarStrumClipVolume = 0.5f;
+    [Range(0.0f, 1.0f)] public float GuitarStrumClipVolume = 0.7f;
 
     //Player clips
     [field: SerializeField] public AudioClip ItemInspectClip { get; private set; }

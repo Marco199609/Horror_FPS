@@ -1,5 +1,7 @@
 website: https://www.naturalreaders.com/online/
 voice: Tony
+
+Audacity
 pitch: -5%
 speed: -5%
 
@@ -15,5 +17,5 @@ Reverb Settings
 - Stereo Width (%): 100
 - Wet Only (Unchecked)
 
--Hard "s" Amplify about -2.5dB
+-Hard "s" sound in audio: Amplify about -2.5dB, if still hard, repeat
 - Cut end of clip short, duration of clip is used for calculating dialogue times

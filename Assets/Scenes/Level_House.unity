@@ -11186,15 +11186,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2026041736}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2b2b4c9c55f37546ba0ffbe732a5b6e, type: 3}
+  m_Script: {fileID: 11500000, guid: 631c876f5d09326419147d84fccd0dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _id: 0
   _rotateX: 1
   _rotateY: 1
   _rotateZ: 1
-  _alreadyTriggered: 0
-  _triggerDelay: 0
 --- !u!1001 &2042062887
 PrefabInstance:
   m_ObjectHideFlags: 0
