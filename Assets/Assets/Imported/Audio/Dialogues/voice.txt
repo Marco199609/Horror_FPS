@@ -3,7 +3,7 @@ voice: Tony
 
 Audacity
 pitch: -5%
-speed: -5%
+tempo: -5%
 
 Reverb Settings
 - Room Size (%): 19
