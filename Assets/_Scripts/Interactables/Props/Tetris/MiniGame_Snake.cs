@@ -2,22 +2,31 @@ using UnityEngine;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 
-public class Tetris_Snake : MonoBehaviour
+public class MiniGame_Snake : MonoBehaviour, IMiniGame
 {
-    [SerializeField, Range(1,10)] private int _difficulty = 1;
+    [SerializeField, Range(1,5)] private int _difficulty = 1;
     [SerializeField] private int _gridWidth = 10, _gridHeight = 15, _snakeInitialLength = 3;
     [SerializeField] private AudioClip _eatClip;
     [SerializeField] private List<Transform> segments = new List<Transform>();
 
+    private bool _isGameOver, _clearScreen;
+    private int _clearScreenIndex;
     private List<Transform> _snakeSegments = new List<Transform>();
     private Vector2 _snakeDirection = Vector2.right;
-
-    private bool isGameOver = false, _showGameOverScreen;
-    private int _gameOverScreenSquareIndex = 0;
-
-    private Transform[,] grid;
     private Vector2 foodPosition;
+    private Transform[,] grid;
     private AudioSource _audioSource;
+
+    public void StartGame()
+    {
+        if (_audioSource == null) _audioSource = gameObject.GetComponent<AudioSource>();
+        GameOver();
+    }
+
+    public void StopGame()
+    {
+        CancelInvoke();
+    }
 
     private void SetGame()
     {
@@ -40,29 +49,23 @@ public class Tetris_Snake : MonoBehaviour
         {
             _snakeSegments.Add(Instantiate(segments[0].gameObject).transform);
             _snakeSegments[i].position = new Vector2(_snakeInitialLength - 1 - i, 0);
-            _snakeSegments[i].gameObject.SetActive(true);
+            grid[(int)_snakeSegments[i].position.x, (int)_snakeSegments[i].position.y].gameObject.SetActive(true);
         }
 
+        SpawnFood();
         InvokeRepeating("Move", 1f, 0.5f / _difficulty);
-        InvokeRepeating("ShowGameOverScreen", 0.01f, 0.01f);
     }
 
 
-    public void StartGame()
-    {
-        if(_audioSource == null) _audioSource = gameObject.GetComponent<AudioSource>();
-        _showGameOverScreen = true;
-        InvokeRepeating("ShowGameOverScreen", 0.01f, 0.01f);
-    }
 
-    public void StopGame()
+    private void Start()
     {
-        CancelInvoke();
+        StartGame();
     }
 
     private void Update()
     {
-        if (!isGameOver)
+        if (!_isGameOver)
         {
             if (Input.GetKeyDown(KeyCode.UpArrow) && _snakeDirection != Vector2.down)
                 _snakeDirection = Vector2.up;
@@ -79,7 +82,7 @@ public class Tetris_Snake : MonoBehaviour
 
     private void Move()
     {
-        if (!isGameOver)
+        if (!_isGameOver)
         {
             Vector2 newHeadPos = (Vector2)_snakeSegments[0].position + _snakeDirection;
 
@@ -116,36 +119,11 @@ public class Tetris_Snake : MonoBehaviour
             // Activate the grid square at the new head position of the snake
             grid[(int)newHeadPos.x, (int)newHeadPos.y].gameObject.SetActive(true);
 
-
             EatFood();
         }
     }
 
-    private void ShowGameOverScreen()
-    {
-        if (_showGameOverScreen)
-        {
-            if (_gameOverScreenSquareIndex < segments.Count)
-            {
-                segments[_gameOverScreenSquareIndex].gameObject.SetActive(true);
-                _gameOverScreenSquareIndex++;
-            }
-            else
-            {
-                for(int i = 0; i < segments.Count; i++)
-                {
-                    segments[i].gameObject.SetActive(false);
-                }
-
-                isGameOver = false;
-                _showGameOverScreen = false;
-                _gameOverScreenSquareIndex = 0;
-                CancelInvoke();
-                SetGame();
-                SpawnFood();
-            }  
-        }
-    }
+    
 
     private void EatFood()
     {
@@ -176,9 +154,45 @@ public class Tetris_Snake : MonoBehaviour
 
     private void GameOver()
     {
-        isGameOver = true;
-        _showGameOverScreen = true;
-        Debug.Log("Game Over!");
-        // Implement your game over logic here.
+        _isGameOver = true;
+        _clearScreen = true;
+        _clearScreenIndex = 0;
+        InvokeRepeating("ClearScreen", 0.003f, 0.003f);
+    }
+
+    private void ClearScreen()
+    {
+        if(_isGameOver)
+        {
+            if (_clearScreen && _clearScreenIndex < segments.Count)
+            {
+                segments[_clearScreenIndex].gameObject.SetActive(true);
+                _clearScreenIndex++;
+            }
+            else if (_clearScreen)
+            {
+                _clearScreen = false;
+            }
+            else if(_clearScreenIndex > 0)
+            {
+                _clearScreenIndex--;
+                segments[_clearScreenIndex].gameObject.SetActive(false);
+            }
+            else if(_clearScreenIndex <= 0)
+            {
+                if(_snakeSegments.Count > 0)
+                {
+                    for (int i = 0; i < _snakeSegments.Count; i++)
+                    {
+                        Destroy(_snakeSegments[i].gameObject);
+                    }
+                }
+
+                _isGameOver = false;
+                _clearScreenIndex = 0;
+                CancelInvoke();
+                SetGame();
+            }
+        }
     }
 }

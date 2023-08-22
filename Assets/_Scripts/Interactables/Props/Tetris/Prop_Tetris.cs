@@ -9,9 +9,8 @@ public class Prop_Tetris : MonoBehaviour, IInteractable
 
     [SerializeField] private GameObject _completeModel, _grayModel;
     [Header("Mini games")]
-    [SerializeField] private Tetris_Snake _snakeGame;
+    [SerializeField] private GameObject _miniGameHolder;
 
-    [Header("Use only if inspectable")]
     [SerializeField] private bool _rotateX = true, _rotateY = true, _rotateZ = true;
     [SerializeField] private Vector3 _positionInInventory, _rotationInInventory, _scaleInInventory;
 
@@ -20,6 +19,7 @@ public class Prop_Tetris : MonoBehaviour, IInteractable
     private Collider _collider;
     private float _reactivateColliderTimer = 1f; //Prevents dialogue trigger overlap
     private bool _inInventory;
+    private IMiniGame _snakeGame;
 
     public void AssignInStateLoader()
     {
@@ -37,6 +37,8 @@ public class Prop_Tetris : MonoBehaviour, IInteractable
 
     private void OnEnable()
     {
+        if(_snakeGame == null) _snakeGame = _miniGameHolder.GetComponent<IMiniGame>();
+
         if(SceneManager.GetActiveScene().name == "Level_Dream")
         {
             _grayModel.SetActive(true);
