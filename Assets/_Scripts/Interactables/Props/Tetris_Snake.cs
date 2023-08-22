@@ -6,6 +6,7 @@ public class Tetris_Snake : MonoBehaviour
 {
     [SerializeField, Range(1,10)] private int _difficulty = 1;
     [SerializeField] private int _gridWidth = 10, _gridHeight = 15, _snakeInitialLength = 3;
+    [SerializeField] private AudioClip _eatClip;
     [SerializeField] private List<Transform> segments = new List<Transform>();
 
     private List<Transform> _snakeSegments = new List<Transform>();
@@ -16,6 +17,7 @@ public class Tetris_Snake : MonoBehaviour
 
     private Transform[,] grid;
     private Vector2 foodPosition;
+    private AudioSource _audioSource;
 
     private void SetGame()
     {
@@ -43,12 +45,12 @@ public class Tetris_Snake : MonoBehaviour
 
         InvokeRepeating("Move", 1f, 0.5f / _difficulty);
         InvokeRepeating("ShowGameOverScreen", 0.01f, 0.01f);
-        SpawnFood();
     }
 
 
     public void StartGame()
     {
+        if(_audioSource == null) _audioSource = gameObject.GetComponent<AudioSource>();
         _showGameOverScreen = true;
         InvokeRepeating("ShowGameOverScreen", 0.01f, 0.01f);
     }
@@ -152,7 +154,7 @@ public class Tetris_Snake : MonoBehaviour
             // Extend the snake's length by adding a new segment
             Transform newSegment = Instantiate(segments[0], _snakeSegments[_snakeSegments.Count - 1].position, Quaternion.identity);
             _snakeSegments.Add(newSegment);
-
+            _audioSource.PlayOneShot(_eatClip);
             SpawnFood();
         }
     }
