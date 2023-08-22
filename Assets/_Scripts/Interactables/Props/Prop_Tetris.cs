@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Prop_Tetris : MonoBehaviour, IInteractable
 {
     [SerializeField] private int _id;
 
+    [SerializeField] private GameObject _completeModel, _grayModel;
     [Header("Mini games")]
     [SerializeField] private Tetris_Snake _snakeGame;
 
@@ -18,6 +20,7 @@ public class Prop_Tetris : MonoBehaviour, IInteractable
     private Collider _collider;
     private float _reactivateColliderTimer = 1f; //Prevents dialogue trigger overlap
     private bool _inInventory;
+
     public void AssignInStateLoader()
     {
         SceneStateLoader.Instance.objects.Add(_id, gameObject);
@@ -34,9 +37,21 @@ public class Prop_Tetris : MonoBehaviour, IInteractable
 
     private void OnEnable()
     {
-        if (_inInventory)
+        if(SceneManager.GetActiveScene().name == "Level_Dream")
         {
-            _snakeGame.StartGame();
+            _grayModel.SetActive(true);
+            _completeModel.SetActive(false);
+        }
+        else
+        {
+            _grayModel.SetActive(false);
+            _completeModel.SetActive(true);
+
+            if (_inInventory)
+            {
+                _dialogueTriggers[1].TriggerAction(0);
+                _snakeGame.StartGame();
+            }
         }
     }
 
