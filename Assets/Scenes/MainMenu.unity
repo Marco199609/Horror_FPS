@@ -254,6 +254,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 313767670, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
+      propertyPath: _playerSpawnPosition.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 313767670, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
+      propertyPath: _playerSpawnPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 313767670, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
+      propertyPath: _playerSpawnPosition.z
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2036411959, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
       propertyPath: _playerData
       value: 

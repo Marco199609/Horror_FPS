@@ -58,7 +58,7 @@ public class PlayerInspect : MonoBehaviour, IPlayerInspect
                 else if (_rotateZ) _currentItemRotation.z += playerInput.mouseMovementInput.y * _rotationSpeed * Time.deltaTime;
                 if (_rotateY) _currentItemRotation.y += playerInput.mouseMovementInput.x * _rotationSpeed * Time.deltaTime;
 
-                _currentInspectableSelected.rotation = Quaternion.Euler(_currentItemRotation);
+                _currentInspectableSelected.localRotation = Quaternion.Euler(_currentItemRotation);
             }
             else
             {
