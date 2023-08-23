@@ -12,8 +12,10 @@ public class UIManager : MonoBehaviour
 
     [Header("Player UI")]
     [SerializeField] private GameObject _playerCanvas;
-    [SerializeField] private GameObject _interactableKeyPrompt;
-    [SerializeField] private GameObject _inspectableOnlyMousePrompt;
+    [SerializeField] private GameObject _interactOnlyPrompt;
+    [SerializeField] private GameObject _inspectOnlyPrompt;
+    [SerializeField] private GameObject _inspectAndInteractPrompt;
+    [SerializeField] private GameObject _returnItemPrompt;
     [SerializeField] private Image _uiCenterPoint;
 
     [Header("Dialogue UI")]
@@ -40,7 +42,7 @@ public class UIManager : MonoBehaviour
     {
         _centerPointUIHandler = GetComponent<CenterPointUIHandler>();
         _interactableUIHandler = GetComponent<InteractableUIHandler>();
-        _interactableUIHandler.SetVariables(_interactableKeyPrompt, _inspectableOnlyMousePrompt);
+        _interactableUIHandler.SetVariables(_interactOnlyPrompt, _inspectOnlyPrompt, _inspectAndInteractPrompt, _returnItemPrompt);
 
         //Subscribes to player UI events
         PlayerUI.ItemDescriptionActivated += _interactableUIHandler.ActivateInteractableUIElements;
@@ -63,6 +65,11 @@ public class UIManager : MonoBehaviour
             if(GameSettings.Instance.Pause) _playerCanvas.SetActive(false);
             else _playerCanvas.SetActive(true);
         } 
+
+        if(PlayerController.Instance != null && PlayerController.Instance.PlayerInspect.Inspecting())
+        {
+            _interactableUIHandler.ActivateInteractableUIElements(false, false); //Activates return prompt when player enters inspection of item
+        }
 
         _centerPointUIHandler.UpdateCenterPoint(_uiCenterPoint);
     }

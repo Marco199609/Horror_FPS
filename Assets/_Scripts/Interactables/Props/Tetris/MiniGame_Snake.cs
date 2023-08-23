@@ -56,13 +56,6 @@ public class MiniGame_Snake : MonoBehaviour, IMiniGame
         InvokeRepeating("Move", 1f, 0.5f / _difficulty);
     }
 
-
-
-    private void Start()
-    {
-        StartGame();
-    }
-
     private void Update()
     {
         if (!_isGameOver)
@@ -82,6 +75,7 @@ public class MiniGame_Snake : MonoBehaviour, IMiniGame
 
     private void Move()
     {
+
         if (!_isGameOver)
         {
             Vector2 newHeadPos = (Vector2)_snakeSegments[0].position + _snakeDirection;
@@ -127,12 +121,19 @@ public class MiniGame_Snake : MonoBehaviour, IMiniGame
 
     private void EatFood()
     {
+        //Makes food flash
+        if (grid[(int)foodPosition.x, (int)foodPosition.y].gameObject.activeInHierarchy) 
+            grid[(int)foodPosition.x, (int)foodPosition.y].gameObject.SetActive(false);
+        else
+            grid[(int)foodPosition.x, (int)foodPosition.y].gameObject.SetActive(true);
+
         if ((Vector2)_snakeSegments[0].position == foodPosition)
         {
             // Extend the snake's length by adding a new segment
             Transform newSegment = Instantiate(segments[0], _snakeSegments[_snakeSegments.Count - 1].position, Quaternion.identity);
             _snakeSegments.Add(newSegment);
             _audioSource.PlayOneShot(_eatClip);
+            grid[(int)foodPosition.x, (int)foodPosition.y].gameObject.SetActive(true); //reverses food flashing
             SpawnFood();
         }
     }

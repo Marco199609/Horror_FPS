@@ -8577,6 +8577,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1716883392}
     m_Modifications:
+    - target: {fileID: 3663455675613860912, guid: e6c00487c82974d43963537be9ac6276, type: 3}
+      propertyPath: _miniGameHolder
+      value: 
+      objectReference: {fileID: 1687155799}
     - target: {fileID: 4685104223829463292, guid: e6c00487c82974d43963537be9ac6276, type: 3}
       propertyPath: m_Name
       value: tetris
@@ -8630,6 +8634,11 @@ PrefabInstance:
 --- !u!4 &1687155798 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4685104223829463295, guid: e6c00487c82974d43963537be9ac6276, type: 3}
+  m_PrefabInstance: {fileID: 1687155797}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1687155799 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4685104223852128930, guid: e6c00487c82974d43963537be9ac6276, type: 3}
   m_PrefabInstance: {fileID: 1687155797}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1688154374
