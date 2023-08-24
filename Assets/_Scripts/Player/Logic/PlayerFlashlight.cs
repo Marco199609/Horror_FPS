@@ -6,13 +6,12 @@ using UnityEngine.InputSystem;
 public interface IFlashlightControl
 {
     void FlashlightControl(PlayerData playerData, IPlayerInput playerInput);
-    void AddBattery();
     void TurnOff();
 }
 
 public class PlayerFlashlight : MonoBehaviour, IFlashlightControl
 {
-    private bool _waitForScroll, _isScrolling, _hasBattery, _turnOn = true;
+    private bool _waitForScroll, _isScrolling, _turnOn = true;
     private float _currentIntensity;
     private Light _flashlight;
     private PlayerData _playerData;
@@ -25,15 +24,8 @@ public class PlayerFlashlight : MonoBehaviour, IFlashlightControl
         if (_turnOn) _flashlight.transform.parent.gameObject.SetActive(true);
         else _flashlight.transform.parent.gameObject.SetActive(false);
 
-        if (_hasBattery)
-        {
-            IntensityControl();
-        }
-        else
-        {
-            _flashlight.intensity = 0;
-        }
-        
+        IntensityControl();
+
         InputControl(playerInput);
     }
 
@@ -72,12 +64,6 @@ public class PlayerFlashlight : MonoBehaviour, IFlashlightControl
             _waitForScroll = false;
             _isScrolling = false;
         }
-    }
-
-    public void AddBattery()
-    {
-        _currentIntensity = _playerData.MaxIntensity - (_playerData.MaxIntensity - _playerData.MinIntensity) / 2; //Sets current intensity in a midpoint
-        _hasBattery = true;
     }
 
     public void TurnOff() //Used in level change

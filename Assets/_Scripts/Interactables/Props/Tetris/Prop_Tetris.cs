@@ -10,6 +10,7 @@ public class Prop_Tetris : MonoBehaviour, IInteractable
     [SerializeField] private GameObject _completeModel, _grayModel;
     [Header("Mini games")]
     [SerializeField] private GameObject _miniGameHolder;
+    [SerializeField] private GameObject _prompts;
 
     [SerializeField] private bool _rotateX = true, _rotateY = true, _rotateZ = true;
     [SerializeField] private Vector3 _positionInInventory, _rotationInInventory, _scaleInInventory;
@@ -32,6 +33,7 @@ public class Prop_Tetris : MonoBehaviour, IInteractable
 
         playerController.Inventory.Add(gameObject, _positionInInventory, _rotationInInventory, _scaleInInventory);
         _inInventory = true;
+        _prompts.SetActive(true);
         _snakeGame.StartGame();
     }
 
@@ -52,6 +54,7 @@ public class Prop_Tetris : MonoBehaviour, IInteractable
             if (_inInventory)
             {
                 _dialogueTriggers[1].TriggerAction(0);
+                _prompts.SetActive(true);
                 _snakeGame.StartGame();
             }
         }

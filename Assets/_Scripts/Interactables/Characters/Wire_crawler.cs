@@ -36,6 +36,12 @@ public class Wire_crawler : MonoBehaviour, IInteractable, ITriggerAction
         _playerController = playerController;
         _playerController.FreezePlayerMovement = true;
         _muffledTalkAudioSource.Stop();
+
+        Collider[] colliders = gameObject.GetComponents<Collider>();
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            colliders[i].enabled = false;
+        }
     }
 
     private void Update()

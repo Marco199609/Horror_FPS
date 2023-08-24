@@ -16,7 +16,7 @@ public class Item_Energy : MonoBehaviour, IInteractable
 
     public void Interact(PlayerController playerController)
     {
-        playerController.PlayerFlashlight.AddBattery();
+        //playerController.PlayerFlashlight.AddBattery(); Removed battery requirement
         Destroy(gameObject);
     }
 

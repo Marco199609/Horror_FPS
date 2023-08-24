@@ -8,11 +8,13 @@ public class Item_Pillbottle : MonoBehaviour, IInteractable
     [SerializeField] private int _id;
     [SerializeField] private List<GameObject> _pills;
     [SerializeField] private GameObject _pillbottleCap;
+    [SerializeField] private GameObject[] _noPillsDialogueTriggers;
     [SerializeField] private bool _rotateX = true, _rotateY = true, _rotateZ = true;
 
-    [SerializeField] private ITriggerAction _trigger;
+    
     [SerializeField] private bool _alreadyTriggered;
     [SerializeField] private float _triggerDelay; //Use in case of having more than one trigger
+    private ITriggerAction _trigger;
 
     public void AssignInStateLoader()
     {
@@ -30,7 +32,8 @@ public class Item_Pillbottle : MonoBehaviour, IInteractable
 
         if(_pills.Count <= 0)
         {
-            _pillbottleCap.SetActive(false);
+            _pillbottleCap.transform.localPosition = new Vector3(0.00449999981f, 0.0137999998f, 0.177100003f);
+            _pillbottleCap.transform.localRotation = Quaternion.Euler(90, 40, 0);
             gameObject.transform.localEulerAngles = Vector3.zero;
         }
     }
@@ -53,12 +56,21 @@ public class Item_Pillbottle : MonoBehaviour, IInteractable
 
     public void TriggerActions()
     {
-        _trigger = gameObject.GetComponent<ITriggerAction>();
-
-        if (_trigger != null && !_alreadyTriggered)
+        if(_pills.Count > 0 )
         {
-            _trigger.TriggerAction(_triggerDelay);
-            _alreadyTriggered = true;
+            _trigger = gameObject.GetComponent<ITriggerAction>();
+
+            if (_trigger != null && !_alreadyTriggered)
+            {
+                _trigger.TriggerAction(_triggerDelay);
+                _alreadyTriggered = true;
+            }
+        }
+        else if(!PlayerController.Instance.PlayerInspect.Inspecting())
+        {
+            int dialogueIndex = Random.Range(0, _noPillsDialogueTriggers.Length);
+            _trigger = _noPillsDialogueTriggers[dialogueIndex].GetComponent<ITriggerAction>();
+            _trigger.TriggerAction(0);
         }
     }
 }
