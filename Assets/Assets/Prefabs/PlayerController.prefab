@@ -56,7 +56,7 @@ MonoBehaviour:
     FieldOfView: 45
     OrthographicSize: 10
     NearClipPlane: 0.1
-    FarClipPlane: 150
+    FarClipPlane: 250
     Dutch: 0
   m_ComponentOwner: {fileID: 898163649}
 --- !u!1 &898163648
@@ -220,7 +220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8997385359482471060
 Transform:
   m_ObjectHideFlags: 0
@@ -389,8 +389,8 @@ MonoBehaviour:
   _minStessLevel: 1
   _maxStressLevel: 2
   _currentStressLevel: 0
+  _targetStressLevel: 0
   _stressLowerSpeed: 0.1
-  TargetStressLevel: 0
 --- !u!114 &340922149
 MonoBehaviour:
   m_ObjectHideFlags: 0

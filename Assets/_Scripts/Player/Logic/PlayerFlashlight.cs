@@ -51,6 +51,7 @@ public class PlayerFlashlight : MonoBehaviour, IFlashlightControl
         else if(!playerInput.FlashLightInput && _waitForScroll && !_isScrolling) // If the player didn't scroll, this turns the flashlight on or off 
         {
             _turnOn = !_turnOn;
+            _currentIntensity = _playerData.MaxIntensity;
 
             if(SoundManager.Instance != null)
                 SoundManager.Instance.Play2DSoundEffect(SoundManager.Instance.SoundData.FlashlightClip, SoundManager.Instance.SoundData.FlashlightClipVolume);
