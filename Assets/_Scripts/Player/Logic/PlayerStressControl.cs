@@ -9,12 +9,6 @@ public class PlayerStressControl : MonoBehaviour
 
     private bool _addStress;
 
-    // Update is called once per frame
-    void Update()
-    {
-        ManageStress();
-    }
-
     public void ManageStress()
     {
         if (_addStress && _currentStressLevel >= _maxStressLevel - 0.05f)
@@ -33,5 +27,10 @@ public class PlayerStressControl : MonoBehaviour
     {
         _targetStressLevel = _maxStressLevel;
         _addStress = true;
+    }
+
+    public float StressLevel()
+    {
+        return _currentStressLevel;
     }
 }

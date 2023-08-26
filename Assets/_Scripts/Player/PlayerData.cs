@@ -35,6 +35,8 @@ public class PlayerData : MonoBehaviour
     [Header("Player Audio Control")]
     public float FootstepWalkingTime;
     public float FootstepsRunningTime;
+    public float HeartbeatMinimumRate;
+    public float BreathingMinimumRate;
 
     [Header("Interactable Control")]
     public float InteractDistance = 5f;

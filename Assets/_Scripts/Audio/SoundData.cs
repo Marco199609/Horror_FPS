@@ -48,12 +48,13 @@ public class SoundData : MonoBehaviour
     [Range(0.0f, 1.0f)] public float ConcreteFootstepClipsVolume = 0.2f;
     [field: SerializeField] public AudioClip[] WoodFootstepClips { get; private set; }
     [Range(0.0f, 1.0f)] public float WoodFootstepClipsVolume = 0.15f;
+    [field: SerializeField] public AudioClip[] PlayerBreathClips { get; private set; }
+    [Range(0.0f, 1.0f)] public float PlayerBreathClipsVolume = 0.2f;
+    [field: SerializeField] public AudioClip[] PlayerHeartbeatClips { get; private set; }
+    [Range(0.0f, 1.0f)] public float PlayerHeartbeatClipsVolume = 0.03f;
     [field: SerializeField] public AudioClip FlashlightClip { get; private set; }
     [Range(0.0f, 1.0f)] public float FlashlightClipVolume = 0.2f;
-    [field: SerializeField] public AudioClip PlayerBreathClip { get; private set; }
-    [Range(0.0f, 1.0f)] public float PlayerBreathClipVolume = 0.2f;
-    [field: SerializeField] public AudioClip PlayerHeartbeatClip { get; private set; }
-    [Range(0.0f, 1.0f)] public float PlayerHeartbeatClipVolume = 0.03f;
+
 
     //Light flicker clips
     [field: SerializeField] public AudioClip LightFlickerClip { get; private set; }

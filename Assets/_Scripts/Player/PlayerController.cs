@@ -39,11 +39,12 @@ public class PlayerController : MonoBehaviour
     private IPlayerUI _playerUI;
     private IPlayerInput _playerInput;
     private IPlayerAudio _playerAudio;
-    private PlayerStressControl _playerStressControl;
+
 
     public GameObject Player { get; private set; }
     public IFlashlightControl PlayerFlashlight;
     public IPlayerInventory Inventory { get; private set; }
+    public PlayerStressControl StressControl;
     public IPlayerInspect PlayerInspect { get; private set; }
 
     //If there is one or more items in viewport, activate ui center point
@@ -66,8 +67,8 @@ public class PlayerController : MonoBehaviour
         _playerUI = GetComponent<IPlayerUI>();
         _playerInput = GetComponent<IPlayerInput>();
         _playerAudio = GetComponent<IPlayerAudio>();
-        _playerStressControl = GetComponent<PlayerStressControl>();
 
+        StressControl = GetComponent<PlayerStressControl>();
         PlayerFlashlight = GetComponent<IFlashlightControl>();
         Inventory = GetComponent<IPlayerInventory>();
         PlayerInspect = GetComponent<IPlayerInspect>();
@@ -98,6 +99,7 @@ public class PlayerController : MonoBehaviour
             }
 
             ManageInspection();
+            PlayerStressControl();
         }
 
         PlayerCameraRotation();
@@ -125,6 +127,11 @@ public class PlayerController : MonoBehaviour
     {
         _playerAudio.Footsteps(_playerData, _playerInput);
         _playerAudio.PlayerBreathAndHeartbeat();
+    }
+
+    private void PlayerStressControl()
+    {
+        StressControl.ManageStress();
     }
 
     private void FlashlightControl()

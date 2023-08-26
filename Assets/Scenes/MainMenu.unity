@@ -245,7 +245,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1318018511, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1318018513, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
       propertyPath: m_Enabled
@@ -685,6 +685,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2790741472255789107, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
+      propertyPath: HeartbeatMinimumRate
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3978340652355344648, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
+      propertyPath: _targetStressLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3978340652355344648, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
+      propertyPath: _currentStressLevel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8997385359482471059, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_Name
       value: PlayerController
@@ -1015,10 +1027,6 @@ PrefabInstance:
     - target: {fileID: 5733869728958587172, guid: 7bdb959cf2dfc8c40bfe8878505052b5, type: 3}
       propertyPath: m_Name
       value: SoundManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6038798442093337468, guid: 7bdb959cf2dfc8c40bfe8878505052b5, type: 3}
-      propertyPath: GuitarStrumClipVolume
-      value: 0.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bdb959cf2dfc8c40bfe8878505052b5, type: 3}

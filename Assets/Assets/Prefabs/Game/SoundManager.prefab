@@ -97,7 +97,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b29a0cc47bdcbb041b213bfa5925dfb0, type: 3}
   - {fileID: 8300000, guid: f9b6f2dfaa3c1554196151da9dd0bd38, type: 3}
   - {fileID: 8300000, guid: d9a7fe2d3bfe93b4d973a1c50471dd6f, type: 3}
-  GuitarStrumClipVolume: 0.5
+  GuitarStrumClipVolume: 0.7
   <ItemInspectClip>k__BackingField: {fileID: 8300000, guid: 4d73b3e889c930f4a9fb776f98ae1395, type: 3}
   ItemInspectClipVolume: 0.05
   <PlayerPickupClip>k__BackingField: {fileID: 8300000, guid: 1ba146d2c30757b4ab5675f3c6726949, type: 3}
@@ -120,12 +120,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a120fa99cebff914b9d77133283c23f9, type: 3}
   - {fileID: 8300000, guid: 4e5092c65c19b3e40a69fe3817a3ad02, type: 3}
   WoodFootstepClipsVolume: 0.15
+  <PlayerBreathClips>k__BackingField: []
+  PlayerBreathClipsVolume: 0.2
+  <PlayerHeartbeatClips>k__BackingField:
+  - {fileID: 8300000, guid: 18e5a9b9ad9170949baecfbce1542824, type: 3}
+  - {fileID: 8300000, guid: 4b0dfbf6aa847b94c852936269d8a998, type: 3}
+  - {fileID: 8300000, guid: 2857f717b08b3e8468c62e41858189f6, type: 3}
+  - {fileID: 8300000, guid: 31b91b9c1bf347e4fade3021e10eef99, type: 3}
+  - {fileID: 8300000, guid: e146f30870caa3a4fa1aa21d2d9791ac, type: 3}
+  - {fileID: 8300000, guid: 951386af928116245ac169c2a961711c, type: 3}
+  PlayerHeartbeatClipsVolume: 0.03
   <FlashlightClip>k__BackingField: {fileID: 8300000, guid: 09f7133a03e3524408a25d639c1935df, type: 3}
   FlashlightClipVolume: 0.2
-  <PlayerBreathClip>k__BackingField: {fileID: 8300000, guid: 8051bfe520699514ca1d0f0deed8d5c4, type: 3}
-  PlayerBreathClipVolume: 0.2
-  <PlayerHeartbeatClip>k__BackingField: {fileID: 8300000, guid: 6e041f4933519884aba1aae25c973784, type: 3}
-  PlayerHeartbeatClipVolume: 0.03
   <LightFlickerClip>k__BackingField: {fileID: 8300000, guid: d4e44f94832a8614d8cd621e93af3ad0, type: 3}
   LightFlickerClipVolume: 0.2
 --- !u!114 &1980724491
