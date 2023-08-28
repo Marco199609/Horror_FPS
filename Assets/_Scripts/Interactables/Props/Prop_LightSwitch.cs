@@ -5,7 +5,6 @@ using UnityEngine;
 public class Prop_LightSwitch : MonoBehaviour, IInteractable
 {
     [SerializeField] private int _id;
-    [SerializeField] private string _actionDescription;
     [SerializeField] private List<GameObject> _lightOnObjects, _lightOffObjects; //Make sure each light on object has its light off object
     [SerializeField] private GameObject _switchOnModel, _switchOffModel;
 
