@@ -252,6 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameSettings: {fileID: 0}
   _playerData: {fileID: 2790741472255789107}
+  StressControl: {fileID: 0}
   FreezePlayerMovement: 0
   FreezePlayerRotation: 0
 --- !u!114 &8997385359482471052
@@ -387,9 +388,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _minStessLevel: 1
-  _maxStressLevel: 2
-  _currentStressLevel: 0
-  _targetStressLevel: 0
+  _maxStressLevel: 2.5
+  _currentStressLevel: 1
+  _targetStressLevel: 1
   _stressLowerSpeed: 0.1
 --- !u!114 &340922149
 MonoBehaviour:
@@ -798,8 +799,16 @@ PrefabInstance:
       value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
+      propertyPath: BreathingMinimumRate
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: FlashlightClipVolume
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
+      propertyPath: HeartbeatMinimumRate
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6514341159889146404, guid: eaa753c52443e446ca81c3043e98fc07, type: 3}
       propertyPath: FootstepClips.Array.size

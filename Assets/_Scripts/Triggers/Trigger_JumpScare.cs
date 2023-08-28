@@ -15,6 +15,7 @@ public class Trigger_JumpScare : MonoBehaviour, ITriggerAction
     public IEnumerator Trigger(float triggerDelay)
     {
         yield return new WaitForSeconds(triggerDelay);
+        PlayerController.Instance.StressControl.AddStress();
         int jumpScareClipIndex = Random.Range(0, _jumpScareClips.Length - 1);
         _jumpScareSource.PlayOneShot(_jumpScareClips[jumpScareClipIndex]);
     }

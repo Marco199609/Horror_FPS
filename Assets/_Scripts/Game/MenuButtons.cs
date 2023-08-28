@@ -10,6 +10,7 @@ public class MenuButtons : MonoBehaviour
     [SerializeField] private Trigger_LevelLoader _levelLoaderTrigger;
     [SerializeField] private Image _levelChangeMask;
     [SerializeField] private TextMeshProUGUI _tipText;
+    [SerializeField] private PlayerStressControl _playerStress;
     public void StartGame()
     {
         //Makes mask for level change instant
@@ -19,6 +20,7 @@ public class MenuButtons : MonoBehaviour
         _levelLoaderTrigger.LoadLevel();
         GameSettings.Instance.Pause = false;
         GameSettings.Instance.CursorControl();
+        _playerStress.AddStress();
     }
 
     public void ContinueGame()

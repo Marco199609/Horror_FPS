@@ -36,6 +36,7 @@ public class Wire_crawler : MonoBehaviour, IInteractable, ITriggerAction
         _playerController = playerController;
         _playerController.FreezePlayerMovement = true;
         _muffledTalkAudioSource.Stop();
+        PlayerController.Instance.StressControl.AddStress();
 
         Collider[] colliders = gameObject.GetComponents<Collider>();
         for (int i = 0; i < colliders.Length; i++)
@@ -91,6 +92,7 @@ public class Wire_crawler : MonoBehaviour, IInteractable, ITriggerAction
     {
         yield return new WaitForSeconds(triggerDelay);
        _muffledTalkAudioSource.Play();
+        PlayerController.Instance.StressControl.AddStress();
     }
     #endregion
 }

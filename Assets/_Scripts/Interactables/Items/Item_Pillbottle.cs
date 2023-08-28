@@ -36,6 +36,15 @@ public class Item_Pillbottle : MonoBehaviour, IInteractable
             _pillbottleCap.transform.localRotation = Quaternion.Euler(90, 40, 0);
             gameObject.transform.localEulerAngles = Vector3.zero;
         }
+
+        StartCoroutine(DeactivateCollider(GetComponent<Collider>(), 1));
+    }
+
+    private IEnumerator DeactivateCollider(Collider collider, float delay)
+    {
+        collider.enabled = false;
+        yield return new WaitForSeconds(delay);
+        collider.enabled = true;
     }
 
     public bool[] InteractableType()

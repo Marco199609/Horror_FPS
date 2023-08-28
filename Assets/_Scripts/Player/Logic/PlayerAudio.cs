@@ -6,15 +6,14 @@ using UnityEngine.SceneManagement;
 
 public interface IPlayerAudio
 {
-    void Footsteps(PlayerData playerData, IPlayerInput playerInput);
-    void PlayerBreathAndHeartbeat();
+    void PlayerAudioControl(PlayerData playerData, IPlayerInput playerInput);
 }
 
 public class PlayerAudio : MonoBehaviour, IPlayerAudio
 {
-    private int _currentHeartbeatIndex = 0;
+    private int _currentHeartbeatIndex = 0, _currentBreathIndex = 0;
     private float _footStepTimer, _breathingTimer = 0, _heartbeatTimer = 0;
-    private AudioSource _playerBreathSource, _playerHeartbeatSource;
+    private AudioSource _heartbeatSource, _breathSource, _footstepsSource;
     private SoundData _soundData;
 
     private void Start()
@@ -22,19 +21,24 @@ public class PlayerAudio : MonoBehaviour, IPlayerAudio
         if(SoundManager.Instance != null)
         {
             _soundData = SoundManager.Instance.SoundData;
-            GameObject player = GameObject.FindWithTag("Player");
+        }
 
-            /*_playerBreathSource = SoundManager.Instance.CreateModifiableAudioSource(
-                _soundData.PlayerBreathClip, 
-                player, _soundData.PlayerBreathClipVolume);
-
-            _playerHeartbeatSource = SoundManager.Instance.CreateModifiableAudioSource(
-                _soundData.PlayerHeartbeatClip, 
-                player, _soundData.PlayerHeartbeatClipVolume);*/
-        }         
+        _heartbeatSource = SoundManager.Instance.CreateModifiableAudioSource(null, PlayerController.Instance.Player, 1);
+        _breathSource = SoundManager.Instance.CreateModifiableAudioSource(null, PlayerController.Instance.Player, 1);
+        _footstepsSource = SoundManager.Instance.CreateModifiableAudioSource(null, PlayerController.Instance.Player, 1);
     }
-    public void Footsteps(PlayerData playerData, IPlayerInput playerInput)
+
+    public void PlayerAudioControl(PlayerData playerData, IPlayerInput playerInput)
     {
+        PlayerFootsteps(playerData, playerInput);
+        PlayerHeartbeat(playerData);
+        PlayerBreath(playerData);
+    }
+
+
+    private void PlayerFootsteps(PlayerData playerData, IPlayerInput playerInput)
+    {
+
         if(playerInput.UnsmoothedPlayerMovementInput != Vector2.zero)
         {
             if(/*_playerBreathSource != null &&*/ _footStepTimer <= 0)
@@ -42,76 +46,74 @@ public class PlayerAudio : MonoBehaviour, IPlayerAudio
                 if(SceneManager.GetActiveScene().name == "Level_Dream")
                 {
                     int i = Random.Range(0, _soundData.ConcreteFootstepClips.Length);
-                    SoundManager.Instance.Play2DSoundEffect(_soundData.ConcreteFootstepClips[i], _soundData.ConcreteFootstepClipsVolume);
+                    _footstepsSource.PlayOneShot(_soundData.ConcreteFootstepClips[i], _soundData.ConcreteFootstepClipsVolume);
                 }
                 else
                 {
                     int i = Random.Range(0, _soundData.WoodFootstepClips.Length);
-                    SoundManager.Instance.Play2DSoundEffect(_soundData.WoodFootstepClips[i], _soundData.WoodFootstepClipsVolume);
+                    _footstepsSource.PlayOneShot(_soundData.WoodFootstepClips[i], _soundData.WoodFootstepClipsVolume);
                 }
+
                 if (playerInput.playerRunInput) _footStepTimer = playerData.FootstepsRunningTime;
                 else _footStepTimer = playerData.FootstepWalkingTime;
             }
             _footStepTimer -= Time.deltaTime;
         }
         else _footStepTimer = 0;
-
-        PlayerHeartbeat(playerData);
     }
 
-    public void PlayerBreathAndHeartbeat()
-    {
-        /*
-        if(SceneManager.GetActiveScene().name == "Level_Dream") 
-        {
-            if (_playerBreathSource != null && _playerBreathSource.isPlaying) _playerBreathSource.Stop(); //Stop breathing
-
-            if (_playerHeartbeatSource != null && !_playerHeartbeatSource.isPlaying) //Activate heartbeat
-            {
-                _playerHeartbeatSource.volume = _soundData.PlayerHeartbeatClipsVolume * SoundManager.Instance.GlobalSoundFXVolume * PlayerController.Instance.StressControl.StressLevel();
-                _playerHeartbeatSource.Play();
-            }
-        }
-        else if(SceneManager.GetActiveScene().name == "Level_House")
-        {
-            if (_playerHeartbeatSource != null && _playerHeartbeatSource.isPlaying) _playerHeartbeatSource.Stop(); //Stop heartbeat
-
-            if (_playerBreathSource != null && !_playerBreathSource.isPlaying) //Activate breathing
-            {
-                _playerBreathSource.volume = _soundData.PlayerBreathClipsVolume * SoundManager.Instance.GlobalSoundFXVolume;
-                _playerBreathSource.Play();
-            }   
-        }  */
-
-
-    }
-
-
-    public void PlayerHeartbeat(PlayerData playerData)
+    private void PlayerHeartbeat(PlayerData playerData)
     {
         if (SceneManager.GetActiveScene().name == "Level_Dream")
         {
             if (_heartbeatTimer <= 0)
             {
-                SoundManager.Instance.Play2DSoundEffect(_soundData.PlayerHeartbeatClips[_currentHeartbeatIndex], 
-                    _soundData.PlayerHeartbeatClipsVolume * SoundManager.Instance.GlobalSoundFXVolume * PlayerController.Instance.StressControl.StressLevel(), true);
+                float currentStressLevel = PlayerController.Instance.StressControl.StressLevel();
+                float volume = _soundData.PlayerHeartbeatClipsVolume * SoundManager.Instance.GlobalSoundFXVolume * PlayerController.Instance.StressControl.StressLevel();
 
+                _heartbeatSource.PlayOneShot(_soundData.PlayerHeartbeatClips[_currentHeartbeatIndex], volume);
 
                 //Heartbeat rate isn't equal; the first beat and the second are close together, the second and third are not. So we check if i is even to decide wait time.
-                if (_currentHeartbeatIndex % 2 == 1)
-                    _heartbeatTimer += playerData.HeartbeatMinimumRate; 
-                else if (_currentHeartbeatIndex % 2 == 0)
-                    _heartbeatTimer += 0.8f / PlayerController.Instance.StressControl.StressLevel();
+                if (_currentHeartbeatIndex == 0 || _currentHeartbeatIndex == 2 || _currentHeartbeatIndex == 4)
+                    _heartbeatTimer += playerData.HeartbeatMinimumRate / currentStressLevel;
+                if (_currentHeartbeatIndex == 1 || _currentHeartbeatIndex == 3 || _currentHeartbeatIndex == 5)
+                    _heartbeatTimer += (playerData.HeartbeatMinimumRate / currentStressLevel) * 1.5f;
 
+                //Loops from 0 to heatbeat clips length
                 if (_currentHeartbeatIndex < _soundData.PlayerHeartbeatClips.Length - 1)
                     _currentHeartbeatIndex++;
                 else _currentHeartbeatIndex = 0;
             }
 
             _heartbeatTimer -= Time.deltaTime;
+        }  
+    }
+
+    private void PlayerBreath(PlayerData playerData)
+    {
+        if (SceneManager.GetActiveScene().name == "Level_House") //Level_House
+        {
+            if (_breathingTimer <= 0)
+            {
+                float currentStressLevel = PlayerController.Instance.StressControl.StressLevel();
+                float volume = _soundData.PlayerBreathClipsVolume * SoundManager.Instance.GlobalSoundFXVolume * currentStressLevel;
+
+                _breathSource.pitch = 0.8f + (currentStressLevel / 12.5f); //Minimum pitch is 0.8; To get to maximum of 1, sum 0.2 when maximum stress level of 2.5f;
+                _breathSource.PlayOneShot(_soundData.PlayerBreathClips[_currentBreathIndex], volume);
+
+                if (_currentBreathIndex == 0 || _currentBreathIndex == 2 || _currentBreathIndex == 4)
+                    _breathingTimer += playerData.BreathingMinimumRate / currentStressLevel;
+                if (_currentBreathIndex == 1 || _currentBreathIndex == 3 || _currentBreathIndex == 5)
+                    _breathingTimer += (playerData.BreathingMinimumRate / currentStressLevel) * 2;
 
 
+                //Loops from 0 to heatbeat clips length
+                if (_currentBreathIndex < _soundData.PlayerBreathClips.Length - 1)
+                    _currentBreathIndex++;
+                else _currentBreathIndex = 0;
+            }
+
+            _breathingTimer -= Time.deltaTime;
         }
-       
     }
 }

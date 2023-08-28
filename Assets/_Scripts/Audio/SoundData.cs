@@ -51,7 +51,7 @@ public class SoundData : MonoBehaviour
     [field: SerializeField] public AudioClip[] PlayerBreathClips { get; private set; }
     [Range(0.0f, 1.0f)] public float PlayerBreathClipsVolume = 0.2f;
     [field: SerializeField] public AudioClip[] PlayerHeartbeatClips { get; private set; }
-    [Range(0.0f, 1.0f)] public float PlayerHeartbeatClipsVolume = 0.03f;
+    [Range(0.0f, 1.0f)] public float PlayerHeartbeatClipsVolume = 0.015f;
     [field: SerializeField] public AudioClip FlashlightClip { get; private set; }
     [Range(0.0f, 1.0f)] public float FlashlightClipVolume = 0.2f;
 

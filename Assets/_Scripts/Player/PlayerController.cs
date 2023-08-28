@@ -125,8 +125,7 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerAudioControl()
     {
-        _playerAudio.Footsteps(_playerData, _playerInput);
-        _playerAudio.PlayerBreathAndHeartbeat();
+        _playerAudio.PlayerAudioControl(_playerData, _playerInput);
     }
 
     private void PlayerStressControl()
