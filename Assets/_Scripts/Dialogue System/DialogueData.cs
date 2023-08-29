@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DialogueData : MonoBehaviour
 {
-    public bool english, spanish;
+    public bool English, Spanish;
     public AudioSource DialogueAudioSource;
     public AudioClip[] DialogueClips;
 }

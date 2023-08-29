@@ -1,0 +1,48 @@
+{
+	"UITexts": [{
+			"Text": "Sensibilidad"
+		},
+		{
+			"Text": "Bloqueo de Fotogramas"
+		},
+		{
+			"Text": "Sincronización Vertical"
+		},
+		{
+			"Text": "Lenguaje"
+		},
+		{
+			"Text": "Subtítulos"
+		},
+		{
+			"Text": "ATRÁS"
+		},
+		{
+			"Text": "COMENZAR"
+		},
+		{
+			"Text": "CONTINUAR"
+		},
+		{
+			"Text": "AJUSTES"
+		},
+		{
+			"Text": "SALIR"
+		},
+		{
+			"Text": "Interactuar"
+		},
+		{
+			"Text": "Interactuar"
+		},
+		{
+			"Text": "Inspeccionar"
+		},
+		{
+			"Text": "Inspeccionar"
+		},
+		{
+			"Text": "Dejar"
+		}
+	]
+}

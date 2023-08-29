@@ -23,6 +23,7 @@ public class DialogueSystem : MonoBehaviour
     {
         _dialogueData = GetComponent<DialogueData>();
         ParseJSON();
+        UILanguageHandler.Instance.ParseJSON(_dialogueData.English, _dialogueData.Spanish);
     }
 
     public void ManageDialogues(int dialogueIndex)
@@ -43,13 +44,14 @@ public class DialogueSystem : MonoBehaviour
     public void ChangeLanguage()
     {
         ParseJSON();
+        UILanguageHandler.Instance.ParseJSON(_dialogueData.English, _dialogueData.Spanish);
     }
 
     private void ParseJSON()
     {
-        if (_dialogueData.english)
+        if (_dialogueData.English)
             _dialogueAsset = Resources.Load<TextAsset>("JSON/Dialogue/en-US");
-        else if (_dialogueData.spanish)
+        else if (_dialogueData.Spanish)
             _dialogueAsset = Resources.Load<TextAsset>("JSON/Dialogue/es-LA");
         else
             _dialogueAsset = Resources.Load<TextAsset>("JSON/Dialogue/no-SUBTITLES");
