@@ -323,7 +323,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e0991008b46513a45b3bf53fbc7c0fc5, type: 2}
+  - {fileID: 2100000, guid: 4ed54b0d1f3bcc04ea746b731e1f64bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -370,9 +370,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d06d3293a54bb340af0718f6e674873, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nonInspectable: 1
-  _doorHandle: {fileID: 3965117072971169417}
+  _id: 0
   _doorPivotPoint: {fileID: 1588190891410640760}
   _doorCollider: {fileID: 3508520296977326462}
   _key: {fileID: 0}
+  _triggers: []
+  _triggerDelays: []
+  _alreadyTriggered: 
   _currentDoorState: 1
