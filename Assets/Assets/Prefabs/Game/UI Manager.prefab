@@ -197,8 +197,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _loadLevel: 1
-  _playerSpawnPosition: {x: -57, y: 0, z: 20}
-  _playerSpawnRotation: 90
+  _playerSpawnPosition: {x: -62.103, y: 0, z: 16.664}
+  _playerSpawnRotation: 53.893
   _setLevelMaskInstantly: 1
 --- !u!114 &313767671
 MonoBehaviour:
