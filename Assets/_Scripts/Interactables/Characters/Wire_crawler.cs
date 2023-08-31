@@ -54,7 +54,7 @@ public class Wire_crawler : MonoBehaviour, IInteractable, ITriggerAction
 
             if (!_wireCrawlerAudioSource.isPlaying)
             {
-                gameObject.GetComponent<Trigger_LevelLoader>().LoadLevel();
+                gameObject.GetComponent<Trigger_LevelLoader>().TriggerAction(0);
             }
         }
     }

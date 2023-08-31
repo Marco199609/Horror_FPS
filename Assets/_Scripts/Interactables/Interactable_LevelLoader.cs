@@ -22,7 +22,7 @@ public class Interactable_LevelLoader : MonoBehaviour, IInteractable
 
     public void Interact(PlayerController playerController)
     {
-        gameObject.GetComponent<Trigger_LevelLoader>().LoadLevel();
+        gameObject.GetComponent<Trigger_LevelLoader>().TriggerAction(0);
     }
 
     public bool[] InteractableType()
