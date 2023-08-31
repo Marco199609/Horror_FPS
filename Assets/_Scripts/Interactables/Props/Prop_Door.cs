@@ -14,6 +14,7 @@ public class Prop_Door : MonoBehaviour, IInteractable
     [SerializeField] private GameObject[] _triggers;
     [SerializeField] private float[] _triggerDelays;
     [SerializeField] private bool[] _alreadyTriggered;
+    [SerializeField] private Material _emmisiveMaterial, _nonEmissiveMaterial;
 
     public void AssignInStateLoader()
     {
@@ -32,6 +33,9 @@ public class Prop_Door : MonoBehaviour, IInteractable
     {
         AssignInStateLoader();
     }
+
+
+
     private void OnDestroy()
     {
         if (_id != 0) SceneStateLoader.Instance.objects.Remove(_id);
@@ -47,6 +51,19 @@ public class Prop_Door : MonoBehaviour, IInteractable
     private void Update()
     {
         Behaviour();
+
+        if (_key == null && _currentDoorState == DoorState.Locked)
+        {
+            GetComponent<Renderer>().material = _nonEmissiveMaterial;
+        }
+        else if (_currentDoorState == DoorState.Closed)
+        {
+            GetComponent<Renderer>().material = _emmisiveMaterial;
+        }
+        else
+        {
+            GetComponent<Renderer>().material = _emmisiveMaterial;
+        }
     }
 
     public void Behaviour()

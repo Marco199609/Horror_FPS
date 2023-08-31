@@ -377,4 +377,6 @@ MonoBehaviour:
   _triggers: []
   _triggerDelays: []
   _alreadyTriggered: 
+  _emmisiveMaterial: {fileID: 2100000, guid: 4ed54b0d1f3bcc04ea746b731e1f64bd, type: 2}
+  _nonEmissiveMaterial: {fileID: 2100000, guid: e0991008b46513a45b3bf53fbc7c0fc5, type: 2}
   _currentDoorState: 1
