@@ -26,7 +26,11 @@ public class Character_Zombie : MonoBehaviour
 
             transform.LookAt(targetPostition);
             if(_moveTowardsPlayer)
+            {
                 transform.position += transform.forward * _moveSpeed * Time.deltaTime;
+                PlayerController.Instance.StressControl.AddStress();
+            }
+
 
             if((_player.transform.position - transform.position).magnitude <= _playerDistance)
             {

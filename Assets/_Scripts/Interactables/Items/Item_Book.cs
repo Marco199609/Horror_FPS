@@ -5,7 +5,7 @@ using UnityEngine;
 public class Item_Book : MonoBehaviour, IInteractable
 {
     [SerializeField] private GameObject _requiredKey, _closedBook, _openBook;
-    [SerializeField] private Trigger_ActivateGameObject _activateTree, _activateCrow, _activateTombstone, _activateZombie, _activateLevelLoaderTrigger;
+    [SerializeField] private Trigger_ActivateGameObject _activateTree, _activateCrow, _activateTombstone, _activateZombie, _activateLevelLoaderTrigger, _activateHallLight;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _audioClip;
     [SerializeField] private bool _rotateX, _rotateY, _rotateZ, _locked = true;
@@ -27,6 +27,7 @@ public class Item_Book : MonoBehaviour, IInteractable
             _locked = false;
             _activateZombie.TriggerAction(0);
             _activateLevelLoaderTrigger.TriggerAction(0);
+            _activateHallLight.TriggerAction(0);
             _inspectableOnly = true;
         }
         else if (_locked)
