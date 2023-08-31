@@ -741,7 +741,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b9f301b226e363649bc0b6bb24ee2398, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 72f8558aef0a5544485db73ae062a594, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1194,7 +1194,7 @@ MonoBehaviour:
   DoorStates: 
   _triggerActivationNotes: 
   DreamTriggerCollidersActivate: 
-  HouseTriggerCollidersActivate: 
+  HouseTriggerCollidersActivate: 00000001
 --- !u!1 &767980650
 GameObject:
   m_ObjectHideFlags: 0
@@ -2238,6 +2238,14 @@ PrefabInstance:
       propertyPath: _activateLevelLoaderTrigger
       value: 
       objectReference: {fileID: 1564570585}
+    - target: {fileID: 7022018931695968835, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: HouseTriggerCollidersActivate.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022018931695968835, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: HouseTriggerCollidersActivate.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7861950095248038383, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
       propertyPath: _ringDelay
       value: 10

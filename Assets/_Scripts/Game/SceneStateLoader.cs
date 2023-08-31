@@ -93,3 +93,4 @@ public class SceneStateLoader : MonoBehaviour
 //100: Room_Trigger dialogue 1
 //101: Bed_Load dream level
 //102: Hallway_Trigger Dialogue 2
+//103: Trigger Demo End

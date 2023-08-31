@@ -247,6 +247,10 @@ PrefabInstance:
       propertyPath: _playerStress
       value: 
       objectReference: {fileID: 2111540800}
+    - target: {fileID: 313767671, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
+      propertyPath: HouseTriggerCollidersActivate.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2036411959, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
       propertyPath: _playerData
       value: 
@@ -1028,5 +1032,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6190404424520645606, guid: fce75d89a3dc99c4485dd5a42b6b881a, type: 3}
+      propertyPath: DialogueClips.Array.data[24]
+      value: 
+      objectReference: {fileID: 8300000, guid: 444ccb9b097a96f42a4d50a01ee045a2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fce75d89a3dc99c4485dd5a42b6b881a, type: 3}
