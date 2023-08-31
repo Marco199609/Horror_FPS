@@ -138,14 +138,15 @@ public class LevelLoader : MonoBehaviour
         {
             _currentTransparency = 0;
             _removeMask = false;
-            _playerController.FreezePlayerMovement = false;
-            _playerController.FreezePlayerRotation = false;
 
             if(!_sceneStateLoaded)
             {
                 _sceneStateLoader.LoadSceneState();
                 _sceneStateLoaded = true;
             }
+
+            _playerController.FreezePlayerMovement = false;
+            _playerController.FreezePlayerRotation = false;
         }
 
         _levelChangeMask.color = new Color(0, 0, 0, _currentTransparency);
