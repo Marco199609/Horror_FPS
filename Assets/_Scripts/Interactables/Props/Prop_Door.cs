@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public enum DoorState { Locked, Closed, Open };
 
@@ -52,17 +53,13 @@ public class Prop_Door : MonoBehaviour, IInteractable
     {
         Behaviour();
 
-        if (_key == null && _currentDoorState == DoorState.Locked)
-        {
-            GetComponent<Renderer>().material = _nonEmissiveMaterial;
-        }
-        else if (_currentDoorState == DoorState.Closed)
+        if (_currentDoorState == DoorState.Closed || _currentDoorState == DoorState.Open || PlayerController.Instance.Inventory.SelectedItem() == _key && _key != null)
         {
             GetComponent<Renderer>().material = _emmisiveMaterial;
         }
         else
         {
-            GetComponent<Renderer>().material = _emmisiveMaterial;
+            GetComponent<Renderer>().material = _nonEmissiveMaterial;
         }
     }
 

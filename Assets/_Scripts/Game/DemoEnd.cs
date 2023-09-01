@@ -17,6 +17,7 @@ public class DemoEnd : MonoBehaviour, ITriggerAction
     public IEnumerator Trigger(float triggerDelay)
     {
         yield return new WaitForSeconds(_endGameDelay);
+        Destroy(UIManager.Instance.gameObject); //Prevents more than one event system at the same time
         _endGameCanvas.SetActive(true);
     }
 

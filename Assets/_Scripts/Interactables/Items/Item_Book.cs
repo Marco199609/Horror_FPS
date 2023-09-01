@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Item_Book : MonoBehaviour, IInteractable
 {
-    [SerializeField] private GameObject _requiredKey, _closedBook, _openBook;
+    [SerializeField] private GameObject _requiredKey, _closedBook, _openBook, _opaqueKeyHole, _glowingKeyHole;
     [SerializeField] private Trigger_ActivateGameObject _activateTree, _activateCrow, _activateTombstone, _activateZombie, _activateLevelLoaderTrigger, _activateHallLight;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _audioClip;
@@ -34,6 +34,8 @@ public class Item_Book : MonoBehaviour, IInteractable
         {
             TriggerActions();
             _audioSource.PlayOneShot(_audioClip);
+            _opaqueKeyHole.SetActive(false);
+            _glowingKeyHole.SetActive(true);
             playerController.StressControl.AddStress();
         }
 
