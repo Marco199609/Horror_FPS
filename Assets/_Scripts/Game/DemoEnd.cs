@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class DemoEnd : MonoBehaviour, ITriggerAction
 {
-    [SerializeField] private float _endGameDelay = 45, _goBackToStartDelay = 50;
+    [SerializeField] private float _endGameDelay = 44, _goBackToStartDelay = 50;
     [SerializeField] private GameObject _endGameCanvas;
 
     public void TriggerAction(float triggerDelay)
@@ -38,5 +38,6 @@ public class DemoEnd : MonoBehaviour, ITriggerAction
     private void Update()
     {
         PlayerController.Instance.FreezePlayerMovement = true;
+        PlayerController.Instance.StressControl.AddStress();
     }
 }
