@@ -2058,6 +2058,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 384181415}
     m_Modifications:
+    - target: {fileID: 64854575, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: m_Name
+      value: Deactivate Object (6)_delete
+      objectReference: {fileID: 0}
+    - target: {fileID: 64854575, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 776284716, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.314
@@ -2081,6 +2089,10 @@ PrefabInstance:
     - target: {fileID: 836044857, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[6].value
       value: 0.027893066
+      objectReference: {fileID: 0}
+    - target: {fileID: 897014365, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: m_Name
+      value: Kitchen Door_Jumpscare_delete
       objectReference: {fileID: 0}
     - target: {fileID: 897014365, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
       propertyPath: m_IsActive
@@ -2154,6 +2166,14 @@ PrefabInstance:
       propertyPath: _triggerDelays.Array.data[0]
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1295610009268031535, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: m_Range
+      value: 63.947243
+      objectReference: {fileID: 0}
+    - target: {fileID: 1295610009268031535, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2152619601866416348, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.314
@@ -2166,6 +2186,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.19
       objectReference: {fileID: 0}
+    - target: {fileID: 3700915964454133950, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5895062891078191794, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2173,6 +2197,10 @@ PrefabInstance:
     - target: {fileID: 5908621933788340314, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5908621933788340319, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: m_Name
+      value: Bathroom_Trigger all hall lights on_delete
       objectReference: {fileID: 0}
     - target: {fileID: 5908621933788340319, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
       propertyPath: m_IsActive
@@ -2297,6 +2325,22 @@ PrefabInstance:
     - target: {fileID: 8366581373924157239, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
       propertyPath: m_Name
       value: Level_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022865465451129731, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: _triggerDelays.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022865465451129731, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: _triggerObjects.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022865465578376522, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: m_Name
+      value: Hall_Trigger hall light_delete
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022865465578376522, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2369cc0dc00e0a14f9e1c6c426228e02, type: 3}

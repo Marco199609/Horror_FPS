@@ -30,6 +30,8 @@ public class DemoEnd : MonoBehaviour, ITriggerAction
             Destroy(undestructibleObjects[i].gameObject);
         }
 
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         SceneManager.LoadScene("SnowHorse");
     }
 

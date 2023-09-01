@@ -2153,7 +2153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _endGameDelay: 44
-  _goBackToStartDelay: 48
+  _goBackToStartDelay: 50
   _endGameCanvas: {fileID: 1143092100}
 --- !u!1001 &438745321
 PrefabInstance:

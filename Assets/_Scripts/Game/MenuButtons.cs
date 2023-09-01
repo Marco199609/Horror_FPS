@@ -11,6 +11,7 @@ public class MenuButtons : MonoBehaviour
     [SerializeField] private Image _levelChangeMask;
     [SerializeField] private TextMeshProUGUI _tipText;
     [SerializeField] private PlayerStressControl _playerStress;
+
     public void StartGame()
     {
         //Makes mask for level change instant
