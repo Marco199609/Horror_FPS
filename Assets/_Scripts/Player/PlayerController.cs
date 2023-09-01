@@ -120,7 +120,7 @@ public class PlayerController : MonoBehaviour
 
     private void CameraControl()
     {
-        _playerCameraControl.ControlCameraHeadBob(Player);
+        _playerCameraControl.ControlCameraHeadBob(Player, _playerInput);
     }
 
     private void PlayerAudioControl()
