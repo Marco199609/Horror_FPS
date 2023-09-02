@@ -9,6 +9,7 @@ public class Wire_crawler : MonoBehaviour, IInteractable, ITriggerAction
     [SerializeField] private Renderer _wireCrawlerRenderer;
     [SerializeField] private AudioSource _wireCrawlerAudioSource, _muffledTalkAudioSource;
     [SerializeField] private AudioClip _lastMuffledTalkClip, _tensionBuildClip;
+    [SerializeField] private Animator _crawlerAnimator;
 
     private PlayerController _playerController;
 
@@ -37,6 +38,7 @@ public class Wire_crawler : MonoBehaviour, IInteractable, ITriggerAction
         _playerController.FreezePlayerMovement = true;
         _muffledTalkAudioSource.Stop();
         PlayerController.Instance.StressControl.AddStress();
+        _crawlerAnimator.SetBool("HavingSeizure", true);
 
         Collider[] colliders = gameObject.GetComponents<Collider>();
         for (int i = 0; i < colliders.Length; i++)
