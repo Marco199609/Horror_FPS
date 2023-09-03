@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class DialogueSystem : MonoBehaviour
 {
-    public DialogueData _dialogueData;
+    public DialogueData DialogueData;
 
     private DialogueTextList _dialogueTextList;
     private TextAsset _dialogueAsset;
@@ -21,17 +21,17 @@ public class DialogueSystem : MonoBehaviour
 
     private void Start()
     {
-        _dialogueData = GetComponent<DialogueData>();
+        DialogueData = GetComponent<DialogueData>();
         ParseJSON();
-        UILanguageHandler.Instance.ParseJSON(_dialogueData.English, _dialogueData.Spanish);
+        UILanguageHandler.Instance.ParseJSON(DialogueData.English, DialogueData.Spanish);
     }
 
     public void ManageDialogues(int dialogueIndex)
     {
-        _dialogueData.DialogueAudioSource.PlayOneShot(_dialogueData.DialogueClips[dialogueIndex]);
+        DialogueData.DialogueAudioSource.PlayOneShot(DialogueData.DialogueClips[dialogueIndex]);
 
         StartCoroutine(SetTextUI(_dialogueTextList.DialogueTexts[dialogueIndex].Text,
-            _dialogueData.DialogueClips[dialogueIndex].length + 0.2f));
+            DialogueData.DialogueClips[dialogueIndex].length + 0.2f));
     }
 
     private IEnumerator SetTextUI(string dialogueText, float duration)
@@ -44,14 +44,14 @@ public class DialogueSystem : MonoBehaviour
     public void ChangeLanguage()
     {
         ParseJSON();
-        UILanguageHandler.Instance.ParseJSON(_dialogueData.English, _dialogueData.Spanish);
+        UILanguageHandler.Instance.ParseJSON(DialogueData.English, DialogueData.Spanish);
     }
 
     private void ParseJSON()
     {
-        if (_dialogueData.English)
+        if (DialogueData.English)
             _dialogueAsset = Resources.Load<TextAsset>("JSON/Dialogue/en-US");
-        else if (_dialogueData.Spanish)
+        else if (DialogueData.Spanish)
             _dialogueAsset = Resources.Load<TextAsset>("JSON/Dialogue/es-LA");
         else
             _dialogueAsset = Resources.Load<TextAsset>("JSON/Dialogue/no-SUBTITLES");

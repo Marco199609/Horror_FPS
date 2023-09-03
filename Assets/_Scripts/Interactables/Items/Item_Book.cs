@@ -9,6 +9,7 @@ public class Item_Book : MonoBehaviour, IInteractable
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _audioClip;
     [SerializeField] private bool _rotateX, _rotateY, _rotateZ, _locked = true;
+    [SerializeField] private GameObject _diaryTextUIEnglish, _diaryTextUISpanish;
     private bool _inspectableOnly = false;
     public void AssignInStateLoader()
     {
@@ -46,6 +47,22 @@ public class Item_Book : MonoBehaviour, IInteractable
         collider.enabled = false;
         yield return new WaitForSeconds(delay);
         collider.enabled = true;
+    }
+
+    private void Update()
+    {
+        if (!_locked && PlayerController.Instance.PlayerInspect.Inspecting() && PlayerController.Instance.PlayerInspect.CurrentInspectable() == gameObject)
+        {
+            if(DialogueSystem.Instance.DialogueData.English)
+                _diaryTextUIEnglish.SetActive(true);
+            else if(DialogueSystem.Instance.DialogueData.Spanish)
+                _diaryTextUISpanish.SetActive(true);
+        }
+        else
+        {
+            _diaryTextUIEnglish.SetActive(false);
+            _diaryTextUISpanish.SetActive(false);
+        }
     }
 
     public bool[] InteractableType()

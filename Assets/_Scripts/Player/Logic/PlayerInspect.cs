@@ -6,6 +6,7 @@ public interface IPlayerInspect
 {
     void Inspect(Transform inspectable, bool[] rotateXYZ);
     bool Inspecting();
+    GameObject CurrentInspectable();
     void ManageInspection(PlayerData playerData, IPlayerInput playerInput);
 }
 
@@ -86,5 +87,9 @@ public class PlayerInspect : MonoBehaviour, IPlayerInspect
     public bool Inspecting()
     {
         return _inspectingItem;
+    }
+    public GameObject CurrentInspectable()
+    {
+        return _currentInspectableSelected.gameObject;
     }
 }

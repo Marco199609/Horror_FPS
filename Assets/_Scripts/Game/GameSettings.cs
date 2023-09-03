@@ -88,19 +88,19 @@ public class GameSettings : MonoBehaviour
         {
             if (english)
             {
-                DialogueSystem.Instance._dialogueData.English = true;
-                DialogueSystem.Instance._dialogueData.Spanish = false;
+                DialogueSystem.Instance.DialogueData.English = true;
+                DialogueSystem.Instance.DialogueData.Spanish = false;
             }
             if (spanish)
             {
-                DialogueSystem.Instance._dialogueData.English = false;
-                DialogueSystem.Instance._dialogueData.Spanish = true;
+                DialogueSystem.Instance.DialogueData.English = false;
+                DialogueSystem.Instance.DialogueData.Spanish = true;
             }
         }
         else
         {
-            DialogueSystem.Instance._dialogueData.English = false;
-            DialogueSystem.Instance._dialogueData.Spanish = false;
+            DialogueSystem.Instance.DialogueData.English = false;
+            DialogueSystem.Instance.DialogueData.Spanish = false;
         }
 
         DialogueSystem.Instance.ChangeLanguage();
