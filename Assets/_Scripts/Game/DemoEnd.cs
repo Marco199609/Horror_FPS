@@ -10,6 +10,7 @@ public class DemoEnd : MonoBehaviour, ITriggerAction
 
     public void TriggerAction(float triggerDelay)
     {
+        UIManager.Instance._uiCenterPoint.gameObject.SetActive(false);
         StartCoroutine(Trigger(_endGameDelay));
         StartCoroutine(GoBackToStart());
     }

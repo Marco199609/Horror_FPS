@@ -5,7 +5,7 @@ using UnityEngine;
 public class Item_Book : MonoBehaviour, IInteractable
 {
     [SerializeField] private GameObject _requiredKey, _closedBook, _openBook, _opaqueKeyHole, _glowingKeyHole;
-    [SerializeField] private Trigger_ActivateGameObject _activateTree, _activateCrow, _activateTombstone, _activateZombie, _activateLevelLoaderTrigger, _activateHallLight;
+    [SerializeField] private Trigger_ActivateGameObject _activateTreeCrowTombstone, _activateZombie, _activateLevelLoaderTrigger, _activateHallLight;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _audioClip;
     [SerializeField] private bool _rotateX, _rotateY, _rotateZ, _locked = true;
@@ -66,8 +66,6 @@ public class Item_Book : MonoBehaviour, IInteractable
 
     public void TriggerActions()
     {
-        _activateCrow.TriggerAction(0);
-        _activateTombstone.TriggerAction(0);
-        _activateTree.TriggerAction(0);
+        _activateTreeCrowTombstone.TriggerAction(0);
     }
 }

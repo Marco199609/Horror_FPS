@@ -1048,5 +1048,9 @@ PrefabInstance:
       propertyPath: DialogueClips.Array.data[25]
       value: 
       objectReference: {fileID: 8300000, guid: a8e6213c350ff6543913192cbff96e98, type: 3}
+    - target: {fileID: 6190404424520645606, guid: fce75d89a3dc99c4485dd5a42b6b881a, type: 3}
+      propertyPath: DialogueClips.Array.data[26]
+      value: 
+      objectReference: {fileID: 8300000, guid: 662a736c738b4c2488be5afe969bb0b3, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fce75d89a3dc99c4485dd5a42b6b881a, type: 3}

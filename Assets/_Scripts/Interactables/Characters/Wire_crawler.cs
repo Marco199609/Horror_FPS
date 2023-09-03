@@ -8,7 +8,7 @@ public class Wire_crawler : MonoBehaviour, IInteractable, ITriggerAction
     [SerializeField] private Material _wireCrawlerMaterial;
     [SerializeField] private Renderer _wireCrawlerRenderer;
     [SerializeField] private AudioSource _wireCrawlerAudioSource, _muffledTalkAudioSource;
-    [SerializeField] private AudioClip _lastMuffledTalkClip, _tensionBuildClip;
+    [SerializeField] private AudioClip _tensionBuildClip, _chokingClip;
     [SerializeField] private Animator _crawlerAnimator;
 
     private PlayerController _playerController;
@@ -30,7 +30,7 @@ public class Wire_crawler : MonoBehaviour, IInteractable, ITriggerAction
     {
         _enableEmission = true;
         _muffledTalkAudioSource.Stop();
-        _wireCrawlerAudioSource.PlayOneShot(_lastMuffledTalkClip);
+        _wireCrawlerAudioSource.PlayOneShot(_chokingClip);
         _wireCrawlerAudioSource.clip = _tensionBuildClip;
         _wireCrawlerAudioSource.Play();
 
