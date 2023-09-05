@@ -1314,6 +1314,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 384181415}
     m_Modifications:
+    - target: {fileID: 3210275879118832411, guid: 531ee58f9ed154948b4b1180b907fb08, type: 3}
+      propertyPath: _playerSpawnPosition.x
+      value: 12.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 3210275879118832411, guid: 531ee58f9ed154948b4b1180b907fb08, type: 3}
+      propertyPath: _playerSpawnPosition.z
+      value: 18.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 3210275879118832415, guid: 531ee58f9ed154948b4b1180b907fb08, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 3210275879118832415, guid: 531ee58f9ed154948b4b1180b907fb08, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 20.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3210275879118832415, guid: 531ee58f9ed154948b4b1180b907fb08, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.38268325
+      objectReference: {fileID: 0}
+    - target: {fileID: 3210275879118832415, guid: 531ee58f9ed154948b4b1180b907fb08, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3210275879118832415, guid: 531ee58f9ed154948b4b1180b907fb08, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9238796
+      objectReference: {fileID: 0}
+    - target: {fileID: 3210275879118832415, guid: 531ee58f9ed154948b4b1180b907fb08, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3210275879118832415, guid: 531ee58f9ed154948b4b1180b907fb08, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 225
+      objectReference: {fileID: 0}
     - target: {fileID: 6381919020670945210, guid: 531ee58f9ed154948b4b1180b907fb08, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1360,7 +1396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6381919020670945211, guid: 531ee58f9ed154948b4b1180b907fb08, type: 3}
       propertyPath: m_Name
-      value: Level_1_thin_hallways
+      value: Level
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 531ee58f9ed154948b4b1180b907fb08, type: 3}
