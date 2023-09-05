@@ -247,6 +247,14 @@ PrefabInstance:
       propertyPath: _playerStress
       value: 
       objectReference: {fileID: 2111540800}
+    - target: {fileID: 313767670, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
+      propertyPath: _playerSpawnPosition.x
+      value: -59
+      objectReference: {fileID: 0}
+    - target: {fileID: 313767670, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
+      propertyPath: _playerSpawnPosition.z
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 313767671, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
       propertyPath: HouseTriggerCollidersActivate.Array.size
       value: 4
@@ -633,6 +641,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2790741472255789107, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
+      propertyPath: runSpeed
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2790741472255789107, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
+      propertyPath: walkSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2790741472255789107, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
+      propertyPath: FootstepWalkingTime
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2790741472255789107, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
+      propertyPath: FootstepsRunningTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8997385359482471059, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_Name
       value: PlayerController
