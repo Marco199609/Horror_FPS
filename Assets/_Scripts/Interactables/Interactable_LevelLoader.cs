@@ -20,12 +20,12 @@ public class Interactable_LevelLoader : MonoBehaviour, IInteractable
         else print("id is 0 in gameobject " + gameObject.name + "!");
     }
 
-    public void Interact(PlayerController playerController)
+    public void Interact(PlayerController playerController, bool isInteracting, bool isInspecting)
     {
-        gameObject.GetComponent<Trigger_LevelLoader>().TriggerAction(0);
+        gameObject.GetComponent<Trigger_LevelLoader>().TriggerBehaviour(0);
     }
 
-    public bool[] InteractableType()
+    public bool[] InteractableNonInspectableOrInspectableOnly()
     {
         bool nonInspectable = true;
         bool inspectableOnly = false;

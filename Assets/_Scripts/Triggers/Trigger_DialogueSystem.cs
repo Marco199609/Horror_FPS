@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trigger_DialogueSystem : MonoBehaviour, ITriggerAction
+public class Trigger_DialogueSystem : MonoBehaviour, ITrigger
 {
     //Use with Trigger_OnTriggerEnter component
 
     [SerializeField] private int[] _dialogueIndex;
     [SerializeField] private float[] _dialogueDelay; //Delays in case of using more than one dialogue lines with the same trigger.
 
-    public void TriggerAction(float triggerDelay)
+    public void TriggerBehaviour(float triggerDelay)
     {
         StartCoroutine(Trigger(triggerDelay));
     }

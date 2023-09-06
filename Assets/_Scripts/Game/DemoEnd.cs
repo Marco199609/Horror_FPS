@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DemoEnd : MonoBehaviour, ITriggerAction
+public class DemoEnd : MonoBehaviour, ITrigger
 {
     [SerializeField] private float _endGameDelay = 44, _goBackToStartDelay = 50;
     [SerializeField] private GameObject _endGameCanvas;
 
-    public void TriggerAction(float triggerDelay)
+    public void TriggerBehaviour(float triggerDelay)
     {
         UIManager.Instance._uiCenterPoint.gameObject.SetActive(false);
         StartCoroutine(Trigger(_endGameDelay));

@@ -27,7 +27,7 @@ public class Prop_Tetris : MonoBehaviour, IInteractable
         SceneStateLoader.Instance.objects.Add(_id, gameObject);
     }
 
-    public void Interact(PlayerController playerController)
+    public void Interact(PlayerController playerController, bool isInteracting, bool isInspecting)
     {
         StartCoroutine(DisableColliderTemporarily(_reactivateColliderTimer));
 
@@ -53,7 +53,7 @@ public class Prop_Tetris : MonoBehaviour, IInteractable
 
             if (_inInventory)
             {
-                _dialogueTriggers[1].TriggerAction(0);
+                _dialogueTriggers[1].TriggerBehaviour(0);
                 _prompts.SetActive(true);
                 _snakeGame.StartGame();
             }
@@ -75,7 +75,7 @@ public class Prop_Tetris : MonoBehaviour, IInteractable
         _collider.enabled = true;
     }
 
-    public bool[] InteractableType()
+    public bool[] InteractableNonInspectableOrInspectableOnly()
     {
         bool[] interactableType = new bool[] { false, false };  //NonInspectable, InspectableOnly
         return interactableType;
@@ -91,9 +91,9 @@ public class Prop_Tetris : MonoBehaviour, IInteractable
     {
         if(_inInventory)
         {
-            _dialogueTriggers[1].TriggerAction(0);
+            _dialogueTriggers[1].TriggerBehaviour(0);
         }
         else
-            _dialogueTriggers[0].TriggerAction(0);
+            _dialogueTriggers[0].TriggerBehaviour(0);
     }
 }

@@ -103,11 +103,17 @@ public class PlayerController : MonoBehaviour
         }
 
         PlayerCameraRotation();
+
+        if(FreezePlayerRotation)
+        {
+            CinemachinePOV vCamCinemachinePOV = _playerData.VirtualCamera.GetCinemachineComponent<CinemachinePOV>();
+            vCamCinemachinePOV.m_HorizontalAxis.m_MaxSpeed = 0;
+            vCamCinemachinePOV.m_VerticalAxis.m_MaxSpeed = 0;
+        }
     }
 
     private void PlayerMovement()
     {
-        
         if (!FreezePlayerMovement)
             _playerMovement.PlayerMove(Player, _playerInput);
     }

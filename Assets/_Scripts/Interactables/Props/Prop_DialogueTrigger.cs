@@ -21,7 +21,7 @@ public class Prop_DialogueTrigger : MonoBehaviour, IInteractable
         SceneStateLoader.Instance.objects.Add(_id, gameObject);
     }
 
-    public void Interact(PlayerController playerController)
+    public void Interact(PlayerController playerController, bool isInteracting, bool isInspecting)
     {
         StartCoroutine(DisableColliderTemporarily(_reactivateColliderTimer));
 
@@ -39,7 +39,7 @@ public class Prop_DialogueTrigger : MonoBehaviour, IInteractable
         _collider.enabled = true;
     }
 
-    public bool[] InteractableType()
+    public bool[] InteractableNonInspectableOrInspectableOnly()
     {
         bool[] interactableType = new bool[] { _nonInspectable, _inspectableOnly };
         return interactableType;
@@ -54,6 +54,6 @@ public class Prop_DialogueTrigger : MonoBehaviour, IInteractable
     public void TriggerActions()
     {
         int dialogueIndex = Random.Range(0, _dialogueTriggers.Length);
-        _dialogueTriggers[dialogueIndex].TriggerAction(0);
+        _dialogueTriggers[dialogueIndex].TriggerBehaviour(0);
     }
 }

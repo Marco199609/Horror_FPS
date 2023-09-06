@@ -44,8 +44,8 @@ public class Trigger_OnTriggerEnter : MonoBehaviour
 
             for (int i = 0; i < _triggerObjects.Length; i++)
             {
-                ITriggerAction trigger = _triggerObjects[i].GetComponent<ITriggerAction>();
-                trigger.TriggerAction(_triggerDelays[i]);
+                ITrigger trigger = _triggerObjects[i].GetComponent<ITrigger>();
+                trigger.Trigger(_triggerDelays[i]);
             }
         }
 

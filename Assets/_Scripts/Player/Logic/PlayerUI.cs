@@ -32,7 +32,7 @@ public class PlayerUI : MonoBehaviour, IPlayerUI
             {
                 IInteractable interactable = interactableHit.collider.GetComponent<IInteractable>();
 
-                ItemDescriptionActivated?.Invoke(interactable.InteractableType()[0], interactable.InteractableType()[1]);//Index 1 is Inspectable only; passes description to UI manager
+                ItemDescriptionActivated?.Invoke(interactable.InteractableNonInspectableOrInspectableOnly()[0], interactable.InteractableNonInspectableOrInspectableOnly()[1]);//Index 1 is Inspectable only; passes description to UI manager
                 _playerUIActive = true;
             }
 

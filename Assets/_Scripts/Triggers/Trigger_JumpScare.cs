@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trigger_JumpScare : MonoBehaviour, ITriggerAction
+public class Trigger_JumpScare : MonoBehaviour, ITrigger
 {
     [SerializeField] private AudioSource _jumpScareSource;
     [SerializeField] private AudioClip[] _jumpScareClips;
 
-    public void TriggerAction(float triggerDelay)
+    public void TriggerBehaviour(float triggerDelay)
     {
         StartCoroutine(Trigger(triggerDelay));
     }

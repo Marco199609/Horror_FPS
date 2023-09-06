@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SceneState))]
-public class Trigger_LevelLoader : MonoBehaviour, ITriggerAction
+public class Trigger_LevelLoader : MonoBehaviour, ITrigger
 {
     private enum Level {House, Dream};
     [SerializeField] private Level _loadLevel;
@@ -12,7 +12,7 @@ public class Trigger_LevelLoader : MonoBehaviour, ITriggerAction
     [SerializeField] private float _playerSpawnRotation; //Player y rotation
     [SerializeField] private bool _setLevelMaskInstantly;
 
-    public void TriggerAction(float triggerDelay)
+    public void TriggerBehaviour(float triggerDelay)
     {
         StartCoroutine(Trigger(triggerDelay));
     }

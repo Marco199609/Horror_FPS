@@ -16,7 +16,7 @@ public class Item_Book : MonoBehaviour, IInteractable
         throw new System.NotImplementedException();
     }
 
-    public void Interact(PlayerController playerController)
+    public void Interact(PlayerController playerController, bool isInteracting, bool isInspecting)
     {
         if (playerController.Inventory.SelectedItem() == _requiredKey)
         {
@@ -26,9 +26,9 @@ public class Item_Book : MonoBehaviour, IInteractable
             _closedBook.SetActive(false);
             _openBook.SetActive(true);
             _locked = false;
-            _activateZombie.TriggerAction(0);
-            _activateLevelLoaderTrigger.TriggerAction(0);
-            _activateHallLight.TriggerAction(0);
+            _activateZombie.TriggerBehaviour(0);
+            _activateLevelLoaderTrigger.TriggerBehaviour(0);
+            _activateHallLight.TriggerBehaviour(0);
             _inspectableOnly = true;
         }
         else if (_locked)
@@ -65,7 +65,7 @@ public class Item_Book : MonoBehaviour, IInteractable
         }
     }
 
-    public bool[] InteractableType()
+    public bool[] InteractableNonInspectableOrInspectableOnly()
     {
         bool nonInspectable = false;
 
@@ -83,6 +83,6 @@ public class Item_Book : MonoBehaviour, IInteractable
 
     public void TriggerActions()
     {
-        _activateTreeCrowTombstone.TriggerAction(0);
+        _activateTreeCrowTombstone.TriggerBehaviour(0);
     }
 }

@@ -14,12 +14,12 @@ public class Item_InventoryAddable : MonoBehaviour, IInteractable
         SceneStateLoader.Instance.objects.Add(_id, gameObject);
     }
 
-    public void Interact(PlayerController playerController)
+    public void Interact(PlayerController playerController, bool isInteracting, bool isInspecting)
     {
         playerController.Inventory.Add(gameObject, _positionInInventory, _rotationInInventory, _scaleInInventory);
     }
 
-    public bool[] InteractableType()
+    public bool[] InteractableNonInspectableOrInspectableOnly()
     {
         bool nonInspectable = _nonInspectable;
         bool inspectableOnly = false;

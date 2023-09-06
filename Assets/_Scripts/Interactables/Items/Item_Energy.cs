@@ -14,13 +14,13 @@ public class Item_Energy : MonoBehaviour, IInteractable
         SceneStateLoader.Instance.objects.Add(_id, gameObject);
     }
 
-    public void Interact(PlayerController playerController)
+    public void Interact(PlayerController playerController, bool isInteracting, bool isInspecting)
     {
         //playerController.PlayerFlashlight.AddBattery(); Removed battery requirement
         Destroy(gameObject);
     }
 
-    public bool[] InteractableType()
+    public bool[] InteractableNonInspectableOrInspectableOnly()
     {
         bool nonInspectable = _nonInspectable;
         bool inspectableOnly = false;

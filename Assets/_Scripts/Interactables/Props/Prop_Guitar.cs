@@ -19,7 +19,7 @@ public class Prop_Guitar : MonoBehaviour, IInteractable
         
     }
 
-    public void Interact(PlayerController playerController)
+    public void Interact(PlayerController playerController, bool isInteracting, bool isInspecting)
     {
         SetVariables();
 
@@ -36,7 +36,7 @@ public class Prop_Guitar : MonoBehaviour, IInteractable
         _guitarStrumSource.Play();
     }
 
-    public bool[] InteractableType()
+    public bool[] InteractableNonInspectableOrInspectableOnly()
     {
         bool nonInspectable = true;
         bool inspectableOnly = false;

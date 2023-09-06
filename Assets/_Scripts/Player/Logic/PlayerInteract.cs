@@ -15,15 +15,16 @@ public class PlayerInteract : MonoBehaviour, IPlayerInteract
         {
             IInteractable interactable = hit.collider.GetComponent<IInteractable>();
 
-            if (playerInput.playerPickupInput)
+            if (playerInput.playerInteractInput)
             {
-                interactable.Interact(GetComponent<PlayerController>());
-                interactable.TriggerActions();
+                interactable.Interact(GetComponent<PlayerController>(), true, false);
+                //interactable.TriggerActions();
             }
-            else if (Input.GetMouseButtonDown(0) && hit.collider.GetComponent<IInteractable>().InteractableType()[0] == false) //index 0 is NonInspectable
+            else if (Input.GetMouseButtonDown(0) && hit.collider.GetComponent<IInteractable>().InteractableNonInspectableOrInspectableOnly()[0] == false) //index 0 is NonInspectable
             {
+                interactable.Interact(GetComponent<PlayerController>(), false, true);
                 playerInspect.Inspect(hit.transform, interactable.RotateXYZ());
-                interactable.TriggerActions();
+                //interactable.TriggerActions();
             }
         }
     }

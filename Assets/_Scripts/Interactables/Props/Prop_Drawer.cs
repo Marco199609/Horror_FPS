@@ -23,7 +23,7 @@ public class Prop_Drawer : MonoBehaviour, IInteractable
         SceneStateLoader.Instance.objects.Add(_id, gameObject);
     }
 
-    public void Interact(PlayerController playerController)
+    public void Interact(PlayerController playerController, bool isInteracting, bool isInspecting)
     {
         if (_inventory == null) _inventory = playerController.Inventory;
         _changeDrawerState = true;
@@ -93,7 +93,7 @@ public class Prop_Drawer : MonoBehaviour, IInteractable
     }
 
 
-    public bool[] InteractableType()
+    public bool[] InteractableNonInspectableOrInspectableOnly()
     {
         bool nonInspectable = true;
         bool inspectableOnly = false;

@@ -16,7 +16,7 @@ public class Prop_LightSwitch : MonoBehaviour, IInteractable
         SceneStateLoader.Instance.objects.Add(_id, gameObject);
     }
 
-    public void Interact(PlayerController playerController)
+    public void Interact(PlayerController playerController, bool isInteracting, bool isInspecting)
     {
         if (_soundData == null) _soundData = SoundManager.Instance.SoundData;
 
@@ -50,7 +50,7 @@ public class Prop_LightSwitch : MonoBehaviour, IInteractable
         }
     }
 
-    public bool[] InteractableType()
+    public bool[] InteractableNonInspectableOrInspectableOnly()
     {
         bool nonInspectable = true;
         bool inspectableOnly = false;

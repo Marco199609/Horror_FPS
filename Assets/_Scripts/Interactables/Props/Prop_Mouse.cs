@@ -21,7 +21,7 @@ public class Prop_Mouse : MonoBehaviour, IInteractable
         _screenOn = false;
     }
 
-    public void Interact(PlayerController playerController)
+    public void Interact(PlayerController playerController, bool isInteracting, bool isInspecting)
     {
         if (_screenOn)
         {
@@ -39,7 +39,7 @@ public class Prop_Mouse : MonoBehaviour, IInteractable
         SoundManager.Instance.PlaySoundEffect(SoundManager.Instance.SoundData.MouseClickClip, transform.position, SoundManager.Instance.SoundData.MouseClickClipVolume); ;
     }
 
-    public bool[] InteractableType()
+    public bool[] InteractableNonInspectableOrInspectableOnly()
     {
         bool nonInspectable = true;
         bool inspectableOnly = false;

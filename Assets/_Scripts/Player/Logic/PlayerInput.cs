@@ -12,7 +12,7 @@ public interface IPlayerInput
     bool playerJumpInput { get; }
     Vector2 playerMovementInput { get; }
     Vector2 UnsmoothedPlayerMovementInput { get; }
-    bool playerPickupInput { get; }
+    bool playerInteractInput { get; }
     bool playerRunInput { get; }
 }
 
@@ -22,7 +22,7 @@ public class PlayerInput : MonoBehaviour, IPlayerInput
     private MainInput _mainInput;
     public bool playerJumpInput { get; private set; }
     public bool playerRunInput { get; private set; }
-    public bool playerPickupInput { get; private set; }
+    public bool playerInteractInput { get; private set; }
     public bool FlashLightInput { get; private set; }
     public float MouseScrollInput { get; private set; }
     public Vector2 playerMovementInput { get; private set; }
@@ -60,7 +60,7 @@ public class PlayerInput : MonoBehaviour, IPlayerInput
     {
         playerJumpInput = _mainInput.Player.Jump.inProgress;
         playerRunInput = _mainInput.Player.Run.inProgress;
-        playerPickupInput = _mainInput.Player.ItemPickup.triggered;
+        playerInteractInput = _mainInput.Player.ItemPickup.triggered;
         FlashLightInput = _mainInput.Player.Flashlight.inProgress;
     }
 

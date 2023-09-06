@@ -42,7 +42,7 @@ public class Prop_Door : MonoBehaviour, IInteractable
         if (_id != 0) SceneStateLoader.Instance.objects.Remove(_id);
     }
 
-    public void Interact(PlayerController playerController)
+    public void Interact(PlayerController playerController, bool isInteracting, bool isInspecting)
     {
         if(_inventory == null) _inventory = playerController.Inventory;
         if (_soundData == null) _soundData = SoundManager.Instance.SoundData;
@@ -135,7 +135,7 @@ public class Prop_Door : MonoBehaviour, IInteractable
     }
 
 
-    public bool[] InteractableType()
+    public bool[] InteractableNonInspectableOrInspectableOnly()
     {
         bool nonInspectable = true;
         bool inspectableOnly = false;
@@ -160,7 +160,7 @@ public class Prop_Door : MonoBehaviour, IInteractable
             {
                 if (!_alreadyTriggered[i])
                 {
-                    _triggers[i].GetComponent<ITriggerAction>().TriggerAction(_triggerDelays[i]);
+                    _triggers[i].GetComponent<ITrigger>().TriggerBehaviour(_triggerDelays[i]);
                     _alreadyTriggered[i] = true;
                 }
             }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wire_crawler : MonoBehaviour, IInteractable, ITriggerAction
+public class Wire_crawler : MonoBehaviour, IInteractable, ITrigger
 {
     [SerializeField] private int _id;
     [SerializeField] private Material _wireCrawlerMaterial;
@@ -26,7 +26,7 @@ public class Wire_crawler : MonoBehaviour, IInteractable, ITriggerAction
         _wireCrawlerMaterial.SetVector("_EmissionColor", new Vector4(1, 1, 1, 1) * 1/10);
     }
 
-    public void Interact(PlayerController playerController)
+    public void Interact(PlayerController playerController, bool isInteracting, bool isInspecting)
     {
         _enableEmission = true;
         _muffledTalkAudioSource.Stop();
@@ -56,12 +56,12 @@ public class Wire_crawler : MonoBehaviour, IInteractable, ITriggerAction
 
             if (!_wireCrawlerAudioSource.isPlaying)
             {
-                gameObject.GetComponent<Trigger_LevelLoader>().TriggerAction(0);
+                gameObject.GetComponent<Trigger_LevelLoader>().TriggerBehaviour(0);
             }
         }
     }
 
-    public bool[] InteractableType()
+    public bool[] InteractableNonInspectableOrInspectableOnly()
     {
         bool nonInspectable = true;
         bool inspectableOnly = false;
@@ -85,7 +85,7 @@ public class Wire_crawler : MonoBehaviour, IInteractable, ITriggerAction
 
 
     #region Triggers
-    public void TriggerAction(float triggerDelay)
+    public void TriggerBehaviour(float triggerDelay)
     {
         StartCoroutine(Trigger(triggerDelay));
     }

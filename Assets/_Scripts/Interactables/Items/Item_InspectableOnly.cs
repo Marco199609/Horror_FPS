@@ -8,7 +8,7 @@ public class Item_InspectableOnly : MonoBehaviour, IInteractable
     [SerializeField] private int _id;
     [SerializeField] private bool _rotateX = true, _rotateY = true, _rotateZ = true;
 
-    [SerializeField] private ITriggerAction _trigger;
+    [SerializeField] private ITrigger _trigger;
     [SerializeField] private bool _alreadyTriggered;
     [SerializeField] private float _triggerDelay;
 
@@ -17,13 +17,13 @@ public class Item_InspectableOnly : MonoBehaviour, IInteractable
         SceneStateLoader.Instance.objects.Add(_id, gameObject);
     }
 
-    public void Interact(PlayerController playerController)
+    public void Interact(PlayerController playerController, bool isInteracting, bool isInspecting)
     {
         bool[] rotateXYZ = new bool[] { _rotateX, _rotateY, _rotateZ };
         playerController.PlayerInspect.Inspect(transform, rotateXYZ); 
     }
 
-    public bool[] InteractableType()
+    public bool[] InteractableNonInspectableOrInspectableOnly()
     {
         bool nonInspectable = false;
         bool inspectableOnly = true;
@@ -42,11 +42,11 @@ public class Item_InspectableOnly : MonoBehaviour, IInteractable
 
     public void TriggerActions()
     {
-        _trigger = gameObject.GetComponent<ITriggerAction>();
+        _trigger = gameObject.GetComponent<ITrigger>();
 
         if (_trigger != null && !_alreadyTriggered)
         {
-            _trigger.TriggerAction(_triggerDelay);
+            _trigger.TriggerBehaviour(_triggerDelay);
             _alreadyTriggered = true;
         }
     }

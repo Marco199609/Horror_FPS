@@ -14,14 +14,14 @@ public class Item_Pillbottle : MonoBehaviour, IInteractable
     
     [SerializeField] private bool _alreadyTriggered;
     [SerializeField] private float _triggerDelay; //Use in case of having more than one trigger
-    private ITriggerAction _trigger;
+    private ITrigger _trigger;
 
     public void AssignInStateLoader()
     {
         SceneStateLoader.Instance.objects.Add(_id, gameObject);
     }
 
-    public void Interact(PlayerController playerController)
+    public void Interact(PlayerController playerController, bool isInteracting, bool isInspecting)
     {
         if(_pills.Count > 0)
         {
@@ -47,7 +47,7 @@ public class Item_Pillbottle : MonoBehaviour, IInteractable
         collider.enabled = true;
     }
 
-    public bool[] InteractableType()
+    public bool[] InteractableNonInspectableOrInspectableOnly()
     {
         bool nonInspectable = false;
         bool inspectableOnly = false;
@@ -67,19 +67,19 @@ public class Item_Pillbottle : MonoBehaviour, IInteractable
     {
         if(_pills.Count > 0 )
         {
-            _trigger = gameObject.GetComponent<ITriggerAction>();
+            _trigger = gameObject.GetComponent<ITrigger>();
 
             if (_trigger != null && !_alreadyTriggered)
             {
-                _trigger.TriggerAction(_triggerDelay);
+                _trigger.TriggerBehaviour(_triggerDelay);
                 _alreadyTriggered = true;
             }
         }
         else if(!PlayerController.Instance.PlayerInspect.Inspecting())
         {
             int dialogueIndex = Random.Range(0, _noPillsDialogueTriggers.Length);
-            _trigger = _noPillsDialogueTriggers[dialogueIndex].GetComponent<ITriggerAction>();
-            _trigger.TriggerAction(0);
+            _trigger = _noPillsDialogueTriggers[dialogueIndex].GetComponent<ITrigger>();
+            _trigger.TriggerBehaviour(0);
         }
     }
 }

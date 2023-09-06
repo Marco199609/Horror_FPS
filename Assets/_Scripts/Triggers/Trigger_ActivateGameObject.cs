@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trigger_ActivateGameObject : MonoBehaviour, ITriggerAction
+public class Trigger_ActivateGameObject : MonoBehaviour, ITrigger
 {
-    public GameObject _gameObject;
-    public void TriggerAction(float triggerDelay)
+    [SerializeField] private GameObject _gameObject;
+    [SerializeField] private float _activationDelay;
+    public void TriggerBehaviour(float triggerDelay)
     {
-        StartCoroutine(Trigger(triggerDelay));
+        StartCoroutine(Trigger(_activationDelay));
     }
 
     public IEnumerator Trigger(float triggerDelay)
