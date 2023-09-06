@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _loadLevel: 1
-  _playerSpawnPosition: {x: -62.103, y: 0, z: 16.664}
+  _playerSpawnPosition: {x: -59, y: 0, z: 17}
   _playerSpawnRotation: 53.893
   _setLevelMaskInstantly: 1
 --- !u!114 &313767671
@@ -213,10 +213,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _doorStateNotes: Only door 6 (5 year old room) and door 9 (kitchen) state "closed"
-  DoorStates: 0000000000000000000000000000000000000000000000000100000000000000000000000100000000000000000000000000000000000000
+  DoorStates: 0000000000000000010000000000000000000000000000000000000000000000000000000100000000000000000000000100000000000000
   _triggerActivationNotes: House triggers not necessary
   DreamTriggerCollidersActivate: 010100
-  HouseTriggerCollidersActivate: 000000
+  HouseTriggerCollidersActivate: 00000000
 --- !u!1 &363973761
 GameObject:
   m_ObjectHideFlags: 0
@@ -3211,9 +3211,9 @@ MonoBehaviour:
   m_Value: 4
   m_Options:
     m_Options:
-    - m_Text: Spanish
-      m_Image: {fileID: 0}
     - m_Text: English
+      m_Image: {fileID: 0}
+    - m_Text: Spanish
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:

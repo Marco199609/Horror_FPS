@@ -247,18 +247,6 @@ PrefabInstance:
       propertyPath: _playerStress
       value: 
       objectReference: {fileID: 2111540800}
-    - target: {fileID: 313767670, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
-      propertyPath: _playerSpawnPosition.x
-      value: -59
-      objectReference: {fileID: 0}
-    - target: {fileID: 313767670, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
-      propertyPath: _playerSpawnPosition.z
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 313767671, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
-      propertyPath: HouseTriggerCollidersActivate.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 2036411959, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
       propertyPath: _playerData
       value: 
@@ -310,14 +298,6 @@ PrefabInstance:
     - target: {fileID: 581701908695208403, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
       propertyPath: m_Name
       value: UI Manager
-      objectReference: {fileID: 0}
-    - target: {fileID: 4361104873322304907, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
-      propertyPath: m_Options.m_Options.Array.data[0].m_Text
-      value: English
-      objectReference: {fileID: 0}
-    - target: {fileID: 4361104873322304907, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
-      propertyPath: m_Options.m_Options.Array.data[1].m_Text
-      value: Spanish
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
