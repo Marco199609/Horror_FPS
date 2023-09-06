@@ -200,7 +200,7 @@ public class GameSettings : MonoBehaviour
                     if (_mainMusicSource.volume > 0)
                         _mainMusicSource.volume -= Time.deltaTime * 0.5f;
                 }
-                _mainMusicSource.volume = Mathf.Lerp(_mainMusicSource.volume, _soundData.MainMenuMusicClipVolume / 4, Time.deltaTime * 2f);
+                _mainMusicSource.volume = Mathf.Lerp(_mainMusicSource.volume, 0, Time.deltaTime * 2f);//_soundData.MainMenuMusicClipVolume / 4, Time.deltaTime * 2f);
             }
         }
     }
