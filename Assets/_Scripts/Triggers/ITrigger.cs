@@ -4,7 +4,5 @@ using UnityEngine;
 
 public interface ITrigger
 {
-    void TriggerBehaviour(float triggerDelay);
-
-    IEnumerator Trigger(float triggerDelay);
+    void TriggerBehaviour(float triggerDelay, bool isInteracting, bool isInspecting);
 }

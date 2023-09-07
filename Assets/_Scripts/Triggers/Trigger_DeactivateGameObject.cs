@@ -6,7 +6,7 @@ public class Trigger_DeactivateGameObject : MonoBehaviour, ITrigger
 {
     [SerializeField] private GameObject _gameObject;
     [SerializeField] private float _deactivationDelay;
-    public void TriggerBehaviour(float triggerDelay)
+    public void TriggerBehaviour(float triggerDelay, bool isInteracting, bool isInspecting)
     {
         StartCoroutine(Trigger(_deactivationDelay));
     }

@@ -71,7 +71,7 @@ public class Item_Pillbottle : MonoBehaviour, IInteractable
 
             if (_trigger != null && !_alreadyTriggered)
             {
-                _trigger.TriggerBehaviour(_triggerDelay);
+                _trigger.TriggerBehaviour(_triggerDelay, false, false);
                 _alreadyTriggered = true;
             }
         }
@@ -79,7 +79,7 @@ public class Item_Pillbottle : MonoBehaviour, IInteractable
         {
             int dialogueIndex = Random.Range(0, _noPillsDialogueTriggers.Length);
             _trigger = _noPillsDialogueTriggers[dialogueIndex].GetComponent<ITrigger>();
-            _trigger.TriggerBehaviour(0);
+            _trigger.TriggerBehaviour(0, false, false);
         }
     }
 }

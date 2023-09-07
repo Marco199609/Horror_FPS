@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3343612217537515804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6181929323278138039}
+  - component: {fileID: 795075460129305914}
+  m_Layer: 0
+  m_Name: Behaviour_add to inventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6181929323278138039
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3343612217537515804}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8028126460666349407}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &795075460129305914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3343612217537515804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51982a438d0509549bbcd59c732ed3fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameObject: {fileID: 7215455823720275429}
+  _positionInInventory: {x: 0.301, y: -0.103, z: 0.644}
+  _rotationInInventory: {x: 186.162, y: -95.37601, z: -169.531}
+  _scaleInInventory: {x: 0.7, y: 0.7, z: 0.2447272}
 --- !u!1 &3568950483163293871
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +308,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8028126460666349407}
   - component: {fileID: 6380186425155410858}
-  - component: {fileID: 919132149101415057}
+  - component: {fileID: 6082657569238533762}
   m_Layer: 0
   m_Name: key_door1
   m_TagString: Untagged
@@ -283,6 +331,7 @@ Transform:
   - {fileID: 4745189722103232111}
   - {fileID: 6554251915049466221}
   - {fileID: 582701872078306622}
+  - {fileID: 6181929323278138039}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -299,7 +348,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3869107, y: 0.2363259, z: 0.08231212}
   m_Center: {x: 0.0139546655, y: -0.057312954, z: -0.001910157}
---- !u!114 &919132149101415057
+--- !u!114 &6082657569238533762
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -308,17 +357,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 7215455823720275429}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9f75e64bf4d2324ca817dc1c8b05d6a, type: 3}
+  m_Script: {fileID: 11500000, guid: 072f50d679c575247986a280cef5456c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _id: 0
+  _nonInspectable: 0
+  _inspectableOnly: 0
+  _inspectableInitialRotation: {x: 0, y: 0, z: 0}
   _rotateX: 1
   _rotateY: 1
   _rotateZ: 1
-  _nonInspectable: 0
-  _positionInInventory: {x: 0.301, y: -0.103, z: 0.644}
-  _rotationInInventory: {x: 186.162, y: -95.37601, z: -169.531}
-  _scaleInInventory: {x: 0.7, y: 0.7, z: 0.24472724}
+  _freezePlayerRotation: 0
+  _freezePlayerMovement: 0
+  _interactionBehaviours:
+  - {fileID: 3343612217537515804}
+  _inspectionBehaviours: []
+  _deactivateBehaviour: 0
 --- !u!1 &8451665783332020171
 GameObject:
   m_ObjectHideFlags: 0

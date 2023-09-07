@@ -12,7 +12,7 @@ public class Trigger_LevelLoader : MonoBehaviour, ITrigger
     [SerializeField] private float _playerSpawnRotation; //Player y rotation
     [SerializeField] private bool _setLevelMaskInstantly;
 
-    public void TriggerBehaviour(float triggerDelay)
+    public void TriggerBehaviour(float triggerDelay, bool isInteracting, bool isInspecting)
     {
         StartCoroutine(Trigger(triggerDelay));
     }

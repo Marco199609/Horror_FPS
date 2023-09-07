@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _inspectOnlyPrompt;
     [SerializeField] private GameObject _inspectAndInteractPrompt;
     [SerializeField] private GameObject _returnItemPrompt;
+    [field:SerializeField] public TextMeshProUGUI ReadableItemText { get; private set; }
     public Image _uiCenterPoint;
 
     [Header("Dialogue UI")]

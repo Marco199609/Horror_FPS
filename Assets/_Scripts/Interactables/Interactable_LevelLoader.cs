@@ -22,7 +22,7 @@ public class Interactable_LevelLoader : MonoBehaviour, IInteractable
 
     public void Interact(PlayerController playerController, bool isInteracting, bool isInspecting)
     {
-        gameObject.GetComponent<Trigger_LevelLoader>().TriggerBehaviour(0);
+        gameObject.GetComponent<Trigger_LevelLoader>().TriggerBehaviour(0, false, false);
     }
 
     public bool[] InteractableNonInspectableOrInspectableOnly()

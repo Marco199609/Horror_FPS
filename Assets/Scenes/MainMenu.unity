@@ -299,6 +299,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 8105794518588625876, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1721986448}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
 --- !u!1 &1000014322
@@ -520,6 +524,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &1721986448 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 6533751894252567966, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
+  m_PrefabInstance: {fileID: 2111540795}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2110742871
 GameObject:
   m_ObjectHideFlags: 0

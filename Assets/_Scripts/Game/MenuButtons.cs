@@ -18,7 +18,7 @@ public class MenuButtons : MonoBehaviour
         _levelChangeMask.color = new Color (0, 0, 0, 1);
         _tipText.color = new Color(1, 1, 1, 1);
 
-        _levelLoaderTrigger.TriggerBehaviour(0);
+        _levelLoaderTrigger.TriggerBehaviour(0, false, false);
         GameSettings.Instance.Pause = false;
         GameSettings.Instance.CursorControl();
         _playerStress.AddStress();

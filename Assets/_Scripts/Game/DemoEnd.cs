@@ -8,7 +8,7 @@ public class DemoEnd : MonoBehaviour, ITrigger
     [SerializeField] private float _endGameDelay = 44, _goBackToStartDelay = 50;
     [SerializeField] private GameObject _endGameCanvas;
 
-    public void TriggerBehaviour(float triggerDelay)
+    public void TriggerBehaviour(float triggerDelay, bool isInteracting, bool isInspecting)
     {
         UIManager.Instance._uiCenterPoint.gameObject.SetActive(false);
         StartCoroutine(Trigger(_endGameDelay));

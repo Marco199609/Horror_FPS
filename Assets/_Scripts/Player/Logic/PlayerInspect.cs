@@ -17,7 +17,7 @@ public class PlayerInspect : MonoBehaviour, IPlayerInspect
 
     private Transform _currentInspectableSelected;
     private Vector3 _currentItemRotation;
-    private bool _rotateX, _rotateY, _rotateZ;
+    private bool _rotateX, _rotateY, _rotateZ, _isInitialRotationSet;
 
     private Transform _previousParent;
     private Vector3 _previousPosition, _previousScale;
@@ -53,6 +53,12 @@ public class PlayerInspect : MonoBehaviour, IPlayerInspect
             if (_inspectingItem)
             {
                 _currentInspectableSelected.transform.SetParent(playerData.Camera);
+                if(!_isInitialRotationSet)
+                {
+                    _currentItemRotation = _currentInspectableSelected.GetComponent<Interactable>().InspectableInitialRotation;
+                    _isInitialRotationSet = true;
+                }
+
                 _currentInspectableSelected.localPosition = Vector3.Lerp(_currentInspectableSelected.localPosition, new Vector3(0, 0, 1f), _goToInspectionPositionSpeed * Time.deltaTime);
 
                 if (Input.GetMouseButton(0) && _rotateX) _currentItemRotation.x += playerInput.mouseMovementInput.y * _rotationSpeed* Time.deltaTime; //Changes rotation axis if necessary
@@ -63,6 +69,8 @@ public class PlayerInspect : MonoBehaviour, IPlayerInspect
             }
             else
             {
+                _currentInspectableSelected.GetComponent<IInteractable>().Interact(GetComponent<PlayerController>(), false, false);
+
                 if (_currentInspectableSelected.transform.parent != _previousParent) 
                     SoundManager.Instance.Play2DSoundEffect(
                         SoundManager.Instance.SoundData.ItemInspectClip, 
@@ -78,6 +86,7 @@ public class PlayerInspect : MonoBehaviour, IPlayerInspect
                 {
                     _currentInspectableSelected.GetComponent<Collider>().enabled = true;
                     _currentInspectableSelected = null;
+                    _isInitialRotationSet = false;
                     _timer = _deleteCurrentInspectableTimer;
                 }
             }

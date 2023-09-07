@@ -19,8 +19,11 @@ public class Item_InspectableOnly : MonoBehaviour, IInteractable
 
     public void Interact(PlayerController playerController, bool isInteracting, bool isInspecting)
     {
-        bool[] rotateXYZ = new bool[] { _rotateX, _rotateY, _rotateZ };
-        playerController.PlayerInspect.Inspect(transform, rotateXYZ); 
+        if(isInspecting)
+        {
+            bool[] rotateXYZ = new bool[] { _rotateX, _rotateY, _rotateZ };
+            playerController.PlayerInspect.Inspect(transform, rotateXYZ);
+        }
     }
 
     public bool[] InteractableNonInspectableOrInspectableOnly()
@@ -46,7 +49,7 @@ public class Item_InspectableOnly : MonoBehaviour, IInteractable
 
         if (_trigger != null && !_alreadyTriggered)
         {
-            _trigger.TriggerBehaviour(_triggerDelay);
+            _trigger.TriggerBehaviour(_triggerDelay, false, false);
             _alreadyTriggered = true;
         }
     }

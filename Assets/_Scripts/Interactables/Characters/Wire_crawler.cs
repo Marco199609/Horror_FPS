@@ -56,7 +56,7 @@ public class Wire_crawler : MonoBehaviour, IInteractable, ITrigger
 
             if (!_wireCrawlerAudioSource.isPlaying)
             {
-                gameObject.GetComponent<Trigger_LevelLoader>().TriggerBehaviour(0);
+                gameObject.GetComponent<Trigger_LevelLoader>().TriggerBehaviour(0, false, false);
             }
         }
     }
@@ -85,7 +85,7 @@ public class Wire_crawler : MonoBehaviour, IInteractable, ITrigger
 
 
     #region Triggers
-    public void TriggerBehaviour(float triggerDelay)
+    public void TriggerBehaviour(float triggerDelay, bool isInteracting, bool isInspecting)
     {
         StartCoroutine(Trigger(triggerDelay));
     }

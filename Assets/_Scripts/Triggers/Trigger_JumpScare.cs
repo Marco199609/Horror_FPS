@@ -7,7 +7,7 @@ public class Trigger_JumpScare : MonoBehaviour, ITrigger
     [SerializeField] private AudioSource _jumpScareSource;
     [SerializeField] private AudioClip[] _jumpScareClips;
 
-    public void TriggerBehaviour(float triggerDelay)
+    public void TriggerBehaviour(float triggerDelay, bool isInteracting, bool isInspecting)
     {
         StartCoroutine(Trigger(triggerDelay));
     }

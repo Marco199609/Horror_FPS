@@ -12,12 +12,12 @@ public class Interactable : MonoBehaviour, IInteractable
     [SerializeField] private bool _inspectableOnly;
 
     [Header("Inspectable Rotation (Leave blank if non inspectable)")]
-    [SerializeField] private Vector3 _inspectableInitialRotation;
+    public Vector3 InspectableInitialRotation;
     [SerializeField] private bool _rotateX;
     [SerializeField] private bool _rotateY;
     [SerializeField] private bool _rotateZ;
 
-    [Header("Freeze Player (If behaviour requieres it)")]
+    [Header("Freeze Player (If behaviour requires it)")]
     [SerializeField] private bool _freezePlayerRotation;
     [SerializeField] private bool _freezePlayerMovement;
 
@@ -35,18 +35,35 @@ public class Interactable : MonoBehaviour, IInteractable
 
     public void Interact(PlayerController playerController, bool isInteracting, bool isInspecting)
     {
-        if (isInteracting)
+        if (!_inspectableOnly && _interactionBehaviours.Length > 0 && isInteracting)
         {
             for(int i = 0; i < _interactionBehaviours.Length; i++)
             {
-                _interactionBehaviours[i].GetComponent<ITrigger>().TriggerBehaviour(0);
+                _interactionBehaviours[i].GetComponent<ITrigger>().TriggerBehaviour(0, isInteracting, isInspecting);
             }
         }
-        else if(!_nonInspectable && isInspecting)
+        else if(!_nonInspectable && _inspectionBehaviours.Length > 0 && isInspecting)
         {
             for (int i = 0; i < _inspectionBehaviours.Length; i++)
             {
-                _inspectionBehaviours[i].GetComponent<ITrigger>().TriggerBehaviour(0);
+                _inspectionBehaviours[i].GetComponent<ITrigger>().TriggerBehaviour(0, isInteracting, isInspecting);
+            }
+        }
+        else if(!isInteracting && !isInspecting)
+        {
+            if(_interactionBehaviours.Length > 0)
+            {
+                for (int i = 0; i < _interactionBehaviours.Length; i++)
+                {
+                    _interactionBehaviours[i].GetComponent<ITrigger>().TriggerBehaviour(0, isInteracting, isInspecting);
+                }
+            }
+            if(_inspectionBehaviours.Length > 0)
+            {
+                for (int i = 0; i < _inspectionBehaviours.Length; i++)
+                {
+                    _inspectionBehaviours[i].GetComponent<ITrigger>().TriggerBehaviour(0, isInteracting, isInspecting);
+                }
             }
         }
 

@@ -43,7 +43,7 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.9436933, b: 0.6933962, a: 1}
   m_Intensity: 1.5
   m_Range: 0.15
   m_SpotAngle: 98.058395
@@ -104,7 +104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3071739833897758611}
   - component: {fileID: 945543575}
-  - component: {fileID: 945543576}
+  - component: {fileID: 8376005080461421099}
   m_Layer: 10
   m_Name: flashlight
   m_TagString: Untagged
@@ -144,8 +144,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _followObject: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
-  _smoothTime: 0.01
---- !u!114 &945543576
+  _smoothTime: 0.001
+--- !u!114 &8376005080461421099
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2443998527300629801}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fac093b8476924648a18992fdff7a32d, type: 3}
+  m_Script: {fileID: 11500000, guid: 293cf29f8bdf86f4480f665a521c8147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _objectLerpX: {fileID: 0}
@@ -269,7 +269,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3263893872524247296}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.015838498, y: 0.021745142, z: -0.004113184, w: 0.9996296}
   m_LocalPosition: {x: -0.1477, y: -0.101, z: 0.2449}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -288,9 +288,9 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.96265745, b: 0.6084906, a: 1}
   m_Intensity: 5
-  m_Range: 30
+  m_Range: 60
   m_SpotAngle: 25
   m_InnerSpotAngle: 1
   m_CookieSize: 10

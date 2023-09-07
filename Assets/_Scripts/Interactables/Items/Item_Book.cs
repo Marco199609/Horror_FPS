@@ -26,9 +26,9 @@ public class Item_Book : MonoBehaviour, IInteractable
             _closedBook.SetActive(false);
             _openBook.SetActive(true);
             _locked = false;
-            _activateZombie.TriggerBehaviour(0);
-            _activateLevelLoaderTrigger.TriggerBehaviour(0);
-            _activateHallLight.TriggerBehaviour(0);
+            _activateZombie.TriggerBehaviour(0, false, false);
+            _activateLevelLoaderTrigger.TriggerBehaviour(0, false, false);
+            _activateHallLight.TriggerBehaviour(0, false, false);
             _inspectableOnly = true;
         }
         else if (_locked)
@@ -83,6 +83,6 @@ public class Item_Book : MonoBehaviour, IInteractable
 
     public void TriggerActions()
     {
-        _activateTreeCrowTombstone.TriggerBehaviour(0);
+        _activateTreeCrowTombstone.TriggerBehaviour(0, false, false);
     }
 }

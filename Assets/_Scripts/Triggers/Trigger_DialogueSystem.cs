@@ -9,7 +9,7 @@ public class Trigger_DialogueSystem : MonoBehaviour, ITrigger
     [SerializeField] private int[] _dialogueIndex;
     [SerializeField] private float[] _dialogueDelay; //Delays in case of using more than one dialogue lines with the same trigger.
 
-    public void TriggerBehaviour(float triggerDelay)
+    public void TriggerBehaviour(float triggerDelay, bool isInteracting, bool isInspecting)
     {
         StartCoroutine(Trigger(triggerDelay));
     }

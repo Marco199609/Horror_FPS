@@ -54,6 +54,6 @@ public class Prop_DialogueTrigger : MonoBehaviour, IInteractable
     public void TriggerActions()
     {
         int dialogueIndex = Random.Range(0, _dialogueTriggers.Length);
-        _dialogueTriggers[dialogueIndex].TriggerBehaviour(0);
+        _dialogueTriggers[dialogueIndex].TriggerBehaviour(0, false, false);
     }
 }

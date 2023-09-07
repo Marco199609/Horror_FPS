@@ -160,7 +160,7 @@ public class Prop_Door : MonoBehaviour, IInteractable
             {
                 if (!_alreadyTriggered[i])
                 {
-                    _triggers[i].GetComponent<ITrigger>().TriggerBehaviour(_triggerDelays[i]);
+                    _triggers[i].GetComponent<ITrigger>().TriggerBehaviour(_triggerDelays[i], false, false);
                     _alreadyTriggered[i] = true;
                 }
             }

@@ -53,7 +53,7 @@ public class Prop_Tetris : MonoBehaviour, IInteractable
 
             if (_inInventory)
             {
-                _dialogueTriggers[1].TriggerBehaviour(0);
+                _dialogueTriggers[1].TriggerBehaviour(0, false, false);
                 _prompts.SetActive(true);
                 _snakeGame.StartGame();
             }
@@ -91,9 +91,9 @@ public class Prop_Tetris : MonoBehaviour, IInteractable
     {
         if(_inInventory)
         {
-            _dialogueTriggers[1].TriggerBehaviour(0);
+            _dialogueTriggers[1].TriggerBehaviour(0, false, false);
         }
         else
-            _dialogueTriggers[0].TriggerBehaviour(0);
+            _dialogueTriggers[0].TriggerBehaviour(0, false, false);
     }
 }
