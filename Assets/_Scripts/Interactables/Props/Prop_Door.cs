@@ -16,6 +16,7 @@ public class Prop_Door : MonoBehaviour, IInteractable
     [SerializeField] private float[] _triggerDelays;
     [SerializeField] private bool[] _alreadyTriggered;
     [SerializeField] private Material _emmisiveMaterial, _nonEmissiveMaterial;
+    [SerializeField] private GameObject _handleLights;
 
     public void AssignInStateLoader()
     {
@@ -56,10 +57,12 @@ public class Prop_Door : MonoBehaviour, IInteractable
         if (_currentDoorState == DoorState.Closed || _currentDoorState == DoorState.Open || PlayerController.Instance.Inventory.SelectedItem() == _key && _key != null)
         {
             GetComponent<Renderer>().material = _emmisiveMaterial;
+            _handleLights.SetActive(true);
         }
         else
         {
             GetComponent<Renderer>().material = _nonEmissiveMaterial;
+            _handleLights.SetActive(false);
         }
     }
 
