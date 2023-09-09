@@ -53,7 +53,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 1491512276}
   m_Follow: {fileID: 7105361982124454676}
   m_Lens:
-    FieldOfView: 45
+    FieldOfView: 50
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 250
@@ -451,8 +451,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9390117235444e7b9903508799f66c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 8
-  runSpeed: 13
+  walkSpeed: 4.5
+  runSpeed: 4.5
   jumpHeight: 8
   gravity: -19.62
   groundDistance: 0.4
@@ -472,8 +472,8 @@ MonoBehaviour:
   MinIntensity: 1
   MaxIntensity: 2.5
   ChangeVelocity: 25
-  FootstepWalkingTime: 0.6
-  FootstepsRunningTime: 0.4
+  FootstepWalkingTime: 0.7
+  FootstepsRunningTime: 0.7
   HeartbeatMinimumRate: 0.5
   BreathingMinimumRate: 1.7
   InteractDistance: 5
@@ -819,7 +819,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8997385358772540761
 Transform:
   m_ObjectHideFlags: 0
@@ -842,7 +842,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8997385358772540762}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
@@ -1261,7 +1261,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8997385359616104499
 Transform:
   m_ObjectHideFlags: 0
@@ -1284,7 +1284,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8997385359616104500}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
