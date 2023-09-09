@@ -1500,6 +1500,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Letter
       objectReference: {fileID: 0}
+    - target: {fileID: 8270243172137079008, guid: 531ee58f9ed154948b4b1180b907fb08, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8758972360413203034, guid: 531ee58f9ed154948b4b1180b907fb08, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3210275878726856467, guid: 531ee58f9ed154948b4b1180b907fb08, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 531ee58f9ed154948b4b1180b907fb08, type: 3}
