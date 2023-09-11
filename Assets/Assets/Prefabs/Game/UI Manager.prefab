@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _doorStateNotes: Only door 6 (5 year old room) and door 9 (kitchen) state "closed"
-  DoorStates: 0000000000000000010000000000000000000000000000000000000000000000000000000100000000000000000000000100000000000000
+  DoorStates: 0000000000000000010000000000000000000000000000000000000000000000010000000100000000000000000000000100000000000000
   _triggerActivationNotes: House triggers not necessary
   DreamTriggerCollidersActivate: 010100
   HouseTriggerCollidersActivate: 00000000
@@ -8318,7 +8318,7 @@ MonoBehaviour:
   m_fontSizeMax: 50
   m_fontStyle: 0
   m_HorizontalAlignment: 8
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

@@ -24,6 +24,7 @@ public class PlayerAudio : MonoBehaviour, IPlayerAudio
         }
 
         _heartbeatSource = SoundManager.Instance.CreateModifiableAudioSource(null, PlayerController.Instance.Player, 1);
+        _heartbeatSource.reverbZoneMix = 0;
         _breathSource = SoundManager.Instance.CreateModifiableAudioSource(null, PlayerController.Instance.Player, 1);
         _footstepsSource = SoundManager.Instance.CreateModifiableAudioSource(null, PlayerController.Instance.Player, 1);
     }
