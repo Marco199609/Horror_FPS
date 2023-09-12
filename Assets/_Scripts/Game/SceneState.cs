@@ -45,7 +45,7 @@ public class SceneState : MonoBehaviour
 //Dream Triggers
 //50: Hall_Trigger hall light
 //51: Teachers room_Trigger Director's, 5 year olds, hall light off
-//52: Bathroom_Trigger all hall lights on
+//52: Hallways_Trigger Man Walk
 //53: Kitchen door_Jumpscare
 
 //House Triggers
