@@ -5,11 +5,11 @@ using UnityEngine;
 public class Wire_crawler : MonoBehaviour, IInteractable, ITrigger
 {
     [SerializeField] private int _id;
-    [SerializeField] private Material _wireCrawlerMaterial;
-    [SerializeField] private Renderer _wireCrawlerRenderer;
+    [SerializeField] private Material[] _wireCrawlerMaterial;
     [SerializeField] private AudioSource _wireCrawlerAudioSource, _muffledTalkAudioSource;
     [SerializeField] private AudioClip _tensionBuildClip, _chokingClip;
     [SerializeField] private Animator _crawlerAnimator;
+    [SerializeField] private Light _wireCrawlerLight;
 
     private PlayerController _playerController;
 
@@ -23,7 +23,10 @@ public class Wire_crawler : MonoBehaviour, IInteractable, ITrigger
 
     private void Start()
     {
-        _wireCrawlerMaterial.SetVector("_EmissionColor", new Vector4(1, 1, 1, 1) * 1/10);
+        for(int i =  0; i < _wireCrawlerMaterial.Length; i++)
+        {
+            _wireCrawlerMaterial[i].SetVector("_EmissionColor", new Vector4(1, 1, 1, 1) * 1 / 10);
+        }
     }
 
     public void Interact(PlayerController playerController, bool isInteracting, bool isInspecting)
@@ -52,7 +55,12 @@ public class Wire_crawler : MonoBehaviour, IInteractable, ITrigger
         if (_enableEmission)
         {
             _emissionIntensity += Time.deltaTime;
-            _wireCrawlerMaterial.SetVector("_EmissionColor", new Vector4(1, 1, 1, 1) * _emissionIntensity);
+            _wireCrawlerLight.intensity += _emissionIntensity / 100;
+
+            for (int i = 0; i < _wireCrawlerMaterial.Length; i++)
+            {
+                _wireCrawlerMaterial[i].SetVector("_EmissionColor", new Vector4(1, 1, 1, 1) * _emissionIntensity);
+            }
 
             if (!_wireCrawlerAudioSource.isPlaying)
             {
