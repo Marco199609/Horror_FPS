@@ -8,24 +8,39 @@ public class Trigger_DialogueSystem : MonoBehaviour, ITrigger
 
     [SerializeField] private int[] _dialogueIndex;
     [SerializeField] private float[] _dialogueDelay; //Delays in case of using more than one dialogue lines with the same trigger.
+    [SerializeField] private bool _triggerOnInteraction, _triggerOnInspection, _randomizeDialogue;
 
     public void TriggerBehaviour(float triggerDelay, bool isInteracting, bool isInspecting)
     {
-        StartCoroutine(Trigger(triggerDelay));
+        if(_triggerOnInteraction == true && isInteracting == true)
+        {
+            StartCoroutine(Trigger());
+        }
+        if(_triggerOnInspection == true && isInspecting == true)
+        {
+            StartCoroutine(Trigger());
+        }
     }
 
-    public IEnumerator Trigger(float triggerDelay)
+    private IEnumerator Trigger()
     {
-        yield return new WaitForSeconds(0); //Trigger delays dont work with dialogue, use in built dialogue delays
-
         if(_dialogueDelay.Length > 0)
         {
-            for(int i = 0; i < _dialogueIndex.Length; i++)
+            if(_randomizeDialogue == true)
             {
-                //Takes the length of the audioclip, as to not overlap clips one on the other 
+                int i = Random.Range(0, _dialogueIndex.Length);
                 yield return new WaitForSeconds(DialogueSystem.Instance.DialogueData.DialogueClips[i].length + _dialogueDelay[i]);
-
                 DialogueSystem.Instance.ManageDialogues(_dialogueIndex[i]);
+            }
+            else
+            {
+                for (int i = 0; i < _dialogueIndex.Length; i++)
+                {
+                    //Takes the length of the audioclip, as to not overlap clips one on the other 
+                    yield return new WaitForSeconds(DialogueSystem.Instance.DialogueData.DialogueClips[i].length + _dialogueDelay[i]);
+
+                    DialogueSystem.Instance.ManageDialogues(_dialogueIndex[i]);
+                }
             }
         }
         else
@@ -33,6 +48,4 @@ public class Trigger_DialogueSystem : MonoBehaviour, ITrigger
             DialogueSystem.Instance.ManageDialogues(_dialogueIndex[0]);
         }
     }
-
-
 }

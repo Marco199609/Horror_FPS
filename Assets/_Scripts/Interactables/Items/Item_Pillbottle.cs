@@ -38,6 +38,11 @@ public class Item_Pillbottle : MonoBehaviour, IInteractable
         }
 
         StartCoroutine(DeactivateCollider(GetComponent<Collider>(), 1));
+
+        if(isInteracting)
+        {
+            TriggerActions();
+        }
     }
 
     private IEnumerator DeactivateCollider(Collider collider, float delay)
@@ -71,7 +76,7 @@ public class Item_Pillbottle : MonoBehaviour, IInteractable
 
             if (_trigger != null && !_alreadyTriggered)
             {
-                _trigger.TriggerBehaviour(_triggerDelay, false, false);
+                _trigger.TriggerBehaviour(_triggerDelay, true, false);
                 _alreadyTriggered = true;
             }
         }
@@ -79,7 +84,7 @@ public class Item_Pillbottle : MonoBehaviour, IInteractable
         {
             int dialogueIndex = Random.Range(0, _noPillsDialogueTriggers.Length);
             _trigger = _noPillsDialogueTriggers[dialogueIndex].GetComponent<ITrigger>();
-            _trigger.TriggerBehaviour(0, false, false);
+            _trigger.TriggerBehaviour(0, true, false);
         }
     }
 }
