@@ -23,24 +23,24 @@ public class Item_Pillbottle : MonoBehaviour, IInteractable
 
     public void Interact(PlayerController playerController, bool isInteracting, bool isInspecting)
     {
-        if(_pills.Count > 0)
-        {
-            SoundManager.Instance.Play2DSoundEffect(SoundManager.Instance.SoundData.PillbottleClip, SoundManager.Instance.SoundData.PillbottleClipVolume);
-            Destroy(_pills[_pills.Count - 1]);
-            _pills.RemoveAt(_pills.Count - 1);
-        }
-
-        if(_pills.Count <= 0)
-        {
-            _pillbottleCap.transform.localPosition = new Vector3(0.00449999981f, 0.0137999998f, 0.177100003f);
-            _pillbottleCap.transform.localRotation = Quaternion.Euler(90, 40, 0);
-            gameObject.transform.localEulerAngles = Vector3.zero;
-        }
-
         StartCoroutine(DeactivateCollider(GetComponent<Collider>(), 1));
 
         if(isInteracting)
         {
+            if (_pills.Count > 0)
+            {
+                SoundManager.Instance.Play2DSoundEffect(SoundManager.Instance.SoundData.PillbottleClip, SoundManager.Instance.SoundData.PillbottleClipVolume);
+                Destroy(_pills[_pills.Count - 1]);
+                _pills.RemoveAt(_pills.Count - 1);
+            }
+
+            if (_pills.Count <= 0)
+            {
+                _pillbottleCap.transform.localPosition = new Vector3(0.00449999981f, 0.0137999998f, 0.177100003f);
+                _pillbottleCap.transform.localRotation = Quaternion.Euler(90, 40, 0);
+                gameObject.transform.localEulerAngles = Vector3.zero;
+            }
+
             TriggerActions();
         }
     }
