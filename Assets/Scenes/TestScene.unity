@@ -147,6 +147,10 @@ PrefabInstance:
       value: 0.00000023841858
       objectReference: {fileID: 0}
     - target: {fileID: 6533751894252567966, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
+      propertyPath: field of view
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6533751894252567966, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: far clip plane
       value: 250
       objectReference: {fileID: 0}
