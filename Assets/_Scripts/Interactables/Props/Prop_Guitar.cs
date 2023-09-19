@@ -7,6 +7,7 @@ public class Prop_Guitar : MonoBehaviour, IInteractable
     private int _currentStrumIndex = 0;
     private AudioSource _guitarStrumSource;
     private SoundManager _soundManager;
+    [SerializeField] private Vector3 _inspectableInitialRotation;
 
     private void SetVariables()
     {
@@ -36,7 +37,7 @@ public class Prop_Guitar : MonoBehaviour, IInteractable
         _guitarStrumSource.Play();
     }
 
-    public bool[] InteractableNonInspectableOrInspectableOnly()
+    public bool[] InteractableIsNonInspectableOrInspectableOnly()
     {
         bool nonInspectable = true;
         bool inspectableOnly = false;
@@ -56,5 +57,10 @@ public class Prop_Guitar : MonoBehaviour, IInteractable
     public void TriggerActions()
     {
         throw new System.NotImplementedException();
+    }
+
+    public Vector3 InspectableInitialRotation()
+    {
+        return _inspectableInitialRotation;
     }
 }

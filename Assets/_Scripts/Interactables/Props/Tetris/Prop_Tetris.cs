@@ -14,6 +14,7 @@ public class Prop_Tetris : MonoBehaviour, IInteractable
 
     [SerializeField] private bool _rotateX = true, _rotateY = true, _rotateZ = true;
     [SerializeField] private Vector3 _positionInInventory, _rotationInInventory, _scaleInInventory;
+    [SerializeField] private Vector3 _inspectableInitialRotation;
 
     [SerializeField] private Trigger_DialogueSystem[] _dialogueTriggers;
 
@@ -75,7 +76,7 @@ public class Prop_Tetris : MonoBehaviour, IInteractable
         _collider.enabled = true;
     }
 
-    public bool[] InteractableNonInspectableOrInspectableOnly()
+    public bool[] InteractableIsNonInspectableOrInspectableOnly()
     {
         bool[] interactableType = new bool[] { false, false };  //NonInspectable, InspectableOnly
         return interactableType;
@@ -95,5 +96,10 @@ public class Prop_Tetris : MonoBehaviour, IInteractable
         }
         else
             _dialogueTriggers[0].TriggerBehaviour(0, false, false);
+    }
+
+    public Vector3 InspectableInitialRotation()
+    {
+        return _inspectableInitialRotation;
     }
 }

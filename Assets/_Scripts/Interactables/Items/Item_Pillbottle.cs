@@ -10,8 +10,8 @@ public class Item_Pillbottle : MonoBehaviour, IInteractable
     [SerializeField] private GameObject _pillbottleCap;
     [SerializeField] private GameObject[] _noPillsDialogueTriggers;
     [SerializeField] private bool _rotateX = true, _rotateY = true, _rotateZ = true;
+    [SerializeField] private Vector3 _inspectableInitialRotation;
 
-    
     [SerializeField] private bool _alreadyTriggered;
     [SerializeField] private float _triggerDelay; //Use in case of having more than one trigger
     private ITrigger _trigger;
@@ -52,7 +52,7 @@ public class Item_Pillbottle : MonoBehaviour, IInteractable
         collider.enabled = true;
     }
 
-    public bool[] InteractableNonInspectableOrInspectableOnly()
+    public bool[] InteractableIsNonInspectableOrInspectableOnly()
     {
         bool nonInspectable = false;
         bool inspectableOnly = false;
@@ -86,5 +86,10 @@ public class Item_Pillbottle : MonoBehaviour, IInteractable
             _trigger = _noPillsDialogueTriggers[dialogueIndex].GetComponent<ITrigger>();
             _trigger.TriggerBehaviour(0, true, false);
         }
+    }
+
+    public Vector3 InspectableInitialRotation()
+    {
+        return _inspectableInitialRotation;
     }
 }

@@ -20,7 +20,7 @@ public class PlayerInteract : MonoBehaviour, IPlayerInteract
                 interactable.Interact(GetComponent<PlayerController>(), true, false);
                 //interactable.TriggerActions();
             }
-            else if (Input.GetMouseButtonDown(0) && hit.collider.GetComponent<IInteractable>().InteractableNonInspectableOrInspectableOnly()[0] == false) //index 0 is NonInspectable
+            else if (Input.GetMouseButtonDown(0) && hit.collider.GetComponent<IInteractable>().InteractableIsNonInspectableOrInspectableOnly()[0] == false) //index 0 is NonInspectable
             {
                 interactable.Interact(GetComponent<PlayerController>(), false, true);
                 playerInspect.Inspect(hit.transform, interactable.RotateXYZ());

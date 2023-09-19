@@ -11,6 +11,7 @@ public class Prop_DialogueTrigger : MonoBehaviour, IInteractable
     [SerializeField] private bool _rotateX = true;
     [SerializeField] private bool _rotateY = true;
     [SerializeField] private bool _rotateZ = true;
+    [SerializeField] private Vector3 _inspectableInitialRotation;
 
     [SerializeField] private Trigger_DialogueSystem[] _dialogueTriggers;
 
@@ -39,7 +40,7 @@ public class Prop_DialogueTrigger : MonoBehaviour, IInteractable
         _collider.enabled = true;
     }
 
-    public bool[] InteractableNonInspectableOrInspectableOnly()
+    public bool[] InteractableIsNonInspectableOrInspectableOnly()
     {
         bool[] interactableType = new bool[] { _nonInspectable, _inspectableOnly };
         return interactableType;
@@ -55,5 +56,10 @@ public class Prop_DialogueTrigger : MonoBehaviour, IInteractable
     {
         int dialogueIndex = Random.Range(0, _dialogueTriggers.Length);
         _dialogueTriggers[dialogueIndex].TriggerBehaviour(0, false, false);
+    }
+
+    public Vector3 InspectableInitialRotation()
+    {
+        return _inspectableInitialRotation;
     }
 }

@@ -55,7 +55,7 @@ public class PlayerInspect : MonoBehaviour, IPlayerInspect
                 _currentInspectableSelected.transform.SetParent(playerData.Camera);
                 if(!_isInitialRotationSet)
                 {
-                    _currentItemRotation = _currentInspectableSelected.GetComponent<Interactable>().InspectableInitialRotation;
+                    _currentItemRotation = _currentInspectableSelected.GetComponent<IInteractable>().InspectableInitialRotation();
                     _isInitialRotationSet = true;
                 }
 
@@ -63,7 +63,7 @@ public class PlayerInspect : MonoBehaviour, IPlayerInspect
 
                 if (Input.GetMouseButton(0) && _rotateX) _currentItemRotation.x += playerInput.mouseMovementInput.y * _rotationSpeed* Time.deltaTime; //Changes rotation axis if necessary
                 else if (_rotateZ) _currentItemRotation.z += playerInput.mouseMovementInput.y * _rotationSpeed * Time.deltaTime;
-                if (_rotateY) _currentItemRotation.y += playerInput.mouseMovementInput.x * _rotationSpeed * Time.deltaTime;
+                if (_rotateY) _currentItemRotation.y -= playerInput.mouseMovementInput.x * _rotationSpeed * Time.deltaTime;
 
                 _currentInspectableSelected.localRotation = Quaternion.Euler(_currentItemRotation);
             }

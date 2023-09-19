@@ -111,7 +111,7 @@ MonoBehaviour:
   <WoodFootstepClips>k__BackingField:
   - {fileID: 8300000, guid: a120fa99cebff914b9d77133283c23f9, type: 3}
   - {fileID: 8300000, guid: 4e5092c65c19b3e40a69fe3817a3ad02, type: 3}
-  WoodFootstepClipsVolume: 0.15
+  WoodFootstepClipsVolume: 0.7
   <PlayerBreathClips>k__BackingField:
   - {fileID: 8300000, guid: a5c9c287f430b6541b686b05154fdb1b, type: 3}
   - {fileID: 8300000, guid: 5347cceb65a955a48b9399c7a7276ed9, type: 3}

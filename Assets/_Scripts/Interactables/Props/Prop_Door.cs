@@ -17,6 +17,7 @@ public class Prop_Door : MonoBehaviour, IInteractable
     [SerializeField] private bool[] _alreadyTriggered;
     [SerializeField] private Material _emmisiveMaterial, _nonEmissiveMaterial;
     [SerializeField] private GameObject _handleLights;
+    [SerializeField] private Vector3 _inspectableInitialRotation;
 
     public void AssignInStateLoader()
     {
@@ -138,7 +139,7 @@ public class Prop_Door : MonoBehaviour, IInteractable
     }
 
 
-    public bool[] InteractableNonInspectableOrInspectableOnly()
+    public bool[] InteractableIsNonInspectableOrInspectableOnly()
     {
         bool nonInspectable = true;
         bool inspectableOnly = false;
@@ -168,5 +169,10 @@ public class Prop_Door : MonoBehaviour, IInteractable
                 }
             }
         }
+    }
+
+    public Vector3 InspectableInitialRotation()
+    {
+        return _inspectableInitialRotation;
     }
 }

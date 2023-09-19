@@ -8,6 +8,7 @@ public class Prop_Mouse : MonoBehaviour, IInteractable
     [SerializeField] private Material _screenMaterial;
     [SerializeField] private Light _screenLight;
     [SerializeField] private bool _screenOn;
+    [SerializeField] private Vector3 _inspectableInitialRotation;
 
     public void AssignInStateLoader()
     {
@@ -39,7 +40,7 @@ public class Prop_Mouse : MonoBehaviour, IInteractable
         SoundManager.Instance.PlaySoundEffect(SoundManager.Instance.SoundData.MouseClickClip, transform.position, SoundManager.Instance.SoundData.MouseClickClipVolume); ;
     }
 
-    public bool[] InteractableNonInspectableOrInspectableOnly()
+    public bool[] InteractableIsNonInspectableOrInspectableOnly()
     {
         bool nonInspectable = true;
         bool inspectableOnly = false;
@@ -59,5 +60,10 @@ public class Prop_Mouse : MonoBehaviour, IInteractable
     public void TriggerActions()
     {
         throw new System.NotImplementedException();
+    }
+
+    public Vector3 InspectableInitialRotation()
+    {
+        return _inspectableInitialRotation;
     }
 }

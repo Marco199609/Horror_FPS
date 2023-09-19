@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.ProBuilder.MeshOperations;
 
 [RequireComponent(typeof(SceneStateLoader))]
 public class LevelLoader : MonoBehaviour
@@ -99,6 +100,11 @@ public class LevelLoader : MonoBehaviour
 
             SceneManager.LoadScene(_sceneName);
             SceneManager.sceneLoaded += GameSettings.Instance.OnSceneLoaded;
+
+            if (_sceneName == "Level_Dream")
+                _virtualCamera.m_Lens.FieldOfView = PlayerController.Instance.PlayerData.DreamLevelFOV;
+            else if (_sceneName == "Level_House")
+                _virtualCamera.m_Lens.FieldOfView = PlayerController.Instance.PlayerData.HouseLevelFOV;
 
             SetPlayerPosition(_playerLocalPosition);
             SetPlayerRotation(_playerRotationY);

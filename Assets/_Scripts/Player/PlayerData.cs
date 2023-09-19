@@ -19,6 +19,8 @@ public class PlayerData : MonoBehaviour
     public float mouseSensitivityY = 10f;
     public Transform CinemachineLookAt;
     public CinemachineVirtualCamera VirtualCamera;
+    public int DreamLevelFOV = 50;
+    public int HouseLevelFOV = 45;
 
     [Header("Player Camera Movement Control")]
     public Transform camHolder;

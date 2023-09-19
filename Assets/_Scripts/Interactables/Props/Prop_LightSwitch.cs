@@ -7,6 +7,7 @@ public class Prop_LightSwitch : MonoBehaviour, IInteractable
     [SerializeField] private int _id;
     [SerializeField] private List<GameObject> _lightOnObjects, _lightOffObjects; //Make sure each light on object has its light off object
     [SerializeField] private GameObject _switchOnModel, _switchOffModel;
+    [SerializeField] private Vector3 _inspectableInitialRotation;
 
     private bool _lightsOn;
     private SoundData _soundData;
@@ -50,7 +51,7 @@ public class Prop_LightSwitch : MonoBehaviour, IInteractable
         }
     }
 
-    public bool[] InteractableNonInspectableOrInspectableOnly()
+    public bool[] InteractableIsNonInspectableOrInspectableOnly()
     {
         bool nonInspectable = true;
         bool inspectableOnly = false;
@@ -70,5 +71,10 @@ public class Prop_LightSwitch : MonoBehaviour, IInteractable
     public void TriggerActions()
     {
         //throw new System.NotImplementedException();
+    }
+
+    public Vector3 InspectableInitialRotation()
+    {
+        return _inspectableInitialRotation;
     }
 }

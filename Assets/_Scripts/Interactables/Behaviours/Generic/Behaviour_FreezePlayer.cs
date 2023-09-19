@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Behaviour_FreezePlayer : MonoBehaviour, ITrigger
 {
+    [SerializeField] private bool _freezePlayerRotation;
+    [SerializeField] private bool _freezePlayerMovement;
 
+    private PlayerController _playerController;
     public void TriggerBehaviour(float triggerDelay, bool isInteracting, bool isInspecting)
     {
-        throw new System.NotImplementedException();
-    }
+        if(_playerController == null) _playerController = PlayerController.Instance;
 
-    public IEnumerator Trigger(float triggerDelay)
-    {
-        throw new System.NotImplementedException();
+        if (_freezePlayerMovement) _playerController.FreezePlayerMovement = true;
+        if (_freezePlayerRotation) _playerController.FreezePlayerRotation = true;
     }
 }

@@ -7,6 +7,7 @@ public class Item_InspectableOnly : MonoBehaviour, IInteractable
 {
     [SerializeField] private int _id;
     [SerializeField] private bool _rotateX = true, _rotateY = true, _rotateZ = true;
+    [SerializeField] private Vector3 _inspectableInitialRotation;
 
     [SerializeField] private ITrigger _trigger;
     [SerializeField] private bool _alreadyTriggered;
@@ -26,7 +27,7 @@ public class Item_InspectableOnly : MonoBehaviour, IInteractable
         }
     }
 
-    public bool[] InteractableNonInspectableOrInspectableOnly()
+    public bool[] InteractableIsNonInspectableOrInspectableOnly()
     {
         bool nonInspectable = false;
         bool inspectableOnly = true;
@@ -52,5 +53,10 @@ public class Item_InspectableOnly : MonoBehaviour, IInteractable
             _trigger.TriggerBehaviour(_triggerDelay, false, false);
             _alreadyTriggered = true;
         }
+    }
+
+    public Vector3 InspectableInitialRotation()
+    {
+        return _inspectableInitialRotation;
     }
 }

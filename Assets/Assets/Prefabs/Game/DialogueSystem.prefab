@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35722e62d13862844ba841f2a76eef93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogueData: {fileID: 6190404424520645606}
+  DialogueData: {fileID: 0}
 --- !u!114 &6190404424520645606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,9 +88,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 21bcc10e97ce79a4f999b7ce43cbf131, type: 3}
   - {fileID: 8300000, guid: a44a9a4dd00508a4d84660fbca27b0e6, type: 3}
   - {fileID: 8300000, guid: e8f89596d52745040ae6d6253e83a866, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 444ccb9b097a96f42a4d50a01ee045a2, type: 3}
+  - {fileID: 8300000, guid: a8e6213c350ff6543913192cbff96e98, type: 3}
+  - {fileID: 8300000, guid: 662a736c738b4c2488be5afe969bb0b3, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

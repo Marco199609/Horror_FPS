@@ -5,6 +5,7 @@ using UnityEngine;
 public class Interactable_LevelLoader : MonoBehaviour, IInteractable
 {
     [SerializeField] private int _id;
+    [SerializeField] private Vector3 _inspectableInitialRotation;
 
     private void OnEnable()
     {
@@ -25,7 +26,7 @@ public class Interactable_LevelLoader : MonoBehaviour, IInteractable
         gameObject.GetComponent<Trigger_LevelLoader>().TriggerBehaviour(0, false, false);
     }
 
-    public bool[] InteractableNonInspectableOrInspectableOnly()
+    public bool[] InteractableIsNonInspectableOrInspectableOnly()
     {
         bool nonInspectable = true;
         bool inspectableOnly = false;
@@ -45,5 +46,10 @@ public class Interactable_LevelLoader : MonoBehaviour, IInteractable
     public void TriggerActions()
     {
         throw new System.NotImplementedException();
+    }
+
+    public Vector3 InspectableInitialRotation()
+    {
+        return _inspectableInitialRotation;
     }
 }

@@ -7,6 +7,7 @@ public class Item_Energy : MonoBehaviour, IInteractable
 {
     [SerializeField] private int _id;
     [SerializeField] private bool _rotateX = true, _rotateY = true, _rotateZ = true;
+    [SerializeField] private Vector3 _inspectableInitialRotation;
     [SerializeField] private bool _nonInspectable;
 
     public void AssignInStateLoader()
@@ -20,7 +21,7 @@ public class Item_Energy : MonoBehaviour, IInteractable
         Destroy(gameObject);
     }
 
-    public bool[] InteractableNonInspectableOrInspectableOnly()
+    public bool[] InteractableIsNonInspectableOrInspectableOnly()
     {
         bool nonInspectable = _nonInspectable;
         bool inspectableOnly = false;
@@ -40,5 +41,10 @@ public class Item_Energy : MonoBehaviour, IInteractable
     public void TriggerActions()
     {
         throw new System.NotImplementedException();
+    }
+
+    public Vector3 InspectableInitialRotation()
+    {
+        return _inspectableInitialRotation;
     }
 }

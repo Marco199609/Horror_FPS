@@ -12,7 +12,7 @@ public class Interactable : MonoBehaviour, IInteractable
     [SerializeField] private bool _inspectableOnly;
 
     [Header("Inspectable Rotation (Leave blank if non inspectable)")]
-    public Vector3 InspectableInitialRotation;
+    [SerializeField] private Vector3 _inspectableInitialRotation;
     [SerializeField] private bool _rotateX;
     [SerializeField] private bool _rotateY;
     [SerializeField] private bool _rotateZ;
@@ -35,36 +35,18 @@ public class Interactable : MonoBehaviour, IInteractable
 
     public void Interact(PlayerController playerController, bool isInteracting, bool isInspecting)
     {
-        if (!_inspectableOnly && _interactionBehaviours.Length > 0 && isInteracting)
+        if (!_inspectableOnly && isInteracting)
         {
-            for(int i = 0; i < _interactionBehaviours.Length; i++)
-            {
-                _interactionBehaviours[i].GetComponent<ITrigger>().TriggerBehaviour(0, isInteracting, isInspecting);
-            }
+            ManageInteractionBehaviours(isInteracting, isInspecting);
         }
-        else if(!_nonInspectable && _inspectionBehaviours.Length > 0 && isInspecting)
+        else if(!_nonInspectable && isInspecting)
         {
-            for (int i = 0; i < _inspectionBehaviours.Length; i++)
-            {
-                _inspectionBehaviours[i].GetComponent<ITrigger>().TriggerBehaviour(0, isInteracting, isInspecting);
-            }
+            ManageInspectionBehaviours(isInteracting, isInspecting);
         }
-        else if(!isInteracting && !isInspecting)
+        else if (!isInteracting && !isInspecting)
         {
-            if(_interactionBehaviours.Length > 0)
-            {
-                for (int i = 0; i < _interactionBehaviours.Length; i++)
-                {
-                    _interactionBehaviours[i].GetComponent<ITrigger>().TriggerBehaviour(0, isInteracting, isInspecting);
-                }
-            }
-            if(_inspectionBehaviours.Length > 0)
-            {
-                for (int i = 0; i < _inspectionBehaviours.Length; i++)
-                {
-                    _inspectionBehaviours[i].GetComponent<ITrigger>().TriggerBehaviour(0, isInteracting, isInspecting);
-                }
-            }
+            ManageInteractionBehaviours(isInteracting, isInspecting);
+            ManageInspectionBehaviours(isInteracting, isInspecting);
         }
 
         //Remember to unfreeze player in behaviour components
@@ -72,7 +54,29 @@ public class Interactable : MonoBehaviour, IInteractable
         if(_freezePlayerRotation) playerController.FreezePlayerRotation = true;
     }
 
-    public bool[] InteractableNonInspectableOrInspectableOnly()
+    private void ManageInteractionBehaviours(bool isInteracting, bool isInspecting)
+    {
+        if (_interactionBehaviours.Length > 0)
+        {
+            for (int i = 0; i < _interactionBehaviours.Length; i++)
+            {
+                _interactionBehaviours[i].GetComponent<ITrigger>().TriggerBehaviour(0, isInteracting, isInspecting);
+            }
+        }
+    }
+
+    private void ManageInspectionBehaviours(bool isInteracting, bool isInspecting)
+    {
+        if (_inspectionBehaviours.Length > 0)
+        {
+            for (int i = 0; i < _inspectionBehaviours.Length; i++)
+            {
+                _inspectionBehaviours[i].GetComponent<ITrigger>().TriggerBehaviour(0, isInteracting, isInspecting);
+            }
+        }
+    }
+
+    public bool[] InteractableIsNonInspectableOrInspectableOnly()
     {
         bool[] interactableType = new bool[] { _nonInspectable, _inspectableOnly };
         return interactableType;
@@ -82,5 +86,10 @@ public class Interactable : MonoBehaviour, IInteractable
     {
         bool[] rotateXYZ = new bool[] { _rotateX, _rotateY, _rotateZ };
         return rotateXYZ;
+    }
+
+    public Vector3 InspectableInitialRotation()
+    {
+        return _inspectableInitialRotation;
     }
 }

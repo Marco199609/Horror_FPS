@@ -247,10 +247,6 @@ PrefabInstance:
       propertyPath: _playerStress
       value: 
       objectReference: {fileID: 2111540800}
-    - target: {fileID: 313767671, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
-      propertyPath: DreamTriggerCollidersActivate.Array.data[2]
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2036411959, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
       propertyPath: _playerData
       value: 
@@ -634,22 +630,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2790741472255789107, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
-      propertyPath: runSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2790741472255789107, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
-      propertyPath: walkSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2790741472255789107, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
-      propertyPath: FootstepWalkingTime
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2790741472255789107, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
-      propertyPath: FootstepsRunningTime
-      value: 0.6
-      objectReference: {fileID: 0}
     - target: {fileID: 8997385359482471059, guid: 20ea77bdf93e0214ea5130712a6b85ae, type: 3}
       propertyPath: m_Name
       value: PlayerController
@@ -836,10 +816,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1117725726}
     - target: {fileID: 4935903052212915882, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4935903052212915882, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
       propertyPath: _virtualCamera
       value: 
       objectReference: {fileID: 2111540798}
@@ -858,82 +834,6 @@ PrefabInstance:
     - target: {fileID: 4935903052212915883, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
       propertyPath: m_Name
       value: LevelLoader
-      objectReference: {fileID: 0}
-    - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
-      propertyPath: _triggers.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
-      propertyPath: _triggers.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
-      propertyPath: _triggers.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
-      propertyPath: _triggers.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
-      propertyPath: _triggers.Array.data[3]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
-      propertyPath: _triggers.Array.data[4]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
-      propertyPath: _triggers.Array.data[5]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
-      propertyPath: _activateTriggers.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
-      propertyPath: _dreamLevelTriggers.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
-      propertyPath: _houseLevelTriggers.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
-      propertyPath: _dreamLevelTriggers.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
-      propertyPath: _dreamLevelTriggers.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
-      propertyPath: _dreamLevelTriggers.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
-      propertyPath: _dreamLevelTriggers.Array.data[3]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
-      propertyPath: _houseLevelTriggers.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
-      propertyPath: _houseLevelTriggers.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
-      propertyPath: _houseLevelTriggers.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
-      propertyPath: _activateDreamLevelTriggers.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8983361636682459016, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
-      propertyPath: _activateHouseLevelTriggers.Array.size
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3aeb239a5499b0e48ad728a51c8bbe5b, type: 3}
@@ -1049,25 +949,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6190404424520645606, guid: fce75d89a3dc99c4485dd5a42b6b881a, type: 3}
-      propertyPath: English
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6190404424520645606, guid: fce75d89a3dc99c4485dd5a42b6b881a, type: 3}
-      propertyPath: Spanish
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6190404424520645606, guid: fce75d89a3dc99c4485dd5a42b6b881a, type: 3}
-      propertyPath: DialogueClips.Array.data[24]
-      value: 
-      objectReference: {fileID: 8300000, guid: 444ccb9b097a96f42a4d50a01ee045a2, type: 3}
-    - target: {fileID: 6190404424520645606, guid: fce75d89a3dc99c4485dd5a42b6b881a, type: 3}
-      propertyPath: DialogueClips.Array.data[25]
-      value: 
-      objectReference: {fileID: 8300000, guid: a8e6213c350ff6543913192cbff96e98, type: 3}
-    - target: {fileID: 6190404424520645606, guid: fce75d89a3dc99c4485dd5a42b6b881a, type: 3}
-      propertyPath: DialogueClips.Array.data[26]
-      value: 
-      objectReference: {fileID: 8300000, guid: 662a736c738b4c2488be5afe969bb0b3, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fce75d89a3dc99c4485dd5a42b6b881a, type: 3}

@@ -5,11 +5,11 @@ using UnityEngine;
 public class Wire_crawler : MonoBehaviour, IInteractable, ITrigger
 {
     [SerializeField] private int _id;
-    [SerializeField] private Material[] _wireCrawlerMaterial;
     [SerializeField] private AudioSource _wireCrawlerAudioSource, _muffledTalkAudioSource;
     [SerializeField] private AudioClip _tensionBuildClip, _chokingClip;
     [SerializeField] private Animator _crawlerAnimator;
     [SerializeField] private Light _wireCrawlerLight;
+    [SerializeField] private Vector3 _inspectableInitialRotation;
 
     private PlayerController _playerController;
 
@@ -19,14 +19,6 @@ public class Wire_crawler : MonoBehaviour, IInteractable, ITrigger
     public void AssignInStateLoader()
     {
         SceneStateLoader.Instance.objects.Add(_id, gameObject);
-    }
-
-    private void Start()
-    {
-        for(int i =  0; i < _wireCrawlerMaterial.Length; i++)
-        {
-            _wireCrawlerMaterial[i].SetVector("_EmissionColor", new Vector4(1, 1, 1, 1) * 1 / 10);
-        }
     }
 
     public void Interact(PlayerController playerController, bool isInteracting, bool isInspecting)
@@ -57,11 +49,6 @@ public class Wire_crawler : MonoBehaviour, IInteractable, ITrigger
             _emissionIntensity += Time.deltaTime;
             _wireCrawlerLight.intensity += _emissionIntensity / 100;
 
-            for (int i = 0; i < _wireCrawlerMaterial.Length; i++)
-            {
-                _wireCrawlerMaterial[i].SetVector("_EmissionColor", new Vector4(1, 1, 1, 1) * _emissionIntensity);
-            }
-
             if (!_wireCrawlerAudioSource.isPlaying)
             {
                 gameObject.GetComponent<Trigger_LevelLoader>().TriggerBehaviour(0, false, false);
@@ -69,7 +56,7 @@ public class Wire_crawler : MonoBehaviour, IInteractable, ITrigger
         }
     }
 
-    public bool[] InteractableNonInspectableOrInspectableOnly()
+    public bool[] InteractableIsNonInspectableOrInspectableOnly()
     {
         bool nonInspectable = true;
         bool inspectableOnly = false;
@@ -103,6 +90,11 @@ public class Wire_crawler : MonoBehaviour, IInteractable, ITrigger
         yield return new WaitForSeconds(triggerDelay);
        _muffledTalkAudioSource.Play();
         PlayerController.Instance.StressControl.AddStress();
+    }
+
+    public Vector3 InspectableInitialRotation()
+    {
+        return _inspectableInitialRotation;
     }
     #endregion
 }

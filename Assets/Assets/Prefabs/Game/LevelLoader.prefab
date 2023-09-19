@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4935903052212915880}
   - component: {fileID: 4935903052212915881}
   - component: {fileID: 4935903052212915882}
+  - component: {fileID: 617316167923860366}
   m_Layer: 0
   m_Name: LevelLoader
   m_TagString: Untagged
@@ -60,4 +61,17 @@ MonoBehaviour:
   _playerController: {fileID: 0}
   _virtualCamera: {fileID: 0}
   _levelChangeMask: {fileID: 0}
+  _tipText: {fileID: 0}
   _playerLookingLight: {fileID: 0}
+--- !u!114 &617316167923860366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935903052212915883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6287a7ee3d627445a403b7776ba8379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

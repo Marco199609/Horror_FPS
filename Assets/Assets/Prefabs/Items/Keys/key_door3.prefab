@@ -313,7 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _id: 0
-  _nonInspectable: 0
+  _nonInspectable: 1
   _inspectableOnly: 0
   _inspectableInitialRotation: {x: 0, y: 0, z: 0}
   _rotateX: 1

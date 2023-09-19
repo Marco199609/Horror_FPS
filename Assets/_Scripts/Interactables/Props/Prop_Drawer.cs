@@ -9,6 +9,7 @@ public class Prop_Drawer : MonoBehaviour, IInteractable
     [SerializeField] private float _moveVelocity;
     [SerializeField] private Transform _drawerOpenPosition, _drawerClosedPosition;
     [SerializeField] private GameObject _key;
+    [SerializeField] private Vector3 _inspectableInitialRotation;
 
     private bool _changeDrawerState;
 
@@ -93,7 +94,7 @@ public class Prop_Drawer : MonoBehaviour, IInteractable
     }
 
 
-    public bool[] InteractableNonInspectableOrInspectableOnly()
+    public bool[] InteractableIsNonInspectableOrInspectableOnly()
     {
         bool nonInspectable = true;
         bool inspectableOnly = false;
@@ -113,5 +114,10 @@ public class Prop_Drawer : MonoBehaviour, IInteractable
     public void TriggerActions()
     {
         throw new System.NotImplementedException();
+    }
+
+    public Vector3 InspectableInitialRotation()
+    {
+        return _inspectableInitialRotation;
     }
 }

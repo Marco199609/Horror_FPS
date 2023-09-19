@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     public static PlayerController Instance { get; private set; }
 
     [SerializeField] private GameSettings _gameSettings;
-    [SerializeField] private PlayerData _playerData;
+
 
 
     private Ray _ray; //used for item interaction
@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
     private IPlayerAudio _playerAudio;
 
 
+    public PlayerData PlayerData;
     public GameObject Player { get; private set; }
     public IFlashlightControl PlayerFlashlight;
     public IPlayerInventory Inventory { get; private set; }
@@ -58,7 +59,7 @@ public class PlayerController : MonoBehaviour
         if (Instance != null && Instance != this) Destroy(gameObject);
         else Instance = this;
 
-        _playerData = GetComponentInChildren<PlayerData>();
+        PlayerData = GetComponentInChildren<PlayerData>();
 
         _playerMovement = GetComponent<IPlayerMovement>();
         _playerRotate = GetComponent<IPlayerRotate>();
@@ -74,14 +75,14 @@ public class PlayerController : MonoBehaviour
         PlayerInspect = GetComponent<IPlayerInspect>();
 
 
-        Player = _playerData.gameObject;
+        Player = PlayerData.gameObject;
     }
 
     void Start()
     {
         _gameSettings = FindObjectOfType<GameSettings>();
         InteractablesInSight = new List<GameObject>();
-        _cinemachine = _playerData.Camera.GetComponent<CinemachineBrain>();
+        _cinemachine = PlayerData.Camera.GetComponent<CinemachineBrain>();
     }
 
     private void Update()
@@ -106,7 +107,7 @@ public class PlayerController : MonoBehaviour
 
         if(FreezePlayerRotation)
         {
-            CinemachinePOV vCamCinemachinePOV = _playerData.VirtualCamera.GetCinemachineComponent<CinemachinePOV>();
+            CinemachinePOV vCamCinemachinePOV = PlayerData.VirtualCamera.GetCinemachineComponent<CinemachinePOV>();
             vCamCinemachinePOV.m_HorizontalAxis.m_MaxSpeed = 0;
             vCamCinemachinePOV.m_VerticalAxis.m_MaxSpeed = 0;
         }
@@ -121,17 +122,17 @@ public class PlayerController : MonoBehaviour
     private void PlayerCameraRotation()
     {
         if(!FreezePlayerRotation)
-            _playerRotate.RotatePlayer(_playerData, _playerInput, PlayerInspect.Inspecting());
+            _playerRotate.RotatePlayer(PlayerData, _playerInput, PlayerInspect.Inspecting());
     }
 
     private void CameraControl()
     {
-        _playerCameraControl.ControlCameraHeadBob(Player, _playerInput);
+        //_playerCameraControl.ControlCameraHeadBob(Player, _playerInput);
     }
 
     private void PlayerAudioControl()
     {
-        _playerAudio.PlayerAudioControl(_playerData, _playerInput);
+        _playerAudio.PlayerAudioControl(PlayerData, _playerInput);
     }
 
     private void PlayerStressControl()
@@ -141,28 +142,28 @@ public class PlayerController : MonoBehaviour
 
     private void FlashlightControl()
     {
-        PlayerFlashlight.FlashlightControl(_playerData, _playerInput);
+        //PlayerFlashlight.FlashlightControl(PlayerData, _playerInput);
     }
 
     private void InventoryManage()
     {
-        Inventory.Manage(_playerData, _playerInput);
+        Inventory.Manage(PlayerData, _playerInput);
     }
 
     private void ManageInspection()
     {
-        PlayerInspect.ManageInspection(_playerData, _playerInput);
+        PlayerInspect.ManageInspection(PlayerData, _playerInput);
     }
     private void ItemInteraction()
     {
         RaycastHit hit;
-        _ray.origin = _playerData.camHolder.position;
-        _ray.direction = _playerData.Camera.forward;
+        _ray.origin = PlayerData.camHolder.position;
+        _ray.direction = PlayerData.Camera.forward;
 
         if (Physics.Raycast(_ray, out hit, Mathf.Infinity))
         {
-            _playerUI.InteractableUI(_playerData, hit); //Activates UI elements when hovering over interactables
-            _playerInteract.Interact(_playerData, hit, _playerInput, PlayerInspect);
+            _playerUI.InteractableUI(PlayerData, hit); //Activates UI elements when hovering over interactables
+            _playerInteract.Interact(PlayerData, hit, _playerInput, PlayerInspect);
         }
 
         _playerUI.CenterPointControl(InteractablesInSight); //Controls the center point appearing and disapearing when interactables in cammera view

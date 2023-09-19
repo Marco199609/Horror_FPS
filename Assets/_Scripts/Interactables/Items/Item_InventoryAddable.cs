@@ -9,6 +9,7 @@ public class Item_InventoryAddable : MonoBehaviour, IInteractable
     [SerializeField] private bool _rotateX = true, _rotateY = true, _rotateZ = true;
     [SerializeField] private bool _nonInspectable;
     [SerializeField] private Vector3 _positionInInventory, _rotationInInventory, _scaleInInventory;
+    [SerializeField] private Vector3 _inspectableInitialRotation;
     public void AssignInStateLoader()
     {
         SceneStateLoader.Instance.objects.Add(_id, gameObject);
@@ -19,7 +20,7 @@ public class Item_InventoryAddable : MonoBehaviour, IInteractable
         playerController.Inventory.Add(gameObject, _positionInInventory, _rotationInInventory, _scaleInInventory);
     }
 
-    public bool[] InteractableNonInspectableOrInspectableOnly()
+    public bool[] InteractableIsNonInspectableOrInspectableOnly()
     {
         bool nonInspectable = _nonInspectable;
         bool inspectableOnly = false;
@@ -39,5 +40,10 @@ public class Item_InventoryAddable : MonoBehaviour, IInteractable
     public void TriggerActions()
     {
         throw new System.NotImplementedException();
+    }
+
+    public Vector3 InspectableInitialRotation()
+    {
+        return _inspectableInitialRotation;
     }
 }

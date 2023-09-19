@@ -5,8 +5,9 @@ using UnityEngine;
 public interface IInteractable
 {
     void AssignInStateLoader();
-    bool[] InteractableNonInspectableOrInspectableOnly(); //Index 0 is non inspectable, index 1 es inspectable only
+    bool[] InteractableIsNonInspectableOrInspectableOnly(); //Index 0 is non inspectable, index 1 es inspectable only
     void Interact(PlayerController playerController, bool isInteracting, bool isInspecting);
     bool[] RotateXYZ();
-    //void TriggerActions();
+
+    Vector3 InspectableInitialRotation();
 }

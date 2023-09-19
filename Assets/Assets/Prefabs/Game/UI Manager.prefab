@@ -37,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.052, y: 0.23237038}
   m_AnchorMax: {x: 0.261, y: 0.32500002}
-  m_AnchoredPosition: {x: 0.095825195, y: -0.34280396}
+  m_AnchoredPosition: {x: 0.095947266, y: -0.34277344}
   m_SizeDelta: {x: -1.3561001, y: 0.68550014}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &285753198
@@ -215,7 +215,7 @@ MonoBehaviour:
   _doorStateNotes: Only door 6 (5 year old room) and door 9 (kitchen) state "closed"
   DoorStates: 0000000000000000010000000000000000000000000000000000000000000000010000000100000000000000000000000100000000000000
   _triggerActivationNotes: House triggers not necessary
-  DreamTriggerCollidersActivate: 010100
+  DreamTriggerCollidersActivate: 010101
   HouseTriggerCollidersActivate: 00000000
 --- !u!1 &363973761
 GameObject:
@@ -391,7 +391,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.052, y: 0.046000004}
   m_AnchorMax: {x: 0.261, y: 0.13900001}
-  m_AnchoredPosition: {x: 0.095947266, y: -1.039978}
+  m_AnchoredPosition: {x: 0.095947266, y: -1.0397949}
   m_SizeDelta: {x: -1.3562002, y: -1.7509995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &437126399
@@ -568,10 +568,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -878,10 +878,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1693,7 +1693,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.052, y: 0.13900001}
   m_AnchorMax: {x: 0.261, y: 0.23237038}
-  m_AnchoredPosition: {x: 0.095947266, y: -0.7000122}
+  m_AnchoredPosition: {x: 0.095947266, y: -0.6999512}
   m_SizeDelta: {x: -1.3562002, y: -1.0000992}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2474199804935786837
@@ -1964,7 +1964,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.052, y: 0.23237038}
   m_AnchorMax: {x: 0.261, y: 0.32500002}
-  m_AnchoredPosition: {x: 0.095825195, y: -0.34280396}
+  m_AnchoredPosition: {x: 0.095947266, y: -0.34277344}
   m_SizeDelta: {x: -1.3561001, y: 0.68550014}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2474199806299195470
@@ -4222,10 +4222,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -5082,7 +5082,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.05, y: 0.73700005}
   m_AnchorMax: {x: 0.5041667, y: 1}
-  m_AnchoredPosition: {x: 9.700012, y: 1}
+  m_AnchoredPosition: {x: 9.699951, y: 1}
   m_SizeDelta: {x: 15.6474, y: -0.72750854}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4167109447858435777
@@ -8833,6 +8833,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1429099420052238841, guid: 266bf70abd10cf1429329b42ef03cb86, type: 3}
+      propertyPath: m_ReferencePixelsPerUnit
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3280050256916531082, guid: 266bf70abd10cf1429329b42ef03cb86, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -8887,15 +8891,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3280050256916531082, guid: 266bf70abd10cf1429329b42ef03cb86, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3280050256916531082, guid: 266bf70abd10cf1429329b42ef03cb86, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3280050256916531082, guid: 266bf70abd10cf1429329b42ef03cb86, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3280050256916531082, guid: 266bf70abd10cf1429329b42ef03cb86, type: 3}
       propertyPath: m_AnchoredPosition.x

@@ -451,8 +451,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9390117235444e7b9903508799f66c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 4.5
-  runSpeed: 4.5
+  walkSpeed: 5
+  runSpeed: 5
   jumpHeight: 8
   gravity: -19.62
   groundDistance: 0.4
@@ -464,6 +464,8 @@ MonoBehaviour:
   mouseSensitivityY: 300
   CinemachineLookAt: {fileID: 1491512276}
   VirtualCamera: {fileID: 383493141}
+  DreamLevelFOV: 50
+  HouseLevelFOV: 45
   camHolder: {fileID: 7105361982124454676}
   Camera: {fileID: 6533751894252567961}
   camMovementAmplitude: 0.001
@@ -472,8 +474,8 @@ MonoBehaviour:
   MinIntensity: 1
   MaxIntensity: 2.5
   ChangeVelocity: 25
-  FootstepWalkingTime: 0.7
-  FootstepsRunningTime: 0.7
+  FootstepWalkingTime: 0.6
+  FootstepsRunningTime: 0.6
   HeartbeatMinimumRate: 0.5
   BreathingMinimumRate: 1.7
   InteractDistance: 5
@@ -1092,7 +1094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameSettings: {fileID: 0}
-  _playerData: {fileID: 2790741472255789107}
+  PlayerData: {fileID: 0}
   StressControl: {fileID: 0}
   FreezePlayerMovement: 0
   FreezePlayerRotation: 0
@@ -1353,6 +1355,10 @@ PrefabInstance:
     - target: {fileID: 2443998527300629801, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
       propertyPath: m_Name
       value: Flashlight
+      objectReference: {fileID: 0}
+    - target: {fileID: 2443998527300629801, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3071739833897758611, guid: f51fb0a9f60005e4c8352cdd5a6db09d, type: 3}
       propertyPath: m_RootOrder
