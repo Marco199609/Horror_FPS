@@ -5452,6 +5452,7 @@ GameObject:
   m_Component:
   - component: {fileID: 968878975}
   - component: {fileID: 968878976}
+  - component: {fileID: 968878977}
   m_Layer: 0
   m_Name: Phone Call
   m_TagString: Untagged
@@ -5570,6 +5571,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &968878977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968878974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46fc2f7894b810844a2f042b3f9d1e17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subtitles:
+  - Emily? Soy yo.
+  - "Por favor, si est\xE1s ah\xED, s\xF3lo contesta el tel\xE9fono."
+  - Te buscamos por todos lados.
+  - "Ya han pasado tres d\xEDas."
+  - "No puedo sacarme esta sensaci\xF3n de que algo anda muy mal."
+  - "Ll\xE1mame, por favor."
+  - "Necesito saber que est\xE1s bien."
+  _subtitleDelays:
+  - 15.1
+  - 18.2
+  - 21.9
+  - 24.7
+  - 27
+  - 30.8
+  - 33.1
 --- !u!1001 &982049531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11042,7 +11071,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1670566860, guid: 2774a094c8c72164c91bb57a5f53d32b, type: 3}
       propertyPath: m_text
-      value: "\xA1Gracias por jugar esta demo!"
+      value: "\xA1Gracias por jugar Cursed Silence (Demo)!"
       objectReference: {fileID: 0}
     - target: {fileID: 1914534946, guid: 2774a094c8c72164c91bb57a5f53d32b, type: 3}
       propertyPath: _gameObject
