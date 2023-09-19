@@ -60,8 +60,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ee1383b06b78124ab8bd75b5a3e63a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  English: 1
-  Spanish: 0
+  English: 0
+  Spanish: 1
   DialogueAudioSource: {fileID: 6190404424520645601}
   DialogueClips:
   - {fileID: 8300000, guid: 15161d3170704794a9c4215e4146482c, type: 3}
@@ -176,7 +176,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0

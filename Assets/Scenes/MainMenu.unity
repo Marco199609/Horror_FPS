@@ -299,10 +299,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 2474199806374223352, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.13330078
-      objectReference: {fileID: 0}
     - target: {fileID: 8105794518588625876, guid: f739f78d25fb8ed4180cb4347a78acd2, type: 3}
       propertyPath: m_Camera
       value: 
@@ -952,14 +948,6 @@ PrefabInstance:
     - target: {fileID: 6190404424520645604, guid: fce75d89a3dc99c4485dd5a42b6b881a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6190404424520645606, guid: fce75d89a3dc99c4485dd5a42b6b881a, type: 3}
-      propertyPath: English
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6190404424520645606, guid: fce75d89a3dc99c4485dd5a42b6b881a, type: 3}
-      propertyPath: Spanish
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fce75d89a3dc99c4485dd5a42b6b881a, type: 3}
