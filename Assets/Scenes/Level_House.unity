@@ -5584,7 +5584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _subtitles:
-  - Emily? Soy yo.
+  - "\xBFEmily? Soy yo."
   - "Por favor, si est\xE1s ah\xED, s\xF3lo contesta el tel\xE9fono."
   - Te buscamos por todos lados.
   - "Ya han pasado tres d\xEDas."
