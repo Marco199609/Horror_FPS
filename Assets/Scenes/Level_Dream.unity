@@ -1184,29 +1184,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 384181415}
     m_Modifications:
-    - target: {fileID: 3210275878726856465, guid: 531ee58f9ed154948b4b1180b907fb08, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 724905688, guid: 531ee58f9ed154948b4b1180b907fb08, type: 3}
+      propertyPath: _inspectionBehaviours.Array.size
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3210275878726856466, guid: 531ee58f9ed154948b4b1180b907fb08, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -49
-      objectReference: {fileID: 0}
-    - target: {fileID: 3210275878726856466, guid: 531ee58f9ed154948b4b1180b907fb08, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3210275878726856493, guid: 531ee58f9ed154948b4b1180b907fb08, type: 3}
-      propertyPath: m_Radius
-      value: 2.0787477
-      objectReference: {fileID: 0}
-    - target: {fileID: 3210275878726856493, guid: 531ee58f9ed154948b4b1180b907fb08, type: 3}
-      propertyPath: m_Center.x
-      value: 0.043245077
-      objectReference: {fileID: 0}
-    - target: {fileID: 3210275878726856493, guid: 531ee58f9ed154948b4b1180b907fb08, type: 3}
-      propertyPath: m_Center.z
-      value: 1.2899718
+    - target: {fileID: 58598179704627191, guid: 531ee58f9ed154948b4b1180b907fb08, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6381919020670945210, guid: 531ee58f9ed154948b4b1180b907fb08, type: 3}
       propertyPath: m_RootOrder
