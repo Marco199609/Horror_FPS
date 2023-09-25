@@ -5,20 +5,26 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SnowHorse.unity
     guid: b7f92e6ecb95a28428113b00dcddf218
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: 8d1a843b910e31c41b8c78418ba7fc67
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level_Dream.unity
     guid: 01ba1b0ae648dfc46aa5d135d640fa1d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level_House.unity
     guid: 662083f68b2c6684788adddccd2bffee
   - enabled: 0
     path: Assets/Scenes/TestScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: Assets/Scenes/Trailer_Dream.unity
+    guid: 22a438bfce5cfa74c93f5fe4ca2dec08
+  - enabled: 1
+    path: Assets/Scenes/Trailer_House.unity
+    guid: a5d215b39b0fe49428a33cb455cf5e37
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 3b0179391d9cf44ec8bea0df5bf29ff1, type: 2}
