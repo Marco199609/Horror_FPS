@@ -1,0 +1,842 @@
+<?xml version="1.0" standalone="no"?>
+<mlt LC_NUMERIC="C" version="7.13.0" title="Shotcut version 22.12.21" producer="main_bin">
+  <profile description="PAL 4:3 DV or DVD" width="1920" height="1080" progressive="1" sample_aspect_num="1" sample_aspect_den="1" display_aspect_num="16" display_aspect_den="9" frame_rate_num="60" frame_rate_den="1" colorspace="709"/>
+  <chain id="chain0" out="00:00:28.050">
+    <property name="length">00:00:28.067</property>
+    <property name="eof">pause</property>
+    <property name="resource">Scenes/Scene_16.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2023-09-25T02:15:01</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">9a96a4d3f5d71108a57b9c4081980c57</property>
+  </chain>
+  <chain id="chain1" out="00:00:17.100">
+    <property name="length">00:00:17.117</property>
+    <property name="eof">pause</property>
+    <property name="resource">Scenes/Scene_death.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2023-09-24T18:50:46</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">a79be0a06434bcf291a95f4b2a8374a7</property>
+  </chain>
+  <chain id="chain2" out="00:00:22.667">
+    <property name="length">00:00:22.683</property>
+    <property name="eof">pause</property>
+    <property name="resource">Scenes/Scene_17.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2023-09-24T21:10:43</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">f3af2d6fc34a4d49678755b77cabc89b</property>
+  </chain>
+  <chain id="chain3" out="00:00:19.350">
+    <property name="length">00:00:19.367</property>
+    <property name="eof">pause</property>
+    <property name="resource">Scenes/Scene_18.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2023-09-24T21:23:36</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">e25c5ec9e7c89f6281fea7de53994f9e</property>
+  </chain>
+  <chain id="chain7" out="00:00:20.500">
+    <property name="length">00:00:20.517</property>
+    <property name="eof">pause</property>
+    <property name="resource">Scenes/Scene_21.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2023-09-24T17:23:09</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">febe70e850b29396306d265387661d6a</property>
+  </chain>
+  <chain id="chain4" out="00:00:20.583">
+    <property name="length">00:00:20.600</property>
+    <property name="eof">pause</property>
+    <property name="resource">Scenes/Scene_20_real.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2023-09-24T18:22:57</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">a5fcd57a0172780e871a98d1cddb0aaf</property>
+  </chain>
+  <chain id="chain5" out="00:00:19.883">
+    <property name="length">00:00:19.900</property>
+    <property name="eof">pause</property>
+    <property name="resource">Scenes/Scene_19.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2023-09-24T17:58:48</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">d09982ed995aa48fa734385d524afe85</property>
+  </chain>
+  <chain id="chain6" out="00:00:25.733">
+    <property name="length">00:00:25.750</property>
+    <property name="eof">pause</property>
+    <property name="resource">Scenes/Scene_20.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2023-09-24T16:26:25</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">5b6da4d03b7a76621d0af2cd0f50c069</property>
+    <property name="ignore_points">1</property>
+    <property name="shotcut:caption">Scene_20.mkv</property>
+  </chain>
+  <chain id="chain8" out="00:00:30.150">
+    <property name="length">00:00:30.167</property>
+    <property name="eof">pause</property>
+    <property name="resource">Scenes/Scene_22.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2023-09-24T06:31:15</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">cad4385c940645cee9dd8532400cebcf</property>
+  </chain>
+  <chain id="chain9" out="00:00:24.133">
+    <property name="length">00:00:24.150</property>
+    <property name="eof">pause</property>
+    <property name="resource">Scenes/Scene_23.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2023-09-24T05:37:15</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">2e22c6f077f2392d4c2e6edeb4cef5a3</property>
+  </chain>
+  <chain id="chain10" out="00:00:32.717">
+    <property name="length">00:00:32.733</property>
+    <property name="eof">pause</property>
+    <property name="resource">Scenes/Scene_24.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2023-09-24T06:06:41</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">7bdb5bd69289bee85684b6f9258025f3</property>
+  </chain>
+  <producer id="producer0" in="00:00:00.000" out="03:59:59.983">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">Images/WARNING.png</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="format">2</property>
+    <property name="mlt_service">qimage</property>
+    <property name="creation_time">2023-09-25T03:32:47</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">980a534a387d84cd2b177d5afd7e03d6</property>
+  </producer>
+  <producer id="producer1" in="00:00:00.000" out="03:59:59.983">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">Images/WISHLIST.png</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="format">2</property>
+    <property name="mlt_service">qimage</property>
+    <property name="creation_time">2023-09-25T03:43:36</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">d25e341198aa387ae5381c3e24f5d3d5</property>
+  </producer>
+  <producer id="producer2" in="00:00:00.000" out="03:59:59.983">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">Images/CURSED_SILENCE.png</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="format">2</property>
+    <property name="mlt_service">qimage</property>
+    <property name="creation_time">2023-09-25T03:46:57</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">18361c0bbee64338ff8a79d797480972</property>
+  </producer>
+  <producer id="producer3" in="00:00:00.000" out="03:59:59.983">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">Images/SNOWHORSE.png</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="format">2</property>
+    <property name="mlt_service">qimage</property>
+    <property name="creation_time">2023-09-25T03:49:12</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">57b79aa45d5eef663e5735bcf153391b</property>
+  </producer>
+  <producer id="producer4" in="00:00:00.000" out="03:59:59.983">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">Images/BROKEN GLASS.png</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="format">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="creation_time">2023-09-25T03:59:35</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">824edb5f5cb6d6a32d15419a35a65f6f</property>
+  </producer>
+  <chain id="chain11" out="00:00:17.883">
+    <property name="length">00:00:17.900</property>
+    <property name="eof">pause</property>
+    <property name="resource">Scenes/Scene_15.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2023-09-25T04:50:38</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">d171f52b7160838d2c09312c3f94a125</property>
+  </chain>
+  <playlist id="main_bin">
+    <property name="xml_retain">1</property>
+    <entry producer="chain0" in="00:00:00.000" out="00:00:28.050"/>
+    <entry producer="chain1" in="00:00:00.000" out="00:00:17.100"/>
+    <entry producer="chain2" in="00:00:00.000" out="00:00:22.667"/>
+    <entry producer="chain3" in="00:00:00.000" out="00:00:19.350"/>
+    <entry producer="chain7" in="00:00:00.000" out="00:00:20.500"/>
+    <entry producer="chain4" in="00:00:00.000" out="00:00:20.583"/>
+    <entry producer="chain5" in="00:00:00.000" out="00:00:19.883"/>
+    <entry producer="chain6" in="00:00:00.000" out="00:00:25.733"/>
+    <entry producer="chain8" in="00:00:00.000" out="00:00:30.150"/>
+    <entry producer="chain9" in="00:00:00.000" out="00:00:24.133"/>
+    <entry producer="chain10" in="00:00:00.000" out="00:00:32.717"/>
+    <entry producer="producer0" in="00:00:00.000" out="00:00:03.983"/>
+    <entry producer="producer1" in="00:00:00.000" out="00:00:03.983"/>
+    <entry producer="producer2" in="00:00:00.000" out="00:00:03.983"/>
+    <entry producer="producer3" in="00:00:00.000" out="00:00:03.983"/>
+    <entry producer="producer4" in="00:00:00.000" out="00:00:03.983"/>
+    <entry producer="chain11" in="00:00:00.000" out="00:00:17.883"/>
+  </playlist>
+  <producer id="black" in="00:00:00.000" out="00:02:23.683">
+    <property name="length">00:02:23.700</property>
+    <property name="eof">pause</property>
+    <property name="resource">0</property>
+    <property name="aspect_ratio">1</property>
+    <property name="mlt_service">color</property>
+    <property name="mlt_image_format">rgba</property>
+    <property name="set.test_audio">0</property>
+  </producer>
+  <playlist id="background">
+    <entry producer="black" in="00:00:00.000" out="00:02:23.683"/>
+  </playlist>
+  <chain id="chain12" out="00:02:24.783">
+    <property name="length">00:02:24.800</property>
+    <property name="eof">pause</property>
+    <property name="resource">Audio/Full.wav</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">0</property>
+    <property name="video_index">-1</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2023-09-19T02:34:40</property>
+    <property name="shotcut:hash">d8dcf7b2e8ad3275b215f516ee99d74a</property>
+    <property name="ignore_points">0</property>
+    <property name="shotcut:caption">Full.wav</property>
+    <property name="xml">was here</property>
+  </chain>
+  <playlist id="playlist0">
+    <property name="shotcut:audio">1</property>
+    <property name="shotcut:name">A1</property>
+    <blank length="00:00:02.400"/>
+    <entry producer="chain12" in="00:00:00.000" out="00:02:21.283"/>
+  </playlist>
+  <producer id="producer5" in="00:00:00.000" out="03:59:59.983">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">Images/WARNING.png</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="format">2</property>
+    <property name="mlt_service">qimage</property>
+    <property name="creation_time">2023-09-25T03:32:47</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">980a534a387d84cd2b177d5afd7e03d6</property>
+    <property name="shotcut:caption">WARNING.png</property>
+  </producer>
+  <producer id="producer6" in="00:00:00.000" out="03:59:59.983">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">Images/BROKEN GLASS.png</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="format">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="creation_time">2023-09-25T03:59:35</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">824edb5f5cb6d6a32d15419a35a65f6f</property>
+    <property name="shotcut:caption">BROKEN GLASS.png</property>
+    <filter id="filter0" out="00:00:03.983">
+      <property name="start">1</property>
+      <property name="level">00:00:00.000=0;00:00:00.067=1</property>
+      <property name="mlt_service">brightness</property>
+      <property name="shotcut:filter">fadeInBrightness</property>
+      <property name="alpha">1</property>
+      <property name="shotcut:animIn">00:00:00.083</property>
+    </filter>
+    <filter id="filter1" out="00:00:03.983">
+      <property name="start">1</property>
+      <property name="level">00:00:02.500=1;00:00:03.983=0</property>
+      <property name="mlt_service">brightness</property>
+      <property name="shotcut:filter">fadeOutBrightness</property>
+      <property name="alpha">1</property>
+      <property name="shotcut:animOut">00:00:01.500</property>
+    </filter>
+  </producer>
+  <chain id="chain13" out="00:00:17.883">
+    <property name="length">00:00:17.900</property>
+    <property name="eof">pause</property>
+    <property name="resource">Scenes/Scene_15.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2023-09-25T04:50:38</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">d171f52b7160838d2c09312c3f94a125</property>
+    <property name="shotcut:caption">Scene_15.mkv</property>
+  </chain>
+  <chain id="chain14" out="00:00:28.050">
+    <property name="length">00:00:28.067</property>
+    <property name="eof">pause</property>
+    <property name="resource">Scenes/Scene_16.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2023-09-25T02:15:01</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">9a96a4d3f5d71108a57b9c4081980c57</property>
+    <property name="shotcut:caption">Scene_16.mkv</property>
+    <filter id="filter2" in="00:00:11.850" out="00:00:15.383">
+      <property name="start">1</property>
+      <property name="level">00:00:03.300=1;00:00:03.533=0</property>
+      <property name="mlt_service">brightness</property>
+      <property name="shotcut:filter">fadeOutBrightness</property>
+      <property name="alpha">1</property>
+      <property name="shotcut:animOut">00:00:00.250</property>
+    </filter>
+  </chain>
+  <tractor id="tractor0" in="00:00:00.000" out="00:00:00.167">
+    <property name="shotcut:transition">lumaMix</property>
+    <track producer="chain13" in="00:00:13.583" out="00:00:13.750"/>
+    <track producer="chain14" in="00:00:11.850" out="00:00:12.017"/>
+    <transition id="transition0" out="00:00:00.167">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="factory">loader</property>
+      <property name="mlt_service">luma</property>
+      <property name="alpha_over">1</property>
+    </transition>
+    <transition id="transition1" out="00:00:00.167">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="mlt_service">mix</property>
+      <property name="start">-1</property>
+      <property name="accepts_blanks">1</property>
+    </transition>
+  </tractor>
+  <chain id="chain15" out="00:00:17.100">
+    <property name="length">00:00:17.117</property>
+    <property name="eof">pause</property>
+    <property name="resource">Scenes/Scene_death.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2023-09-24T18:50:46</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">a79be0a06434bcf291a95f4b2a8374a7</property>
+    <property name="shotcut:caption">Scene_death.mkv</property>
+    <filter id="filter3" in="00:00:07.450" out="00:00:11.050">
+      <property name="start">1</property>
+      <property name="level">00:00:02.617=1;00:00:03.600=0</property>
+      <property name="mlt_service">brightness</property>
+      <property name="shotcut:filter">fadeOutBrightness</property>
+      <property name="alpha">1</property>
+      <property name="shotcut:animOut">00:00:01.000</property>
+    </filter>
+  </chain>
+  <chain id="chain16" out="00:00:22.667">
+    <property name="length">00:00:22.683</property>
+    <property name="eof">pause</property>
+    <property name="resource">Scenes/Scene_17.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2023-09-24T21:10:43</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">f3af2d6fc34a4d49678755b77cabc89b</property>
+    <property name="shotcut:caption">Scene_17.mkv</property>
+    <filter id="filter4" in="00:00:02.517" out="00:00:07.200">
+      <property name="start">1</property>
+      <property name="level">00:00:00.000=0;00:00:00.150=1</property>
+      <property name="mlt_service">brightness</property>
+      <property name="shotcut:filter">fadeInBrightness</property>
+      <property name="alpha">1</property>
+      <property name="shotcut:animIn">00:00:00.167</property>
+    </filter>
+  </chain>
+  <chain id="chain17" out="00:00:19.883">
+    <property name="length">00:00:19.900</property>
+    <property name="eof">pause</property>
+    <property name="resource">Scenes/Scene_19.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2023-09-24T17:58:48</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">d09982ed995aa48fa734385d524afe85</property>
+    <property name="shotcut:caption">Scene_19.mkv</property>
+  </chain>
+  <tractor id="tractor1" in="00:00:00.000" out="00:00:00.167">
+    <property name="shotcut:transition">lumaMix</property>
+    <track producer="chain16" in="00:00:07.033" out="00:00:07.200"/>
+    <track producer="chain17" in="00:00:11.783" out="00:00:11.950"/>
+    <transition id="transition2" out="00:00:00.167">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="factory">loader</property>
+      <property name="mlt_service">luma</property>
+      <property name="alpha_over">1</property>
+    </transition>
+    <transition id="transition3" out="00:00:00.167">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="mlt_service">mix</property>
+      <property name="start">-1</property>
+      <property name="accepts_blanks">1</property>
+    </transition>
+  </tractor>
+  <chain id="chain18" out="00:00:19.350">
+    <property name="length">00:00:19.367</property>
+    <property name="eof">pause</property>
+    <property name="resource">Scenes/Scene_18.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2023-09-24T21:23:36</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">e25c5ec9e7c89f6281fea7de53994f9e</property>
+    <property name="shotcut:caption">Scene_18.mkv</property>
+  </chain>
+  <tractor id="tractor2" in="00:00:00.000" out="00:00:00.450">
+    <property name="shotcut:transition">lumaMix</property>
+    <track producer="chain17" in="00:00:16.133" out="00:00:16.583"/>
+    <track producer="chain18" in="00:00:03.233" out="00:00:03.683"/>
+    <transition id="transition4" out="00:00:00.450">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="factory">loader</property>
+      <property name="mlt_service">luma</property>
+      <property name="alpha_over">1</property>
+    </transition>
+    <transition id="transition5" out="00:00:00.450">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="mlt_service">mix</property>
+      <property name="start">-1</property>
+      <property name="accepts_blanks">1</property>
+    </transition>
+  </tractor>
+  <chain id="chain19" out="00:00:20.583">
+    <property name="length">00:00:20.600</property>
+    <property name="eof">pause</property>
+    <property name="resource">Scenes/Scene_20_real.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2023-09-24T18:22:57</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">a5fcd57a0172780e871a98d1cddb0aaf</property>
+    <property name="shotcut:caption">Scene_20_real.mkv</property>
+    <filter id="filter5" in="00:00:03.467" out="00:00:07.617">
+      <property name="start">1</property>
+      <property name="level">00:00:03.167=1;00:00:04.150=0</property>
+      <property name="mlt_service">brightness</property>
+      <property name="shotcut:filter">fadeOutBrightness</property>
+      <property name="alpha">1</property>
+      <property name="shotcut:animOut">00:00:01.000</property>
+    </filter>
+  </chain>
+  <tractor id="tractor3" in="00:00:00.000" out="00:00:00.217">
+    <property name="shotcut:transition">lumaMix</property>
+    <track producer="chain18" in="00:00:07.483" out="00:00:07.700"/>
+    <track producer="chain19" in="00:00:03.467" out="00:00:03.683"/>
+    <transition id="transition6" out="00:00:00.217">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="factory">loader</property>
+      <property name="mlt_service">luma</property>
+      <property name="alpha_over">1</property>
+    </transition>
+    <transition id="transition7" out="00:00:00.217">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="start">-1</property>
+      <property name="accepts_blanks">1</property>
+      <property name="mlt_service">mix</property>
+    </transition>
+  </tractor>
+  <chain id="chain20" out="00:00:25.733">
+    <property name="length">00:00:25.750</property>
+    <property name="eof">pause</property>
+    <property name="resource">Scenes/Scene_20.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2023-09-24T16:26:25</property>
+    <property name="shotcut:hash">5b6da4d03b7a76621d0af2cd0f50c069</property>
+    <property name="ignore_points">0</property>
+    <property name="shotcut:caption">Scene_20.mkv</property>
+    <property name="xml">was here</property>
+    <filter id="filter6" in="00:00:03.700" out="00:00:06.133">
+      <property name="start">1</property>
+      <property name="level">00:00:00.000=0;00:00:00.150=1</property>
+      <property name="mlt_service">brightness</property>
+      <property name="shotcut:filter">fadeInBrightness</property>
+      <property name="alpha">1</property>
+      <property name="shotcut:animIn">00:00:00.167</property>
+    </filter>
+  </chain>
+  <chain id="chain21" out="00:00:20.500">
+    <property name="length">00:00:20.517</property>
+    <property name="eof">pause</property>
+    <property name="resource">Scenes/Scene_21.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2023-09-24T17:23:09</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">febe70e850b29396306d265387661d6a</property>
+    <property name="shotcut:caption">Scene_21.mkv</property>
+  </chain>
+  <tractor id="tractor4" in="00:00:00.000" out="00:00:00.317">
+    <property name="shotcut:transition">lumaMix</property>
+    <track producer="chain20" in="00:00:05.817" out="00:00:06.133"/>
+    <track producer="chain21" in="00:00:04.267" out="00:00:04.583"/>
+    <transition id="transition8" out="00:00:00.317">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="factory">loader</property>
+      <property name="mlt_service">luma</property>
+      <property name="alpha_over">1</property>
+    </transition>
+    <transition id="transition9" out="00:00:00.317">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="mlt_service">mix</property>
+      <property name="start">-1</property>
+      <property name="accepts_blanks">1</property>
+    </transition>
+  </tractor>
+  <chain id="chain22" out="00:00:30.150">
+    <property name="length">00:00:30.167</property>
+    <property name="eof">pause</property>
+    <property name="resource">Scenes/Scene_22.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2023-09-24T06:31:15</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">cad4385c940645cee9dd8532400cebcf</property>
+    <property name="shotcut:caption">Scene_22.mkv</property>
+  </chain>
+  <tractor id="tractor5" in="00:00:00.000" out="00:00:00.100">
+    <property name="shotcut:transition">lumaMix</property>
+    <track producer="chain21" in="00:00:06.483" out="00:00:06.583"/>
+    <track producer="chain22" in="00:00:15.867" out="00:00:15.967"/>
+    <transition id="transition10" out="00:00:00.100">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="factory">loader</property>
+      <property name="mlt_service">luma</property>
+      <property name="alpha_over">1</property>
+    </transition>
+    <transition id="transition11" out="00:00:00.100">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="mlt_service">mix</property>
+      <property name="start">-1</property>
+      <property name="accepts_blanks">1</property>
+    </transition>
+  </tractor>
+  <chain id="chain23" out="00:00:24.133">
+    <property name="length">00:00:24.150</property>
+    <property name="eof">pause</property>
+    <property name="resource">Scenes/Scene_23.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2023-09-24T05:37:15</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">2e22c6f077f2392d4c2e6edeb4cef5a3</property>
+    <property name="shotcut:caption">Scene_23.mkv</property>
+    <filter id="filter7" in="00:00:07.633" out="00:00:11.733">
+      <property name="start">1</property>
+      <property name="level">00:00:03.367=1;00:00:04.100=0</property>
+      <property name="mlt_service">brightness</property>
+      <property name="shotcut:filter">fadeOutBrightness</property>
+      <property name="alpha">1</property>
+      <property name="shotcut:animOut">00:00:00.750</property>
+    </filter>
+  </chain>
+  <tractor id="tractor6" in="00:00:00.000" out="00:00:00.067">
+    <property name="shotcut:transition">lumaMix</property>
+    <track producer="chain22" in="00:00:20.267" out="00:00:20.333"/>
+    <track producer="chain23" in="00:00:07.633" out="00:00:07.700"/>
+    <transition id="transition12" out="00:00:00.067">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="factory">loader</property>
+      <property name="mlt_service">luma</property>
+      <property name="alpha_over">1</property>
+    </transition>
+    <transition id="transition13" out="00:00:00.067">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="mlt_service">mix</property>
+      <property name="start">-1</property>
+      <property name="accepts_blanks">1</property>
+    </transition>
+  </tractor>
+  <chain id="chain24" out="00:00:32.717">
+    <property name="length">00:00:32.733</property>
+    <property name="eof">pause</property>
+    <property name="resource">Scenes/Scene_24.mkv</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2023-09-24T06:06:41</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">7bdb5bd69289bee85684b6f9258025f3</property>
+    <property name="shotcut:caption">Scene_24.mkv</property>
+    <filter id="filter8" in="00:00:11.400" out="00:00:15.850">
+      <property name="start">1</property>
+      <property name="level">00:00:00.000=0;00:00:00.317=1</property>
+      <property name="mlt_service">brightness</property>
+      <property name="shotcut:filter">fadeInBrightness</property>
+      <property name="alpha">1</property>
+      <property name="shotcut:animIn">00:00:00.333</property>
+    </filter>
+  </chain>
+  <producer id="producer7" in="00:00:00.000" out="03:59:59.983">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">Images/WISHLIST.png</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="format">2</property>
+    <property name="mlt_service">qimage</property>
+    <property name="creation_time">2023-09-25T03:43:36</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">d25e341198aa387ae5381c3e24f5d3d5</property>
+    <property name="shotcut:caption">WISHLIST.png</property>
+    <filter id="filter9" out="00:00:03.983">
+      <property name="start">1</property>
+      <property name="level">00:00:00.000=0;00:00:00.483=1</property>
+      <property name="mlt_service">brightness</property>
+      <property name="shotcut:filter">fadeInBrightness</property>
+      <property name="alpha">1</property>
+      <property name="shotcut:animIn">00:00:00.500</property>
+    </filter>
+    <filter id="filter10" out="00:00:03.983">
+      <property name="start">1</property>
+      <property name="level">00:00:03.500=1;00:00:03.983=0</property>
+      <property name="mlt_service">brightness</property>
+      <property name="shotcut:filter">fadeOutBrightness</property>
+      <property name="alpha">1</property>
+      <property name="shotcut:animOut">00:00:00.500</property>
+    </filter>
+  </producer>
+  <producer id="producer8" in="00:00:00.000" out="03:59:59.983">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">Images/CURSED_SILENCE.png</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="format">2</property>
+    <property name="mlt_service">qimage</property>
+    <property name="creation_time">2023-09-25T03:46:57</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">18361c0bbee64338ff8a79d797480972</property>
+    <property name="shotcut:caption">CURSED_SILENCE.png</property>
+    <filter id="filter11" out="00:00:08.333">
+      <property name="start">1</property>
+      <property name="level">00:00:00.000=0;00:00:00.483=1</property>
+      <property name="mlt_service">brightness</property>
+      <property name="shotcut:filter">fadeInBrightness</property>
+      <property name="alpha">1</property>
+      <property name="shotcut:animIn">00:00:00.500</property>
+    </filter>
+    <filter id="filter12" out="00:00:08.333">
+      <property name="start">1</property>
+      <property name="level">00:00:07.850=1;00:00:08.333=0</property>
+      <property name="mlt_service">brightness</property>
+      <property name="shotcut:filter">fadeOutBrightness</property>
+      <property name="alpha">1</property>
+      <property name="shotcut:animOut">00:00:00.500</property>
+    </filter>
+  </producer>
+  <producer id="producer9" in="00:00:00.000" out="03:59:59.983">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">Images/SNOWHORSE.png</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="format">2</property>
+    <property name="mlt_service">qimage</property>
+    <property name="creation_time">2023-09-25T03:49:12</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">57b79aa45d5eef663e5735bcf153391b</property>
+    <property name="shotcut:caption">SNOWHORSE.png</property>
+    <filter id="filter13" out="00:00:04.400">
+      <property name="start">1</property>
+      <property name="level">00:00:00.000=0;00:00:00.483=1</property>
+      <property name="mlt_service">brightness</property>
+      <property name="shotcut:filter">fadeInBrightness</property>
+      <property name="alpha">1</property>
+      <property name="shotcut:animIn">00:00:00.500</property>
+    </filter>
+  </producer>
+  <playlist id="playlist1">
+    <property name="shotcut:video">1</property>
+    <property name="shotcut:name">V1</property>
+    <entry producer="producer5" in="00:00:00.000" out="00:00:01.983"/>
+    <blank length="00:00:35.867"/>
+    <entry producer="producer6" in="00:00:00.000" out="00:00:03.983"/>
+    <blank length="00:00:26.600"/>
+    <entry producer="chain13" in="00:00:09.217" out="00:00:13.567"/>
+    <entry producer="tractor0" in="00:00:00.000" out="00:00:00.167"/>
+    <entry producer="chain14" in="00:00:12.033" out="00:00:15.383"/>
+    <blank length="00:00:00.717"/>
+    <entry producer="chain15" in="00:00:07.450" out="00:00:11.050"/>
+    <blank length="00:00:00.750"/>
+    <entry producer="chain16" in="00:00:02.517" out="00:00:07.017"/>
+    <entry producer="tractor1" in="00:00:00.000" out="00:00:00.167"/>
+    <entry producer="chain17" in="00:00:11.967" out="00:00:16.117"/>
+    <entry producer="tractor2" in="00:00:00.000" out="00:00:00.450"/>
+    <entry producer="chain18" in="00:00:03.700" out="00:00:07.467"/>
+    <entry producer="tractor3" in="00:00:00.000" out="00:00:00.217"/>
+    <entry producer="chain19" in="00:00:03.700" out="00:00:07.617"/>
+    <blank length="00:00:00.283"/>
+    <entry producer="chain20" in="00:00:03.700" out="00:00:05.800"/>
+    <entry producer="tractor4" in="00:00:00.000" out="00:00:00.317"/>
+    <entry producer="chain21" in="00:00:04.600" out="00:00:06.467"/>
+    <entry producer="tractor5" in="00:00:00.000" out="00:00:00.100"/>
+    <entry producer="chain22" in="00:00:15.983" out="00:00:20.250"/>
+    <entry producer="tractor6" in="00:00:00.000" out="00:00:00.067"/>
+    <entry producer="chain23" in="00:00:07.717" out="00:00:11.733"/>
+    <blank length="00:00:00.167"/>
+    <entry producer="chain24" in="00:00:11.400" out="00:00:15.850"/>
+    <blank length="00:00:04.233"/>
+    <entry producer="producer7" in="00:00:00.000" out="00:00:03.983"/>
+    <blank length="00:00:00.417"/>
+    <entry producer="producer8" in="00:00:00.000" out="00:00:08.333"/>
+    <blank length="00:00:00.333"/>
+    <entry producer="producer9" in="00:00:00.000" out="00:00:04.400"/>
+  </playlist>
+  <tractor id="tractor7" title="Shotcut version 22.12.21" in="00:00:00.000" out="00:02:23.683">
+    <property name="shotcut">1</property>
+    <property name="shotcut:projectAudioChannels">2</property>
+    <property name="shotcut:projectFolder">0</property>
+    <property name="shotcut:scaleFactor">1.65303</property>
+    <track producer="background"/>
+    <track producer="playlist0" hide="video"/>
+    <track producer="playlist1"/>
+    <transition id="transition14">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="mlt_service">mix</property>
+      <property name="always_active">1</property>
+      <property name="sum">1</property>
+    </transition>
+    <transition id="transition15">
+      <property name="a_track">0</property>
+      <property name="b_track">2</property>
+      <property name="mlt_service">mix</property>
+      <property name="always_active">1</property>
+      <property name="sum">1</property>
+    </transition>
+    <transition id="transition16">
+      <property name="a_track">0</property>
+      <property name="b_track">2</property>
+      <property name="version">0.1</property>
+      <property name="mlt_service">frei0r.cairoblend</property>
+      <property name="threads">0</property>
+      <property name="disable">1</property>
+    </transition>
+  </tractor>
+</mlt>
