@@ -496,9 +496,9 @@
     <transition id="transition3" out="00:00:00.150">
       <property name="a_track">0</property>
       <property name="b_track">1</property>
+      <property name="mlt_service">mix</property>
       <property name="start">-1</property>
       <property name="accepts_blanks">1</property>
-      <property name="mlt_service">mix</property>
     </transition>
   </tractor>
   <chain id="chain24" out="00:00:29.517">
@@ -529,9 +529,9 @@
     <transition id="transition5" out="00:00:00.283">
       <property name="a_track">0</property>
       <property name="b_track">1</property>
+      <property name="mlt_service">mix</property>
       <property name="start">-1</property>
       <property name="accepts_blanks">1</property>
-      <property name="mlt_service">mix</property>
     </transition>
   </tractor>
   <chain id="chain25" out="00:00:37.783">
@@ -991,21 +991,21 @@
     <property name="xml">was here</property>
     <property name="shotcut:hash">d25e341198aa387ae5381c3e24f5d3d5</property>
     <property name="shotcut:caption">WISHLIST.png</property>
-    <filter id="filter9" out="00:00:03.983">
+    <filter id="filter9" out="00:00:04.383">
       <property name="start">1</property>
-      <property name="level">00:00:00.000=0;00:00:00.483=1</property>
+      <property name="level">00:00:00.000=0;00:00:00.983=1</property>
       <property name="mlt_service">brightness</property>
       <property name="shotcut:filter">fadeInBrightness</property>
       <property name="alpha">1</property>
-      <property name="shotcut:animIn">00:00:00.500</property>
+      <property name="shotcut:animIn">00:00:01.000</property>
     </filter>
-    <filter id="filter10" out="00:00:03.983">
+    <filter id="filter10" out="00:00:04.383">
       <property name="start">1</property>
-      <property name="level">00:00:03.500=1;00:00:03.983=0</property>
+      <property name="level">00:00:01.900=1;00:00:04.383=0</property>
       <property name="mlt_service">brightness</property>
       <property name="shotcut:filter">fadeOutBrightness</property>
       <property name="alpha">1</property>
-      <property name="shotcut:animOut">00:00:00.500</property>
+      <property name="shotcut:animOut">00:00:02.500</property>
     </filter>
   </producer>
   <producer id="producer8" in="00:00:00.000" out="03:59:59.983">
@@ -1022,21 +1022,21 @@
     <property name="xml">was here</property>
     <property name="shotcut:hash">18361c0bbee64338ff8a79d797480972</property>
     <property name="shotcut:caption">CURSED_SILENCE.png</property>
-    <filter id="filter11" out="00:00:08.333">
+    <filter id="filter11" in="00:00:04.300" out="00:00:12.600">
       <property name="start">1</property>
-      <property name="level">00:00:00.000=0;00:00:00.483=1</property>
+      <property name="level">00:00:00.000=0;00:00:02.483=1</property>
       <property name="mlt_service">brightness</property>
       <property name="shotcut:filter">fadeInBrightness</property>
       <property name="alpha">1</property>
-      <property name="shotcut:animIn">00:00:00.500</property>
+      <property name="shotcut:animIn">00:00:02.500</property>
     </filter>
-    <filter id="filter12" out="00:00:08.333">
+    <filter id="filter12" in="00:00:04.300" out="00:00:12.600">
       <property name="start">1</property>
-      <property name="level">00:00:07.850=1;00:00:08.333=0</property>
+      <property name="level">00:00:04.817=1;00:00:08.300=0</property>
       <property name="mlt_service">brightness</property>
       <property name="shotcut:filter">fadeOutBrightness</property>
       <property name="alpha">1</property>
-      <property name="shotcut:animOut">00:00:00.500</property>
+      <property name="shotcut:animOut">00:00:03.500</property>
     </filter>
   </producer>
   <producer id="producer9" in="00:00:00.000" out="03:59:59.983">
@@ -1053,7 +1053,7 @@
     <property name="xml">was here</property>
     <property name="shotcut:hash">57b79aa45d5eef663e5735bcf153391b</property>
     <property name="shotcut:caption">SNOWHORSE.png</property>
-    <filter id="filter13" out="00:00:04.400">
+    <filter id="filter13" out="00:00:04.383">
       <property name="start">1</property>
       <property name="level">00:00:00.000=0;00:00:03.483=1</property>
       <property name="mlt_service">brightness</property>
@@ -1105,11 +1105,10 @@
     <blank length="00:00:00.167"/>
     <entry producer="chain38" in="00:00:11.400" out="00:00:15.850"/>
     <blank length="00:00:04.233"/>
-    <entry producer="producer7" in="00:00:00.000" out="00:00:03.983"/>
-    <blank length="00:00:00.417"/>
-    <entry producer="producer8" in="00:00:00.000" out="00:00:08.333"/>
-    <blank length="00:00:00.333"/>
-    <entry producer="producer9" in="00:00:00.000" out="00:00:04.400"/>
+    <entry producer="producer7" in="00:00:00.000" out="00:00:04.383"/>
+    <entry producer="producer8" in="00:00:04.300" out="00:00:12.600"/>
+    <blank length="00:00:00.400"/>
+    <entry producer="producer9" in="00:00:00.000" out="00:00:04.383"/>
   </playlist>
   <tractor id="tractor13" title="Shotcut version 22.12.21" in="00:00:00.000" out="00:02:23.683">
     <property name="shotcut">1</property>
